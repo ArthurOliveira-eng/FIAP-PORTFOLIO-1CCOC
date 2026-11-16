@@ -1,5 +1,4 @@
-"""Create a captioned MP4 from actual CLI output. Requires optional FFmpeg."""
-import argparse
+"""Cria um MP4 legendado da saída real da interface. Requer FFmpeg opcional."""
 import json
 import shutil
 import subprocess
@@ -8,44 +7,49 @@ import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from src.cli import ArgumentParser
+
 SCENES = [
-    ("Browse the Documents theme", ["1"]),
-    ("Direct question with source and confirmation warning", ["How do I recover my gov.br password?"]),
-    ("Ambiguous query: ask for clarification", ["CPF"]),
-    ("Clarification by record ID", ["CPF", "D04"]),
-    ("Empty input: helpful recovery", [""]),
-    ("Invalid menu choice", ["99"]),
-    ("Out-of-scope question: no invented guidance", ["How do I obtain a Canadian driving licence?"]),
-    ("Related navigation: CIN issuing guidance", ["D02"]),
-    ("Related navigation: CIN and account security", ["D02", "related", "S05"]),
-    ("Related navigation: account levels", ["D02", "related", "S05", "related", "S03"]),
+    ("Consultar o tema Documentos", ["1"]),
+    ("Pergunta direta com fonte e aviso de confirmação", ["Como recuperar minha senha do gov.br?"]),
+    ("Consulta ambígua: solicitar esclarecimento", ["CPF"]),
+    ("Esclarecimento pelo ID do registro", ["CPF", "D04"]),
+    ("Entrada vazia: retomada da consulta", [""]),
+    ("Opção inválida do menu", ["99"]),
+    ("Pergunta fora do escopo: sem inventar orientações", ["Como obter uma carteira de motorista canadense?"]),
+    ("Navegação relacionada: emissão da CIN", ["D02"]),
+    ("Navegação relacionada: CIN e segurança da conta", ["D02", "relacionados", "S05"]),
+    ("Navegação relacionada: níveis da conta", ["D02", "relacionados", "S05", "relacionados", "S03"]),
 ]
 
 
 def capture(title, inputs):
     result = subprocess.run(
-        [sys.executable, str(ROOT / "src" / "sistema.py"), "--no-log"],
-        input="\n".join(inputs + ["quit"]) + "\n", text=True,
+        [sys.executable, str(ROOT / "src" / "sistema.py"), "--sem-log"],
+        input="\n".join(inputs + ["sair"]) + "\n", text=True,
         capture_output=True, cwd=ROOT, timeout=15,
     )
     if result.returncode:
         raise RuntimeError(result.stderr)
-    # Piped input is not echoed. Pair the captured response with its actual input.
-    blocks = result.stdout.split("You: ")
+    # A entrada por canal não aparece na saída. Associa a resposta à entrada utilizada.
+    blocks = result.stdout.split("Você: ")
     response = blocks[len(inputs)].strip()
-    heading = ["Citizen Assist AI | scripted CLI demonstration", title,
-               "Input: " + (inputs[-1] or "[empty]"), ""]
+    heading = ["Citizen Assist AI | demonstração por roteiro no terminal", title,
+               "Entrada: " + (inputs[-1] or "[vazia]"), ""]
     lines = heading + [line for paragraph in response.splitlines()
                        for line in (textwrap.wrap(paragraph, width=110) or [""])]
     if len(lines) > 32:
-        raise RuntimeError("Demo scene is too long; shorten the layout rather than hide its source.")
+        raise RuntimeError("Cena longa demais; reduza o texto sem ocultar a fonte.")
     return "\n".join(lines), result.stdout
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--text-only", action="store_true")
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument("--saida", "--output", dest="output", type=Path, default=ROOT / "artifacts",
+                        metavar="PASTA", help="Pasta de saída da demonstração.")
+    parser.add_argument("--somente-texto", "--text-only", dest="text_only", action="store_true",
+                        help="Gera a transcrição sem criar vídeo.")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     snapshots, transcript = [], []
@@ -54,19 +58,19 @@ def main():
         path = args.output / f"scene-{index:02}.txt"
         path.write_text(text, encoding="utf-8")
         snapshots.append(path)
-        transcript.append(f"SCENE {index}: {title}\nInputs: {inputs!r}\n{full}")
+        transcript.append(f"CENA {index}: {title}\nEntradas: {inputs!r}\n{full}")
     results = ROOT / "tests" / "results.json"
     if results.exists():
         report = json.loads(results.read_text(encoding="utf-8"))
-        final = ["Citizen Assist AI | reproducible evaluation", "",
-                 "Execution environment: " + report["environment"], ""]
+        final = ["Citizen Assist AI | avaliação reproduzível", "",
+                 "Ambiente de execução: " + report["environment"], ""]
         for template, metrics in report["metrics_by_template"].items():
-            final += [template, f"Correct: {metrics['correct']} / {metrics['total']}",
-                      f"Accuracy: {metrics['accuracy_rate']:.2%}",
-                      f"Mean query time: {metrics['average_query_time_ms']:.6f} ms", ""]
-        final += ["Full expected/obtained reports: tests/results.json and tests/results.csv",
-                  "", "Scripted demonstration, not a human usability study.",
-                  "Independent educational prototype. Confirm guidance with official sources."]
+            final += [template, f"Corretas: {metrics['correct']} / {metrics['total']}",
+                      f"Taxa de acerto: {metrics['accuracy_rate']:.2%}",
+                      f"Tempo médio de consulta: {metrics['average_query_time_ms']:.6f} ms", ""]
+        final += ["Relatórios completos de resultados esperados/obtidos: tests/results.json e tests/results.csv",
+                  "", "Demonstração por roteiro, sem estudo com participantes humanos.",
+                  "Protótipo educacional independente. Confirme as orientações nas fontes oficiais."]
         path = args.output / "scene-results.txt"
         path.write_text("\n".join(final), encoding="utf-8")
         snapshots.append(path)
@@ -75,10 +79,10 @@ def main():
         return 0
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg:
-        parser.exit(2, "Transcript created. Install FFmpeg or use --text-only.\n")
+        parser.exit(2, "Transcrição criada. Instale o FFmpeg ou use --somente-texto.\n")
     font = Path("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf")
     if not font.exists():
-        parser.exit(2, "Video generation requires the documented Linux DejaVu Sans Mono font.\n")
+        parser.exit(2, "A geração de vídeo exige a fonte DejaVu Sans Mono no caminho Linux documentado.\n")
     clips = []
     for index, snapshot in enumerate(snapshots, 1):
         clip = args.output / f"clip-{index:02}.mp4"

@@ -1,25 +1,25 @@
-# Source review and provenance
+# Revisão das fontes e procedência
 
-Review date: 2026-11-16. Official pages were opened or their indexed service text reviewed during implementation. English summaries were compared with the service descriptions, required documents/access conditions, and warnings. No accounts were accessed, applications submitted, or agency integrations tested. All record reference URLs are in data/knowledge_base.json.
+Data da revisão: 16/11/2026. As páginas oficiais foram abertas ou tiveram seu texto de serviço indexado consultado durante a implementação. Os resumos foram comparados com descrições, documentos exigidos, condições de acesso e avisos dos serviços. A versão atual apresenta esses resumos em português brasileiro. Nenhuma conta foi acessada, solicitação enviada ou integração com órgãos testada. Todas as URLs estão em `data/knowledge_base.json`.
 
-| Records | Official publisher and reviewed claim |
+| Registros | Responsável pela fonte e informação revisada |
 | --- | --- |
-| D01 | Governo Digital: CIN uses CPF and has physical/digital versions |
-| D02 | Governo Digital CIN FAQ: state/DF issuing authorities and birth/marriage certificates |
-| D03 | Receita Federal service: CPF registration and official request channels |
-| D04 | Receita Federal service: consultation and registration-status certificate |
-| D05 | Ministry of Labour FAQ: Digital Work Card access and employment-use scope |
-| S01 | gov.br service: creating accounts via official website/app |
-| S02 | Governo Digital support: password recovery and available methods |
-| S03 | Governo Digital: Bronze/Silver/Gold and account-level options |
-| S04 | gov.br electronic signature service: official portal and Silver/Gold requirement |
-| S05 | Governo Digital CIN FAQ: physical CIN, QR code, facial verification, issuer-data timing |
-| C01/C02 | gov.br consumer service: complaint flow, Silver/Gold, evidence such as invoices/contracts/payments |
-| C03/C04 | MDS Cadastro Unico thematic FAQ: municipal registration, family CPFs, updates every 24 months and on changes |
-| C05 | gov.br CRAS service: free basic social-assistance orientation; municipal arrangements vary |
+| D01 | Governo Digital: CIN utiliza CPF e possui versões física e digital |
+| D02 | Perguntas frequentes da CIN: emissão estadual/DF e certidões de nascimento ou casamento |
+| D03 | Receita Federal: inscrição no CPF e canais oficiais de solicitação |
+| D04 | Receita Federal: consulta e comprovante de situação cadastral |
+| D05 | Ministério do Trabalho e Emprego: acesso à Carteira de Trabalho Digital e finalidade trabalhista |
+| S01 | gov.br: criação de conta pelo site ou aplicativo oficial |
+| S02 | Atendimento do Governo Digital: recuperação de senha e métodos disponíveis |
+| S03 | Governo Digital: níveis Bronze, Prata e Ouro e opções de alteração |
+| S04 | Assinatura eletrônica gov.br: portal oficial e exigência de conta Prata ou Ouro |
+| S05 | Perguntas frequentes da CIN: documento físico, código QR, verificação facial e envio de dados pelo emissor |
+| C01/C02 | Serviço de consumidor gov.br: reclamações, conta Prata/Ouro e comprovantes como notas, contratos e pagamentos |
+| C03/C04 | MDS: cadastramento municipal, CPFs da família e atualização a cada 24 meses ou após mudanças |
+| C05 | Serviço do CRAS: orientação gratuita de assistência social básica e condições municipais variáveis |
 
-Critical source comparison: the generic Cadastro Unico service page and the MDS thematic FAQ used different wording about acceptable registration documents. The curated C03 record follows the MDS thematic FAQ's CPF guidance and explicitly asks users to confirm local/special procedures. It does not promise benefit approval or give a personalized eligibility decision.
+Comparação crítica: a página genérica do Cadastro Único e as perguntas frequentes temáticas do MDS usavam redações diferentes sobre documentos aceitos para inscrição. C03 segue a orientação sobre CPF da página temática do MDS e pede confirmação dos procedimentos locais e especiais. O registro não promete aprovação de benefícios nem decide elegibilidade individual.
 
-Sources sometimes display approximate service times alongside local variability. Exact deadlines, fees, office addresses, and guaranteed outcomes were deliberately not inferred. This is a curated snapshot; verification_date means a review occurred, not continuous monitoring. Reopen each referenced page before changing the date, record substantive changes, and rerun evaluation.
+Algumas fontes exibem tempos aproximados de serviço junto de ressalvas sobre variações locais. Não foram deduzidos prazos exatos, taxas, endereços ou resultados garantidos. A base é um retrato revisado: `verification_date` indica uma revisão, não monitoramento contínuo. Reabra cada página antes de alterar a data, registre mudanças relevantes e execute novamente a avaliação.
 
-Trust boundary: the HTTPS gov.br URL validator checks source shape, not truthfulness or live page availability. Curation and ongoing human review are required. A gov.br URL alone is not proof that every summary is accurate.
+Limite de confiança: o validador de URLs HTTPS gov.br verifica o formato da fonte, não sua veracidade nem disponibilidade. Seleção criteriosa e revisão humana contínua são necessárias. Uma URL gov.br isolada não comprova que todo o resumo esteja correto.

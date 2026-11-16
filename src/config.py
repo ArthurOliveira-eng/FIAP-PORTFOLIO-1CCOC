@@ -1,4 +1,4 @@
-"""Central configuration; no network calls or credentials are required."""
+"""Configuração central, sem chamadas de rede nem credenciais."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,10 +16,10 @@ AMBIGUITY_MARGIN = 0.12
 MAX_QUERY_LENGTH = 500
 STALE_AFTER_DAYS = 180
 DISCLAIMER = (
-    "Independent educational prototype; not an official public agency channel. "
-    "Do not enter personal data, passwords, or document numbers."
+    "Protótipo educacional independente; não é um canal oficial de órgão público. "
+    "Não informe dados pessoais, senhas ou números de documentos."
 )
 LIMITATION = (
-    "This is a summary of the stored guidance, not a complete procedure or a "
-    "personal eligibility decision. Confirm current requirements with the cited agency."
+    "Este é um resumo da orientação armazenada, não um procedimento completo nem uma "
+    "decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado."
 )

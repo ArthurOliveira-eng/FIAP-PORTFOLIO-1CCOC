@@ -1,1 +1,1 @@
-"""Regression tests and reproducible question fixtures."""
+"""Testes de regressão e conjuntos reproduzíveis de perguntas."""

@@ -1,5 +1,4 @@
-"""Reproducible evaluation, A/B response comparison, and machine-readable reports."""
-import argparse
+"""Avaliação reproduzível, comparação A/B e relatórios estruturados."""
 import csv
 import hashlib
 import json
@@ -10,6 +9,7 @@ from pathlib import Path
 from statistics import mean
 from time import perf_counter
 from src.agent import CitizenAgent
+from src.cli import ArgumentParser
 from src.config import DEFAULT_TEMPLATE, KNOWLEDGE_PATH, PROMPT_PATHS, QUESTIONS_PATH, RESULTS_PATH, ROOT
 from src.knowledge_base import KnowledgeBase, KnowledgeBaseError
 
@@ -18,22 +18,22 @@ def load_cases(path):
     try:
         cases = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise ValueError(f"Cannot load test questions: {exc}") from exc
+        raise ValueError(f"Não foi possível carregar as perguntas de teste: {exc}") from exc
     if not isinstance(cases, list) or not cases:
-        raise ValueError("Test questions must be a non-empty list.")
+        raise ValueError("As perguntas de teste devem ser uma lista não vazia.")
     ids = set()
     for case in cases:
         if not isinstance(case, dict):
-            raise ValueError("Each test case must be an object.")
+            raise ValueError("Cada caso de teste deve ser um objeto.")
         for key in ("id", "category", "input", "expected_status", "expected_answer"):
             if not isinstance(case.get(key), str):
-                raise ValueError(f"Test field {key} must be a string.")
+                raise ValueError(f"O campo de teste {key} deve ser um texto.")
         for key in ("expected_ids", "expected_contains"):
             value = case.get(key)
             if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
-                raise ValueError(f"Test field {key} must be a list of strings.")
+                raise ValueError(f"O campo de teste {key} deve ser uma lista de textos.")
         if case["id"] in ids:
-            raise ValueError("Test case IDs must be unique.")
+            raise ValueError("Os IDs dos casos de teste devem ser únicos.")
         ids.add(case["id"])
     return cases
 
@@ -51,15 +51,15 @@ def evaluate_case(memory, case, template):
     content_match = all(fragment in answer.text for fragment in case["expected_contains"])
     source_ok = (
         all(memory.by_id[identifier]["reference"] in answer.text for identifier in answer.record_ids)
-        and "Warning:" in answer.text and "not an official" in answer.text
-    ) if answer.status == "match" else "Source:" in answer.text
+        and "Aviso:" in answer.text and "não é um canal oficial" in answer.text
+    ) if answer.status == "match" else "Fonte:" in answer.text
     correct = answer.status == case["expected_status"] and ids_match and content_match and source_ok
     return {
         "id": case["id"], "category": case["category"], "input": case["input"],
         "template": template, "expected_answer": case["expected_answer"],
         "expected_status": case["expected_status"], "expected_ids": case["expected_ids"],
         "obtained_status": answer.status, "obtained_ids": actual_ids,
-        "obtained_answer": answer.text, "classification": "correct" if correct else "error",
+        "obtained_answer": answer.text, "classification": "correta" if correct else "erro",
         "correct": correct, "checks": {
             "ids": ids_match, "required_content": content_match, "source_guardrail": source_ok,
         },
@@ -87,16 +87,16 @@ def template_comparison(rows):
                 max(map(len, row["obtained_answer"].splitlines())) for row in matches
             ), 2) if matches else 0,
             "separate_source_line_rate": mean(
-                any(line.startswith("Source: https://") for line in row["obtained_answer"].splitlines())
+                any(line.startswith("Fonte: https://") for line in row["obtained_answer"].splitlines())
                 for row in matches
             ) if matches else 0,
         }
     return {
-        "method": "Structural clarity proxies on the same questions; not a human preference study.",
+        "method": "Indicadores estruturais de clareza nas mesmas perguntas; não é um estudo de preferência humana.",
         "templates": comparison, "selected_template": DEFAULT_TEMPLATE,
-        "justification": "Template B separates answer, source, warning, limitation, and navigation. "
-        "Template A is compact but puts important fields into a long paragraph. "
-        "Both use identical retrieved facts; these proxies do not prove real-world usability.",
+        "justification": "O modelo B separa resposta, fonte, aviso, limitação e navegação. "
+        "O modelo A é compacto, mas reúne campos importantes em um parágrafo longo. "
+        "Ambos usam os mesmos fatos recuperados; estes indicadores não comprovam usabilidade real.",
         "examples": [row for row in rows if row["id"] in ("Q07", "Q12", "Q22")],
     }
 
@@ -145,11 +145,11 @@ def run_evaluation(cases_path=QUESTIONS_PATH, results_path=RESULTS_PATH):
         "executed_at": datetime.now(timezone.utc).isoformat(),
         "environment": "github-actions" if os.environ.get("GITHUB_ACTIONS") == "true" else "local",
         "python_version": platform.python_version(), "platform": platform.platform(),
-        "source_commit": os.environ.get("GITHUB_SHA", "not supplied"),
+        "source_commit": os.environ.get("GITHUB_SHA", "não informado"),
         "knowledge_sha256": hashlib.sha256(KNOWLEDGE_PATH.read_bytes()).hexdigest(),
         "cases_sha256": hashlib.sha256(Path(cases_path).read_bytes()).hexdigest(),
-        "methodology": "Exact status and record ID comparison plus required content and source/warning "
-        "checks. New session per case; perf_counter wall time around handle(); no telemetry writes.",
+        "methodology": "Comparação exata de estado e IDs, conteúdo obrigatório e verificações de fonte e aviso. "
+        "Nova sessão por caso; tempo medido com perf_counter em handle(); sem gravar telemetria.",
         "metrics_by_template": metrics,
         "metrics_by_category": {
             category: summarize([row for row in rows if row["category"] == category])
@@ -167,7 +167,7 @@ def run_evaluation(cases_path=QUESTIONS_PATH, results_path=RESULTS_PATH):
         writer.writeheader()
         writer.writerows(rows)
     table = [
-        "| Case | Template | Expected | Obtained | Result | Time (ms) |",
+        "| Caso | Modelo | Esperado | Obtido | Resultado | Tempo (ms) |",
         "| --- | --- | --- | --- | --- | ---: |",
     ]
     for row in rows:
@@ -176,7 +176,7 @@ def run_evaluation(cases_path=QUESTIONS_PATH, results_path=RESULTS_PATH):
         table.append(f"| {row['id']} | {row['template']} | {expected} | {obtained} | "
                      f"{row['classification']} | {row['query_time_ms']:.6f} |")
     results_path.with_suffix(".md").write_text(
-        "# Recorded evaluation\n\nFull answer text is in results.csv/results.json.\n\n" + "\n".join(table) + "\n",
+        "# Avaliação registrada\n\nO texto completo das respostas está em results.csv/results.json.\n\n" + "\n".join(table) + "\n",
         encoding="utf-8",
     )
     update_readme(report)
@@ -184,14 +184,16 @@ def run_evaluation(cases_path=QUESTIONS_PATH, results_path=RESULTS_PATH):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--cases", type=Path, default=QUESTIONS_PATH)
-    parser.add_argument("--output", type=Path, default=RESULTS_PATH)
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument("--casos", "--cases", dest="cases", type=Path, default=QUESTIONS_PATH,
+                        metavar="ARQUIVO", help="Arquivo JSON com os casos de teste.")
+    parser.add_argument("--saida", "--output", dest="output", type=Path, default=RESULTS_PATH,
+                        metavar="ARQUIVO", help="Arquivo de saída dos resultados.")
     args = parser.parse_args()
     try:
         report = run_evaluation(args.cases, args.output)
     except (KnowledgeBaseError, ValueError, OSError) as exc:
-        parser.exit(2, f"Evaluation could not run: {exc}\n")
+        parser.exit(2, f"Não foi possível executar a avaliação: {exc}\n")
     print(json.dumps(report["metrics_by_template"], indent=2))
     return 0 if all(row["correct"] for row in report["results"]) else 1
 

@@ -1,22 +1,22 @@
-# Demonstration and YouTube handoff
+# Demonstração e envio ao YouTube
 
-An automated demonstration can be generated from actual CLI subprocess output. It is captioned and silent, approximately 110 seconds with the evaluation scene. It demonstrates menu browsing, a direct question and official source, CPF ambiguity and clarification, empty input, an invalid option, an out-of-scope question, three related subjects, and measured metrics when available.
+A demonstração automatizada utiliza a saída real da interface de terminal. O vídeo tem legendas, não tem áudio e dura aproximadamente 110 segundos com a cena de métricas. Ele mostra consulta por tema, pergunta direta com fonte, ambiguidade de CPF e esclarecimento, entrada vazia, opção inválida, pergunta fora do escopo, três assuntos relacionados e métricas medidas, quando disponíveis. Todos os textos da demonstração são em pt-BR.
 
 ```bash
 python -m unittest discover -s tests -v
 python -m src.evaluation
 python -m tests.run_usability
-python scripts/create_demo.py --text-only
+python scripts/create_demo.py --somente-texto
 ```
 
-These commands need only Python. The transcript is written to artifacts/demo_transcript.txt. For an MP4 on Linux, additionally install FFmpeg and the DejaVu Sans Mono font (the generator checks /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf), then run:
+Esses comandos exigem apenas Python. A transcrição fica em `artifacts/demo_transcript.txt`. Para gerar um MP4 no Linux, instale também FFmpeg e a fonte DejaVu Sans Mono em `/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf` e execute:
 
 ```bash
 python scripts/create_demo.py
 ```
 
-The GitHub Actions workflow installs these optional video tools and uploads citizen-assist-evidence, including artifacts/citizen-assist-demo.mp4. Download it from the completed run's Artifacts section. Failure of optional video generation must not be represented as a successful video.
+O GitHub Actions instala essas ferramentas opcionais e disponibiliza o pacote `citizen-assist-evidence`, incluindo `artifacts/citizen-assist-demo.mp4`. Baixe-o na área de artefatos da execução concluída. Uma falha na geração opcional do vídeo não pode ser apresentada como sucesso.
 
-For a human screen recording, run the CLI, use the same synthetic questions from the task scripts, explain source/date/warnings, follow D02 → related → S05 → related → S03, show actual evaluation reports, and mention limitations and AI assistance. Optional narration can explain the deterministic agent and template comparison. Show team/RMs after the team confirms them.
+Para uma gravação humana de tela, execute a interface com `python src/sistema.py --sem-log`. Use as perguntas sintéticas dos roteiros, explique fonte, data e avisos, siga D02 → relacionados → S05 → relacionados → S03, mostre os relatórios reais e mencione limitações e auxílio de IA. Uma narração opcional pode explicar o agente determinístico e a comparação dos modelos de resposta. Mostre equipe e RMs após sua confirmação.
 
-The team must upload the actual video through its YouTube account, select Unlisted visibility, verify the URL in a signed-out browser, and put the actual URL in README.md and SUBMISSION_LINKS.TXT. No YouTube account connection or upload tool is available here. Do not use a placeholder as evidence of a published video. The generated MP4 is an evidence artifact, not a human usability study.
+A equipe deve enviar o vídeo real pela própria conta no YouTube, selecionar a visibilidade Não listado, verificar a URL em um navegador sem autenticação e inseri-la no README e em `SUBMISSION_LINKS.TXT`. Não há conta conectada nem ferramenta de envio ao YouTube disponível nesta sessão. Não utilize um endereço provisório como evidência de publicação. O MP4 é uma demonstração por roteiro, sem estudo humano de usabilidade.

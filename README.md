@@ -1,6 +1,6 @@
 # Citizen Assist AI
 
-Protótipo independente de orientação ao cidadão, com interface textual para serviços públicos brasileiros. A interface do programa permanece em inglês; este README está em português. Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. O sistema não utiliza APIs pagas, modelos de linguagem externos, treinamento de modelos nem chamadas de rede durante a execução.
+Protótipo independente de orientação ao cidadão, com interface textual para serviços públicos brasileiros. A interface, as orientações, os comandos e a documentação estão em português brasileiro (pt-BR). Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. O sistema não utiliza APIs pagas, modelos de linguagem externos, treinamento de modelos nem chamadas de rede durante a execução.
 
 ## 1. Equipe e situação da entrega
 
@@ -19,7 +19,7 @@ O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de 
 
 Cidadãos frequentemente precisam identificar o órgão responsável e o próximo passo seguro sem navegar por vários portais. Este assistente oferece orientações concisas com fontes, sem processar solicitações, prestar atendimento oficial, fornecer aconselhamento jurídico individual ou decidir sobre elegibilidade.
 
-Público-alvo: pessoas que buscam orientações básicas sobre serviços públicos brasileiros, estudantes que demonstram recuperação responsável de informações e avaliadores que analisam fontes e algoritmos. A interface do protótipo em inglês atende a uma restrição acadêmica, mas representa uma barreira para muitos usuários brasileiros.
+Público-alvo: pessoas que buscam orientações básicas sobre serviços públicos brasileiros, estudantes que demonstram recuperação responsável de informações e avaliadores que analisam fontes e algoritmos. A interface foi adaptada para pt-BR para facilitar o uso pelo público brasileiro, conforme a preferência solicitada para esta versão.
 
 | Tema | Registros | Assuntos |
 | --- | --- | --- |
@@ -61,12 +61,12 @@ O conjunto de avaliação contém 31 casos: todos os 15 registros, perguntas ref
 Taxa de acerto = respostas corretas / total. O tempo de consulta é medido com `perf_counter` durante uma chamada completa a `handle`, com a base já carregada e a telemetria desativada; a leitura e a apresentação do modelo de resposta estão incluídas. A latência varia conforme o hardware, o estado do cache e o sistema de arquivos. Resultados locais e de integração contínua não devem ser comparados como se os ambientes fossem idênticos.
 
 <!-- METRICS:START -->
-Execução em ambiente **local**, com Python 3.14.10, em 16/11/2026 às 23:19:49 UTC.
+Execução em ambiente **local**, com Python 3.14.10, em 2026-11-16T23:42:20.174693+00:00.
 
 | Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100,00% | 0,529052 |
-| template_b_v1 | 31 / 31 | 100,00% | 0,565581 |
+| template_a_v1 | 31 / 31 | 100,00% | 0,491016 |
+| template_b_v1 | 31 / 31 | 100,00% | 0,468277 |
 
 Cada modelo executa os mesmos casos independentes. A latência exclui o carregamento da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de resultados esperados e obtidos.
 <!-- METRICS:END -->
@@ -91,31 +91,31 @@ No Windows, use `py -3` caso `python` não esteja disponível no PATH.
 python -m unittest discover -s tests -v
 python -m src.evaluation
 python -m tests.run_usability
-python scripts/create_demo.py --text-only
+python scripts/create_demo.py --somente-texto
 ```
 
 O primeiro comando verifica o comportamento do sistema. Os seguintes geram a avaliação registrada, a comparação A/B, o relatório de usabilidade e a transcrição da demonstração. A avaliação também atualiza o bloco de métricas deste README. Uma comparação que falha encerra a execução com código diferente de zero. Os resultados gerados refletem o ambiente em que foram executados.
 
 ```bash
-python src/sistema.py --template template_a_v1 --no-log
-python src/sistema.py --knowledge data/knowledge_base.json
+python src/sistema.py --modelo template_a_v1 --sem-log
+python src/sistema.py --base data/knowledge_base.json
 ```
 
-Comandos: `1`, `2` e `3` selecionam temas; um ID, como `D02`, abre uma orientação; `related` oferece assuntos relacionados; `back` remove o filtro de tema; `help` mostra os temas; `quit` ou `0` encerra a sessão. Perguntas livres ficam restritas ao tema selecionado até o uso de `back`. IDs exatos permitem acessar registros de outros temas e continuar a navegação por assuntos relacionados. Esses comandos devem ser digitados em inglês.
+Comandos: `1`, `2` e `3` selecionam temas; um ID, como `D02`, abre uma orientação; `relacionados` oferece assuntos relacionados; `voltar` remove o filtro de tema; `ajuda` mostra os temas; `sair` ou `0` encerra a sessão. Perguntas livres ficam restritas ao tema selecionado até o uso de `voltar`. IDs exatos permitem acessar registros de outros temas e continuar a navegação por assuntos relacionados. Esses comandos são digitados em português; os antigos aliases em inglês continuam aceitos por compatibilidade.
 
 O GitHub Actions executa os mesmos testes no Python 3.12 e disponibiliza relatórios medidos, uma demonstração em MP4 e um pacote de evidências como artefatos. O fluxo de trabalho tem acesso somente de leitura ao repositório e não cria commits de arquivos gerados. Apenas a geração de vídeo requer ferramentas adicionais: FFmpeg e a fonte DejaVu Sans Mono no caminho Linux documentado. Essas ferramentas opcionais não são dependências da aplicação. Os artefatos expiram após 30 dias; baixe o vídeo e envie-o ao YouTube antes da entrega.
 
 ## 7. Exemplos, fontes e entradas inválidas
 
-A interface continua em inglês. As entradas abaixo devem ser digitadas como indicadas; as respostas citadas foram traduzidas para facilitar a leitura deste documento.
+As entradas e respostas abaixo utilizam a interface em português brasileiro.
 
-Entrada: `How do I recover my gov.br password?` (Como recuperar minha senha do gov.br?)
+Entrada: `Como recuperar minha senha do gov.br?`
 
 > Use a opção “Esqueci minha senha” no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.
 
 Fonte: [orientação oficial para recuperação de conta gov.br](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br). A aplicação também mostra a data de verificação, o aviso de privacidade sobre senhas e códigos, as limitações e os assuntos relacionados.
 
-Entrada: `Where can I access CRAS support?` (Onde posso buscar atendimento do CRAS?)
+Entrada: `Onde buscar atendimento do CRAS?`
 
 > O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.
 
@@ -126,16 +126,16 @@ Fonte: [página oficial do serviço do CRAS](https://www.gov.br/pt-br/servicos/a
 | Texto vazio | Solicita uma pergunta ou tema |
 | `99` | Explica que a opção de menu é inválida e lista os temas |
 | `CPF` | Solicita esclarecimento entre inscrição e situação cadastral; permite escolher D03 ou D04 |
-| Pergunta em inglês sobre habilitação para dirigir no Canadá | Informa que não há resposta confiável armazenada e oferece alternativas disponíveis |
-| `1 → D02 → related → S05 → related → S03` | Demonstra a navegação por três assuntos relacionados entre temas |
+| Pergunta sobre habilitação para dirigir no Canadá | Informa que não há resposta confiável armazenada e oferece alternativas disponíveis |
+| `1 → D02 → relacionados → S05 → relacionados → S03` | Demonstra a navegação por três assuntos relacionados entre temas |
 
 ## 8. Clareza, acessibilidade, privacidade e ética
 
 A saída textual com rótulos funciona sem cores, gráficos, serviços pagos ou conexão de rede. A interface não solicita nomes, RMs, números de CPF, senhas, códigos, endereços ou renda. Os RMs são dados da entrega acadêmica, não entradas da aplicação. Quando um serviço oficial exigir legitimamente dados pessoais, forneça-os diretamente nesse serviço.
 
-Por padrão, os logs contêm apenas o tamanho da entrada, termos de vocabulário controlado e metadados operacionais; as consultas originais nunca são persistidas. Os logs são locais, não são rastreados pelo Git e podem ser desativados com `--no-log`. Mesmo logs minimizados podem revelar assuntos de interesse: exclua `logs/` quando não forem mais necessários e não os publique. Não há serviço de análise nem transmissão para modelos externos. As perguntas e saídas sintéticas de avaliação são intencionalmente públicas.
+Por padrão, os logs contêm apenas o tamanho da entrada, termos de vocabulário controlado e metadados operacionais; as consultas originais nunca são persistidas. Os logs são locais, não são rastreados pelo Git e podem ser desativados com `--sem-log`. Mesmo logs minimizados podem revelar assuntos de interesse: exclua `logs/` quando não forem mais necessários e não os publique. Não há serviço de análise nem transmissão para modelos externos. As perguntas e saídas sintéticas de avaliação são intencionalmente públicas.
 
-O protótipo não é vinculado ao governo. Ele não agenda atendimentos, autentica usuários, acessa arquivos pessoais, envia solicitações nem promete benefícios. As fontes são páginas oficiais originais em português; os resumos utilizados pelo programa são paráfrases em inglês. Conflitos entre fontes, traduções e mudanças nas regras exigem revisão humana. Consulte a [declaração de uso de IA](docs/uso_ia.md).
+O protótipo não é vinculado ao governo. Ele não agenda atendimentos, autentica usuários, acessa arquivos pessoais, envia solicitações nem promete benefícios. As fontes são páginas oficiais originais em português; os resumos utilizados pelo programa são paráfrases em português brasileiro. Conflitos entre fontes, traduções e mudanças nas regras exigem revisão humana. Consulte a [declaração de uso de IA](docs/uso_ia.md).
 
 ## 9. Demonstração e arquivo de links
 
@@ -147,12 +147,12 @@ URL do vídeo não listado no YouTube: **aguardando envio pela equipe**. Substit
 
 O agente demonstra um fluxo completo de percepção → validação → recuperação → apresentação → fonte e limitação, utilizando listas, dicionários, leitura de arquivos, operações lógicas, navegação em grafo e procedimentos reproduzíveis. Esses recursos exercitam fundamentos de programação e a ênfase do enunciado nas fases 4, 5 e 6; como os materiais específicos dessas fases não foram fornecidos, não se afirma uma correspondência detalhada com o conteúdo do curso.
 
-Limitações: apenas 15 registros selecionados e revisados, consultas em inglês, correspondência lexical sem aprendizado semântico, ausência de correção de digitação, atualização automática de regras ou integração em tempo real, conjunto pequeno de testes elaborado durante o desenvolvimento, usabilidade avaliada por roteiros em vez de pessoas e tempos dependentes do ambiente. Uma resposta relacionada pode ser incompleta para perguntas detalhadas.
+Limitações: apenas 15 registros selecionados e revisados, vocabulário limitado de consultas em português, correspondência lexical sem aprendizado semântico, ausência de correção de digitação, atualização automática de regras ou integração em tempo real, conjunto pequeno de testes elaborado durante o desenvolvimento, usabilidade avaliada por roteiros em vez de pessoas e tempos dependentes do ambiente. Uma resposta relacionada pode ser incompleta para perguntas detalhadas.
 
 Melhorias prioritárias:
 
 1. Executar um conjunto independente de testes e uma sessão real de usabilidade e acessibilidade com cidadãos que falam português, medindo compreensão, conclusão e dificuldade.
-2. Adicionar consultas revisadas em português, reformulações mais variadas e tratamento de erros de digitação; ajustar os limites em um conjunto de desenvolvimento e apresentar resultados em um conjunto de testes reservado.
+2. Ampliar as consultas revisadas em português, as reformulações e o tratamento de erros de digitação; ajustar os limites em um conjunto de desenvolvimento e apresentar resultados em um conjunto de testes reservado.
 3. Adicionar uma fila de revisão das fontes, com acompanhamento de atualização e aprovação por um responsável; não aceitar mudanças coletadas automaticamente sem validação.
 4. Melhorar a navegação, tornando o tema ativo mais visível e oferecendo opções numeradas de esclarecimento.
 
@@ -174,3 +174,5 @@ Melhorias prioritárias:
 | Equipe/RMs e entrega do TXT | Preencher dados dos integrantes e URL do YouTube antes da entrega |
 
 A organização do repositório segue a estrutura fornecida. A Tabela 2, ausente no enunciado original disponibilizado, não foi reconstruída nem inventada.
+
+Os nomes de arquivos, campos JSON, funções, estados internos e identificadores de modelos permanecem estáveis como referências técnicas. Os textos apresentados ao usuário estão em pt-BR.

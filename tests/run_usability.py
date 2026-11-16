@@ -1,4 +1,4 @@
-"""Execute predefined task scripts, not a human usability study."""
+"""Executa roteiros de tarefas predefinidos, sem estudo com participantes humanos."""
 import json
 import os
 import subprocess
@@ -16,7 +16,7 @@ def run_tasks():
     for task in tasks:
         started = perf_counter()
         result = subprocess.run(
-            [sys.executable, str(ROOT / "src" / "sistema.py"), "--no-log"],
+            [sys.executable, str(ROOT / "src" / "sistema.py"), "--sem-log"],
             input="\n".join(task["inputs"]) + "\n", capture_output=True,
             text=True, cwd=ROOT, timeout=15,
         )
@@ -30,17 +30,18 @@ def run_tasks():
     report = {
         "executed_at": datetime.now(timezone.utc).isoformat(),
         "environment": "github-actions" if os.environ.get("GITHUB_ACTIONS") == "true" else "local",
-        "study_type": "automated task script", "human_participants": 0,
+        "study_type": "roteiro automatizado de tarefas", "human_participants": 0,
         "task_completion_rate": sum(row["success"] for row in rows) / len(rows),
         "average_script_actions": mean(row["script_actions"] for row in rows),
         "average_process_time_ms": mean(row["process_time_ms"] for row in rows),
-        "limitations": "Script execution is not human task time, satisfaction, accessibility validation, "
-        "or independent evidence of comprehension. Difficulties are anticipated interaction costs, "
-        "not observations from participants.",
+        "limitations": "A execução dos roteiros não mede tempo humano, satisfação, acessibilidade "
+        "nem comprova compreensão de forma independente. As dificuldades são custos previstos de interação, "
+        "não observações de participantes.",
         "tasks": rows,
     }
     write_json(ROOT / "tests" / "usability_results.json", report)
-    print(json.dumps({key: value for key, value in report.items() if key != "tasks"}, indent=2))
+    print(json.dumps({key: value for key, value in report.items() if key != "tasks"},
+                     ensure_ascii=False, indent=2))
     return 0 if all(row["success"] for row in rows) else 1
 
 

@@ -1,120 +1,120 @@
 [
   {
     "id": "U01",
-    "task": "Browse documents and open CIN issuing guidance.",
+    "task": "Consultar documentos e abrir a orientação de emissão da CIN.",
     "inputs": [
       "1",
       "D02",
-      "quit"
+      "sair"
     ],
     "expected": [
-      "birth or marriage",
-      "Source: https://"
+      "nascimento ou casamento",
+      "Fonte: https://"
     ],
-    "difficulty": "The user must choose a record ID after choosing a theme."
+    "difficulty": "É preciso escolher um ID após selecionar um tema."
   },
   {
     "id": "U02",
-    "task": "Recover a forgotten password using a rephrased question.",
+    "task": "Recuperar uma senha esquecida com uma pergunta reformulada.",
     "inputs": [
-      "I forgot my gov.br password",
-      "quit"
+      "Esqueci minha senha do gov.br",
+      "sair"
     ],
     "expected": [
       "Esqueci minha senha",
-      "Source: https://"
+      "Fonte: https://"
     ],
-    "difficulty": "The assistant links to official recovery and cannot reset a password."
+    "difficulty": "O assistente indica a recuperação oficial, mas não redefine senhas."
   },
   {
     "id": "U03",
-    "task": "Resolve the ambiguous CPF query.",
+    "task": "Esclarecer a consulta ambígua sobre CPF.",
     "inputs": [
       "CPF",
       "D04",
-      "quit"
+      "sair"
     ],
     "expected": [
-      "Choose a record ID",
-      "registration-status certificate"
+      "Escolha um ID",
+      "comprovante de situação cadastral"
     ],
-    "difficulty": "A broad query needs one clarification step."
+    "difficulty": "Uma consulta ampla exige uma etapa de esclarecimento."
   },
   {
     "id": "U04",
-    "task": "Recover from empty input and an invalid menu choice.",
+    "task": "Retomar a consulta após entrada vazia e opção inválida.",
     "inputs": [
       "",
       "99",
       "3",
       "C05",
-      "quit"
+      "sair"
     ],
     "expected": [
-      "Enter a question",
-      "Invalid menu option",
-      "free basic social-assistance"
+      "Digite uma pergunta",
+      "Opção de menu inválida",
+      "orientação gratuita de assistência social básica"
     ],
-    "difficulty": "Invalid inputs add actions but preserve access to the menu."
+    "difficulty": "Entradas inválidas acrescentam ações, mas mantêm o acesso ao menu."
   },
   {
     "id": "U05",
-    "task": "Understand an out-of-scope limitation.",
+    "task": "Compreender uma limitação fora do escopo.",
     "inputs": [
-      "How do I obtain a Canadian driving licence?",
-      "quit"
+      "Como obter uma carteira de motorista canadense?",
+      "sair"
     ],
     "expected": [
-      "No reliable answer",
-      "Available themes:"
+      "Não há resposta confiável",
+      "Temas disponíveis:"
     ],
-    "difficulty": "This base cannot cover foreign services."
+    "difficulty": "A base não cobre serviços de outros países."
   },
   {
     "id": "U06",
-    "task": "Follow three related subjects across themes.",
+    "task": "Navegar por três assuntos relacionados entre temas.",
     "inputs": [
       "1",
       "D02",
-      "related",
+      "relacionados",
       "S05",
-      "related",
+      "relacionados",
       "S03",
-      "quit"
+      "sair"
     ],
     "expected": [
-      "birth or marriage",
-      "scan the CIN QR code",
-      "Bronze, Silver"
+      "nascimento ou casamento",
+      "escaneie o código QR da CIN",
+      "Bronze, Prata"
     ],
-    "difficulty": "Cross-theme navigation uses related record IDs."
+    "difficulty": "A navegação entre temas utiliza IDs de registros relacionados."
   },
   {
     "id": "U07",
-    "task": "Leave a selected theme to ask about another.",
+    "task": "Sair do tema selecionado para perguntar sobre outro.",
     "inputs": [
       "1",
-      "back",
-      "Where can I access CRAS support?",
-      "quit"
+      "voltar",
+      "Onde buscar atendimento do CRAS?",
+      "sair"
     ],
     "expected": [
-      "free basic social-assistance",
-      "Source: https://"
+      "orientação gratuita de assistência social básica",
+      "Fonte: https://"
     ],
-    "difficulty": "Use back to clear the theme filter before asking about another theme."
+    "difficulty": "Use voltar para remover o filtro antes de perguntar sobre outro tema."
   },
   {
     "id": "U08",
-    "task": "Consult evidence guidance for a consumer complaint.",
+    "task": "Consultar os comprovantes para uma reclamação de consumidor.",
     "inputs": [
-      "Which evidence should I prepare for a consumer complaint?",
-      "quit"
+      "Quais comprovantes preparar para uma reclamação de consumidor?",
+      "sair"
     ],
     "expected": [
-      "invoices, contracts",
-      "Do not paste invoices"
+      "notas fiscais, contratos",
+      "Não cole notas fiscais"
     ],
-    "difficulty": "Prepare evidence outside the assistant; it does not accept uploads."
+    "difficulty": "Prepare os comprovantes fora do assistente; ele não recebe arquivos."
   }
 ]

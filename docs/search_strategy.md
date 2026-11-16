@@ -1,23 +1,25 @@
-# Retrieval and navigation
+# Busca e navegação
 
-The top-level list of JSON records is indexed in two dictionaries: by_id[id] → record and by_theme[theme] → list of records. A graph dictionary maps each ID to related IDs. Theme order follows first appearance in the base, so existing menu choices remain Documents, Digital services, Community support. New themes appear automatically.
+A lista de registros JSON é indexada em dois dicionários: `by_id[id]` aponta para um registro e `by_theme[theme]` aponta para uma lista. Um terceiro dicionário representa o grafo de IDs relacionados. A ordem dos temas segue sua primeira aparição na base: Documentos, Serviços digitais e Apoio comunitário. Novos temas aparecem automaticamente.
 
-Free-text algorithm:
+Algoritmo de busca livre:
 
-1. Trim input. Empty/overlong input and menu errors are handled before retrieval.
-2. Normalize Unicode accents, lowercase text, replace punctuation with word boundaries, remove documented stop words, and apply explicit synonyms in src/search.py.
-3. For each record in the selected theme (or all records), build a token set from its question and keywords. Summaries are not searched, to avoid incidental personal or policy words dominating retrieval.
-4. Coverage = matching distinct query tokens / distinct query tokens. Add 0.20 if a complete keyword alias with at least two informative tokens occurs in the query token set. The alias is a token-set comparison, not a word-order comparison. Maximum score is 1.20, not a probability.
-5. Discard candidates below 0.46. Rank by descending score, then ID for stable ordering.
-6. If more than one candidate is within 0.12 of the best score, return up to five clarification choices. A one-word query also requests clarification. Do not silently select the first tie.
-7. Otherwise return the highest-ranked stored record and render its source and limitations.
+1. Remover espaços nas extremidades. Entradas vazias, longas demais e erros de menu são tratados antes da busca.
+2. Normalizar acentos Unicode, converter para minúsculas, separar palavras pela pontuação, remover palavras comuns em português e aplicar os sinônimos explícitos de `src/search.py`.
+3. Para cada registro do tema selecionado, ou de toda a base, construir um conjunto de termos da pergunta e das palavras-chave. Os resumos não participam da busca, evitando que palavras incidentais dominem a classificação.
+4. Calcular cobertura = termos distintos da consulta encontrados / termos distintos da consulta. Somar 0,20 quando uma expressão completa de palavras-chave com ao menos dois termos informativos estiver contida na consulta. A comparação usa conjuntos, não a ordem das palavras. A pontuação máxima é 1,20 e não representa uma probabilidade.
+5. Descartar candidatos abaixo de 0,46. Ordenar por pontuação decrescente e depois por ID, de forma estável.
+6. Se mais de um candidato estiver a até 0,12 da melhor pontuação, apresentar até cinco opções de esclarecimento. Consultas de uma palavra também pedem esclarecimento. Empates não selecionam silenciosamente o primeiro registro.
+7. Caso contrário, apresentar o registro mais bem classificado com fonte, avisos e limitações.
 
-Examples: CPF produces D03/D04 choices. CPF registration gives the registration record an alias bonus over status consultation. gov.br account yields creation/level clarification. A foreign driving-licence question yields no match. Changing the base does not require rule edits; adding synonyms is optional and must be evaluated.
+Exemplos: `CPF` oferece D03 e D04. `inscrição no CPF` favorece D03 pelo bônus de expressão. `conta gov.br` solicita esclarecimento entre criação e níveis. `Esqueci minha senha do gov.br` encontra a recuperação de senha. `Cadastro Único` e `Cadastro Unico` são normalizados da mesma forma. Perguntas sobre habilitação canadense não encontram orientação confiável.
 
-An exact ID bypasses text ranking and may cross an active theme, supporting the related graph. A theme selection lists subtopics without claiming any guidance source was consulted yet. A free-text question within a theme stays filtered until back; this state cost is included in the task script.
+O vocabulário de sinônimos inclui formas como esqueci/recuperar, verificar/consultar, atualização/atualizar e níveis/nível. Ele é explícito e limitado; não é tradução automática nem compreensão semântica. Alterações devem ser avaliadas com novas consultas.
 
-Graph path: D02 → S05 → S03 connects issuing a CIN, using CIN in account validation, and understanding account security levels. S03 → C01 continues to a consumer service requiring an account level. C03/C04/C05 connect registration, updating, and local CRAS support. Edges mean useful related subjects and do not add facts or automatic eligibility rules.
+Um ID exato ignora a classificação textual e pode acessar outro tema, permitindo navegação pelo grafo. A seleção de tema lista seus assuntos sem afirmar que uma fonte foi consultada. Perguntas livres ficam restritas ao tema ativo até o comando `voltar`. Use `ajuda` para retornar ao menu, `relacionados` após consultar um registro e `sair` para encerrar. Os comandos antigos em inglês permanecem como aliases de compatibilidade, mas não são necessários para usar a aplicação.
 
-Complexity: preprocessing is linear in input length. A query scans n records and compares small sets; roughly O(n × average record vocabulary), appropriate for this 15-record dataset. ID lookup is average O(1). Theme lookup is dictionary access followed by its record list. No search index service is needed.
+O caminho D02 → S05 → S03 conecta emissão da CIN, validação da conta com a CIN e níveis de segurança. S03 → C01 continua para um serviço de consumidor que exige determinado nível de conta. C03/C04/C05 conectam inscrição, atualização e atendimento local do CRAS. As ligações indicam assuntos úteis, sem criar fatos ou regras automáticas de elegibilidade.
 
-Limitations: no embeddings, trained classifier, semantic entailment, fuzzy spelling, or automatic translation. A lexical match can be incomplete or fail on unfamiliar wording. Generic words can create ambiguity. Conservative fallbacks and fixed factual summaries reduce invention risk but do not guarantee perfect intent detection. The development-authored fixtures are not an independent benchmark.
+A normalização é linear no tamanho da entrada. Uma consulta percorre os n registros e compara pequenos conjuntos: aproximadamente O(n × vocabulário médio do registro), adequado aos 15 registros. A consulta por ID tem custo médio O(1). A busca por tema acessa um dicionário e sua lista. Nenhum serviço externo de indexação é necessário.
+
+Limitações: sem representações vetoriais aprendidas, classificador treinado, inferência semântica, correção aproximada de digitação ou tradução automática. Uma correspondência lexical pode ser incompleta ou falhar com termos desconhecidos. Palavras genéricas podem gerar ambiguidade. Respostas alternativas conservadoras e resumos fixos reduzem invenções, mas não garantem identificar perfeitamente a intenção. Os casos elaborados durante o desenvolvimento não são uma avaliação independente.

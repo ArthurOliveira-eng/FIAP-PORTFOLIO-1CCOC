@@ -1,18 +1,18 @@
-# Scripted usability evaluation
+# Avaliação de usabilidade por roteiros
 
-The assignment permits a task script instead of a participant. Eight scripts are stored in tests/usability_tasks.json and execute the real CLI in subprocesses through python -m tests.run_usability. Results include actual stdout, exit code, completion checks, action counts, and process wall time. There are no human participants.
+O enunciado permite usar roteiros em vez de participantes. Oito roteiros estão em `tests/usability_tasks.json` e executam a interface real em subprocessos com `python -m tests.run_usability`. Os resultados incluem saída real, código de encerramento, verificações de conclusão, quantidade de ações e tempo de processo. Não há participantes humanos.
 
-| Task | Intended outcome | Anticipated friction |
+| Tarefa | Resultado pretendido | Dificuldade prevista |
 | --- | --- | --- |
-| U01 | Browse documents then view CIN guidance | Record IDs require a second selection |
-| U02 | Recover forgotten gov.br password | Recovery happens only through the official service |
-| U03 | Resolve CPF ambiguity | Broad query requires clarification |
-| U04 | Recover from empty/invalid menu input | Extra interactions before useful guidance |
-| U05 | Recognize unsupported foreign service | Cannot fulfill a request outside this base |
-| U06 | Navigate D02 → S05 → S03 | Requires related subject ID choices |
-| U07 | Leave theme before another-theme question | Active theme filter can hide otherwise relevant results |
-| U08 | Prepare consumer complaint evidence | Evidence must stay outside this assistant |
+| U01 | Consultar documentos e abrir a emissão da CIN | É preciso selecionar um ID após o tema |
+| U02 | Recuperar senha esquecida do gov.br | A recuperação ocorre somente no serviço oficial |
+| U03 | Esclarecer a consulta sobre CPF | Uma consulta ampla exige esclarecimento |
+| U04 | Retomar após entrada vazia ou opção inválida | Há interações extras antes de uma orientação útil |
+| U05 | Reconhecer serviço estrangeiro fora do escopo | A base não atende a esse pedido |
+| U06 | Navegar por D02 → S05 → S03 | É preciso escolher os IDs relacionados |
+| U07 | Sair de um tema antes de perguntar sobre outro | O filtro ativo pode ocultar resultados de outros temas |
+| U08 | Preparar comprovantes para reclamação | Os comprovantes devem ficar fora do assistente |
 
-Indicators: completed scripts / total scripts, average prescribed actions excluding quit, and mean subprocess wall time. These are automation indicators. They do not measure human completion time, comprehension, cognitive load, assistive-technology compatibility, or satisfaction. Difficulties are design observations/anticipated friction, not quotations from test users.
+Indicadores: roteiros concluídos / total, média de ações prescritas sem o comando `sair` e tempo médio de processo. São indicadores de automação. Eles não medem tempo humano, compreensão, esforço cognitivo, compatibilidade com tecnologias assistivas ou satisfação. As dificuldades são observações de projeto e custos previstos, não depoimentos de participantes.
 
-Interpret results by inspecting failed transcripts before claiming task completion. A fully passing script suite shows those paths are operational, but can still miss confusing language or navigation. A follow-up study should recruit at least one consenting user, use synthetic information only, record consent and task difficulties without unnecessary identity data, and report real completion/comprehension outcomes. Improve active-theme visibility and offer numbered clarification choices based on observed difficulties.
+Analise as transcrições de falhas antes de afirmar que uma tarefa foi concluída. A aprovação de todos os roteiros mostra que esses caminhos funcionam, mas pode deixar de revelar linguagem confusa ou dificuldades de navegação. Um estudo posterior deve recrutar ao menos uma pessoa com consentimento, usar informações sintéticas, registrar dificuldades sem dados pessoais desnecessários e apresentar resultados reais de conclusão e compreensão. Melhore a visibilidade do tema ativo e ofereça escolhas numeradas conforme as dificuldades observadas.

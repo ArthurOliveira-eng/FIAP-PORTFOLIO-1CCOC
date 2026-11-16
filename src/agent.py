@@ -1,4 +1,4 @@
-"""Perception -> reasoning -> action, with file-backed memory and safe telemetry."""
+"""Percepção, raciocínio e ação com memória em arquivo e telemetria segura."""
 import json
 import re
 from dataclasses import dataclass
@@ -23,7 +23,7 @@ class Answer:
 class CitizenAgent:
     def __init__(self, memory, *, template=DEFAULT_TEMPLATE, log_path=LOG_PATH):
         if template not in PROMPT_PATHS:
-            raise TemplateError(f"Unknown response template: {template}")
+            raise TemplateError(f"Modelo de resposta desconhecido: {template}")
         self.memory = memory
         self.template = template
         self.log_path = Path(log_path) if log_path is not None else None
@@ -35,26 +35,26 @@ class CitizenAgent:
 
     def perceive(self, raw_input):
         if not isinstance(raw_input, str):
-            return SearchResult("invalid_input", message="Enter text or a menu number.")
+            return SearchResult("invalid_input", message="Digite um texto ou número do menu.")
         query = raw_input.strip()
         command = normalize(query)
         if len(query) > MAX_QUERY_LENGTH:
-            return SearchResult("invalid_input", message=f"Use at most {MAX_QUERY_LENGTH} characters.")
-        if command in ("quit", "exit", "0"):
+            return SearchResult("invalid_input", message=f"Use no máximo {MAX_QUERY_LENGTH} caracteres.")
+        if command in ("sair", "encerrar", "0", "quit", "exit"):
             return SearchResult("quit")
-        if command in ("back", "help", "themes", "menu"):
+        if command in ("voltar", "ajuda", "temas", "menu", "back", "help", "themes"):
             self.current_theme = None
-            return SearchResult("menu", message="Choose a theme number or ask a question.")
-        if command == "related":
+            return SearchResult("menu", message="Escolha o número de um tema ou faça uma pergunta.")
+        if command in ("relacionados", "related"):
             if self.last_record is None:
-                return SearchResult("invalid_option", message="Consult a record before requesting related subjects.")
-            return SearchResult("related", tuple(self.memory.related(self.last_record)), message="Choose a related record ID.")
-        # Decimal strings are menu input, never interpreted as personal identifiers.
+                return SearchResult("invalid_option", message="Consulte um registro antes de pedir assuntos relacionados.")
+            return SearchResult("related", tuple(self.memory.related(self.last_record)), message="Escolha o ID de um registro relacionado.")
+        # Números são opções do menu, nunca identificadores pessoais.
         if re.fullmatch(r"[+-]?\d+", query):
             if query.isascii() and query.isdigit() and 1 <= int(query) <= len(self.memory.themes):
                 self.current_theme = self.memory.themes[int(query) - 1]
                 return search(self.memory, theme=self.current_theme)
-            return SearchResult("invalid_option", message="Invalid menu option. Choose an available theme number.")
+            return SearchResult("invalid_option", message="Opção de menu inválida. Escolha o número de um tema disponível.")
         selected = next(
             (theme for theme in self.memory.themes if normalize(theme) == command), None
         )
@@ -75,7 +75,7 @@ class CitizenAgent:
         return Answer(result.status, record_ids, text, latency_ms, self.current_theme, log_error)
 
     def _write_log(self, raw_input, status, record_ids, latency_ms):
-        """Save operational metadata without persisting the original query."""
+        """Salva metadados operacionais sem persistir a consulta original."""
         if self.log_path is None:
             return None
         query = raw_input if isinstance(raw_input, str) else ""
@@ -91,5 +91,5 @@ class CitizenAgent:
             with self.log_path.open("a", encoding="utf-8") as output:
                 output.write(json.dumps(event, ensure_ascii=False) + "\n")
         except OSError as exc:
-            return f"Telemetry could not be saved ({type(exc).__name__}); guidance remains available."
+            return f"Não foi possível salvar a telemetria ({type(exc).__name__}); a orientação continua disponível."
         return None

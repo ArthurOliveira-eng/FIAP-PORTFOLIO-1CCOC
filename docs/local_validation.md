@@ -1,20 +1,20 @@
-# Local validation
+# Validação local
 
-Executed on Windows with Python 3.14 on 2026-11-16. The tested source commit is recorded in tests/results.json.
+Validação executada no Windows com Python 3.14 em 16/11/2026. A versão atual utiliza português brasileiro na interface, nos comandos, nas orientações, nas mensagens, nos modelos de resposta e nos roteiros. O commit do código avaliado é registrado em `tests/results.json`.
 
-| Check | Command | Result |
+| Verificação | Comando | Resultado |
 | --- | --- | --- |
-| Regression suite | `py -3 -m unittest discover -s tests -v` | 19 tests passed |
-| Retrieval and response evaluation | `py -3 -m src.evaluation` | 31/31 cases passed for each template; 62 total |
-| Scripted usability | `py -3 -m tests.run_usability` | 8/8 tasks completed |
-| Demonstration transcript | `py -3 scripts/create_demo.py --text-only` | Captured all 10 scenes and generated the metrics scene |
+| Regressão | `py -3 -m unittest discover -s tests -v` | 23 testes aprovados |
+| Busca e respostas | `py -3 -m src.evaluation` | 31/31 casos aprovados por modelo, 62 avaliações no total |
+| Usabilidade por roteiro | `py -3 -m tests.run_usability` | 8/8 tarefas concluídas |
+| Transcrição da demonstração | `py -3 scripts/create_demo.py --somente-texto` | Dez cenas e a cena de métricas geradas |
 
-Mean measured query times were 0.529052 ms for template A and 0.565581 ms for template B. These timings describe this run and machine, not a performance guarantee. The usability scripts averaged 2.5 prescribed actions and 98.634188 ms per subprocess. They do not measure human reading time or satisfaction.
+Os tempos medidos na execução atual estão no README e nos relatórios gerados. Eles descrevem a máquina e a execução, sem garantir desempenho em outros ambientes. Os tempos dos roteiros incluem subprocessos e não medem leitura humana nem satisfação.
 
-The regression suite exercises the actual terminal interface, including a complete consultation flow, missing knowledge files, execution outside the repository, and end-of-input handling. It also checks both templates, related navigation, ambiguity, theme filters, privacy-safe logs, logging failure, stale records, schema validation, and atomic updates.
+Os testes exercitam a interface real de terminal, um fluxo completo de consulta, arquivos ausentes, execução fora do repositório e fim da entrada. Verificam os dois modelos, navegação relacionada, ambiguidade, filtros, privacidade dos logs, falha de gravação, registros antigos, estrutura de dados e atualização atômica. A adaptação para pt-BR acrescenta verificações de busca com e sem acentos, comandos, rótulos, avisos, ajuda e argumentos em português.
 
-Machine-readable reports and expected/obtained answers are stored in tests/results.json, tests/results.csv, tests/template_comparison.json, and tests/usability_results.json. The transcript is generated locally at artifacts/demo_transcript.txt; artifacts/ is intentionally ignored by Git.
+Os resultados esperados e obtidos ficam em `tests/results.json`, `tests/results.csv`, `tests/template_comparison.json` e `tests/usability_results.json`. A transcrição local está em `artifacts/demo_transcript.txt`; a pasta `artifacts/` é ignorada pelo Git.
 
-FFmpeg was not available locally, so this validation generated the text demonstration only. MP4 generation remains available through the Linux GitHub Actions workflow. A YouTube upload, team name, and member RMs remain submission tasks.
+O FFmpeg não estava disponível localmente; foi gerada apenas a demonstração textual. A geração de MP4 permanece disponível no GitHub Actions em Linux. Nome da equipe, RMs e publicação do vídeo no YouTube continuam pendentes.
 
-The assignment explicitly requires docs/uso_ia.md to identify AI tools and critical validation. That disclosure remains part of the deliverable. The application itself uses deterministic retrieval and templates without external model calls.
+O enunciado exige `docs/uso_ia.md` com as ferramentas utilizadas e a validação crítica. Essa declaração permanece na entrega. A aplicação usa busca e modelos de texto determinísticos, sem chamadas a modelos externos.

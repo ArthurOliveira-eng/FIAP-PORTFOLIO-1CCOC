@@ -1,34 +1,36 @@
-"""Deterministic lexical retrieval with conservative ambiguity handling."""
+"""Busca lexical determinística com tratamento conservador de ambiguidades."""
 import re
 import unicodedata
 from dataclasses import dataclass
 from src.config import AMBIGUITY_MARGIN, MIN_SCORE
 
 STOP_WORDS = set(
-    "a an the is are was were be to of for on in at by and or i my me we our "
-    "you your can could would should how what where when which do does did "
-    "please need want get find use about with have has it this that help "
-    "before after there from as".split()
+    "a o as os um uma uns umas de da do das dos em no na nos nas para por "
+    "e ou eu meu minha meus minhas voce seu sua seus suas como qual quais "
+    "que oque onde quando posso pode poderia devo preciso quero fazer "
+    "ter tenho tem se ser sao e esta estou ao aos pela pelo pelas pelos "
+    "com sem sobre isso isto esse essa antes depois por favor me uma".split()
 )
 SYNONYMS = {
-    "forgot": "recover", "forgotten": "recover", "lost": "recover",
-    "reset": "recover", "passwords": "password",
-    "register": "registration", "enroll": "registration", "apply": "registration",
-    "registering": "registration", "enrollment": "registration",
-    "creating": "create", "open": "create",
-    "renew": "update", "updating": "update", "changed": "update",
-    "address": "residence", "moved": "update",
-    "check": "consult", "checking": "consult",
-    "levels": "level", "upgrade": "increase", "upgrading": "increase",
-    "signing": "sign", "signature": "sign",
-    "papers": "evidence", "receipts": "evidence", "proof": "evidence",
-    "documents": "document", "complaints": "complaint",
-    "taxpayer": "cpf", "identification": "identity",
+    "esqueci": "recuperar", "esquecida": "recuperar", "perdi": "recuperar",
+    "redefinir": "recuperar", "recuperacao": "recuperar", "senhas": "senha",
+    "cadastrar": "inscricao", "inscrever": "inscricao", "cadastro": "inscricao",
+    "criacao": "criar", "abrir": "criar",
+    "renovar": "atualizar", "atualizacao": "atualizar", "mudei": "atualizar",
+    "endereco": "residencia", "verificar": "consultar", "conferir": "consultar",
+    "consulta": "consultar", "niveis": "nivel", "elevar": "aumentar",
+    "assinatura": "assinar", "eletronica": "eletronicamente",
+    "comprovantes": "comprovante", "provas": "comprovante",
+    "documentos": "documento", "reclamacoes": "reclamacao",
+    "identificacao": "identidade", "cadunico": "unico",
+    "atendimento": "atender", "apoio": "atender", "ajuda": "atender",
 }
-# These instructions ask for behavior outside the retrieval agent's role.
+# Estas instruções tentam alterar o papel do agente de busca.
 INSTRUCTION_OVERRIDE = re.compile(
-    r"\b(ignore|override|disregard)\b.{0,50}\b(instructions|rules|sources)\b"
-    r"|\b(system prompt|reveal secrets|invent an answer|pretend to be official)\b",
+    r"\b(ignore|desconsidere|sobrescreva|override|disregard)\b.{0,50}"
+    r"\b(instrucoes|regras|fontes|instructions|rules|sources)\b"
+    r"|\b(invente uma resposta|revele segredos|finja ser oficial|prompt do sistema|"
+    r"system prompt|reveal secrets|invent an answer|pretend to be official)\b",
     re.IGNORECASE,
 )
 
@@ -45,11 +47,11 @@ def tokens(text):
 
 
 def score_record(record, query_tokens):
-    """Combine query coverage with a bonus for a complete keyword phrase."""
+    """Combina a cobertura da consulta com um bônus por expressão completa."""
     aliases = [tokens(keyword) for keyword in record["keywords"]]
     document_tokens = tokens(record["question"]) | set().union(*aliases)
     coverage = len(query_tokens & document_tokens) / len(query_tokens)
-    # A broad single word does not earn the phrase bonus.
+    # Uma palavra isolada não recebe o bônus de expressão.
     phrase_bonus = 0.20 if any(
         len(alias) >= 2 and alias <= query_tokens for alias in aliases
     ) else 0.0
@@ -65,21 +67,21 @@ class SearchResult:
 
 
 def search(memory, question="", theme=None):
-    """Retrieve by ID, theme, or lexical evidence; never synthesize missing facts."""
+    """Busca por ID, tema ou termos, sem inventar fatos ausentes."""
     if theme is not None and theme not in memory.by_theme:
-        return SearchResult("invalid_option", message="Choose one of the available themes.")
+        return SearchResult("invalid_option", message="Escolha um dos temas disponíveis.")
     question = question.strip()
     if not question:
         if theme is not None:
             return SearchResult("browse", tuple(memory.by_theme[theme]))
-        return SearchResult("empty", message="Enter a question or choose a theme number.")
+        return SearchResult("empty", message="Digite uma pergunta ou escolha o número de um tema.")
     if question.upper() in memory.by_id:
         return SearchResult("match", (memory.by_id[question.upper()],), (1.0,))
-    if INSTRUCTION_OVERRIDE.search(question):
-        return SearchResult("no_match", message="I can only return stored guidance with its source.")
+    if INSTRUCTION_OVERRIDE.search(normalize(question)):
+        return SearchResult("no_match", message="Posso retornar apenas orientações armazenadas com sua fonte.")
     query_tokens = tokens(question)
     if not query_tokens:
-        return SearchResult("empty", message="Enter a question containing words, or choose a theme.")
+        return SearchResult("empty", message="Digite uma pergunta contendo palavras ou escolha um tema.")
     records = memory.by_theme[theme] if theme else memory.records
     ranked = []
     for record in records:
@@ -88,14 +90,14 @@ def search(memory, question="", theme=None):
             ranked.append((score, record["id"], record))
     ranked.sort(key=lambda item: (-item[0], item[1]))
     if not ranked:
-        return SearchResult("no_match", message="No reliable answer to that question is stored in the base.")
+        return SearchResult("no_match", message="Não há resposta confiável para essa pergunta na base.")
     best = ranked[0][0]
     close = [item for item in ranked if best - item[0] <= AMBIGUITY_MARGIN]
-    # A one-word topic has too little intent information, even with one candidate.
+    # Uma palavra isolada não esclarece a intenção, mesmo com um único candidato.
     if len(query_tokens) == 1 or len(close) > 1:
         return SearchResult(
             "ambiguous", tuple(item[2] for item in close[:5]),
             tuple(round(item[0], 4) for item in close[:5]),
-            "That query may refer to different subjects. Choose a record ID or add details.",
+            "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.",
         )
     return SearchResult("match", (ranked[0][2],), (round(best, 4),))

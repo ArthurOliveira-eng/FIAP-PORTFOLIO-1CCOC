@@ -1,23 +1,23 @@
-# AI use and critical validation
+# Uso de IA e validação crítica
 
-## Tools and uses
+## Ferramentas e usos
 
-OpenAI ChatGPT/Codex assisted with Python module design, lexical search implementation, prompt/response templates, fixture drafting, test planning, documentation, and review of expected behaviors. The connected GitHub tool was used to inspect the repository and prepare/publish code. Web browsing was used to consult official Brazilian government sources. No external model is called by the finished prototype.
+O OpenAI ChatGPT/Codex auxiliou no desenho dos módulos Python, implementação da busca lexical, modelos de instrução e resposta, elaboração dos casos de teste, planejamento de testes, documentação e revisão dos comportamentos esperados. Também apoiou a adaptação dos textos e da busca para português brasileiro. A ferramenta conectada do GitHub foi usada para consultar o repositório e preparar e publicar código. A navegação na internet foi usada na consulta às fontes oficiais brasileiras durante a implementação inicial. O protótipo final não chama modelos externos.
 
-## Validation approach
+## Método de validação
 
-Each summary was checked against official source descriptions rather than accepted solely because an AI proposed it. Required fields, official-source URL format, dates, and graph edges are validated in Python. The summaries are deliberately short and contain no individualized decisions. Detailed factual provenance and a source inconsistency are recorded in source_review.md.
+Cada resumo foi comparado com descrições oficiais, sem ser aceito apenas por ter sido proposto por IA. Campos obrigatórios, formato das URLs oficiais, datas e ligações do grafo são validados em Python. Os resumos são intencionalmente curtos e não contêm decisões individuais. A procedência das informações e uma inconsistência entre fontes estão registradas em `source_review.md`.
 
-Evaluation compares expected retrieval IDs/statuses and required answer content with actual output for both versioned templates. Regression tests also exercise input errors, malformed knowledge, cross-theme navigation, source warnings, data maintenance, privacy-safe telemetry, and CLI subprocess flows. Only executed reports count as measured evidence. The environment label distinguishes local execution from GitHub Actions. No timing, participant, satisfaction, YouTube link, or passing result is fabricated.
+A avaliação compara IDs e estados esperados, conteúdo obrigatório e saída real nos dois modelos versionados. Os testes de regressão verificam erros de entrada, base malformada, navegação entre temas, avisos das fontes, manutenção dos dados, privacidade dos logs e fluxos da interface em subprocessos. A versão em pt-BR inclui testes de acentos, comandos, ajuda e avisos. Apenas relatórios executados contam como evidência medida. O ambiente distingue execução local de GitHub Actions. Não são inventados tempos, participantes, satisfação, links do YouTube ou resultados de aprovação.
 
-## What the team must understand and review
+## O que a equipe deve compreender e revisar
 
-Before submission, every member should be able to explain token normalization, query coverage and alias bonuses, ambiguity thresholds, lists/dictionaries, graph edges, source-based template filling, error handling, and metric calculation. The repository explains these decisions and includes reproducible commands. AI assistance does not establish that the team has already understood or independently validated all of them; member review and RM completion remain their responsibility.
+Antes da entrega, cada integrante deve conseguir explicar normalização dos termos, cobertura da consulta e bônus por expressão, limites de ambiguidade, listas e dicionários, ligações do grafo, preenchimento de respostas com fontes, tratamento de erros e cálculo de métricas. O repositório explica essas decisões e inclui comandos reproduzíveis. O auxílio de IA não demonstra que a equipe já compreendeu ou validou tudo de forma independente; a revisão pelos integrantes e o preenchimento dos RMs continuam sendo responsabilidade da equipe.
 
-Review expected answers critically, rerun tests locally, inspect obtained answer text and source pages, and challenge fixtures with new questions. The same assistant helped author code and tests, so correlated blind spots remain. High fixture accuracy is not proof of production readiness or independent accuracy.
+Revise criticamente as respostas esperadas, execute testes locais, leia as respostas obtidas e as fontes e desafie o sistema com perguntas novas. O mesmo assistente ajudou a elaborar código e testes, portanto podem existir pontos cegos compartilhados. Alta taxa de acerto nos exemplos não comprova prontidão para produção nem precisão independente.
 
-## Privacy and limits
+## Privacidade e limites
 
-The prototype does not send queries to a model, does not collect application documents, and does not claim agency affiliation. Raw input is not written to logs. Controlled-vocabulary query metadata and synthetic test outputs are documented. The optional scripted video contains only synthetic demo inputs.
+O protótipo não envia consultas a um modelo, não coleta documentos de solicitações e não alega vínculo oficial. As consultas originais não são gravadas em logs. São documentados os metadados de vocabulário controlado e as saídas sintéticas de teste. O vídeo opcional utiliza apenas entradas sintéticas.
 
-If a future version adds a generative model, validate every factual claim and cited URL against the curated record, reject unsupported output, and obtain an explicit privacy design review. Do not treat this prototype's current deterministic guarantees as evidence for a future LLM integration.
+Se uma versão futura incluir um modelo generativo, confira cada afirmação e URL com a base revisada, rejeite saídas sem fundamento e faça uma revisão explícita de privacidade. As garantias determinísticas atuais não comprovam o comportamento de uma futura integração com modelos de linguagem.

@@ -1,1 +1,1 @@
-"""Citizen Assist AI: deterministic, source-grounded citizen guidance."""
+"""Citizen Assist AI: orientação determinística ao cidadão com fontes."""

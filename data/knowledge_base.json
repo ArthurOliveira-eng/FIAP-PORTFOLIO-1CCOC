@@ -1,18 +1,18 @@
 [
   {
     "id": "D01",
-    "theme": "Documents",
-    "question": "What is the CIN national identity card?",
+    "theme": "Documentos",
+    "question": "O que é a Carteira de Identidade Nacional (CIN)?",
     "keywords": [
-      "cin overview",
-      "national identity card",
-      "identity",
+      "visão geral cin",
+      "carteira identidade nacional",
+      "identidade",
       "cin"
     ],
-    "summary_guidance": "The CIN is Brazil's national identity card and uses the CPF as its unique identification number. It is available in physical and digital formats.",
+    "summary_guidance": "A CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital.",
     "reference": "https://www.gov.br/governodigital/pt-br/identidade/cin",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Confirm the current issuing arrangements with your state's identification authority.",
+    "confirmation_warning": "Confirme as condições atuais de emissão com o órgão de identificação do seu estado.",
     "related_ids": [
       "D02",
       "D03",
@@ -21,20 +21,20 @@
   },
   {
     "id": "D02",
-    "theme": "Documents",
-    "question": "Where can I request a CIN and which certificates should I check?",
+    "theme": "Documentos",
+    "question": "Onde solicitar a CIN e quais certidões devo conferir?",
     "keywords": [
-      "request cin",
-      "issue cin",
-      "birth certificate",
-      "marriage certificate",
-      "identity appointment",
+      "solicitar cin",
+      "emitir cin",
+      "certidão nascimento",
+      "certidão casamento",
+      "agendamento identidade",
       "cin"
     ],
-    "summary_guidance": "Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.",
+    "summary_guidance": "Solicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento.",
     "reference": "https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Appointment channels and document requirements must be confirmed with the issuing authority.",
+    "confirmation_warning": "Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.",
     "related_ids": [
       "D01",
       "S05",
@@ -43,18 +43,18 @@
   },
   {
     "id": "D03",
-    "theme": "Documents",
-    "question": "How do I apply for CPF registration?",
+    "theme": "Documentos",
+    "question": "Como fazer a inscrição no CPF?",
     "keywords": [
-      "cpf registration",
-      "apply cpf",
-      "register cpf",
+      "inscrição cpf",
+      "solicitar cpf",
+      "cadastrar cpf",
       "cpf"
     ],
-    "summary_guidance": "Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant.",
+    "summary_guidance": "Utilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente.",
     "reference": "https://www.gov.br/pt-br/servicos/inscrever-no-cpf",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Check the current requirements and available channel for your circumstances on the official page.",
+    "confirmation_warning": "Confira os requisitos atuais e o canal disponível para sua situação na página oficial.",
     "related_ids": [
       "D04",
       "S01",
@@ -63,18 +63,18 @@
   },
   {
     "id": "D04",
-    "theme": "Documents",
-    "question": "How can I consult my CPF registration status?",
+    "theme": "Documentos",
+    "question": "Como consultar a situação cadastral do CPF?",
     "keywords": [
-      "cpf status",
-      "consult cpf",
-      "cpf certificate",
+      "situação cpf",
+      "consultar cpf",
+      "comprovante cpf",
       "cpf"
     ],
-    "summary_guidance": "Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.",
+    "summary_guidance": "Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.",
     "reference": "https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "A registration-status check is not a personal tax-clearance or eligibility assessment.",
+    "confirmation_warning": "A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.",
     "related_ids": [
       "D03",
       "S01",
@@ -83,18 +83,18 @@
   },
   {
     "id": "D05",
-    "theme": "Documents",
-    "question": "How do I access the Digital Work Card?",
+    "theme": "Documentos",
+    "question": "Como acessar a Carteira de Trabalho Digital?",
     "keywords": [
-      "digital work card",
-      "employment record",
+      "carteira trabalho digital",
+      "registro emprego",
       "carteira trabalho",
       "ctps"
     ],
-    "summary_guidance": "Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document.",
+    "summary_guidance": "Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.",
     "reference": "https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Confirm the current access instructions with the Ministry of Labour; do not share employment records here.",
+    "confirmation_warning": "Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.",
     "related_ids": [
       "S01",
       "S02",
@@ -103,18 +103,18 @@
   },
   {
     "id": "S01",
-    "theme": "Digital services",
-    "question": "How do I create a gov.br account?",
+    "theme": "Serviços digitais",
+    "question": "Como criar uma conta gov.br?",
     "keywords": [
-      "create gov br account",
-      "gov br registration",
-      "new gov br",
-      "gov br account"
+      "criar conta gov br",
+      "cadastro gov br",
+      "nova conta gov br",
+      "conta gov br"
     ],
-    "summary_guidance": "Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels.",
+    "summary_guidance": "Crie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta.",
     "reference": "https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Provide identifying information only through the official gov.br service.",
+    "confirmation_warning": "Forneça informações de identificação somente pelo serviço oficial gov.br.",
     "related_ids": [
       "S02",
       "S03",
@@ -123,19 +123,19 @@
   },
   {
     "id": "S02",
-    "theme": "Digital services",
-    "question": "How do I recover my gov.br password?",
+    "theme": "Serviços digitais",
+    "question": "Como recuperar a senha da conta gov.br?",
     "keywords": [
-      "recover gov br password",
-      "forgot password",
-      "reset password",
-      "gov br password",
-      "password"
+      "recuperar senha gov br",
+      "esqueci senha",
+      "redefinir senha",
+      "senha gov br",
+      "senha"
     ],
-    "summary_guidance": "Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.",
+    "summary_guidance": "Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.",
     "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Available recovery methods vary. Never send passwords or verification codes to this assistant.",
+    "confirmation_warning": "Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.",
     "related_ids": [
       "S01",
       "S03",
@@ -144,19 +144,19 @@
   },
   {
     "id": "S03",
-    "theme": "Digital services",
-    "question": "What are the gov.br account security levels?",
+    "theme": "Serviços digitais",
+    "question": "Quais são os níveis de segurança da conta gov.br?",
     "keywords": [
-      "gov br security level",
-      "bronze silver gold",
-      "increase account level",
-      "account level",
-      "gov br account"
+      "nível segurança gov br",
+      "bronze prata ouro",
+      "aumentar nível conta",
+      "nível conta",
+      "conta gov br"
     ],
-    "summary_guidance": "Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level.",
+    "summary_guidance": "As contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível.",
     "reference": "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "The required level and available validation methods depend on the service and your account.",
+    "confirmation_warning": "O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.",
     "related_ids": [
       "S05",
       "S04",
@@ -165,18 +165,18 @@
   },
   {
     "id": "S04",
-    "theme": "Digital services",
-    "question": "How do I sign a document electronically with gov.br?",
+    "theme": "Serviços digitais",
+    "question": "Como assinar um documento eletronicamente com gov.br?",
     "keywords": [
-      "sign document electronically",
-      "electronic signature",
-      "digital signature",
-      "sign document"
+      "assinar documento eletronicamente",
+      "assinatura eletrônica",
+      "assinatura digital",
+      "assinar documento"
     ],
-    "summary_guidance": "Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal.",
+    "summary_guidance": "Utilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura.",
     "reference": "https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Confirm that the receiving organization accepts the relevant signature for your document.",
+    "confirmation_warning": "Confirme se a organização que receberá o documento aceita esse tipo de assinatura.",
     "related_ids": [
       "S03",
       "S01",
@@ -185,19 +185,19 @@
   },
   {
     "id": "S05",
-    "theme": "Digital services",
-    "question": "How can I increase my gov.br level using the CIN?",
+    "theme": "Serviços digitais",
+    "question": "Como aumentar o nível da conta gov.br usando a CIN?",
     "keywords": [
-      "cin increase level",
-      "cin gold account",
-      "cin qr code",
-      "increase cin",
+      "cin aumentar nível",
+      "cin conta ouro",
+      "cin código qr",
+      "aumentar cin",
       "cin"
     ],
-    "summary_guidance": "After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data.",
+    "summary_guidance": "Após receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor.",
     "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.",
+    "confirmation_warning": "O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.",
     "related_ids": [
       "D02",
       "S03",
@@ -206,18 +206,18 @@
   },
   {
     "id": "C01",
-    "theme": "Community support",
-    "question": "How can I make a consumer complaint online?",
+    "theme": "Apoio comunitário",
+    "question": "Como fazer uma reclamação de consumidor pela internet?",
     "keywords": [
-      "consumer complaint",
-      "complain company",
+      "reclamação consumidor",
+      "reclamar empresa",
       "consumidor gov br",
-      "complaint"
+      "reclamação"
     ],
-    "summary_guidance": "Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account.",
+    "summary_guidance": "Consulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro.",
     "reference": "https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Check whether the platform covers the company and issue; no outcome is guaranteed.",
+    "confirmation_warning": "Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.",
     "related_ids": [
       "C02",
       "S03",
@@ -226,19 +226,19 @@
   },
   {
     "id": "C02",
-    "theme": "Community support",
-    "question": "Which evidence should I prepare for a consumer complaint?",
+    "theme": "Apoio comunitário",
+    "question": "Quais comprovantes preparar para uma reclamação de consumidor?",
     "keywords": [
-      "complaint evidence",
-      "consumer evidence",
-      "receipt contract",
-      "payment evidence",
-      "complaint"
+      "comprovantes reclamação",
+      "comprovantes consumidor",
+      "nota fiscal contrato",
+      "comprovante pagamento",
+      "reclamação"
     ],
-    "summary_guidance": "Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.",
+    "summary_guidance": "Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.",
     "reference": "https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Do not paste invoices or personal information here. Confirm the platform's current submission instructions.",
+    "confirmation_warning": "Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.",
     "related_ids": [
       "C01",
       "S03",
@@ -247,18 +247,18 @@
   },
   {
     "id": "C03",
-    "theme": "Community support",
-    "question": "Where do I start Cadastro Unico registration?",
+    "theme": "Apoio comunitário",
+    "question": "Onde iniciar a inscrição no Cadastro Único?",
     "keywords": [
-      "cadastro unico registration",
-      "cadunico registration",
-      "social registry registration",
-      "cadastro unico"
+      "inscrição cadastro único",
+      "inscrição cadúnico",
+      "inscrição cadastro social",
+      "cadastro único"
     ],
-    "summary_guidance": "Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available.",
+    "summary_guidance": "Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.",
     "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Confirm requirements and any special procedures locally. Registration does not guarantee benefit approval.",
+    "confirmation_warning": "Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.",
     "related_ids": [
       "C04",
       "C05",
@@ -267,18 +267,18 @@
   },
   {
     "id": "C04",
-    "theme": "Community support",
-    "question": "When should I update Cadastro Unico?",
+    "theme": "Apoio comunitário",
+    "question": "Quando atualizar o Cadastro Único?",
     "keywords": [
-      "update cadastro unico",
-      "cadunico update",
-      "social registry update",
-      "cadastro unico"
+      "atualizar cadastro único",
+      "atualização cadúnico",
+      "atualização cadastro social",
+      "cadastro único"
     ],
-    "summary_guidance": "Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.",
+    "summary_guidance": "Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.",
     "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Earlier checks or special procedures may apply; confirm current instructions with the municipal office.",
+    "confirmation_warning": "Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.",
     "related_ids": [
       "C03",
       "C05",
@@ -287,18 +287,18 @@
   },
   {
     "id": "C05",
-    "theme": "Community support",
-    "question": "Where can I access CRAS support?",
+    "theme": "Apoio comunitário",
+    "question": "Onde buscar atendimento do CRAS?",
     "keywords": [
-      "cras support",
-      "social assistance centre",
-      "community support",
+      "atendimento cras",
+      "centro assistência social",
+      "apoio comunitário",
       "cras"
     ],
-    "summary_guidance": "CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.",
+    "summary_guidance": "O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.",
     "reference": "https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social",
     "verification_date": "2026-11-16",
-    "confirmation_warning": "Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.",
+    "confirmation_warning": "Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.",
     "related_ids": [
       "C03",
       "C04",
