@@ -79,10 +79,11 @@ class GuidanceTests(unittest.TestCase):
             agent = CitizenAgent(self.memory, log_path=path)
             agent.handle("My CPF is 123.456.789-00 and email is alice@example.com")
             logged = path.read_text(encoding="utf-8")
-            self.assertNotIn("123", logged)
+            self.assertNotIn("123.456.789-00", logged)
             self.assertNotIn("alice", logged)
             self.assertNotIn("example.com", logged)
             event = json.loads(logged)
+            self.assertFalse(any(term.isdigit() for term in event["query"]["known_terms"]))
             for field in ("query", "matched_records", "template", "latency_ms", "status"):
                 self.assertIn(field, event)
 
