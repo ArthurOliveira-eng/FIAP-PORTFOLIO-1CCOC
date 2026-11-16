@@ -1,4 +1,3 @@
 Citizen Assist AI
 Public repository: https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC
-YouTube video (Unlisted): PENDING - upload the actual demonstration and insert its verified URL.
-Submission status: INCOMPLETE until the video URL and team/RMs are supplied.
+YouTube video (Unlisted): upload the actual demonstration and insert its verified URL.
