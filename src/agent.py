@@ -71,22 +71,25 @@ class CitizenAgent:
         text = generate_response(result, self.memory, self.template)
         latency_ms = (perf_counter() - started) * 1000
         record_ids = tuple(record["id"] for record in result.records)
-        # Only a controlled vocabulary is retained. No raw queries, hashes,
-        # names, e-mails, document numbers, or credentials are written to disk.
+        log_error = self._write_log(raw_input, result.status, record_ids, latency_ms)
+        return Answer(result.status, record_ids, text, latency_ms, self.current_theme, log_error)
+
+    def _write_log(self, raw_input, status, record_ids, latency_ms):
+        """Save operational metadata without persisting the original query."""
+        if self.log_path is None:
+            return None
         query = raw_input if isinstance(raw_input, str) else ""
         event = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "query": {"length": len(query), "known_terms": sorted(tokens(query) & self.vocabulary)},
-            "status": result.status, "matched_records": list(record_ids),
+            "status": status, "matched_records": list(record_ids),
             "template": self.template, "theme": self.current_theme,
             "latency_ms": round(latency_ms, 6),
         }
-        log_error = None
-        if self.log_path is not None:
-            try:
-                self.log_path.parent.mkdir(parents=True, exist_ok=True)
-                with self.log_path.open("a", encoding="utf-8") as output:
-                    output.write(json.dumps(event, ensure_ascii=False) + "\n")
-            except OSError as exc:
-                log_error = f"Telemetry could not be saved ({type(exc).__name__}); guidance remains available."
-        return Answer(result.status, record_ids, text, latency_ms, self.current_theme, log_error)
+        try:
+            self.log_path.parent.mkdir(parents=True, exist_ok=True)
+            with self.log_path.open("a", encoding="utf-8") as output:
+                output.write(json.dumps(event, ensure_ascii=False) + "\n")
+        except OSError as exc:
+            return f"Telemetry could not be saved ({type(exc).__name__}); guidance remains available."
+        return None

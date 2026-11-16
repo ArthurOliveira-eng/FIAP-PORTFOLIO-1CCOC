@@ -105,9 +105,13 @@ def save_record(path, record, *, replace=False):
     if replace != exists:
         action = "already exists; use replace=True" if exists else "does not exist for replacement"
         raise KnowledgeBaseError(f"Record {action}.")
-    records = [
-        record if item["id"] == record.get("id") else item for item in memory.records
-    ] if replace else memory.records + [record]
+    if replace:
+        records = [
+            record if item["id"] == record["id"] else item
+            for item in memory.records
+        ]
+    else:
+        records = memory.records + [record]
     validate_records(records)
     temporary = None
     try:

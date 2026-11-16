@@ -44,6 +44,18 @@ def tokens(text):
     return {SYNONYMS.get(word, word) for word in normalize(text).split() if word not in STOP_WORDS}
 
 
+def score_record(record, query_tokens):
+    """Combine query coverage with a bonus for a complete keyword phrase."""
+    aliases = [tokens(keyword) for keyword in record["keywords"]]
+    document_tokens = tokens(record["question"]) | set().union(*aliases)
+    coverage = len(query_tokens & document_tokens) / len(query_tokens)
+    # A broad single word does not earn the phrase bonus.
+    phrase_bonus = 0.20 if any(
+        len(alias) >= 2 and alias <= query_tokens for alias in aliases
+    ) else 0.0
+    return coverage + phrase_bonus
+
+
 @dataclass(frozen=True)
 class SearchResult:
     status: str
@@ -71,16 +83,7 @@ def search(memory, question="", theme=None):
     records = memory.by_theme[theme] if theme else memory.records
     ranked = []
     for record in records:
-        aliases = [tokens(keyword) for keyword in record["keywords"]]
-        document_tokens = tokens(record["question"]) | set().union(*aliases)
-        overlap = query_tokens & document_tokens
-        coverage = len(overlap) / len(query_tokens)
-        # Reward a complete, specific phrase; never let a single broad token
-        # dominate a detailed question with mostly unsupported vocabulary.
-        phrase_bonus = 0.20 if any(
-            len(alias) >= 2 and alias <= query_tokens for alias in aliases
-        ) else 0.0
-        score = coverage + phrase_bonus
+        score = score_record(record, query_tokens)
         if score >= MIN_SCORE:
             ranked.append((score, record["id"], record))
     ranked.sort(key=lambda item: (-item[0], item[1]))
