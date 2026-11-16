@@ -13,7 +13,7 @@ An independent, textual citizen-guidance prototype for Brazilian public services
 | Public repository | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
 | YouTube demonstration (Unlisted) | Pending upload by the team; no fabricated link |
 
-The prototype, evaluation runner, task scripts, and video generator are implemented. Submission is incomplete until the actual team/RMs and a working Unlisted YouTube URL are supplied. Local execution must be performed on a machine with Python; a GitHub Actions run is labeled separately and is not evidence of local execution.
+The prototype, evaluation runner, task scripts, and video generator are implemented. Submission is incomplete until the actual team/RMs and a working Unlisted YouTube URL are supplied. Local execution has been verified on Windows with Python 3.14; see [local validation](docs/local_validation.md). GitHub Actions results are labeled separately.
 
 ## 2. Problem, audience, and themes
 
@@ -61,12 +61,12 @@ The evaluation fixture contains 31 cases: all 15 records, rephrased questions, n
 Accuracy = correct / total. Query time uses perf_counter around a full agent handle call with the knowledge base already loaded and telemetry disabled; template file loading/rendering is included. Latency varies by hardware, cache state, and filesystem. CI and local results must not be compared as if environments were identical.
 
 <!-- METRICS:START -->
-Executed in **github-actions**, Python 3.12.16, at 2026-11-16T23:05:46.577314+00:00.
+Executed in **local**, Python 3.14.10, at 2026-11-16T23:19:49.066175+00:00.
 
 | Template | Correct / total | Accuracy | Mean query time (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100.00% | 0.366866 |
-| template_b_v1 | 31 / 31 | 100.00% | 0.358788 |
+| template_a_v1 | 31 / 31 | 100.00% | 0.529052 |
+| template_b_v1 | 31 / 31 | 100.00% | 0.565581 |
 
 Each template runs the same independent cases. Latency excludes knowledge loading and telemetry I/O, and includes rendering. See tests/results.json and tests/results.csv for the full expected/obtained table.
 <!-- METRICS:END -->
@@ -103,7 +103,7 @@ python src/sistema.py --knowledge data/knowledge_base.json
 
 Commands: 1/2/3 select themes; a record ID (such as D02) opens guidance; related offers continuation; back clears the theme filter; help shows theme choices; quit or 0 exits. Free-text questions are filtered by the selected theme until back is used. Exact record IDs can cross themes, enabling related navigation.
 
-GitHub Actions executes the same tests on Python 3.12, records measured reports in the repository, and uploads a demonstration MP4 and evidence bundle. Video generation alone additionally requires FFmpeg and a DejaVu Sans Mono font in the documented Linux location. These optional tools are not application dependencies. Actions artifacts expire after 30 days; download the video and upload it to YouTube before submission.
+GitHub Actions executes the same tests on Python 3.12 and uploads measured reports, a demonstration MP4, and an evidence bundle as artifacts. The workflow has read-only repository access and never commits generated files. Video generation alone additionally requires FFmpeg and a DejaVu Sans Mono font in the documented Linux location. These optional tools are not application dependencies. Actions artifacts expire after 30 days; download the video and upload it to YouTube before submission.
 
 ## 7. Examples, sources, and invalid input
 
@@ -167,7 +167,7 @@ Prioritized improvements:
 | Accuracy, time, expected/obtained table | Generated results.json/.csv/.md and README metrics block |
 | Usability with task script | Eight tasks and generated usability_results.json |
 | AI-use and critical verification | docs/uso_ia.md; docs/source_review.md |
-| Local testing | Commands supplied; requires a working local Python execution environment |
+| Local testing | Verified on Windows / Python 3.14; see docs/local_validation.md |
 | Video / Unlisted YouTube | MP4 generator supplied; YouTube upload and actual URL still required |
 | Team/RMs and TXT submission | Fill missing member data and YouTube URL before submission |
 

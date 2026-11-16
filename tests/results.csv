@@ -3,97 +3,97 @@ Q01,direct,template_a_v1,"CIN overview, CPF as identifier, physical/digital form
 Related subjects:
   D02 - Where can I request a CIN and which certificates should I check?
   D03 - How do I apply for CPF registration?
-  S05 - How can I increase my gov.br level using the CIN?",correct,0.625114
+  S05 - How can I increase my gov.br level using the CIN?",correct,0.9597
 Q02,direct,template_a_v1,State civil-identification authority; check birth/marriage certificate.,match,['D02'],match,['D02'],"Answer: Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement. Source: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras Verified: 2026-11-16. Warning: Appointment channels and document requirements must be confirmed with the issuing authority.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   D01 - What is the CIN national identity card?
   S05 - How can I increase my gov.br level using the CIN?
-  D03 - How do I apply for CPF registration?",correct,0.515498
+  D03 - How do I apply for CPF registration?",correct,0.7919
 Q03,direct,template_a_v1,Use Receita Federal's registration service.,match,['D03'],match,['D03'],"Answer: Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant. Source: https://www.gov.br/pt-br/servicos/inscrever-no-cpf Verified: 2026-11-16. Warning: Check the current requirements and available channel for your circumstances on the official page.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   D04 - How can I consult my CPF registration status?
   S01 - How do I create a gov.br account?
-  C03 - Where do I start Cadastro Unico registration?",correct,0.456307
+  C03 - Where do I start Cadastro Unico registration?",correct,0.6329
 Q04,direct,template_a_v1,Consult Receita Federal's CPF registration status.,match,['D04'],match,['D04'],"Answer: Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record. Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verified: 2026-11-16. Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   D03 - How do I apply for CPF registration?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.47389
+  D01 - What is the CIN national identity card?",correct,0.5912
 Q05,direct,template_a_v1,Access official Work Card using gov.br.,match,['D05'],match,['D05'],"Answer: Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document. Source: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital Verified: 2026-11-16. Warning: Confirm the current access instructions with the Ministry of Labour; do not share employment records here.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S01 - How do I create a gov.br account?
   S02 - How do I recover my gov.br password?
-  D03 - How do I apply for CPF registration?",correct,0.483137
+  D03 - How do I apply for CPF registration?",correct,0.7399
 Q06,direct,template_a_v1,Create the account on the official website/app.,match,['S01'],match,['S01'],"Answer: Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels. Source: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico Verified: 2026-11-16. Warning: Provide identifying information only through the official gov.br service.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S02 - How do I recover my gov.br password?
   S03 - What are the gov.br account security levels?
-  D03 - How do I apply for CPF registration?",correct,0.450486
+  D03 - How do I apply for CPF registration?",correct,0.7309
 Q07,direct,template_a_v1,Use official password recovery.,match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.477476
+  D05 - How do I access the Digital Work Card?",correct,0.7929
 Q08,direct,template_a_v1,"Explain Bronze, Silver, Gold and official comparison.",match,['S03'],match,['S03'],"Answer: Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level. Source: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr Verified: 2026-11-16. Warning: The required level and available validation methods depend on the service and your account.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S05 - How can I increase my gov.br level using the CIN?
   S04 - How do I sign a document electronically with gov.br?
-  C01 - How can I make a consumer complaint online?",correct,0.452119
+  C01 - How can I make a consumer complaint online?",correct,0.6614
 Q09,direct,template_a_v1,Official electronic signature; Silver or Gold.,match,['S04'],match,['S04'],"Answer: Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal. Source: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst Verified: 2026-11-16. Warning: Confirm that the receiving organization accepts the relevant signature for your document.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S03 - What are the gov.br account security levels?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.447821
+  D01 - What is the CIN national identity card?",correct,0.7712
 Q10,direct,template_a_v1,Scan CIN QR and verify in gov.br; issuer data needed.,match,['S05'],match,['S05'],"Answer: After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin Verified: 2026-11-16. Warning: Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   D02 - Where can I request a CIN and which certificates should I check?
   S03 - What are the gov.br account security levels?
-  S04 - How do I sign a document electronically with gov.br?",correct,0.478258
+  S04 - How do I sign a document electronically with gov.br?",correct,0.6342
 Q11,direct,template_a_v1,Use Consumidor.gov.br; check coverage.,match,['C01'],match,['C01'],"Answer: Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Check whether the platform covers the company and issue; no outcome is guaranteed.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C02 - Which evidence should I prepare for a consumer complaint?
   S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?",correct,0.437651
+  S01 - How do I create a gov.br account?",correct,0.563
 Q12,direct,template_a_v1,Prepare purchase/service documentation.,match,['C02'],match,['C02'],"Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C01 - How can I make a consumer complaint online?
   S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.469271
+  C05 - Where can I access CRAS support?",correct,0.67
 Q13,direct,template_a_v1,Municipal registration office or CRAS; verify requirements.,match,['C03'],match,['C03'],"Answer: Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Confirm requirements and any special procedures locally. Registration does not guarantee benefit approval.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C04 - When should I update Cadastro Unico?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.445677
+  D03 - How do I apply for CPF registration?",correct,0.715
 Q14,direct,template_a_v1,Update every 24 months and when circumstances change.,match,['C04'],match,['C04'],"Answer: Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.440728
+  D03 - How do I apply for CPF registration?",correct,0.7744
 Q15,direct,template_a_v1,CRAS basic social-assistance guidance; local details vary.,match,['C05'],match,['C05'],"Answer: CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements. Source: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social Verified: 2026-11-16. Warning: Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C04 - When should I update Cadastro Unico?
-  D03 - How do I apply for CPF registration?",correct,0.464873
+  D03 - How do I apply for CPF registration?",correct,0.6199
 Q16,rephrased,template_a_v1,"Use password recovery, not account creation.",match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.441529
+  D05 - How do I access the Digital Work Card?",correct,0.6605
 Q17,rephrased,template_a_v1,Prepare evidence on the official platform.,match,['C02'],match,['C02'],"Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C01 - How can I make a consumer complaint online?
   S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.480532
+  C05 - Where can I access CRAS support?",correct,0.6999
 Q18,rephrased,template_a_v1,Update municipal registry when residence changes.,match,['C04'],match,['C04'],"Answer: Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.459823
+  D03 - How do I apply for CPF registration?",correct,0.5463
 Q19,rephrased,template_a_v1,Consult CPF registration status.,match,['D04'],match,['D04'],"Answer: Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record. Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verified: 2026-11-16. Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   D03 - How do I apply for CPF registration?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.439435
+  D01 - What is the CIN national identity card?",correct,0.5789
 Q20,limitation_empty,template_a_v1,Ask for a question or theme; no invented guidance.,empty,[],empty,[],"Enter a question or choose a theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -102,12 +102,12 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.034795
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0245
 Q21,limitation_ambiguous,template_a_v1,Offer CPF registration and status choices.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","That query may refer to different subjects. Choose a record ID or add details.
   D03 - How do I apply for CPF registration?
   D04 - How can I consult my CPF registration status?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.423826
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4163
 Q22,out_of_scope,template_a_v1,No reliable information in base; show alternatives.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -116,7 +116,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.399911
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.417
 Q23,invalid_option,template_a_v1,Explain invalid menu choice and offer themes.,invalid_option,[],invalid_option,[],"Invalid menu option. Choose an available theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -125,7 +125,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.029846
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0138
 Q24,limitation_empty,template_a_v1,Whitespace input is empty.,empty,[],empty,[],"Enter a question or choose a theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -134,12 +134,12 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.028804
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0216
 Q25,limitation_ambiguous,template_a_v1,Ask whether creation or security levels are intended.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","That query may refer to different subjects. Choose a record ID or add details.
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.398758
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4187
 Q26,guardrail,template_a_v1,Refuse instruction override and cite no invented source.,no_match,[],no_match,[],"I can only return stored guidance with its source.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -148,7 +148,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.065643
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0308
 Q27,menu,template_a_v1,List Documents records and allow ID selection.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Choose a record ID, or ask a more specific question.
   D01 - What is the CIN national identity card?
   D02 - Where can I request a CIN and which certificates should I check?
@@ -156,12 +156,12 @@ Q27,menu,template_a_v1,List Documents records and allow ID selection.,browse,"['
   D04 - How can I consult my CPF registration status?
   D05 - How do I access the Digital Work Card?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.030427
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.023
 Q28,normalization,template_a_v1,Case and punctuation do not change retrieval.,match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.498346
+  D05 - How do I access the Digital Work Card?",correct,1.3401
 Q29,out_of_scope,template_a_v1,Do not decide benefit eligibility or amounts.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -170,7 +170,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.409028
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4686
 Q30,invalid_input,template_a_v1,Reject overlong input.,invalid_input,[],invalid_input,[],"Use at most 500 characters.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -179,7 +179,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.083527
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0642
 Q31,limitation_empty,template_a_v1,Punctuation is not an informative query.,empty,[],empty,[],"Enter a question containing words, or choose a theme.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -188,7 +188,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.030316
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0279
 Q01,direct,template_b_v1,"CIN overview, CPF as identifier, physical/digital formats.",match,['D01'],match,['D01'],"Answer: What is the CIN national identity card?
 The CIN is Brazil's national identity card and uses the CPF as its unique identification number. It is available in physical and digital formats.
 
@@ -202,7 +202,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D02 - Where can I request a CIN and which certificates should I check?
   D03 - How do I apply for CPF registration?
-  S05 - How can I increase my gov.br level using the CIN?",correct,0.496583
+  S05 - How can I increase my gov.br level using the CIN?",correct,0.8148
 Q02,direct,template_b_v1,State civil-identification authority; check birth/marriage certificate.,match,['D02'],match,['D02'],"Answer: Where can I request a CIN and which certificates should I check?
 Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.
 
@@ -216,7 +216,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D01 - What is the CIN national identity card?
   S05 - How can I increase my gov.br level using the CIN?
-  D03 - How do I apply for CPF registration?",correct,0.48459
+  D03 - How do I apply for CPF registration?",correct,0.8196
 Q03,direct,template_b_v1,Use Receita Federal's registration service.,match,['D03'],match,['D03'],"Answer: How do I apply for CPF registration?
 Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant.
 
@@ -230,7 +230,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D04 - How can I consult my CPF registration status?
   S01 - How do I create a gov.br account?
-  C03 - Where do I start Cadastro Unico registration?",correct,0.444655
+  C03 - Where do I start Cadastro Unico registration?",correct,0.7923
 Q04,direct,template_b_v1,Consult Receita Federal's CPF registration status.,match,['D04'],match,['D04'],"Answer: How can I consult my CPF registration status?
 Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.
 
@@ -244,7 +244,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D03 - How do I apply for CPF registration?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.465844
+  D01 - What is the CIN national identity card?",correct,0.782
 Q05,direct,template_b_v1,Access official Work Card using gov.br.,match,['D05'],match,['D05'],"Answer: How do I access the Digital Work Card?
 Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document.
 
@@ -258,7 +258,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S01 - How do I create a gov.br account?
   S02 - How do I recover my gov.br password?
-  D03 - How do I apply for CPF registration?",correct,0.438804
+  D03 - How do I apply for CPF registration?",correct,0.8697
 Q06,direct,template_b_v1,Create the account on the official website/app.,match,['S01'],match,['S01'],"Answer: How do I create a gov.br account?
 Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels.
 
@@ -272,7 +272,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S02 - How do I recover my gov.br password?
   S03 - What are the gov.br account security levels?
-  D03 - How do I apply for CPF registration?",correct,0.462479
+  D03 - How do I apply for CPF registration?",correct,0.9367
 Q07,direct,template_b_v1,Use official password recovery.,match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
 Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
 
@@ -286,7 +286,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.473589
+  D05 - How do I access the Digital Work Card?",correct,0.7153
 Q08,direct,template_b_v1,"Explain Bronze, Silver, Gold and official comparison.",match,['S03'],match,['S03'],"Answer: What are the gov.br account security levels?
 Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level.
 
@@ -300,7 +300,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S05 - How can I increase my gov.br level using the CIN?
   S04 - How do I sign a document electronically with gov.br?
-  C01 - How can I make a consumer complaint online?",correct,0.46855
+  C01 - How can I make a consumer complaint online?",correct,0.5813
 Q09,direct,template_b_v1,Official electronic signature; Silver or Gold.,match,['S04'],match,['S04'],"Answer: How do I sign a document electronically with gov.br?
 Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal.
 
@@ -314,7 +314,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S03 - What are the gov.br account security levels?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.461306
+  D01 - What is the CIN national identity card?",correct,0.8416
 Q10,direct,template_b_v1,Scan CIN QR and verify in gov.br; issuer data needed.,match,['S05'],match,['S05'],"Answer: How can I increase my gov.br level using the CIN?
 After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data.
 
@@ -328,7 +328,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D02 - Where can I request a CIN and which certificates should I check?
   S03 - What are the gov.br account security levels?
-  S04 - How do I sign a document electronically with gov.br?",correct,0.473359
+  S04 - How do I sign a document electronically with gov.br?",correct,0.7238
 Q11,direct,template_b_v1,Use Consumidor.gov.br; check coverage.,match,['C01'],match,['C01'],"Answer: How can I make a consumer complaint online?
 Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account.
 
@@ -342,7 +342,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C02 - Which evidence should I prepare for a consumer complaint?
   S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?",correct,0.451237
+  S01 - How do I create a gov.br account?",correct,0.7974
 Q12,direct,template_b_v1,Prepare purchase/service documentation.,match,['C02'],match,['C02'],"Answer: Which evidence should I prepare for a consumer complaint?
 Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.
 
@@ -356,7 +356,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C01 - How can I make a consumer complaint online?
   S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.482426
+  C05 - Where can I access CRAS support?",correct,0.7675
 Q13,direct,template_b_v1,Municipal registration office or CRAS; verify requirements.,match,['C03'],match,['C03'],"Answer: Where do I start Cadastro Unico registration?
 Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available.
 
@@ -370,7 +370,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C04 - When should I update Cadastro Unico?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.445617
+  D03 - How do I apply for CPF registration?",correct,0.8792
 Q14,direct,template_b_v1,Update every 24 months and when circumstances change.,match,['C04'],match,['C04'],"Answer: When should I update Cadastro Unico?
 Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.
 
@@ -384,7 +384,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.45783
+  D03 - How do I apply for CPF registration?",correct,0.7815
 Q15,direct,template_b_v1,CRAS basic social-assistance guidance; local details vary.,match,['C05'],match,['C05'],"Answer: Where can I access CRAS support?
 CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.
 
@@ -398,7 +398,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C04 - When should I update Cadastro Unico?
-  D03 - How do I apply for CPF registration?",correct,0.474711
+  D03 - How do I apply for CPF registration?",correct,0.6956
 Q16,rephrased,template_b_v1,"Use password recovery, not account creation.",match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
 Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
 
@@ -412,7 +412,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.444785
+  D05 - How do I access the Digital Work Card?",correct,0.7056
 Q17,rephrased,template_b_v1,Prepare evidence on the official platform.,match,['C02'],match,['C02'],"Answer: Which evidence should I prepare for a consumer complaint?
 Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.
 
@@ -426,7 +426,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C01 - How can I make a consumer complaint online?
   S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.467077
+  C05 - Where can I access CRAS support?",correct,0.6993
 Q18,rephrased,template_b_v1,Update municipal registry when residence changes.,match,['C04'],match,['C04'],"Answer: When should I update Cadastro Unico?
 Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.
 
@@ -440,7 +440,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   C03 - Where do I start Cadastro Unico registration?
   C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.459674
+  D03 - How do I apply for CPF registration?",correct,0.7584
 Q19,rephrased,template_b_v1,Consult CPF registration status.,match,['D04'],match,['D04'],"Answer: How can I consult my CPF registration status?
 Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.
 
@@ -454,7 +454,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   D03 - How do I apply for CPF registration?
   S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.428966
+  D01 - What is the CIN national identity card?",correct,1.0347
 Q20,limitation_empty,template_b_v1,Ask for a question or theme; no invented guidance.,empty,[],empty,[],"Enter a question or choose a theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -463,12 +463,12 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.033753
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.024
 Q21,limitation_ambiguous,template_b_v1,Offer CPF registration and status choices.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","That query may refer to different subjects. Choose a record ID or add details.
   D03 - How do I apply for CPF registration?
   D04 - How can I consult my CPF registration status?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.374924
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4049
 Q22,out_of_scope,template_b_v1,No reliable information in base; show alternatives.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -477,7 +477,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.396043
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4222
 Q23,invalid_option,template_b_v1,Explain invalid menu choice and offer themes.,invalid_option,[],invalid_option,[],"Invalid menu option. Choose an available theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -486,7 +486,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.024566
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0112
 Q24,limitation_empty,template_b_v1,Whitespace input is empty.,empty,[],empty,[],"Enter a question or choose a theme number.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -495,12 +495,12 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.028354
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0177
 Q25,limitation_ambiguous,template_b_v1,Ask whether creation or security levels are intended.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","That query may refer to different subjects. Choose a record ID or add details.
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.393679
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4182
 Q26,guardrail,template_b_v1,Refuse instruction override and cite no invented source.,no_match,[],no_match,[],"I can only return stored guidance with its source.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -509,7 +509,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.060033
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0279
 Q27,menu,template_b_v1,List Documents records and allow ID selection.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Choose a record ID, or ask a more specific question.
   D01 - What is the CIN national identity card?
   D02 - Where can I request a CIN and which certificates should I check?
@@ -517,7 +517,7 @@ Q27,menu,template_b_v1,List Documents records and allow ID selection.,browse,"['
   D04 - How can I consult my CPF registration status?
   D05 - How do I access the Digital Work Card?
 Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.028964
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0149
 Q28,normalization,template_b_v1,Case and punctuation do not change retrieval.,match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
 Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
 
@@ -531,7 +531,7 @@ Independent educational prototype; not an official public agency channel. Do not
 Related subjects:
   S01 - How do I create a gov.br account?
   S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.480482
+  D05 - How do I access the Digital Work Card?",correct,0.691
 Q29,out_of_scope,template_b_v1,Do not decide benefit eligibility or amounts.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -540,7 +540,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.409659
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4204
 Q30,invalid_input,template_b_v1,Reject overlong input.,invalid_input,[],invalid_input,[],"Use at most 500 characters.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -549,7 +549,7 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.081012
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0638
 Q31,limitation_empty,template_b_v1,Punctuation is not an informative query.,empty,[],empty,[],"Enter a question containing words, or choose a theme.
 Source: none consulted; no guidance has been generated.
 Available themes:
@@ -558,4 +558,4 @@ Available themes:
   3. Community support
 Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
 Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.028864
+Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0205
