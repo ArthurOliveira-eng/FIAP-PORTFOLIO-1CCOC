@@ -1,30 +1,30 @@
 {
-  "method": "Structural clarity proxies on the same questions; not a human preference study.",
+  "method": "Indicadores estruturais de clareza nas mesmas perguntas; não é um estudo de preferência humana.",
   "templates": {
     "template_a_v1": {
       "matched_answers": 20,
       "source_and_warning_rate": 1,
-      "mean_answer_characters": 871.55,
-      "mean_longest_line_characters": 705.7,
+      "mean_answer_characters": 915.35,
+      "mean_longest_line_characters": 744,
       "separate_source_line_rate": 0
     },
     "template_b_v1": {
       "matched_answers": 20,
       "source_and_warning_rate": 1,
-      "mean_answer_characters": 928.5,
-      "mean_longest_line_characters": 176.65,
+      "mean_answer_characters": 972.35,
+      "mean_longest_line_characters": 190.2,
       "separate_source_line_rate": 1
     }
   },
   "selected_template": "template_b_v1",
-  "justification": "Template B separates answer, source, warning, limitation, and navigation. Template A is compact but puts important fields into a long paragraph. Both use identical retrieved facts; these proxies do not prove real-world usability.",
+  "justification": "O modelo B separa resposta, fonte, aviso, limitação e navegação. O modelo A é compacto, mas reúne campos importantes em um parágrafo longo. Ambos usam os mesmos fatos recuperados; estes indicadores não comprovam usabilidade real.",
   "examples": [
     {
       "id": "Q07",
-      "category": "direct",
-      "input": "How do I recover my gov.br password?",
+      "category": "direta",
+      "input": "Como recuperar a senha da conta gov.br?",
       "template": "template_a_v1",
-      "expected_answer": "Use official password recovery.",
+      "expected_answer": "Utilizar a recuperação oficial de senha.",
       "expected_status": "match",
       "expected_ids": [
         "S02"
@@ -33,22 +33,22 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\nRelated subjects:\n  S01 - How do I create a gov.br account?\n  S03 - What are the gov.br account security levels?\n  D05 - How do I access the Digital Work Card?",
-      "classification": "correct",
+      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.7929
+      "query_time_ms": 0.6457
     },
     {
       "id": "Q12",
-      "category": "direct",
-      "input": "Which evidence should I prepare for a consumer complaint?",
+      "category": "direta",
+      "input": "Quais comprovantes preparar para uma reclamação de consumidor?",
       "template": "template_a_v1",
-      "expected_answer": "Prepare purchase/service documentation.",
+      "expected_answer": "Preparar os comprovantes da compra ou do serviço.",
       "expected_status": "match",
       "expected_ids": [
         "C02"
@@ -57,42 +57,42 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\nRelated subjects:\n  C01 - How can I make a consumer complaint online?\n  S03 - What are the gov.br account security levels?\n  C05 - Where can I access CRAS support?",
-      "classification": "correct",
+      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.67
+      "query_time_ms": 0.6269
     },
     {
       "id": "Q22",
-      "category": "out_of_scope",
-      "input": "How do I obtain a Canadian driving licence?",
+      "category": "fora_do_escopo",
+      "input": "Como obter uma carteira de motorista canadense?",
       "template": "template_a_v1",
-      "expected_answer": "No reliable information in base; show alternatives.",
+      "expected_answer": "Informar a ausência de resposta confiável e mostrar alternativas.",
       "expected_status": "no_match",
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "No reliable answer to that question is stored in the base.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",
-      "classification": "correct",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.417
+      "query_time_ms": 0.4793
     },
     {
       "id": "Q07",
-      "category": "direct",
-      "input": "How do I recover my gov.br password?",
+      "category": "direta",
+      "input": "Como recuperar a senha da conta gov.br?",
       "template": "template_b_v1",
-      "expected_answer": "Use official password recovery.",
+      "expected_answer": "Utilizar a recuperação oficial de senha.",
       "expected_status": "match",
       "expected_ids": [
         "S02"
@@ -101,22 +101,22 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Answer: How do I recover my gov.br password?\nUse 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.\n\nSource: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerified: 2026-11-16\nWarning: Available recovery methods vary. Never send passwords or verification codes to this assistant.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  S01 - How do I create a gov.br account?\n  S03 - What are the gov.br account security levels?\n  D05 - How do I access the Digital Work Card?",
-      "classification": "correct",
+      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerificação: 2026-11-16\nAviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.7153
+      "query_time_ms": 0.7542
     },
     {
       "id": "Q12",
-      "category": "direct",
-      "input": "Which evidence should I prepare for a consumer complaint?",
+      "category": "direta",
+      "input": "Quais comprovantes preparar para uma reclamação de consumidor?",
       "template": "template_b_v1",
-      "expected_answer": "Prepare purchase/service documentation.",
+      "expected_answer": "Preparar os comprovantes da compra ou do serviço.",
       "expected_status": "match",
       "expected_ids": [
         "C02"
@@ -125,35 +125,35 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Answer: Which evidence should I prepare for a consumer complaint?\nPrepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.\n\nSource: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerified: 2026-11-16\nWarning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  C01 - How can I make a consumer complaint online?\n  S03 - What are the gov.br account security levels?\n  C05 - Where can I access CRAS support?",
-      "classification": "correct",
+      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerificação: 2026-11-16\nAviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.7675
+      "query_time_ms": 0.6586
     },
     {
       "id": "Q22",
-      "category": "out_of_scope",
-      "input": "How do I obtain a Canadian driving licence?",
+      "category": "fora_do_escopo",
+      "input": "Como obter uma carteira de motorista canadense?",
       "template": "template_b_v1",
-      "expected_answer": "No reliable information in base; show alternatives.",
+      "expected_answer": "Informar a ausência de resposta confiável e mostrar alternativas.",
       "expected_status": "no_match",
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "No reliable answer to that question is stored in the base.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",
-      "classification": "correct",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "classification": "correta",
       "correct": true,
       "checks": {
         "ids": true,
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.4222
+      "query_time_ms": 0.4686
     }
   ]
 }

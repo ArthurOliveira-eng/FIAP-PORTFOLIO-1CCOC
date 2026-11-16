@@ -1,561 +1,561 @@
 id,category,template,expected_answer,expected_status,expected_ids,obtained_status,obtained_ids,obtained_answer,classification,query_time_ms
-Q01,direct,template_a_v1,"CIN overview, CPF as identifier, physical/digital formats.",match,['D01'],match,['D01'],"Answer: The CIN is Brazil's national identity card and uses the CPF as its unique identification number. It is available in physical and digital formats. Source: https://www.gov.br/governodigital/pt-br/identidade/cin Verified: 2026-11-16. Warning: Confirm the current issuing arrangements with your state's identification authority.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D02 - Where can I request a CIN and which certificates should I check?
-  D03 - How do I apply for CPF registration?
-  S05 - How can I increase my gov.br level using the CIN?",correct,0.9597
-Q02,direct,template_a_v1,State civil-identification authority; check birth/marriage certificate.,match,['D02'],match,['D02'],"Answer: Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement. Source: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras Verified: 2026-11-16. Warning: Appointment channels and document requirements must be confirmed with the issuing authority.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D01 - What is the CIN national identity card?
-  S05 - How can I increase my gov.br level using the CIN?
-  D03 - How do I apply for CPF registration?",correct,0.7919
-Q03,direct,template_a_v1,Use Receita Federal's registration service.,match,['D03'],match,['D03'],"Answer: Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant. Source: https://www.gov.br/pt-br/servicos/inscrever-no-cpf Verified: 2026-11-16. Warning: Check the current requirements and available channel for your circumstances on the official page.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D04 - How can I consult my CPF registration status?
-  S01 - How do I create a gov.br account?
-  C03 - Where do I start Cadastro Unico registration?",correct,0.6329
-Q04,direct,template_a_v1,Consult Receita Federal's CPF registration status.,match,['D04'],match,['D04'],"Answer: Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record. Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verified: 2026-11-16. Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D03 - How do I apply for CPF registration?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.5912
-Q05,direct,template_a_v1,Access official Work Card using gov.br.,match,['D05'],match,['D05'],"Answer: Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document. Source: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital Verified: 2026-11-16. Warning: Confirm the current access instructions with the Ministry of Labour; do not share employment records here.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S02 - How do I recover my gov.br password?
-  D03 - How do I apply for CPF registration?",correct,0.7399
-Q06,direct,template_a_v1,Create the account on the official website/app.,match,['S01'],match,['S01'],"Answer: Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels. Source: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico Verified: 2026-11-16. Warning: Provide identifying information only through the official gov.br service.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S02 - How do I recover my gov.br password?
-  S03 - What are the gov.br account security levels?
-  D03 - How do I apply for CPF registration?",correct,0.7309
-Q07,direct,template_a_v1,Use official password recovery.,match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.7929
-Q08,direct,template_a_v1,"Explain Bronze, Silver, Gold and official comparison.",match,['S03'],match,['S03'],"Answer: Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level. Source: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr Verified: 2026-11-16. Warning: The required level and available validation methods depend on the service and your account.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S05 - How can I increase my gov.br level using the CIN?
-  S04 - How do I sign a document electronically with gov.br?
-  C01 - How can I make a consumer complaint online?",correct,0.6614
-Q09,direct,template_a_v1,Official electronic signature; Silver or Gold.,match,['S04'],match,['S04'],"Answer: Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal. Source: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst Verified: 2026-11-16. Warning: Confirm that the receiving organization accepts the relevant signature for your document.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.7712
-Q10,direct,template_a_v1,Scan CIN QR and verify in gov.br; issuer data needed.,match,['S05'],match,['S05'],"Answer: After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin Verified: 2026-11-16. Warning: Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D02 - Where can I request a CIN and which certificates should I check?
-  S03 - What are the gov.br account security levels?
-  S04 - How do I sign a document electronically with gov.br?",correct,0.6342
-Q11,direct,template_a_v1,Use Consumidor.gov.br; check coverage.,match,['C01'],match,['C01'],"Answer: Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Check whether the platform covers the company and issue; no outcome is guaranteed.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C02 - Which evidence should I prepare for a consumer complaint?
-  S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?",correct,0.563
-Q12,direct,template_a_v1,Prepare purchase/service documentation.,match,['C02'],match,['C02'],"Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C01 - How can I make a consumer complaint online?
-  S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.67
-Q13,direct,template_a_v1,Municipal registration office or CRAS; verify requirements.,match,['C03'],match,['C03'],"Answer: Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Confirm requirements and any special procedures locally. Registration does not guarantee benefit approval.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C04 - When should I update Cadastro Unico?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.715
-Q14,direct,template_a_v1,Update every 24 months and when circumstances change.,match,['C04'],match,['C04'],"Answer: Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.7744
-Q15,direct,template_a_v1,CRAS basic social-assistance guidance; local details vary.,match,['C05'],match,['C05'],"Answer: CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements. Source: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social Verified: 2026-11-16. Warning: Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C04 - When should I update Cadastro Unico?
-  D03 - How do I apply for CPF registration?",correct,0.6199
-Q16,rephrased,template_a_v1,"Use password recovery, not account creation.",match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.6605
-Q17,rephrased,template_a_v1,Prepare evidence on the official platform.,match,['C02'],match,['C02'],"Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C01 - How can I make a consumer complaint online?
-  S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.6999
-Q18,rephrased,template_a_v1,Update municipal registry when residence changes.,match,['C04'],match,['C04'],"Answer: Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office. Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verified: 2026-11-16. Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.5463
-Q19,rephrased,template_a_v1,Consult CPF registration status.,match,['D04'],match,['D04'],"Answer: Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record. Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verified: 2026-11-16. Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  D03 - How do I apply for CPF registration?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.5789
-Q20,limitation_empty,template_a_v1,Ask for a question or theme; no invented guidance.,empty,[],empty,[],"Enter a question or choose a theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0245
-Q21,limitation_ambiguous,template_a_v1,Offer CPF registration and status choices.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","That query may refer to different subjects. Choose a record ID or add details.
-  D03 - How do I apply for CPF registration?
-  D04 - How can I consult my CPF registration status?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4163
-Q22,out_of_scope,template_a_v1,No reliable information in base; show alternatives.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.417
-Q23,invalid_option,template_a_v1,Explain invalid menu choice and offer themes.,invalid_option,[],invalid_option,[],"Invalid menu option. Choose an available theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0138
-Q24,limitation_empty,template_a_v1,Whitespace input is empty.,empty,[],empty,[],"Enter a question or choose a theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0216
-Q25,limitation_ambiguous,template_a_v1,Ask whether creation or security levels are intended.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","That query may refer to different subjects. Choose a record ID or add details.
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4187
-Q26,guardrail,template_a_v1,Refuse instruction override and cite no invented source.,no_match,[],no_match,[],"I can only return stored guidance with its source.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0308
-Q27,menu,template_a_v1,List Documents records and allow ID selection.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Choose a record ID, or ask a more specific question.
-  D01 - What is the CIN national identity card?
-  D02 - Where can I request a CIN and which certificates should I check?
-  D03 - How do I apply for CPF registration?
-  D04 - How can I consult my CPF registration status?
-  D05 - How do I access the Digital Work Card?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.023
-Q28,normalization,template_a_v1,Case and punctuation do not change retrieval.,match,['S02'],match,['S02'],"Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,1.3401
-Q29,out_of_scope,template_a_v1,Do not decide benefit eligibility or amounts.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4686
-Q30,invalid_input,template_a_v1,Reject overlong input.,invalid_input,[],invalid_input,[],"Use at most 500 characters.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0642
-Q31,limitation_empty,template_a_v1,Punctuation is not an informative query.,empty,[],empty,[],"Enter a question containing words, or choose a theme.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0279
-Q01,direct,template_b_v1,"CIN overview, CPF as identifier, physical/digital formats.",match,['D01'],match,['D01'],"Answer: What is the CIN national identity card?
-The CIN is Brazil's national identity card and uses the CPF as its unique identification number. It is available in physical and digital formats.
+Q01,direta,template_a_v1,"Visão geral da CIN, CPF como identificador e formatos físico e digital.",match,['D01'],match,['D01'],"Resposta: A CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin Verificação: 2026-11-16. Aviso: Confirme as condições atuais de emissão com o órgão de identificação do seu estado.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  D03 - Como fazer a inscrição no CPF?
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?",correta,0.9688
+Q02,direta,template_a_v1,Órgão estadual de identificação civil; conferir certidão de nascimento ou casamento.,match,['D02'],match,['D02'],"Resposta: Solicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras Verificação: 2026-11-16. Aviso: Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?
+  D03 - Como fazer a inscrição no CPF?",correta,0.8135
+Q03,direta,template_a_v1,Utilizar o serviço de inscrição da Receita Federal.,match,['D03'],match,['D03'],"Resposta: Utilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente. Fonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf Verificação: 2026-11-16. Aviso: Confira os requisitos atuais e o canal disponível para sua situação na página oficial.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D04 - Como consultar a situação cadastral do CPF?
+  S01 - Como criar uma conta gov.br?
+  C03 - Onde iniciar a inscrição no Cadastro Único?",correta,0.697
+Q04,direta,template_a_v1,Consultar a situação cadastral do CPF na Receita Federal.,match,['D04'],match,['D04'],"Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verificação: 2026-11-16. Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D03 - Como fazer a inscrição no CPF?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.6769
+Q05,direta,template_a_v1,Acessar a Carteira de Trabalho Digital oficial com a conta gov.br.,match,['D05'],match,['D05'],"Resposta: Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade. Fonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital Verificação: 2026-11-16. Aviso: Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S02 - Como recuperar a senha da conta gov.br?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6195
+Q06,direta,template_a_v1,Criar a conta no site ou aplicativo oficial.,match,['S01'],match,['S01'],"Resposta: Crie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta. Fonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico Verificação: 2026-11-16. Aviso: Forneça informações de identificação somente pelo serviço oficial gov.br.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S02 - Como recuperar a senha da conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6673
+Q07,direta,template_a_v1,Utilizar a recuperação oficial de senha.,match,['S02'],match,['S02'],"Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.6457
+Q08,direta,template_a_v1,"Explicar os níveis Bronze, Prata e Ouro e indicar a comparação oficial.",match,['S03'],match,['S03'],"Resposta: As contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível. Fonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr Verificação: 2026-11-16. Aviso: O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?
+  S04 - Como assinar um documento eletronicamente com gov.br?
+  C01 - Como fazer uma reclamação de consumidor pela internet?",correta,0.6266
+Q09,direta,template_a_v1,Utilizar a assinatura eletrônica oficial com conta Prata ou Ouro.,match,['S04'],match,['S04'],"Resposta: Utilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura. Fonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst Verificação: 2026-11-16. Aviso: Confirme se a organização que receberá o documento aceita esse tipo de assinatura.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.7656
+Q10,direta,template_a_v1,Escanear o código QR da CIN no gov.br; depende dos dados enviados pelo emissor.,match,['S05'],match,['S05'],"Resposta: Após receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin Verificação: 2026-11-16. Aviso: O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S04 - Como assinar um documento eletronicamente com gov.br?",correta,0.6492
+Q11,direta,template_a_v1,Utilizar o Consumidor.gov.br e conferir a cobertura.,match,['C01'],match,['C01'],"Resposta: Consulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C02 - Quais comprovantes preparar para uma reclamação de consumidor?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S01 - Como criar uma conta gov.br?",correta,0.6366
+Q12,direta,template_a_v1,Preparar os comprovantes da compra ou do serviço.,match,['C02'],match,['C02'],"Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C01 - Como fazer uma reclamação de consumidor pela internet?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  C05 - Onde buscar atendimento do CRAS?",correta,0.6269
+Q13,direta,template_a_v1,Procurar um posto municipal ou CRAS e confirmar os requisitos.,match,['C03'],match,['C03'],"Resposta: Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C04 - Quando atualizar o Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6214
+Q14,direta,template_a_v1,Atualizar a cada 24 meses e quando as informações mudarem.,match,['C04'],match,['C04'],"Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6077
+Q15,direta,template_a_v1,Buscar orientação básica no CRAS; confirmar detalhes locais.,match,['C05'],match,['C05'],"Resposta: O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento. Fonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social Verificação: 2026-11-16. Aviso: Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C04 - Quando atualizar o Cadastro Único?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6025
+Q16,reformulada,template_a_v1,"Usar a recuperação de senha, não a criação de conta.",match,['S02'],match,['S02'],"Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.6223
+Q17,reformulada,template_a_v1,Preparar os comprovantes na plataforma oficial.,match,['C02'],match,['C02'],"Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C01 - Como fazer uma reclamação de consumidor pela internet?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  C05 - Onde buscar atendimento do CRAS?",correta,0.661
+Q18,reformulada,template_a_v1,Atualizar o cadastro municipal quando a residência mudar.,match,['C04'],match,['C04'],"Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.694
+Q19,reformulada,template_a_v1,Consultar a situação cadastral do CPF.,match,['D04'],match,['D04'],"Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verificação: 2026-11-16. Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  D03 - Como fazer a inscrição no CPF?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.6313
+Q20,limitação_vazia,template_a_v1,"Solicitar pergunta ou tema, sem inventar orientação.",empty,[],empty,[],"Digite uma pergunta ou escolha o número de um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0287
+Q21,limitação_ambígua,template_a_v1,Oferecer as opções de inscrição e situação cadastral.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.
+  D03 - Como fazer a inscrição no CPF?
+  D04 - Como consultar a situação cadastral do CPF?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4817
+Q22,fora_do_escopo,template_a_v1,Informar a ausência de resposta confiável e mostrar alternativas.,no_match,[],no_match,[],"Não há resposta confiável para essa pergunta na base.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4793
+Q23,opção_inválida,template_a_v1,Explicar a opção inválida e oferecer temas.,invalid_option,[],invalid_option,[],"Opção de menu inválida. Escolha o número de um tema disponível.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0134
+Q24,limitação_vazia,template_a_v1,Tratar uma entrada só com espaços como vazia.,empty,[],empty,[],"Digite uma pergunta ou escolha o número de um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0203
+Q25,limitação_ambígua,template_a_v1,Esclarecer se a intenção é criar conta ou consultar níveis.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4632
+Q26,salvaguarda,template_a_v1,Rejeitar a tentativa de sobrescrever instruções sem inventar fontes.,no_match,[],no_match,[],"Posso retornar apenas orientações armazenadas com sua fonte.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0434
+Q27,menu,template_a_v1,Listar os registros de Documentos e permitir seleção por ID.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Escolha um ID de registro ou faça uma pergunta mais específica.
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  D03 - Como fazer a inscrição no CPF?
+  D04 - Como consultar a situação cadastral do CPF?
+  D05 - Como acessar a Carteira de Trabalho Digital?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0149
+Q28,normalização,template_a_v1,Maiúsculas e pontuação não alteram a busca.,match,['S02'],match,['S02'],"Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.6407
+Q29,fora_do_escopo,template_a_v1,Não decidir a elegibilidade nem valores de benefícios.,no_match,[],no_match,[],"Não há resposta confiável para essa pergunta na base.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4867
+Q30,entrada_inválida,template_a_v1,Rejeitar uma entrada longa demais.,invalid_input,[],invalid_input,[],"Use no máximo 500 caracteres.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0581
+Q31,limitação_vazia,template_a_v1,Pontuação isolada não é uma consulta informativa.,empty,[],empty,[],"Digite uma pergunta contendo palavras ou escolha um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0246
+Q01,direta,template_b_v1,"Visão geral da CIN, CPF como identificador e formatos físico e digital.",match,['D01'],match,['D01'],"Resposta: O que é a Carteira de Identidade Nacional (CIN)?
+A CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital.
 
-Source: https://www.gov.br/governodigital/pt-br/identidade/cin
-Verified: 2026-11-16
-Warning: Confirm the current issuing arrangements with your state's identification authority.
+Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin
+Verificação: 2026-11-16
+Aviso: Confirme as condições atuais de emissão com o órgão de identificação do seu estado.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D02 - Where can I request a CIN and which certificates should I check?
-  D03 - How do I apply for CPF registration?
-  S05 - How can I increase my gov.br level using the CIN?",correct,0.8148
-Q02,direct,template_b_v1,State civil-identification authority; check birth/marriage certificate.,match,['D02'],match,['D02'],"Answer: Where can I request a CIN and which certificates should I check?
-Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.
+Assuntos relacionados:
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  D03 - Como fazer a inscrição no CPF?
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?",correta,0.692
+Q02,direta,template_b_v1,Órgão estadual de identificação civil; conferir certidão de nascimento ou casamento.,match,['D02'],match,['D02'],"Resposta: Onde solicitar a CIN e quais certidões devo conferir?
+Solicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento.
 
-Source: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras
-Verified: 2026-11-16
-Warning: Appointment channels and document requirements must be confirmed with the issuing authority.
+Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras
+Verificação: 2026-11-16
+Aviso: Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D01 - What is the CIN national identity card?
-  S05 - How can I increase my gov.br level using the CIN?
-  D03 - How do I apply for CPF registration?",correct,0.8196
-Q03,direct,template_b_v1,Use Receita Federal's registration service.,match,['D03'],match,['D03'],"Answer: How do I apply for CPF registration?
-Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant.
+Assuntos relacionados:
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?
+  D03 - Como fazer a inscrição no CPF?",correta,0.8703
+Q03,direta,template_b_v1,Utilizar o serviço de inscrição da Receita Federal.,match,['D03'],match,['D03'],"Resposta: Como fazer a inscrição no CPF?
+Utilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente.
 
-Source: https://www.gov.br/pt-br/servicos/inscrever-no-cpf
-Verified: 2026-11-16
-Warning: Check the current requirements and available channel for your circumstances on the official page.
+Fonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf
+Verificação: 2026-11-16
+Aviso: Confira os requisitos atuais e o canal disponível para sua situação na página oficial.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D04 - How can I consult my CPF registration status?
-  S01 - How do I create a gov.br account?
-  C03 - Where do I start Cadastro Unico registration?",correct,0.7923
-Q04,direct,template_b_v1,Consult Receita Federal's CPF registration status.,match,['D04'],match,['D04'],"Answer: How can I consult my CPF registration status?
-Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.
+Assuntos relacionados:
+  D04 - Como consultar a situação cadastral do CPF?
+  S01 - Como criar uma conta gov.br?
+  C03 - Onde iniciar a inscrição no Cadastro Único?",correta,0.8831
+Q04,direta,template_b_v1,Consultar a situação cadastral do CPF na Receita Federal.,match,['D04'],match,['D04'],"Resposta: Como consultar a situação cadastral do CPF?
+Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.
 
-Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico
-Verified: 2026-11-16
-Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.
+Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico
+Verificação: 2026-11-16
+Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D03 - How do I apply for CPF registration?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.782
-Q05,direct,template_b_v1,Access official Work Card using gov.br.,match,['D05'],match,['D05'],"Answer: How do I access the Digital Work Card?
-Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document.
+Assuntos relacionados:
+  D03 - Como fazer a inscrição no CPF?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.6879
+Q05,direta,template_b_v1,Acessar a Carteira de Trabalho Digital oficial com a conta gov.br.,match,['D05'],match,['D05'],"Resposta: Como acessar a Carteira de Trabalho Digital?
+Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.
 
-Source: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital
-Verified: 2026-11-16
-Warning: Confirm the current access instructions with the Ministry of Labour; do not share employment records here.
+Fonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital
+Verificação: 2026-11-16
+Aviso: Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S02 - How do I recover my gov.br password?
-  D03 - How do I apply for CPF registration?",correct,0.8697
-Q06,direct,template_b_v1,Create the account on the official website/app.,match,['S01'],match,['S01'],"Answer: How do I create a gov.br account?
-Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S02 - Como recuperar a senha da conta gov.br?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6281
+Q06,direta,template_b_v1,Criar a conta no site ou aplicativo oficial.,match,['S01'],match,['S01'],"Resposta: Como criar uma conta gov.br?
+Crie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta.
 
-Source: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico
-Verified: 2026-11-16
-Warning: Provide identifying information only through the official gov.br service.
+Fonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico
+Verificação: 2026-11-16
+Aviso: Forneça informações de identificação somente pelo serviço oficial gov.br.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S02 - How do I recover my gov.br password?
-  S03 - What are the gov.br account security levels?
-  D03 - How do I apply for CPF registration?",correct,0.9367
-Q07,direct,template_b_v1,Use official password recovery.,match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
-Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
+Assuntos relacionados:
+  S02 - Como recuperar a senha da conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6799
+Q07,direta,template_b_v1,Utilizar a recuperação oficial de senha.,match,['S02'],match,['S02'],"Resposta: Como recuperar a senha da conta gov.br?
+Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.
 
-Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
-Verified: 2026-11-16
-Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.
+Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
+Verificação: 2026-11-16
+Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.7153
-Q08,direct,template_b_v1,"Explain Bronze, Silver, Gold and official comparison.",match,['S03'],match,['S03'],"Answer: What are the gov.br account security levels?
-Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.7542
+Q08,direta,template_b_v1,"Explicar os níveis Bronze, Prata e Ouro e indicar a comparação oficial.",match,['S03'],match,['S03'],"Resposta: Quais são os níveis de segurança da conta gov.br?
+As contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível.
 
-Source: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr
-Verified: 2026-11-16
-Warning: The required level and available validation methods depend on the service and your account.
+Fonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr
+Verificação: 2026-11-16
+Aviso: O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S05 - How can I increase my gov.br level using the CIN?
-  S04 - How do I sign a document electronically with gov.br?
-  C01 - How can I make a consumer complaint online?",correct,0.5813
-Q09,direct,template_b_v1,Official electronic signature; Silver or Gold.,match,['S04'],match,['S04'],"Answer: How do I sign a document electronically with gov.br?
-Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal.
+Assuntos relacionados:
+  S05 - Como aumentar o nível da conta gov.br usando a CIN?
+  S04 - Como assinar um documento eletronicamente com gov.br?
+  C01 - Como fazer uma reclamação de consumidor pela internet?",correta,0.6893
+Q09,direta,template_b_v1,Utilizar a assinatura eletrônica oficial com conta Prata ou Ouro.,match,['S04'],match,['S04'],"Resposta: Como assinar um documento eletronicamente com gov.br?
+Utilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura.
 
-Source: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst
-Verified: 2026-11-16
-Warning: Confirm that the receiving organization accepts the relevant signature for your document.
+Fonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst
+Verificação: 2026-11-16
+Aviso: Confirme se a organização que receberá o documento aceita esse tipo de assinatura.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,0.8416
-Q10,direct,template_b_v1,Scan CIN QR and verify in gov.br; issuer data needed.,match,['S05'],match,['S05'],"Answer: How can I increase my gov.br level using the CIN?
-After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data.
+Assuntos relacionados:
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.665
+Q10,direta,template_b_v1,Escanear o código QR da CIN no gov.br; depende dos dados enviados pelo emissor.,match,['S05'],match,['S05'],"Resposta: Como aumentar o nível da conta gov.br usando a CIN?
+Após receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor.
 
-Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin
-Verified: 2026-11-16
-Warning: Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.
+Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin
+Verificação: 2026-11-16
+Aviso: O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D02 - Where can I request a CIN and which certificates should I check?
-  S03 - What are the gov.br account security levels?
-  S04 - How do I sign a document electronically with gov.br?",correct,0.7238
-Q11,direct,template_b_v1,Use Consumidor.gov.br; check coverage.,match,['C01'],match,['C01'],"Answer: How can I make a consumer complaint online?
-Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account.
+Assuntos relacionados:
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S04 - Como assinar um documento eletronicamente com gov.br?",correta,0.6808
+Q11,direta,template_b_v1,Utilizar o Consumidor.gov.br e conferir a cobertura.,match,['C01'],match,['C01'],"Resposta: Como fazer uma reclamação de consumidor pela internet?
+Consulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro.
 
-Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
-Verified: 2026-11-16
-Warning: Check whether the platform covers the company and issue; no outcome is guaranteed.
+Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
+Verificação: 2026-11-16
+Aviso: Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C02 - Which evidence should I prepare for a consumer complaint?
-  S03 - What are the gov.br account security levels?
-  S01 - How do I create a gov.br account?",correct,0.7974
-Q12,direct,template_b_v1,Prepare purchase/service documentation.,match,['C02'],match,['C02'],"Answer: Which evidence should I prepare for a consumer complaint?
-Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.
+Assuntos relacionados:
+  C02 - Quais comprovantes preparar para uma reclamação de consumidor?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  S01 - Como criar uma conta gov.br?",correta,0.6613
+Q12,direta,template_b_v1,Preparar os comprovantes da compra ou do serviço.,match,['C02'],match,['C02'],"Resposta: Quais comprovantes preparar para uma reclamação de consumidor?
+Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.
 
-Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
-Verified: 2026-11-16
-Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.
+Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
+Verificação: 2026-11-16
+Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C01 - How can I make a consumer complaint online?
-  S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.7675
-Q13,direct,template_b_v1,Municipal registration office or CRAS; verify requirements.,match,['C03'],match,['C03'],"Answer: Where do I start Cadastro Unico registration?
-Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available.
+Assuntos relacionados:
+  C01 - Como fazer uma reclamação de consumidor pela internet?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  C05 - Onde buscar atendimento do CRAS?",correta,0.6586
+Q13,direta,template_b_v1,Procurar um posto municipal ou CRAS e confirmar os requisitos.,match,['C03'],match,['C03'],"Resposta: Onde iniciar a inscrição no Cadastro Único?
+Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.
 
-Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
-Verified: 2026-11-16
-Warning: Confirm requirements and any special procedures locally. Registration does not guarantee benefit approval.
+Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+Verificação: 2026-11-16
+Aviso: Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C04 - When should I update Cadastro Unico?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.8792
-Q14,direct,template_b_v1,Update every 24 months and when circumstances change.,match,['C04'],match,['C04'],"Answer: When should I update Cadastro Unico?
-Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.
+Assuntos relacionados:
+  C04 - Quando atualizar o Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6015
+Q14,direta,template_b_v1,Atualizar a cada 24 meses e quando as informações mudarem.,match,['C04'],match,['C04'],"Resposta: Quando atualizar o Cadastro Único?
+Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.
 
-Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
-Verified: 2026-11-16
-Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.
+Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+Verificação: 2026-11-16
+Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.7815
-Q15,direct,template_b_v1,CRAS basic social-assistance guidance; local details vary.,match,['C05'],match,['C05'],"Answer: Where can I access CRAS support?
-CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6412
+Q15,direta,template_b_v1,Buscar orientação básica no CRAS; confirmar detalhes locais.,match,['C05'],match,['C05'],"Resposta: Onde buscar atendimento do CRAS?
+O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.
 
-Source: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social
-Verified: 2026-11-16
-Warning: Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.
+Fonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social
+Verificação: 2026-11-16
+Aviso: Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C04 - When should I update Cadastro Unico?
-  D03 - How do I apply for CPF registration?",correct,0.6956
-Q16,rephrased,template_b_v1,"Use password recovery, not account creation.",match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
-Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C04 - Quando atualizar o Cadastro Único?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6985
+Q16,reformulada,template_b_v1,"Usar a recuperação de senha, não a criação de conta.",match,['S02'],match,['S02'],"Resposta: Como recuperar a senha da conta gov.br?
+Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.
 
-Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
-Verified: 2026-11-16
-Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.
+Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
+Verificação: 2026-11-16
+Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.7056
-Q17,rephrased,template_b_v1,Prepare evidence on the official platform.,match,['C02'],match,['C02'],"Answer: Which evidence should I prepare for a consumer complaint?
-Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.6181
+Q17,reformulada,template_b_v1,Preparar os comprovantes na plataforma oficial.,match,['C02'],match,['C02'],"Resposta: Quais comprovantes preparar para uma reclamação de consumidor?
+Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.
 
-Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
-Verified: 2026-11-16
-Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.
+Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas
+Verificação: 2026-11-16
+Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C01 - How can I make a consumer complaint online?
-  S03 - What are the gov.br account security levels?
-  C05 - Where can I access CRAS support?",correct,0.6993
-Q18,rephrased,template_b_v1,Update municipal registry when residence changes.,match,['C04'],match,['C04'],"Answer: When should I update Cadastro Unico?
-Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.
+Assuntos relacionados:
+  C01 - Como fazer uma reclamação de consumidor pela internet?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  C05 - Onde buscar atendimento do CRAS?",correta,0.6316
+Q18,reformulada,template_b_v1,Atualizar o cadastro municipal quando a residência mudar.,match,['C04'],match,['C04'],"Resposta: Quando atualizar o Cadastro Único?
+Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.
 
-Source: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
-Verified: 2026-11-16
-Warning: Earlier checks or special procedures may apply; confirm current instructions with the municipal office.
+Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+Verificação: 2026-11-16
+Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  C03 - Where do I start Cadastro Unico registration?
-  C05 - Where can I access CRAS support?
-  D03 - How do I apply for CPF registration?",correct,0.7584
-Q19,rephrased,template_b_v1,Consult CPF registration status.,match,['D04'],match,['D04'],"Answer: How can I consult my CPF registration status?
-Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.
+Assuntos relacionados:
+  C03 - Onde iniciar a inscrição no Cadastro Único?
+  C05 - Onde buscar atendimento do CRAS?
+  D03 - Como fazer a inscrição no CPF?",correta,0.6115
+Q19,reformulada,template_b_v1,Consultar a situação cadastral do CPF.,match,['D04'],match,['D04'],"Resposta: Como consultar a situação cadastral do CPF?
+Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.
 
-Source: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico
-Verified: 2026-11-16
-Warning: A registration-status check is not a personal tax-clearance or eligibility assessment.
+Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico
+Verificação: 2026-11-16
+Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  D03 - How do I apply for CPF registration?
-  S01 - How do I create a gov.br account?
-  D01 - What is the CIN national identity card?",correct,1.0347
-Q20,limitation_empty,template_b_v1,Ask for a question or theme; no invented guidance.,empty,[],empty,[],"Enter a question or choose a theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.024
-Q21,limitation_ambiguous,template_b_v1,Offer CPF registration and status choices.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","That query may refer to different subjects. Choose a record ID or add details.
-  D03 - How do I apply for CPF registration?
-  D04 - How can I consult my CPF registration status?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4049
-Q22,out_of_scope,template_b_v1,No reliable information in base; show alternatives.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4222
-Q23,invalid_option,template_b_v1,Explain invalid menu choice and offer themes.,invalid_option,[],invalid_option,[],"Invalid menu option. Choose an available theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0112
-Q24,limitation_empty,template_b_v1,Whitespace input is empty.,empty,[],empty,[],"Enter a question or choose a theme number.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0177
-Q25,limitation_ambiguous,template_b_v1,Ask whether creation or security levels are intended.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","That query may refer to different subjects. Choose a record ID or add details.
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4182
-Q26,guardrail,template_b_v1,Refuse instruction override and cite no invented source.,no_match,[],no_match,[],"I can only return stored guidance with its source.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0279
-Q27,menu,template_b_v1,List Documents records and allow ID selection.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Choose a record ID, or ask a more specific question.
-  D01 - What is the CIN national identity card?
-  D02 - Where can I request a CIN and which certificates should I check?
-  D03 - How do I apply for CPF registration?
-  D04 - How can I consult my CPF registration status?
-  D05 - How do I access the Digital Work Card?
-Source: no guidance source consulted yet; select a record for its source.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0149
-Q28,normalization,template_b_v1,Case and punctuation do not change retrieval.,match,['S02'],match,['S02'],"Answer: How do I recover my gov.br password?
-Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
+Assuntos relacionados:
+  D03 - Como fazer a inscrição no CPF?
+  S01 - Como criar uma conta gov.br?
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?",correta,0.6098
+Q20,limitação_vazia,template_b_v1,"Solicitar pergunta ou tema, sem inventar orientação.",empty,[],empty,[],"Digite uma pergunta ou escolha o número de um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0247
+Q21,limitação_ambígua,template_b_v1,Oferecer as opções de inscrição e situação cadastral.,ambiguous,"['D03', 'D04']",ambiguous,"['D03', 'D04']","Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.
+  D03 - Como fazer a inscrição no CPF?
+  D04 - Como consultar a situação cadastral do CPF?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4553
+Q22,fora_do_escopo,template_b_v1,Informar a ausência de resposta confiável e mostrar alternativas.,no_match,[],no_match,[],"Não há resposta confiável para essa pergunta na base.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4686
+Q23,opção_inválida,template_b_v1,Explicar a opção inválida e oferecer temas.,invalid_option,[],invalid_option,[],"Opção de menu inválida. Escolha o número de um tema disponível.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0121
+Q24,limitação_vazia,template_b_v1,Tratar uma entrada só com espaços como vazia.,empty,[],empty,[],"Digite uma pergunta ou escolha o número de um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0199
+Q25,limitação_ambígua,template_b_v1,Esclarecer se a intenção é criar conta ou consultar níveis.,ambiguous,"['S01', 'S03']",ambiguous,"['S01', 'S03']","Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4655
+Q26,salvaguarda,template_b_v1,Rejeitar a tentativa de sobrescrever instruções sem inventar fontes.,no_match,[],no_match,[],"Posso retornar apenas orientações armazenadas com sua fonte.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0445
+Q27,menu,template_b_v1,Listar os registros de Documentos e permitir seleção por ID.,browse,"['D01', 'D02', 'D03', 'D04', 'D05']",browse,"['D01', 'D02', 'D03', 'D04', 'D05']","Escolha um ID de registro ou faça uma pergunta mais específica.
+  D01 - O que é a Carteira de Identidade Nacional (CIN)?
+  D02 - Onde solicitar a CIN e quais certidões devo conferir?
+  D03 - Como fazer a inscrição no CPF?
+  D04 - Como consultar a situação cadastral do CPF?
+  D05 - Como acessar a Carteira de Trabalho Digital?
+Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0149
+Q28,normalização,template_b_v1,Maiúsculas e pontuação não alteram a busca.,match,['S02'],match,['S02'],"Resposta: Como recuperar a senha da conta gov.br?
+Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.
 
-Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
-Verified: 2026-11-16
-Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.
+Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br
+Verificação: 2026-11-16
+Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.
 
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.
 
-Related subjects:
-  S01 - How do I create a gov.br account?
-  S03 - What are the gov.br account security levels?
-  D05 - How do I access the Digital Work Card?",correct,0.691
-Q29,out_of_scope,template_b_v1,Do not decide benefit eligibility or amounts.,no_match,[],no_match,[],"No reliable answer to that question is stored in the base.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.4204
-Q30,invalid_input,template_b_v1,Reject overlong input.,invalid_input,[],invalid_input,[],"Use at most 500 characters.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0638
-Q31,limitation_empty,template_b_v1,Punctuation is not an informative query.,empty,[],empty,[],"Enter a question containing words, or choose a theme.
-Source: none consulted; no guidance has been generated.
-Available themes:
-  1. Documents
-  2. Digital services
-  3. Community support
-Try: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'
-Limitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.
-Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",correct,0.0205
+Assuntos relacionados:
+  S01 - Como criar uma conta gov.br?
+  S03 - Quais são os níveis de segurança da conta gov.br?
+  D05 - Como acessar a Carteira de Trabalho Digital?",correta,0.6514
+Q29,fora_do_escopo,template_b_v1,Não decidir a elegibilidade nem valores de benefícios.,no_match,[],no_match,[],"Não há resposta confiável para essa pergunta na base.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.4755
+Q30,entrada_inválida,template_b_v1,Rejeitar uma entrada longa demais.,invalid_input,[],invalid_input,[],"Use no máximo 500 caracteres.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0591
+Q31,limitação_vazia,template_b_v1,Pontuação isolada não é uma consulta informativa.,empty,[],empty,[],"Digite uma pergunta contendo palavras ou escolha um tema.
+Fonte: nenhuma consultada; nenhuma orientação foi gerada.
+Temas disponíveis:
+  1. Documentos
+  2. Serviços digitais
+  3. Apoio comunitário
+Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'
+Limitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.
+Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",correta,0.0249

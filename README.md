@@ -61,12 +61,12 @@ O conjunto de avaliação contém 31 casos: todos os 15 registros, perguntas ref
 Taxa de acerto = respostas corretas / total. O tempo de consulta é medido com `perf_counter` durante uma chamada completa a `handle`, com a base já carregada e a telemetria desativada; a leitura e a apresentação do modelo de resposta estão incluídas. A latência varia conforme o hardware, o estado do cache e o sistema de arquivos. Resultados locais e de integração contínua não devem ser comparados como se os ambientes fossem idênticos.
 
 <!-- METRICS:START -->
-Execução em ambiente **local**, com Python 3.14.10, em 2026-11-16T23:42:20.174693+00:00.
+Execução em ambiente **local**, com Python 3.14.10, em 2026-11-16T23:43:08.661038+00:00.
 
 | Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100,00% | 0,491016 |
-| template_b_v1 | 31 / 31 | 100,00% | 0,468277 |
+| template_a_v1 | 31 / 31 | 100,00% | 0,502865 |
+| template_b_v1 | 31 / 31 | 100,00% | 0,505777 |
 
 Cada modelo executa os mesmos casos independentes. A latência exclui o carregamento da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de resultados esperados e obtidos.
 <!-- METRICS:END -->
