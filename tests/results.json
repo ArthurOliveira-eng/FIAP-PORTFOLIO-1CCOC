@@ -1,9 +1,9 @@
 {
-  "executed_at": "2026-11-16T23:04:48.575724+00:00",
+  "executed_at": "2026-11-16T23:05:46.577314+00:00",
   "environment": "github-actions",
   "python_version": "3.12.16",
-  "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
-  "source_commit": "f76c7bca4755cbcfd31a9cc4e1a1bd4df3464e9f",
+  "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+  "source_commit": "1455b30e17b9f3690bab7cff1eabe4c5ba2570dd",
   "knowledge_sha256": "6071173393186c8279a49d92eb7bbf6ebd5b31612a549b370d860976088e2236",
   "cases_sha256": "cb337843cbcc7f99e3dc38df59ea7897b0a0766f44431e83cebe326253b1ca2d",
   "methodology": "Exact status and record ID comparison plus required content and source/warning checks. New session per case; perf_counter wall time around handle(); no telemetry writes.",
@@ -12,13 +12,13 @@
       "total": 31,
       "correct": 31,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.223146
+      "average_query_time_ms": 0.366866
     },
     "template_b_v1": {
       "total": 31,
       "correct": 31,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.213298
+      "average_query_time_ms": 0.358788
     }
   },
   "metrics_by_category": {
@@ -26,61 +26,61 @@
       "total": 30,
       "correct": 30,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.283549
+      "average_query_time_ms": 0.469996
     },
     "guardrail": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.027282
+      "average_query_time_ms": 0.062838
     },
     "invalid_input": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.047169
+      "average_query_time_ms": 0.082269
     },
     "invalid_option": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.013056
+      "average_query_time_ms": 0.027206
     },
     "limitation_ambiguous": {
       "total": 4,
       "correct": 4,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.246001
+      "average_query_time_ms": 0.397797
     },
     "limitation_empty": {
       "total": 6,
       "correct": 6,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.018509
+      "average_query_time_ms": 0.030814
     },
     "menu": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.017192
+      "average_query_time_ms": 0.029695
     },
     "normalization": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.281104
+      "average_query_time_ms": 0.489414
     },
     "out_of_scope": {
       "total": 4,
       "correct": 4,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.253884
+      "average_query_time_ms": 0.40366
     },
     "rephrased": {
       "total": 8,
       "correct": 8,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.267634
+      "average_query_time_ms": 0.452728
     }
   },
   "results": [
@@ -106,7 +106,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.387
+      "query_time_ms": 0.625114
     },
     {
       "id": "Q02",
@@ -130,7 +130,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.303661
+      "query_time_ms": 0.515498
     },
     {
       "id": "Q03",
@@ -154,7 +154,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.312457
+      "query_time_ms": 0.456307
     },
     {
       "id": "Q04",
@@ -178,7 +178,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.298721
+      "query_time_ms": 0.47389
     },
     {
       "id": "Q05",
@@ -202,7 +202,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.304204
+      "query_time_ms": 0.483137
     },
     {
       "id": "Q06",
@@ -226,7 +226,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.276973
+      "query_time_ms": 0.450486
     },
     {
       "id": "Q07",
@@ -250,7 +250,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.266945
+      "query_time_ms": 0.477476
     },
     {
       "id": "Q08",
@@ -274,7 +274,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.290794
+      "query_time_ms": 0.452119
     },
     {
       "id": "Q09",
@@ -298,7 +298,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.27211
+      "query_time_ms": 0.447821
     },
     {
       "id": "Q10",
@@ -322,7 +322,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.277745
+      "query_time_ms": 0.478258
     },
     {
       "id": "Q11",
@@ -346,7 +346,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.27124
+      "query_time_ms": 0.437651
     },
     {
       "id": "Q12",
@@ -370,7 +370,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.273461
+      "query_time_ms": 0.469271
     },
     {
       "id": "Q13",
@@ -394,7 +394,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.289026
+      "query_time_ms": 0.445677
     },
     {
       "id": "Q14",
@@ -418,7 +418,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.27545
+      "query_time_ms": 0.440728
     },
     {
       "id": "Q15",
@@ -442,7 +442,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.258761
+      "query_time_ms": 0.464873
     },
     {
       "id": "Q16",
@@ -466,7 +466,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.283719
+      "query_time_ms": 0.441529
     },
     {
       "id": "Q17",
@@ -490,7 +490,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.272344
+      "query_time_ms": 0.480532
     },
     {
       "id": "Q18",
@@ -514,7 +514,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.26953
+      "query_time_ms": 0.459823
     },
     {
       "id": "Q19",
@@ -538,7 +538,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.265246
+      "query_time_ms": 0.439435
     },
     {
       "id": "Q20",
@@ -558,7 +558,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.021737
+      "query_time_ms": 0.034795
     },
     {
       "id": "Q21",
@@ -584,7 +584,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.246797
+      "query_time_ms": 0.423826
     },
     {
       "id": "Q22",
@@ -604,7 +604,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.263937
+      "query_time_ms": 0.399911
     },
     {
       "id": "Q23",
@@ -624,7 +624,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.013819
+      "query_time_ms": 0.029846
     },
     {
       "id": "Q24",
@@ -644,7 +644,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.016297
+      "query_time_ms": 0.028804
     },
     {
       "id": "Q25",
@@ -670,7 +670,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.24937
+      "query_time_ms": 0.398758
     },
     {
       "id": "Q26",
@@ -690,7 +690,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.027181
+      "query_time_ms": 0.065643
     },
     {
       "id": "Q27",
@@ -722,7 +722,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.017494
+      "query_time_ms": 0.030427
     },
     {
       "id": "Q28",
@@ -746,7 +746,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.283423
+      "query_time_ms": 0.498346
     },
     {
       "id": "Q29",
@@ -766,7 +766,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.263384
+      "query_time_ms": 0.409028
     },
     {
       "id": "Q30",
@@ -786,7 +786,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.047314
+      "query_time_ms": 0.083527
     },
     {
       "id": "Q31",
@@ -806,7 +806,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.017375
+      "query_time_ms": 0.030316
     },
     {
       "id": "Q01",
@@ -830,7 +830,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.290011
+      "query_time_ms": 0.496583
     },
     {
       "id": "Q02",
@@ -854,7 +854,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.284632
+      "query_time_ms": 0.48459
     },
     {
       "id": "Q03",
@@ -878,7 +878,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.28778
+      "query_time_ms": 0.444655
     },
     {
       "id": "Q04",
@@ -902,7 +902,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.269683
+      "query_time_ms": 0.465844
     },
     {
       "id": "Q05",
@@ -926,7 +926,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.266997
+      "query_time_ms": 0.438804
     },
     {
       "id": "Q06",
@@ -950,7 +950,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.285616
+      "query_time_ms": 0.462479
     },
     {
       "id": "Q07",
@@ -974,7 +974,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.270169
+      "query_time_ms": 0.473589
     },
     {
       "id": "Q08",
@@ -998,7 +998,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.282234
+      "query_time_ms": 0.46855
     },
     {
       "id": "Q09",
@@ -1022,7 +1022,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.284262
+      "query_time_ms": 0.461306
     },
     {
       "id": "Q10",
@@ -1046,7 +1046,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.278845
+      "query_time_ms": 0.473359
     },
     {
       "id": "Q11",
@@ -1070,7 +1070,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.284389
+      "query_time_ms": 0.451237
     },
     {
       "id": "Q12",
@@ -1094,7 +1094,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.267867
+      "query_time_ms": 0.482426
     },
     {
       "id": "Q13",
@@ -1118,7 +1118,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.262298
+      "query_time_ms": 0.445617
     },
     {
       "id": "Q14",
@@ -1142,7 +1142,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.274744
+      "query_time_ms": 0.45783
     },
     {
       "id": "Q15",
@@ -1166,7 +1166,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.258389
+      "query_time_ms": 0.474711
     },
     {
       "id": "Q16",
@@ -1190,7 +1190,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.254785
+      "query_time_ms": 0.444785
     },
     {
       "id": "Q17",
@@ -1214,7 +1214,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.267529
+      "query_time_ms": 0.467077
     },
     {
       "id": "Q18",
@@ -1238,7 +1238,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.261553
+      "query_time_ms": 0.459674
     },
     {
       "id": "Q19",
@@ -1262,7 +1262,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.266369
+      "query_time_ms": 0.428966
     },
     {
       "id": "Q20",
@@ -1282,7 +1282,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.019427
+      "query_time_ms": 0.033753
     },
     {
       "id": "Q21",
@@ -1308,7 +1308,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.244872
+      "query_time_ms": 0.374924
     },
     {
       "id": "Q22",
@@ -1328,7 +1328,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.240704
+      "query_time_ms": 0.396043
     },
     {
       "id": "Q23",
@@ -1348,7 +1348,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.012293
+      "query_time_ms": 0.024566
     },
     {
       "id": "Q24",
@@ -1368,7 +1368,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.019569
+      "query_time_ms": 0.028354
     },
     {
       "id": "Q25",
@@ -1394,7 +1394,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.242963
+      "query_time_ms": 0.393679
     },
     {
       "id": "Q26",
@@ -1414,7 +1414,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.027383
+      "query_time_ms": 0.060033
     },
     {
       "id": "Q27",
@@ -1446,7 +1446,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.016891
+      "query_time_ms": 0.028964
     },
     {
       "id": "Q28",
@@ -1470,7 +1470,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.278785
+      "query_time_ms": 0.480482
     },
     {
       "id": "Q29",
@@ -1490,7 +1490,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.247512
+      "query_time_ms": 0.409659
     },
     {
       "id": "Q30",
@@ -1510,7 +1510,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.047024
+      "query_time_ms": 0.081012
     },
     {
       "id": "Q31",
@@ -1530,7 +1530,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.016651
+      "query_time_ms": 0.028864
     }
   ]
 }

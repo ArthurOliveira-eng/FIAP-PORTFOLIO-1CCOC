@@ -61,12 +61,12 @@ The evaluation fixture contains 31 cases: all 15 records, rephrased questions, n
 Accuracy = correct / total. Query time uses perf_counter around a full agent handle call with the knowledge base already loaded and telemetry disabled; template file loading/rendering is included. Latency varies by hardware, cache state, and filesystem. CI and local results must not be compared as if environments were identical.
 
 <!-- METRICS:START -->
-Executed in **github-actions**, Python 3.12.16, at 2026-11-16T23:04:48.575724+00:00.
+Executed in **github-actions**, Python 3.12.16, at 2026-11-16T23:05:46.577314+00:00.
 
 | Template | Correct / total | Accuracy | Mean query time (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100.00% | 0.223146 |
-| template_b_v1 | 31 / 31 | 100.00% | 0.213298 |
+| template_a_v1 | 31 / 31 | 100.00% | 0.366866 |
+| template_b_v1 | 31 / 31 | 100.00% | 0.358788 |
 
 Each template runs the same independent cases. Latency excludes knowledge loading and telemetry I/O, and includes rendering. See tests/results.json and tests/results.csv for the full expected/obtained table.
 <!-- METRICS:END -->
