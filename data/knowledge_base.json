@@ -1,0 +1,308 @@
+[
+  {
+    "id": "D01",
+    "theme": "Documents",
+    "question": "What is the CIN national identity card?",
+    "keywords": [
+      "cin overview",
+      "national identity card",
+      "identity",
+      "cin"
+    ],
+    "summary_guidance": "The CIN is Brazil's national identity card and uses the CPF as its unique identification number. It is available in physical and digital formats.",
+    "reference": "https://www.gov.br/governodigital/pt-br/identidade/cin",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Confirm the current issuing arrangements with your state's identification authority.",
+    "related_ids": [
+      "D02",
+      "D03",
+      "S05"
+    ]
+  },
+  {
+    "id": "D02",
+    "theme": "Documents",
+    "question": "Where can I request a CIN and which certificates should I check?",
+    "keywords": [
+      "request cin",
+      "issue cin",
+      "birth certificate",
+      "marriage certificate",
+      "identity appointment",
+      "cin"
+    ],
+    "summary_guidance": "Request the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.",
+    "reference": "https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Appointment channels and document requirements must be confirmed with the issuing authority.",
+    "related_ids": [
+      "D01",
+      "S05",
+      "D03"
+    ]
+  },
+  {
+    "id": "D03",
+    "theme": "Documents",
+    "question": "How do I apply for CPF registration?",
+    "keywords": [
+      "cpf registration",
+      "apply cpf",
+      "register cpf",
+      "cpf"
+    ],
+    "summary_guidance": "Use the Receita Federal CPF registration service and follow its official application channels. Enter any required personal data only on the official service, never in this assistant.",
+    "reference": "https://www.gov.br/pt-br/servicos/inscrever-no-cpf",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Check the current requirements and available channel for your circumstances on the official page.",
+    "related_ids": [
+      "D04",
+      "S01",
+      "C03"
+    ]
+  },
+  {
+    "id": "D04",
+    "theme": "Documents",
+    "question": "How can I consult my CPF registration status?",
+    "keywords": [
+      "cpf status",
+      "consult cpf",
+      "cpf certificate",
+      "cpf"
+    ],
+    "summary_guidance": "Use Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.",
+    "reference": "https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "A registration-status check is not a personal tax-clearance or eligibility assessment.",
+    "related_ids": [
+      "D03",
+      "S01",
+      "D01"
+    ]
+  },
+  {
+    "id": "D05",
+    "theme": "Documents",
+    "question": "How do I access the Digital Work Card?",
+    "keywords": [
+      "digital work card",
+      "employment record",
+      "carteira trabalho",
+      "ctps"
+    ],
+    "summary_guidance": "Access the Digital Work Card through the official web service or app using your gov.br account. It supports employment-record consultation and is not a general identity document.",
+    "reference": "https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Confirm the current access instructions with the Ministry of Labour; do not share employment records here.",
+    "related_ids": [
+      "S01",
+      "S02",
+      "D03"
+    ]
+  },
+  {
+    "id": "S01",
+    "theme": "Digital services",
+    "question": "How do I create a gov.br account?",
+    "keywords": [
+      "create gov br account",
+      "gov br registration",
+      "new gov br",
+      "gov br account"
+    ],
+    "summary_guidance": "Create a gov.br account through the official gov.br website or app and follow the registration instructions there. Different services may require different account security levels.",
+    "reference": "https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Provide identifying information only through the official gov.br service.",
+    "related_ids": [
+      "S02",
+      "S03",
+      "D03"
+    ]
+  },
+  {
+    "id": "S02",
+    "theme": "Digital services",
+    "question": "How do I recover my gov.br password?",
+    "keywords": [
+      "recover gov br password",
+      "forgot password",
+      "reset password",
+      "gov br password",
+      "password"
+    ],
+    "summary_guidance": "Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.",
+    "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Available recovery methods vary. Never send passwords or verification codes to this assistant.",
+    "related_ids": [
+      "S01",
+      "S03",
+      "D05"
+    ]
+  },
+  {
+    "id": "S03",
+    "theme": "Digital services",
+    "question": "What are the gov.br account security levels?",
+    "keywords": [
+      "gov br security level",
+      "bronze silver gold",
+      "increase account level",
+      "account level",
+      "gov br account"
+    ],
+    "summary_guidance": "Gov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level.",
+    "reference": "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "The required level and available validation methods depend on the service and your account.",
+    "related_ids": [
+      "S05",
+      "S04",
+      "C01"
+    ]
+  },
+  {
+    "id": "S04",
+    "theme": "Digital services",
+    "question": "How do I sign a document electronically with gov.br?",
+    "keywords": [
+      "sign document electronically",
+      "electronic signature",
+      "digital signature",
+      "sign document"
+    ],
+    "summary_guidance": "Use the official gov.br electronic-signature service. Its service page requires a Silver or Gold account and points to the official signature portal.",
+    "reference": "https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Confirm that the receiving organization accepts the relevant signature for your document.",
+    "related_ids": [
+      "S03",
+      "S01",
+      "D01"
+    ]
+  },
+  {
+    "id": "S05",
+    "theme": "Digital services",
+    "question": "How can I increase my gov.br level using the CIN?",
+    "keywords": [
+      "cin increase level",
+      "cin gold account",
+      "cin qr code",
+      "increase cin",
+      "cin"
+    ],
+    "summary_guidance": "After receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data.",
+    "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.",
+    "related_ids": [
+      "D02",
+      "S03",
+      "S04"
+    ]
+  },
+  {
+    "id": "C01",
+    "theme": "Community support",
+    "question": "How can I make a consumer complaint online?",
+    "keywords": [
+      "consumer complaint",
+      "complain company",
+      "consumidor gov br",
+      "complaint"
+    ],
+    "summary_guidance": "Consult Consumidor.gov.br to register and follow a consumer complaint against a company. The official service requires a Silver or Gold gov.br account.",
+    "reference": "https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Check whether the platform covers the company and issue; no outcome is guaranteed.",
+    "related_ids": [
+      "C02",
+      "S03",
+      "S01"
+    ]
+  },
+  {
+    "id": "C02",
+    "theme": "Community support",
+    "question": "Which evidence should I prepare for a consumer complaint?",
+    "keywords": [
+      "complaint evidence",
+      "consumer evidence",
+      "receipt contract",
+      "payment evidence",
+      "complaint"
+    ],
+    "summary_guidance": "Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.",
+    "reference": "https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Do not paste invoices or personal information here. Confirm the platform's current submission instructions.",
+    "related_ids": [
+      "C01",
+      "S03",
+      "C05"
+    ]
+  },
+  {
+    "id": "C03",
+    "theme": "Community support",
+    "question": "Where do I start Cadastro Unico registration?",
+    "keywords": [
+      "cadastro unico registration",
+      "cadunico registration",
+      "social registry registration",
+      "cadastro unico"
+    ],
+    "summary_guidance": "Start Cadastro Unico registration at a municipal registration office, such as a CRAS. The ministry's guidance lists family members' CPFs, identification, and a residence document if available.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Confirm requirements and any special procedures locally. Registration does not guarantee benefit approval.",
+    "related_ids": [
+      "C04",
+      "C05",
+      "D03"
+    ]
+  },
+  {
+    "id": "C04",
+    "theme": "Community support",
+    "question": "When should I update Cadastro Unico?",
+    "keywords": [
+      "update cadastro unico",
+      "cadunico update",
+      "social registry update",
+      "cadastro unico"
+    ],
+    "summary_guidance": "Update Cadastro Unico every 24 months and whenever family information changes, such as residence, income, or household composition. Contact your municipal registration office.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Earlier checks or special procedures may apply; confirm current instructions with the municipal office.",
+    "related_ids": [
+      "C03",
+      "C05",
+      "D03"
+    ]
+  },
+  {
+    "id": "C05",
+    "theme": "Community support",
+    "question": "Where can I access CRAS support?",
+    "keywords": [
+      "cras support",
+      "social assistance centre",
+      "community support",
+      "cras"
+    ],
+    "summary_guidance": "CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.",
+    "reference": "https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social",
+    "verification_date": "2026-11-16",
+    "confirmation_warning": "Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.",
+    "related_ids": [
+      "C03",
+      "C04",
+      "D03"
+    ]
+  }
+]

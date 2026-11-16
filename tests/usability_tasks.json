@@ -1,0 +1,120 @@
+[
+  {
+    "id": "U01",
+    "task": "Browse documents and open CIN issuing guidance.",
+    "inputs": [
+      "1",
+      "D02",
+      "quit"
+    ],
+    "expected": [
+      "birth or marriage",
+      "Source: https://"
+    ],
+    "difficulty": "The user must choose a record ID after choosing a theme."
+  },
+  {
+    "id": "U02",
+    "task": "Recover a forgotten password using a rephrased question.",
+    "inputs": [
+      "I forgot my gov.br password",
+      "quit"
+    ],
+    "expected": [
+      "Esqueci minha senha",
+      "Source: https://"
+    ],
+    "difficulty": "The assistant links to official recovery and cannot reset a password."
+  },
+  {
+    "id": "U03",
+    "task": "Resolve the ambiguous CPF query.",
+    "inputs": [
+      "CPF",
+      "D04",
+      "quit"
+    ],
+    "expected": [
+      "Choose a record ID",
+      "registration-status certificate"
+    ],
+    "difficulty": "A broad query needs one clarification step."
+  },
+  {
+    "id": "U04",
+    "task": "Recover from empty input and an invalid menu choice.",
+    "inputs": [
+      "",
+      "99",
+      "3",
+      "C05",
+      "quit"
+    ],
+    "expected": [
+      "Enter a question",
+      "Invalid menu option",
+      "free basic social-assistance"
+    ],
+    "difficulty": "Invalid inputs add actions but preserve access to the menu."
+  },
+  {
+    "id": "U05",
+    "task": "Understand an out-of-scope limitation.",
+    "inputs": [
+      "How do I obtain a Canadian driving licence?",
+      "quit"
+    ],
+    "expected": [
+      "No reliable answer",
+      "Available themes:"
+    ],
+    "difficulty": "This base cannot cover foreign services."
+  },
+  {
+    "id": "U06",
+    "task": "Follow three related subjects across themes.",
+    "inputs": [
+      "1",
+      "D02",
+      "related",
+      "S05",
+      "related",
+      "S03",
+      "quit"
+    ],
+    "expected": [
+      "birth or marriage",
+      "scan the CIN QR code",
+      "Bronze, Silver"
+    ],
+    "difficulty": "Cross-theme navigation uses related record IDs."
+  },
+  {
+    "id": "U07",
+    "task": "Leave a selected theme to ask about another.",
+    "inputs": [
+      "1",
+      "back",
+      "Where can I access CRAS support?",
+      "quit"
+    ],
+    "expected": [
+      "free basic social-assistance",
+      "Source: https://"
+    ],
+    "difficulty": "Use back to clear the theme filter before asking about another theme."
+  },
+  {
+    "id": "U08",
+    "task": "Consult evidence guidance for a consumer complaint.",
+    "inputs": [
+      "Which evidence should I prepare for a consumer complaint?",
+      "quit"
+    ],
+    "expected": [
+      "invoices, contracts",
+      "Do not paste invoices"
+    ],
+    "difficulty": "Prepare evidence outside the assistant; it does not accept uploads."
+  }
+]

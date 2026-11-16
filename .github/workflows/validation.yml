@@ -1,0 +1,71 @@
+name: Validate citizen guidance
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "data/**"
+      - "prompts/**"
+      - "tests/test_*.py"
+      - "tests/test_questions.json"
+      - "tests/usability_tasks.json"
+      - "tests/run_usability.py"
+      - "scripts/**"
+      - ".github/workflows/validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: citizen-assist-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Record expected versus obtained answers and metrics
+        if: always()
+        run: python -m src.evaluation
+      - name: Run scripted usability tasks through the real CLI
+        if: always()
+        run: python -m tests.run_usability
+      - name: Save measured reports in the repository
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md tests/results.json tests/results.csv tests/results.md tests/template_comparison.json tests/usability_results.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record measured citizen guidance evaluation"
+            git push origin HEAD:main
+          fi
+      - name: Install optional video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - name: Generate video from captured CLI output
+        run: python scripts/create_demo.py
+      - name: Upload evaluation and demonstration
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: citizen-assist-evidence
+          path: |
+            tests/results.*
+            tests/template_comparison.json
+            tests/usability_results.json
+            artifacts/citizen-assist-demo.mp4
+            artifacts/demo_transcript.txt
+          if-no-files-found: error
+          retention-days: 30
