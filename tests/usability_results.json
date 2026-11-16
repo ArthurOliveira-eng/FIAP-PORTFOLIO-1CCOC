@@ -1,0 +1,178 @@
+{
+  "executed_at": "2026-11-16T23:04:48.944466+00:00",
+  "environment": "github-actions",
+  "study_type": "automated task script",
+  "human_participants": 0,
+  "task_completion_rate": 1.0,
+  "average_script_actions": 2.5,
+  "average_process_time_ms": 38.00885625,
+  "limitations": "Script execution is not human task time, satisfaction, accessibility validation, or independent evidence of comprehension. Difficulties are anticipated interaction costs, not observations from participants.",
+  "tasks": [
+    {
+      "id": "U01",
+      "task": "Browse documents and open CIN issuing guidance.",
+      "inputs": [
+        "1",
+        "D02",
+        "quit"
+      ],
+      "expected": [
+        "birth or marriage",
+        "Source: https://"
+      ],
+      "difficulty": "The user must choose a record ID after choosing a theme.",
+      "success": true,
+      "script_actions": 2,
+      "process_time_ms": 38.513936,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nChoose a record ID, or ask a more specific question.\n  D01 - What is the CIN national identity card?\n  D02 - Where can I request a CIN and which certificates should I check?\n  D03 - How do I apply for CPF registration?\n  D04 - How can I consult my CPF registration status?\n  D05 - How do I access the Digital Work Card?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: Where can I request a CIN and which certificates should I check?\nRequest the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.\n\nSource: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras\nVerified: 2026-11-16\nWarning: Appointment channels and document requirements must be confirmed with the issuing authority.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  D01 - What is the CIN national identity card?\n  S05 - How can I increase my gov.br level using the CIN?\n  D03 - How do I apply for CPF registration?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U02",
+      "task": "Recover a forgotten password using a rephrased question.",
+      "inputs": [
+        "I forgot my gov.br password",
+        "quit"
+      ],
+      "expected": [
+        "Esqueci minha senha",
+        "Source: https://"
+      ],
+      "difficulty": "The assistant links to official recovery and cannot reset a password.",
+      "success": true,
+      "script_actions": 1,
+      "process_time_ms": 37.711507,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nAnswer: How do I recover my gov.br password?\nUse 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.\n\nSource: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerified: 2026-11-16\nWarning: Available recovery methods vary. Never send passwords or verification codes to this assistant.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  S01 - How do I create a gov.br account?\n  S03 - What are the gov.br account security levels?\n  D05 - How do I access the Digital Work Card?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U03",
+      "task": "Resolve the ambiguous CPF query.",
+      "inputs": [
+        "CPF",
+        "D04",
+        "quit"
+      ],
+      "expected": [
+        "Choose a record ID",
+        "registration-status certificate"
+      ],
+      "difficulty": "A broad query needs one clarification step.",
+      "success": true,
+      "script_actions": 2,
+      "process_time_ms": 38.339346,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nThat query may refer to different subjects. Choose a record ID or add details.\n  D03 - How do I apply for CPF registration?\n  D04 - How can I consult my CPF registration status?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: How can I consult my CPF registration status?\nUse Receita Federal's CPF consultation service to check registration status or obtain its registration-status certificate. This assistant cannot access your record.\n\nSource: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\nVerified: 2026-11-16\nWarning: A registration-status check is not a personal tax-clearance or eligibility assessment.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  D03 - How do I apply for CPF registration?\n  S01 - How do I create a gov.br account?\n  D01 - What is the CIN national identity card?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U04",
+      "task": "Recover from empty input and an invalid menu choice.",
+      "inputs": [
+        "",
+        "99",
+        "3",
+        "C05",
+        "quit"
+      ],
+      "expected": [
+        "Enter a question",
+        "Invalid menu option",
+        "free basic social-assistance"
+      ],
+      "difficulty": "Invalid inputs add actions but preserve access to the menu.",
+      "success": true,
+      "script_actions": 4,
+      "process_time_ms": 38.06568,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nEnter a question or choose a theme number.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nInvalid menu option. Choose an available theme number.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nChoose a record ID, or ask a more specific question.\n  C01 - How can I make a consumer complaint online?\n  C02 - Which evidence should I prepare for a consumer complaint?\n  C03 - Where do I start Cadastro Unico registration?\n  C04 - When should I update Cadastro Unico?\n  C05 - Where can I access CRAS support?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: Where can I access CRAS support?\nCRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.\n\nSource: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social\nVerified: 2026-11-16\nWarning: Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  C03 - Where do I start Cadastro Unico registration?\n  C04 - When should I update Cadastro Unico?\n  D03 - How do I apply for CPF registration?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U05",
+      "task": "Understand an out-of-scope limitation.",
+      "inputs": [
+        "How do I obtain a Canadian driving licence?",
+        "quit"
+      ],
+      "expected": [
+        "No reliable answer",
+        "Available themes:"
+      ],
+      "difficulty": "This base cannot cover foreign services.",
+      "success": true,
+      "script_actions": 1,
+      "process_time_ms": 37.755563,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nNo reliable answer to that question is stored in the base.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U06",
+      "task": "Follow three related subjects across themes.",
+      "inputs": [
+        "1",
+        "D02",
+        "related",
+        "S05",
+        "related",
+        "S03",
+        "quit"
+      ],
+      "expected": [
+        "birth or marriage",
+        "scan the CIN QR code",
+        "Bronze, Silver"
+      ],
+      "difficulty": "Cross-theme navigation uses related record IDs.",
+      "success": true,
+      "script_actions": 6,
+      "process_time_ms": 37.325323,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nChoose a record ID, or ask a more specific question.\n  D01 - What is the CIN national identity card?\n  D02 - Where can I request a CIN and which certificates should I check?\n  D03 - How do I apply for CPF registration?\n  D04 - How can I consult my CPF registration status?\n  D05 - How do I access the Digital Work Card?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: Where can I request a CIN and which certificates should I check?\nRequest the CIN through the civil identification authority in your state or the Federal District. Check its appointment instructions and the current birth or marriage certificate requirement.\n\nSource: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras\nVerified: 2026-11-16\nWarning: Appointment channels and document requirements must be confirmed with the issuing authority.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  D01 - What is the CIN national identity card?\n  S05 - How can I increase my gov.br level using the CIN?\n  D03 - How do I apply for CPF registration?\n\nYou: \nChoose a related record ID.\n  D01 - What is the CIN national identity card?\n  S05 - How can I increase my gov.br level using the CIN?\n  D03 - How do I apply for CPF registration?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: How can I increase my gov.br level using the CIN?\nAfter receiving the physical CIN, use the gov.br app's 'Aumentar nivel' flow, scan the CIN QR code, and follow facial-verification instructions. Availability depends on the issuer sending the CIN data.\n\nSource: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin\nVerified: 2026-11-16\nWarning: Data transmission timing varies by issuer; this assistant cannot activate or upgrade accounts.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  D02 - Where can I request a CIN and which certificates should I check?\n  S03 - What are the gov.br account security levels?\n  S04 - How do I sign a document electronically with gov.br?\n\nYou: \nChoose a related record ID.\n  D02 - Where can I request a CIN and which certificates should I check?\n  S03 - What are the gov.br account security levels?\n  S04 - How do I sign a document electronically with gov.br?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: What are the gov.br account security levels?\nGov.br accounts have Bronze, Silver, and Gold security levels. Check the official comparison and the 'Aumentar nivel' option in the app for supported ways to increase your level.\n\nSource: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr\nVerified: 2026-11-16\nWarning: The required level and available validation methods depend on the service and your account.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  S05 - How can I increase my gov.br level using the CIN?\n  S04 - How do I sign a document electronically with gov.br?\n  C01 - How can I make a consumer complaint online?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U07",
+      "task": "Leave a selected theme to ask about another.",
+      "inputs": [
+        "1",
+        "back",
+        "Where can I access CRAS support?",
+        "quit"
+      ],
+      "expected": [
+        "free basic social-assistance",
+        "Source: https://"
+      ],
+      "difficulty": "Use back to clear the theme filter before asking about another theme.",
+      "success": true,
+      "script_actions": 3,
+      "process_time_ms": 38.161799,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nChoose a record ID, or ask a more specific question.\n  D01 - What is the CIN national identity card?\n  D02 - Where can I request a CIN and which certificates should I check?\n  D03 - How do I apply for CPF registration?\n  D04 - How can I consult my CPF registration status?\n  D05 - How do I access the Digital Work Card?\nSource: no guidance source consulted yet; select a record for its source.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nChoose a theme number or ask a question.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nYou: \nAnswer: Where can I access CRAS support?\nCRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.\n\nSource: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social\nVerified: 2026-11-16\nWarning: Local opening hours, appointments, and referrals vary; this assistant cannot book a visit.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  C03 - Where do I start Cadastro Unico registration?\n  C04 - When should I update Cadastro Unico?\n  D03 - How do I apply for CPF registration?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    },
+    {
+      "id": "U08",
+      "task": "Consult evidence guidance for a consumer complaint.",
+      "inputs": [
+        "Which evidence should I prepare for a consumer complaint?",
+        "quit"
+      ],
+      "expected": [
+        "invoices, contracts",
+        "Do not paste invoices"
+      ],
+      "difficulty": "Prepare evidence outside the assistant; it does not accept uploads.",
+      "success": true,
+      "script_actions": 1,
+      "process_time_ms": 38.197696,
+      "return_code": 0,
+      "obtained_transcript": "Citizen Assist AI\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\n\nAsk a question, choose a theme number, or enter a record ID.\nCommands: related | back | help | quit (or 0)\n\nYou: \nAnswer: Which evidence should I prepare for a consumer complaint?\nPrepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.\n\nSource: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerified: 2026-11-16\nWarning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  C01 - How can I make a consumer complaint online?\n  S03 - What are the gov.br account security levels?\n  C05 - Where can I access CRAS support?\n\nYou: \nSession ended. Confirm current guidance through official channels.\n",
+      "stderr": ""
+    }
+  ]
+}

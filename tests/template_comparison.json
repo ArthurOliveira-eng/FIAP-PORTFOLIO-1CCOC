@@ -1,0 +1,159 @@
+{
+  "method": "Structural clarity proxies on the same questions; not a human preference study.",
+  "templates": {
+    "template_a_v1": {
+      "matched_answers": 20,
+      "source_and_warning_rate": 1,
+      "mean_answer_characters": 871.55,
+      "mean_longest_line_characters": 705.7,
+      "separate_source_line_rate": 0
+    },
+    "template_b_v1": {
+      "matched_answers": 20,
+      "source_and_warning_rate": 1,
+      "mean_answer_characters": 928.5,
+      "mean_longest_line_characters": 176.65,
+      "separate_source_line_rate": 1
+    }
+  },
+  "selected_template": "template_b_v1",
+  "justification": "Template B separates answer, source, warning, limitation, and navigation. Template A is compact but puts important fields into a long paragraph. Both use identical retrieved facts; these proxies do not prove real-world usability.",
+  "examples": [
+    {
+      "id": "Q07",
+      "category": "direct",
+      "input": "How do I recover my gov.br password?",
+      "template": "template_a_v1",
+      "expected_answer": "Use official password recovery.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S02"
+      ],
+      "obtained_answer": "Answer: Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable. Source: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verified: 2026-11-16. Warning: Available recovery methods vary. Never send passwords or verification codes to this assistant.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\nRelated subjects:\n  S01 - How do I create a gov.br account?\n  S03 - What are the gov.br account security levels?\n  D05 - How do I access the Digital Work Card?",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.266945
+    },
+    {
+      "id": "Q12",
+      "category": "direct",
+      "input": "Which evidence should I prepare for a consumer complaint?",
+      "template": "template_a_v1",
+      "expected_answer": "Prepare purchase/service documentation.",
+      "expected_status": "match",
+      "expected_ids": [
+        "C02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "C02"
+      ],
+      "obtained_answer": "Answer: Prepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform. Source: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verified: 2026-11-16. Warning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.  This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency. Independent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\nRelated subjects:\n  C01 - How can I make a consumer complaint online?\n  S03 - What are the gov.br account security levels?\n  C05 - Where can I access CRAS support?",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.273461
+    },
+    {
+      "id": "Q22",
+      "category": "out_of_scope",
+      "input": "How do I obtain a Canadian driving licence?",
+      "template": "template_a_v1",
+      "expected_answer": "No reliable information in base; show alternatives.",
+      "expected_status": "no_match",
+      "expected_ids": [],
+      "obtained_status": "no_match",
+      "obtained_ids": [],
+      "obtained_answer": "No reliable answer to that question is stored in the base.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.263937
+    },
+    {
+      "id": "Q07",
+      "category": "direct",
+      "input": "How do I recover my gov.br password?",
+      "template": "template_b_v1",
+      "expected_answer": "Use official password recovery.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S02"
+      ],
+      "obtained_answer": "Answer: How do I recover my gov.br password?\nUse 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.\n\nSource: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerified: 2026-11-16\nWarning: Available recovery methods vary. Never send passwords or verification codes to this assistant.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  S01 - How do I create a gov.br account?\n  S03 - What are the gov.br account security levels?\n  D05 - How do I access the Digital Work Card?",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.270169
+    },
+    {
+      "id": "Q12",
+      "category": "direct",
+      "input": "Which evidence should I prepare for a consumer complaint?",
+      "template": "template_b_v1",
+      "expected_answer": "Prepare purchase/service documentation.",
+      "expected_status": "match",
+      "expected_ids": [
+        "C02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "C02"
+      ],
+      "obtained_answer": "Answer: Which evidence should I prepare for a consumer complaint?\nPrepare documents related to the purchase or service, such as invoices, contracts, and payment evidence, for submission through the official complaint platform.\n\nSource: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerified: 2026-11-16\nWarning: Do not paste invoices or personal information here. Confirm the platform's current submission instructions.\n\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.\n\nRelated subjects:\n  C01 - How can I make a consumer complaint online?\n  S03 - What are the gov.br account security levels?\n  C05 - Where can I access CRAS support?",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.267867
+    },
+    {
+      "id": "Q22",
+      "category": "out_of_scope",
+      "input": "How do I obtain a Canadian driving licence?",
+      "template": "template_b_v1",
+      "expected_answer": "No reliable information in base; show alternatives.",
+      "expected_status": "no_match",
+      "expected_ids": [],
+      "obtained_status": "no_match",
+      "obtained_ids": [],
+      "obtained_answer": "No reliable answer to that question is stored in the base.\nSource: none consulted; no guidance has been generated.\nAvailable themes:\n  1. Documents\n  2. Digital services\n  3. Community support\nTry: 'How do I recover my gov.br password?' or 'Where can I access CRAS support?'\nLimitation: This is a summary of the stored guidance, not a complete procedure or a personal eligibility decision. Confirm current requirements with the cited agency.\nIndependent educational prototype; not an official public agency channel. Do not enter personal data, passwords, or document numbers.",
+      "classification": "correct",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.240704
+    }
+  ]
+}
