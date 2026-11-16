@@ -116,20 +116,21 @@ def update_readme(report):
     if start not in content or end not in content:
         return
     rows = [
-        "| Template | Correct / total | Accuracy | Mean query time (ms) |",
+        "| Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |",
         "| --- | ---: | ---: | ---: |",
     ]
     for template, values in report["metrics_by_template"].items():
         rows.append(
             f"| {template} | {values['correct']} / {values['total']} | "
-            f"{values['accuracy_rate']:.2%} | {values['average_query_time_ms']:.6f} |"
+            f"{values['accuracy_rate']:.2%} | {values['average_query_time_ms']:.6f} |".replace(".", ",")
         )
     block = (
-        "\nExecuted in **" + report["environment"] + "**, Python " + report["python_version"]
-        + ", at " + report["executed_at"] + ".\n\n" + "\n".join(rows)
-        + "\n\nEach template runs the same independent cases. Latency excludes knowledge loading "
-        "and telemetry I/O, and includes rendering. See tests/results.json and "
-        "tests/results.csv for the full expected/obtained table.\n"
+        "\nExecução em ambiente **" + report["environment"] + "**, com Python " + report["python_version"]
+        + ", em " + report["executed_at"] + ".\n\n" + "\n".join(rows)
+        + "\n\nCada modelo executa os mesmos casos independentes. A latência exclui o carregamento "
+        "da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. "
+        "Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de "
+        "resultados esperados e obtidos.\n"
     )
     content = content.split(start, 1)[0] + start + block + end + content.split(end, 1)[1]
     path.write_text(content, encoding="utf-8")

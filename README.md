@@ -1,91 +1,91 @@
 # Citizen Assist AI
 
-An independent, textual citizen-guidance prototype for Brazilian public services. English interface and documentation; original Brazilian service names and Portuguese source pages are retained where needed. No paid APIs, external language models, model training, or runtime network calls.
+Protótipo independente de orientação ao cidadão, com interface textual para serviços públicos brasileiros. A interface do programa permanece em inglês; este README está em português. Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. O sistema não utiliza APIs pagas, modelos de linguagem externos, treinamento de modelos nem chamadas de rede durante a execução.
 
-## 1. Team and submission status
+## 1. Equipe e situação da entrega
 
-| Field | Value |
+| Campo | Valor |
 | --- | --- |
-| Project / provisional team name | Citizen Assist AI — team name awaiting confirmation |
-| Repository owner | Arthur Apolonio de Oliveira |
-| RM | Not supplied; must be completed before submission |
-| Other members and RMs | Not supplied; confirm the full membership before submission |
-| Public repository | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
-| YouTube demonstration (Unlisted) | Pending upload by the team; no fabricated link |
+| Projeto / nome provisório da equipe | Citizen Assist AI — nome da equipe aguardando confirmação |
+| Responsável pelo repositório | Arthur Apolonio de Oliveira |
+| RM | Não informado; deve ser preenchido antes da entrega |
+| Outros integrantes e RMs | Não informados; confirmar todos os integrantes antes da entrega |
+| Repositório público | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
+| Demonstração no YouTube (não listado) | Aguardando envio pela equipe; nenhum link fictício foi inserido |
 
-The prototype, evaluation runner, task scripts, and video generator are implemented. Submission is incomplete until the actual team/RMs and a working Unlisted YouTube URL are supplied. Local execution has been verified on Windows with Python 3.14; see [local validation](docs/local_validation.md). GitHub Actions results are labeled separately.
+O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de vídeo estão implementados. A entrega permanece incompleta até o preenchimento dos integrantes/RMs e de uma URL válida do vídeo não listado no YouTube. A execução local foi verificada no Windows com Python 3.14; consulte a [validação local](docs/local_validation.md). Os resultados do GitHub Actions são identificados separadamente.
 
-## 2. Problem, audience, and themes
+## 2. Problema, público e temas
 
-Citizens often need to identify the relevant agency and the next safe step without navigating many portals. This assistant provides concise, source-linked orientation, not application processing, official support, personal legal advice, or eligibility decisions.
+Cidadãos frequentemente precisam identificar o órgão responsável e o próximo passo seguro sem navegar por vários portais. Este assistente oferece orientações concisas com fontes, sem processar solicitações, prestar atendimento oficial, fornecer aconselhamento jurídico individual ou decidir sobre elegibilidade.
 
-Target audience: people seeking basic Brazilian citizen-service orientation, students demonstrating responsible retrieval, and reviewers inspecting sources and algorithms. The English-only prototype is an academic constraint and a barrier for many Brazilian users.
+Público-alvo: pessoas que buscam orientações básicas sobre serviços públicos brasileiros, estudantes que demonstram recuperação responsável de informações e avaliadores que analisam fontes e algoritmos. A interface do protótipo em inglês atende a uma restrição acadêmica, mas representa uma barreira para muitos usuários brasileiros.
 
-| Theme | Records | Subjects |
+| Tema | Registros | Assuntos |
 | --- | --- | --- |
-| Documents | D01–D05 | CIN overview and issuing, CPF registration and status, Digital Work Card |
-| Digital services | S01–S05 | gov.br account creation, recovery, security levels, electronic signing, CIN validation |
-| Community support | C01–C05 | Consumer complaints and evidence, Cadastro Unico registration and updating, CRAS |
+| Documentos | D01–D05 | Visão geral e emissão da CIN, inscrição e situação do CPF, Carteira de Trabalho Digital |
+| Serviços digitais | S01–S05 | Criação e recuperação de conta gov.br, níveis de segurança, assinatura eletrônica e validação da CIN |
+| Apoio comunitário | C01–C05 | Reclamações de consumidores e comprovantes, inscrição e atualização no Cadastro Único, CRAS |
 
-## 3. Knowledge organization and retrieval
+## 3. Organização da base e recuperação de informações
 
-The JSON base contains 15 records. Each includes id, theme, question, keywords, summary_guidance, reference, verification_date, confirmation_warning, and related_ids. Sources were consulted on 2026-11-16; see [source review](docs/source_review.md). A verification date is a snapshot, not a guarantee that a live page remains unchanged.
+A base JSON contém 15 registros. Cada registro inclui `id`, `theme`, `question`, `keywords`, `summary_guidance`, `reference`, `verification_date`, `confirmation_warning` e `related_ids`. As fontes foram consultadas em 16/11/2026; veja a [revisão das fontes](docs/source_review.md). A data de verificação registra uma consulta pontual e não garante que a página permaneça inalterada.
 
-Lists preserve record display order. Dictionaries index records by ID and theme. The hierarchy is theme → subject record; a directed adjacency dictionary links related records across themes. For example: D02 (CIN issuing) → S05 (CIN account validation) → S03 (security levels) → C01 (consumer complaint access). A related edge means useful continuation, not an official prerequisite in every case.
+Listas preservam a ordem de exibição dos registros. Dicionários indexam os registros por ID e tema. A hierarquia segue tema → registro do assunto; um dicionário de adjacência dirigido conecta registros relacionados entre temas. Por exemplo: D02 (emissão da CIN) → S05 (validação da conta com a CIN) → S03 (níveis de segurança) → C01 (acesso a reclamações de consumidores). Uma ligação indica uma continuação útil, sem representar necessariamente um pré-requisito oficial.
 
-Search normalizes case, accents, and punctuation, removes common question words, applies a small explicit synonym dictionary, and compares token sets. The score is query-token coverage plus a 0.20 bonus for a complete multi-token keyword phrase. It is a ranking score, not a probability. Minimum score: 0.46. Candidates within 0.12 of the best score trigger clarification; ID order breaks display-order ties. A single informative word always requests clarification. Exact record IDs and theme selection support direct navigation. Full details: [search strategy](docs/search_strategy.md).
+A busca normaliza maiúsculas, minúsculas, acentos e pontuação, remove palavras comuns das perguntas, aplica um pequeno dicionário explícito de sinônimos e compara conjuntos de termos. A pontuação corresponde à proporção dos termos da consulta encontrados no registro, acrescida de um bônus de 0,20 quando uma expressão completa de palavras-chave com vários termos é encontrada. É uma pontuação de classificação, não uma probabilidade. A pontuação mínima é 0,46. Candidatos com diferença de até 0,12 em relação à melhor pontuação geram um pedido de esclarecimento; a ordem dos IDs resolve empates na exibição. Uma consulta com apenas uma palavra informativa sempre solicita esclarecimento. IDs exatos e seleção por tema permitem navegação direta. Detalhes na [estratégia de busca](docs/search_strategy.md).
 
-Add or correct the JSON records without editing search rules. Validation checks required fields/types, non-empty strings and keywords, duplicate IDs, official HTTPS source URLs, ISO verification dates, and valid graph references. Invalid snapshots fail closed with a readable message. The administrative save_record helper validates the whole snapshot before atomic replacement. See [maintenance](docs/maintenance.md).
+Os registros JSON podem ser adicionados ou corrigidos sem alterar as regras de busca. A validação verifica campos e tipos obrigatórios, textos e palavras-chave não vazios, IDs duplicados, URLs oficiais com HTTPS, datas de verificação no formato ISO e referências válidas no grafo. Bases inválidas são rejeitadas com uma mensagem compreensível. A função administrativa `save_record` valida toda a base antes da substituição atômica do arquivo. Consulte a [documentação de manutenção](docs/maintenance.md).
 
-## 4. Response rules and agent architecture
+## 4. Regras de resposta e arquitetura do agente
 
-| Agent part | Implementation |
+| Componente do agente | Implementação |
 | --- | --- |
-| Perception | CitizenAgent.perceive parses commands, theme numbers, IDs, and text |
-| Reasoning | search normalizes input, filters a selected theme, ranks candidates, and requests clarification |
-| Action | response renders a validated record with a versioned template |
-| Memory | KnowledgeBase loads the verified JSON snapshot and indexes |
-| Guardrails | No free-form fact generation; mandatory source, verification date, confirmation warning, limitation, and non-official notice |
-| Observability | Privacy-safe JSONL query metadata, matched records, template name, status, and latency |
+| Percepção | `CitizenAgent.perceive` interpreta comandos, números de temas, IDs e texto |
+| Raciocínio | `search` normaliza a entrada, aplica o filtro de tema, classifica candidatos e solicita esclarecimentos |
+| Ação | `response` apresenta um registro validado usando um modelo de resposta versionado |
+| Memória | `KnowledgeBase` carrega a base JSON verificada e seus índices |
+| Salvaguardas | Sem geração livre de fatos; fonte, data de verificação, aviso de confirmação, limitação e aviso de caráter não oficial são obrigatórios |
+| Observabilidade | Metadados de consultas em JSONL com proteção de privacidade, registros encontrados, nome do modelo de resposta, estado e latência |
 
-[Template A](prompts/template_a.txt) places the answer and required fields into a compact paragraph. [Template B](prompts/template_b.txt) uses separate labeled sections and is the default. Both share the same grounded facts and limits. Their instruction headers and rendering layouts are versioned as template_a_v1 and template_b_v1; only the text following the response delimiter is rendered. This is deterministic template filling, not an LLM prompt invocation. The evaluation compares the same questions under both templates and reports source/warning compliance, separate source lines, answer length, and maximum line length. Template B is preferred for scanability; structural proxies do not establish human preference.
+O [modelo A](prompts/template_a.txt) apresenta a resposta e os campos obrigatórios em um parágrafo compacto. O [modelo B](prompts/template_b.txt) usa seções separadas e identificadas, sendo a opção padrão. Ambos usam os mesmos fatos fundamentados e limites. Seus cabeçalhos de instruções e formatos de apresentação são versionados como `template_a_v1` e `template_b_v1`; somente o texto após o delimitador de resposta é exibido. O processo preenche modelos de texto de forma determinística, sem executar instruções em um modelo de linguagem. A avaliação compara as mesmas perguntas nos dois formatos e verifica a presença de fonte e aviso, linhas separadas para fontes, tamanho das respostas e comprimento máximo das linhas. O modelo B foi escolhido por facilitar a leitura; essas medidas estruturais não comprovam a preferência de usuários reais.
 
-Empty input and punctuation-only input request a useful question. Invalid menu options show available themes. Ambiguity lists possible record IDs. No match explicitly reports that no guidance source was consulted and suggests questions/themes. Input cannot alter system rules. The instruction-override filter is a limited extra safeguard; safety primarily comes from returning stored records instead of generating facts. Unknown instructions, fees, local addresses, deadlines, and personal decisions are never synthesized.
+Entradas vazias ou compostas apenas por pontuação geram um pedido de pergunta útil. Opções inválidas de menu exibem os temas disponíveis. Consultas ambíguas listam possíveis IDs. Quando não há correspondência, o sistema informa explicitamente que nenhuma fonte de orientação foi consultada e sugere perguntas ou temas. A entrada não altera as regras do sistema. O filtro contra tentativas de sobrescrever instruções é uma proteção adicional limitada; a segurança depende principalmente de retornar registros armazenados em vez de gerar fatos. Instruções desconhecidas, taxas, endereços locais, prazos e decisões individuais nunca são inventados.
 
-Every matched response includes the source and a confirmation warning. Records older than 180 days receive an additional freshness warning. Live sources are not fetched when answering. A loosely related result can still be incomplete: users must read the scope limitation and confirm details with the agency.
+Toda resposta com correspondência inclui a fonte e um aviso de confirmação. Registros com mais de 180 dias recebem um aviso adicional de desatualização. As fontes não são acessadas em tempo real durante a resposta. Um resultado parcialmente relacionado pode continuar incompleto: o usuário deve ler a limitação de escopo e confirmar os detalhes com o órgão responsável.
 
-## 5. Test plan, measured indicators, and interpretation
+## 5. Plano de testes, indicadores medidos e interpretação
 
-The evaluation fixture contains 31 cases: all 15 records, rephrased questions, normalization, out-of-scope questions, empty and punctuation-only input, ambiguous queries, invalid menu input, overlong input, and an instruction-override request. Each is run for both templates (62 evaluations). Correctness requires the expected status, exact expected record IDs, expected answer fragments, and source/warning checks. These are functional retrieval tests, not an independent semantic accuracy benchmark.
+O conjunto de avaliação contém 31 casos: todos os 15 registros, perguntas reformuladas, normalização, perguntas fora do escopo, entradas vazias ou apenas com pontuação, consultas ambíguas, opções inválidas de menu, entradas longas demais e uma tentativa de sobrescrever instruções. Cada caso é executado nos dois modelos de resposta, totalizando 62 avaliações. Um resultado correto exige o estado esperado, os IDs exatos esperados, os trechos de resposta esperados e a aprovação das verificações de fonte e aviso. São testes funcionais de recuperação de informações, não uma avaliação independente de precisão semântica.
 
-Accuracy = correct / total. Query time uses perf_counter around a full agent handle call with the knowledge base already loaded and telemetry disabled; template file loading/rendering is included. Latency varies by hardware, cache state, and filesystem. CI and local results must not be compared as if environments were identical.
+Taxa de acerto = respostas corretas / total. O tempo de consulta é medido com `perf_counter` durante uma chamada completa a `handle`, com a base já carregada e a telemetria desativada; a leitura e a apresentação do modelo de resposta estão incluídas. A latência varia conforme o hardware, o estado do cache e o sistema de arquivos. Resultados locais e de integração contínua não devem ser comparados como se os ambientes fossem idênticos.
 
 <!-- METRICS:START -->
-Executed in **local**, Python 3.14.10, at 2026-11-16T23:19:49.066175+00:00.
+Execução em ambiente **local**, com Python 3.14.10, em 16/11/2026 às 23:19:49 UTC.
 
-| Template | Correct / total | Accuracy | Mean query time (ms) |
+| Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100.00% | 0.529052 |
-| template_b_v1 | 31 / 31 | 100.00% | 0.565581 |
+| template_a_v1 | 31 / 31 | 100,00% | 0,529052 |
+| template_b_v1 | 31 / 31 | 100,00% | 0,565581 |
 
-Each template runs the same independent cases. Latency excludes knowledge loading and telemetry I/O, and includes rendering. See tests/results.json and tests/results.csv for the full expected/obtained table.
+Cada modelo executa os mesmos casos independentes. A latência exclui o carregamento da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de resultados esperados e obtidos.
 <!-- METRICS:END -->
 
-The recorded table exports expected answer, obtained answer, correct/error classification, matched IDs, and individual time in tests/results.json and tests/results.csv; tests/results.md is a compact review table. tests/template_comparison.json records A/B comparison and example responses. Tests also cover missing/empty/malformed knowledge files, invalid schemas, graph references, updates, private logging, logging failures, EOF, running outside the project folder, and complete CLI flows.
+A tabela registrada exporta resposta esperada, resposta obtida, classificação como correta ou erro, IDs encontrados e tempo individual em `tests/results.json` e `tests/results.csv`; `tests/results.md` contém uma tabela resumida para revisão. O arquivo `tests/template_comparison.json` registra a comparação A/B e exemplos de respostas. Os testes também cobrem arquivos de conhecimento ausentes, vazios ou malformados, estruturas inválidas, referências do grafo, atualizações, privacidade dos logs, falhas de gravação, fim da entrada (EOF), execução fora da pasta do projeto e fluxos completos da interface de linha de comando.
 
-Usability is evaluated using eight predefined task scripts through the real CLI, as permitted by the assignment. tests/usability_results.json records task completion rate, action counts, process time, and transcripts. There are zero human participants; process time is not human task time and no satisfaction score is invented. Anticipated difficulties include clarifying broad queries, selecting record IDs, and leaving theme filters. See [usability methodology](docs/usability.md).
+A usabilidade é avaliada com oito roteiros predefinidos executados na interface real de linha de comando, conforme permitido pelo enunciado. O arquivo `tests/usability_results.json` registra taxa de conclusão, quantidade de ações, tempo de processo e transcrições. Não houve participantes humanos; o tempo de processo não corresponde ao tempo de uma pessoa e nenhuma nota de satisfação foi inventada. As dificuldades previstas incluem esclarecer consultas amplas, selecionar IDs e sair dos filtros de tema. Veja a [metodologia de usabilidade](docs/usability.md).
 
-Interpretation: high fixture accuracy demonstrates that the chosen examples obey their contracts. It does not establish broad language understanding, current policy completeness, eligibility correctness, or accessibility for real users. Template comparisons share retrieval and facts; they test formatting consistency rather than a model's reasoning.
+Interpretação: a alta taxa de acerto demonstra que os exemplos escolhidos cumprem seus critérios esperados. Ela não comprova compreensão ampla da linguagem, cobertura completa das regras vigentes, decisões corretas de elegibilidade ou acessibilidade para usuários reais. Os modelos compartilham a mesma busca e os mesmos fatos; sua comparação verifica consistência de formatação, sem avaliar o raciocínio de um modelo de linguagem.
 
-## 6. How to run and test locally
+## 6. Como executar e testar localmente
 
-Requires Python 3.10 or later. The application and tests use only the Python standard library. From the repository root:
+Requer Python 3.10 ou superior. A aplicação e os testes utilizam apenas a biblioteca padrão do Python. Na raiz do repositório, execute:
 
 ```bash
 python src/sistema.py
 ```
 
-On Windows, use py -3 if python is not on PATH.
+No Windows, use `py -3` caso `python` não esteja disponível no PATH.
 
 ```bash
 python -m unittest discover -s tests -v
@@ -94,81 +94,83 @@ python -m tests.run_usability
 python scripts/create_demo.py --text-only
 ```
 
-The first command verifies behavior. The next commands create the recorded evaluation, A/B comparison, usability report, and captured demonstration transcript. The evaluation also updates the measured-metrics block in this README. A failed comparison exits nonzero. Generated results reflect the environment in which they were actually run.
+O primeiro comando verifica o comportamento do sistema. Os seguintes geram a avaliação registrada, a comparação A/B, o relatório de usabilidade e a transcrição da demonstração. A avaliação também atualiza o bloco de métricas deste README. Uma comparação que falha encerra a execução com código diferente de zero. Os resultados gerados refletem o ambiente em que foram executados.
 
 ```bash
 python src/sistema.py --template template_a_v1 --no-log
 python src/sistema.py --knowledge data/knowledge_base.json
 ```
 
-Commands: 1/2/3 select themes; a record ID (such as D02) opens guidance; related offers continuation; back clears the theme filter; help shows theme choices; quit or 0 exits. Free-text questions are filtered by the selected theme until back is used. Exact record IDs can cross themes, enabling related navigation.
+Comandos: `1`, `2` e `3` selecionam temas; um ID, como `D02`, abre uma orientação; `related` oferece assuntos relacionados; `back` remove o filtro de tema; `help` mostra os temas; `quit` ou `0` encerra a sessão. Perguntas livres ficam restritas ao tema selecionado até o uso de `back`. IDs exatos permitem acessar registros de outros temas e continuar a navegação por assuntos relacionados. Esses comandos devem ser digitados em inglês.
 
-GitHub Actions executes the same tests on Python 3.12 and uploads measured reports, a demonstration MP4, and an evidence bundle as artifacts. The workflow has read-only repository access and never commits generated files. Video generation alone additionally requires FFmpeg and a DejaVu Sans Mono font in the documented Linux location. These optional tools are not application dependencies. Actions artifacts expire after 30 days; download the video and upload it to YouTube before submission.
+O GitHub Actions executa os mesmos testes no Python 3.12 e disponibiliza relatórios medidos, uma demonstração em MP4 e um pacote de evidências como artefatos. O fluxo de trabalho tem acesso somente de leitura ao repositório e não cria commits de arquivos gerados. Apenas a geração de vídeo requer ferramentas adicionais: FFmpeg e a fonte DejaVu Sans Mono no caminho Linux documentado. Essas ferramentas opcionais não são dependências da aplicação. Os artefatos expiram após 30 dias; baixe o vídeo e envie-o ao YouTube antes da entrega.
 
-## 7. Examples, sources, and invalid input
+## 7. Exemplos, fontes e entradas inválidas
 
-Input: How do I recover my gov.br password?
+A interface continua em inglês. As entradas abaixo devem ser digitadas como indicadas; as respostas citadas foram traduzidas para facilitar a leitura deste documento.
 
-> Use 'Esqueci minha senha' in the official gov.br sign-in flow. Follow the recovery methods offered for your account; use official support if those methods are unavailable.
+Entrada: `How do I recover my gov.br password?` (Como recuperar minha senha do gov.br?)
 
-Source: [Official gov.br recovery guidance](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br). The application additionally shows verification date, password/code privacy warning, limitations, and related subjects.
+> Use a opção “Esqueci minha senha” no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.
 
-Input: Where can I access CRAS support?
+Fonte: [orientação oficial para recuperação de conta gov.br](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br). A aplicação também mostra a data de verificação, o aviso de privacidade sobre senhas e códigos, as limitações e os assuntos relacionados.
 
-> CRAS provides free basic social-assistance guidance, including information about social services, rights, and Cadastro Unico. Consult your municipality for the appropriate unit and appointment arrangements.
+Entrada: `Where can I access CRAS support?` (Onde posso buscar atendimento do CRAS?)
 
-Source: [Official CRAS service page](https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social). Confirm local opening hours and appointments with the municipality.
+> O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.
 
-| Input | Behavior |
+Fonte: [página oficial do serviço do CRAS](https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social). Confirme horários de funcionamento e agendamentos com o município.
+
+| Entrada | Comportamento |
 | --- | --- |
-| Empty text | Requests a question or theme |
-| 99 | Explains the invalid menu choice and lists themes |
-| CPF | Offers registration/status clarification; choose D03 or D04 |
-| Canadian driving licence question | States no reliable answer is stored and offers supported alternatives |
-| 1 → D02 → related → S05 → related → S03 | Demonstrates three related subjects across themes |
+| Texto vazio | Solicita uma pergunta ou tema |
+| `99` | Explica que a opção de menu é inválida e lista os temas |
+| `CPF` | Solicita esclarecimento entre inscrição e situação cadastral; permite escolher D03 ou D04 |
+| Pergunta em inglês sobre habilitação para dirigir no Canadá | Informa que não há resposta confiável armazenada e oferece alternativas disponíveis |
+| `1 → D02 → related → S05 → related → S03` | Demonstra a navegação por três assuntos relacionados entre temas |
 
-## 8. Clarity, accessibility, privacy, and ethics
+## 8. Clareza, acessibilidade, privacidade e ética
 
-Plain labeled output works without colors, graphics, paid services, or network connectivity. The interface does not request names, RMs, CPF numbers, passwords, codes, addresses, or income. RMs are academic submission metadata, not application inputs. Consult official services directly when they legitimately require personal details.
+A saída textual com rótulos funciona sem cores, gráficos, serviços pagos ou conexão de rede. A interface não solicita nomes, RMs, números de CPF, senhas, códigos, endereços ou renda. Os RMs são dados da entrega acadêmica, não entradas da aplicação. Quando um serviço oficial exigir legitimamente dados pessoais, forneça-os diretamente nesse serviço.
 
-Default logs contain only input length and controlled-vocabulary terms plus operational metadata; raw queries are never persisted. Logs are local, untracked, and can be disabled with --no-log. Even minimized logs may reveal topics of interest: delete logs/ when no longer needed and do not publish logs. There is no analytics service or external model transmission. Synthetic evaluation questions and outputs are intentionally public.
+Por padrão, os logs contêm apenas o tamanho da entrada, termos de vocabulário controlado e metadados operacionais; as consultas originais nunca são persistidas. Os logs são locais, não são rastreados pelo Git e podem ser desativados com `--no-log`. Mesmo logs minimizados podem revelar assuntos de interesse: exclua `logs/` quando não forem mais necessários e não os publique. Não há serviço de análise nem transmissão para modelos externos. As perguntas e saídas sintéticas de avaliação são intencionalmente públicas.
 
-The prototype is not affiliated with government. It cannot schedule visits, authenticate users, access personal files, submit claims, or promise benefits. Sources are original Portuguese official pages; summaries are English paraphrases. Source conflicts, translations, and evolving policies require human review. See [AI-use disclosure](docs/uso_ia.md).
+O protótipo não é vinculado ao governo. Ele não agenda atendimentos, autentica usuários, acessa arquivos pessoais, envia solicitações nem promete benefícios. As fontes são páginas oficiais originais em português; os resumos utilizados pelo programa são paráfrases em inglês. Conflitos entre fontes, traduções e mudanças nas regras exigem revisão humana. Consulte a [declaração de uso de IA](docs/uso_ia.md).
 
-## 9. Demonstration and links file
+## 9. Demonstração e arquivo de links
 
-The Actions evidence artifact includes citizen-assist-demo.mp4 when video generation succeeds. It is an automatically rendered demonstration of actual captured CLI output, not a human screen recording or user study. A local text-only demonstration requires no additional dependencies. See [video guide](docs/demo_script.md).
+O artefato de evidências do GitHub Actions inclui `citizen-assist-demo.mp4` quando a geração do vídeo é concluída com sucesso. Trata-se de uma demonstração renderizada automaticamente a partir da saída real capturada da interface de linha de comando, sem constituir gravação humana de tela ou estudo com usuários. A demonstração local apenas em texto não exige dependências adicionais. Consulte o [guia de vídeo](docs/demo_script.md).
 
-Unlisted YouTube URL: **pending team upload**. Replace the pending value here and in [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT) with the real working URL. Publishing to YouTube requires the team's account; this repository does not claim that it has occurred.
+URL do vídeo não listado no YouTube: **aguardando envio pela equipe**. Substitua esse valor aqui e em [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT) pela URL real e válida. A publicação exige a conta da equipe no YouTube; o repositório não afirma que ela já ocorreu.
 
-## 10. Conclusions, limitations, and improvements
+## 10. Conclusões, limitações e melhorias
 
-The agent demonstrates a complete perception → validation → retrieval → rendering → source/limitation flow using lists, dictionaries, file reading, logical operations, graph navigation, and reproducible procedures. These directly exercise foundational programming and the assignment's phase 4/5/6 emphasis; course-specific phase materials were not provided, so no unsupported syllabus mapping is asserted.
+O agente demonstra um fluxo completo de percepção → validação → recuperação → apresentação → fonte e limitação, utilizando listas, dicionários, leitura de arquivos, operações lógicas, navegação em grafo e procedimentos reproduzíveis. Esses recursos exercitam fundamentos de programação e a ênfase do enunciado nas fases 4, 5 e 6; como os materiais específicos dessas fases não foram fornecidos, não se afirma uma correspondência detalhada com o conteúdo do curso.
 
-Limitations: only 15 curated records, English queries, lexical matching without learned semantics, no typo correction, no automatic policy refresh, no live integration, small development-authored fixtures, scripted rather than human usability testing, and environment-dependent timing. A related answer can be incomplete for a detailed question.
+Limitações: apenas 15 registros selecionados e revisados, consultas em inglês, correspondência lexical sem aprendizado semântico, ausência de correção de digitação, atualização automática de regras ou integração em tempo real, conjunto pequeno de testes elaborado durante o desenvolvimento, usabilidade avaliada por roteiros em vez de pessoas e tempos dependentes do ambiente. Uma resposta relacionada pode ser incompleta para perguntas detalhadas.
 
-Prioritized improvements:
+Melhorias prioritárias:
 
-1. Run an independent test set and a real usability/accessibility session with Portuguese-speaking citizens; measure comprehension, completion, and difficulty.
-2. Add reviewed Portuguese queries, broader paraphrases, and typo handling; tune thresholds on a development split and report results on an untouched test split.
-3. Add a source-review queue with freshness tracking and curator approval; never accept automatically scraped policy changes without validation.
-4. Improve navigation by making active theme state more visible and offering numbered clarification choices.
+1. Executar um conjunto independente de testes e uma sessão real de usabilidade e acessibilidade com cidadãos que falam português, medindo compreensão, conclusão e dificuldade.
+2. Adicionar consultas revisadas em português, reformulações mais variadas e tratamento de erros de digitação; ajustar os limites em um conjunto de desenvolvimento e apresentar resultados em um conjunto de testes reservado.
+3. Adicionar uma fila de revisão das fontes, com acompanhamento de atualização e aprovação por um responsável; não aceitar mudanças coletadas automaticamente sem validação.
+4. Melhorar a navegação, tornando o tema ativo mais visível e oferecendo opções numeradas de esclarecimento.
 
-## Acceptance evidence
+## Evidências de atendimento aos requisitos
 
-| Requirement | Evidence / remaining action |
+| Requisito | Evidência / ação pendente |
 | --- | --- |
-| Public repository | Repository URL above |
-| Minimum 15 records / 3 themes | data/knowledge_base.json |
-| Modular Python and configurable memory | src/ and prompts/ |
-| Hierarchy and three-subject continuation | Graph data, search_strategy.md, navigation regression |
-| Two prompt templates and comparison | prompts/; evaluation-generated template_comparison.json |
-| Direct/rephrased/out-of-scope + limitation tests | tests/test_questions.json; regression suite |
-| Accuracy, time, expected/obtained table | Generated results.json/.csv/.md and README metrics block |
-| Usability with task script | Eight tasks and generated usability_results.json |
-| AI-use and critical verification | docs/uso_ia.md; docs/source_review.md |
-| Local testing | Verified on Windows / Python 3.14; see docs/local_validation.md |
-| Video / Unlisted YouTube | MP4 generator supplied; YouTube upload and actual URL still required |
-| Team/RMs and TXT submission | Fill missing member data and YouTube URL before submission |
+| Repositório público | URL do repositório informada acima |
+| Mínimo de 15 registros e 3 temas | `data/knowledge_base.json` |
+| Python modular e memória configurável | `src/` e `prompts/` |
+| Hierarquia e continuação por três assuntos | Dados do grafo, `search_strategy.md` e teste de regressão da navegação |
+| Dois modelos de instrução e comparação | `prompts/` e `template_comparison.json` gerado pela avaliação |
+| Testes diretos, reformulados, fora do escopo e de limitações | `tests/test_questions.json` e testes de regressão |
+| Taxa de acerto, tempo e tabela de resultados esperados/obtidos | Arquivos `results.json`, `results.csv`, `results.md` e bloco de métricas do README |
+| Usabilidade com roteiro de tarefas | Oito tarefas e arquivo gerado `usability_results.json` |
+| Uso de IA e verificação crítica | `docs/uso_ia.md` e `docs/source_review.md` |
+| Testes locais | Verificados no Windows com Python 3.14; veja `docs/local_validation.md` |
+| Vídeo e YouTube não listado | Gerador de MP4 disponível; envio ao YouTube e URL real ainda pendentes |
+| Equipe/RMs e entrega do TXT | Preencher dados dos integrantes e URL do YouTube antes da entrega |
 
-Repository layout follows the supplied structure. The original assignment's missing Table 2 was not reconstructed or invented.
+A organização do repositório segue a estrutura fornecida. A Tabela 2, ausente no enunciado original disponibilizado, não foi reconstruída nem inventada.
