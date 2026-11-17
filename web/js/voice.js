@@ -3,6 +3,10 @@ import { dialogo, painel, registrarAviso } from "./notifications.js";
 export function criarVoz({ status, perguntaDireita }) {
   // DITADO PELO NAVEGADOR
   const Reconhecimento = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let usandoBrave = false;
+  if (navigator.brave?.isBrave) {
+    navigator.brave.isBrave().then((resultado) => { usandoBrave = resultado; }).catch(() => {});
+  }
   let reconhecimento = null,
     consentiuVoz = false;
   function pararVoz() {
@@ -23,6 +27,7 @@ export function criarVoz({ status, perguntaDireita }) {
       return;
     }
     const r = new Reconhecimento();
+    let falhou = false;
     reconhecimento = r;
     r.lang = "pt-BR";
     r.continuous = false;
@@ -51,6 +56,8 @@ export function criarVoz({ status, perguntaDireita }) {
     };
     r.onerror = (e) => {
       if (reconhecimento !== r) return;
+      falhou = true;
+      status("Não foi possível transcrever");
       const mensagens = {
         "not-allowed":
           "Permissão negada. Libere o microfone nas permissões deste site e tente novamente.",
@@ -59,8 +66,9 @@ export function criarVoz({ status, perguntaDireita }) {
         "audio-capture":
           "Nenhum microfone disponível. Confira a conexão e as configurações do sistema.",
         "no-speech": "Não foi detectada fala. Tente novamente.",
-        network:
-          "O serviço de transcrição está indisponível. Confira a conexão ou digite sua pergunta.",
+        network: usandoBrave
+          ? "O serviço de ditado não está disponível neste Brave. Para testar a transcrição, abra esta mesma página no Google Chrome e permita o microfone. Você também pode continuar digitando aqui."
+          : "O navegador não conseguiu acessar o serviço de reconhecimento de voz. Isso não indica necessariamente falha do seu microfone ou do servidor local. Tente novamente ou abra esta mesma página em outro navegador com suporte a ditado.",
         aborted: "Ditado cancelado.",
       };
       const msg =
@@ -72,7 +80,7 @@ export function criarVoz({ status, perguntaDireita }) {
       if (reconhecimento !== r) return;
       reconhecimento = null;
       document.body.classList.remove("ouvindo");
-      status("Confira sua pergunta");
+      if (!falhou) status("Confira sua pergunta");
       $("#microfone").setAttribute("aria-pressed", "false");
       $("#wave").classList.remove("on");
       if ($("#vozStatus").textContent.startsWith("Ouvindo"))

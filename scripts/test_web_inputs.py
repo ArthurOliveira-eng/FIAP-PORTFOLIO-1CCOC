@@ -5,6 +5,7 @@ with sync_playwright() as p:
     browser = p.chromium.launch(channel='msedge', headless=True)
     page = browser.new_page(viewport={'width':1200,'height':900})
     page.add_init_script("""
+    Object.defineProperty(navigator, 'brave', {value:{isBrave:async()=>true}});
     window.SpeechRecognition = class {
       constructor(){ window.ditadoTeste=this; }
       start(){ this.onstart(); }
@@ -54,6 +55,10 @@ with sync_playwright() as p:
     page.locator('#microfone').click()
     page.evaluate("window.ditadoTeste.onerror({error:'not-allowed'});window.ditadoTeste.onend()")
     expect(page.locator('#vozStatus')).to_contain_text('Permissão negada')
+    page.locator('#microfone').click()
+    page.evaluate("window.ditadoTeste.onerror({error:'network'});window.ditadoTeste.onend()")
+    expect(page.locator('#vozStatus')).to_contain_text('neste Brave')
+    expect(page.locator('#st')).to_have_text('Não foi possível transcrever')
     page.locator('#noite').click()
     page.locator('#q').fill('D01')
     page.get_by_role('button',name='Pesquisar no campo superior',exact=True).click()
