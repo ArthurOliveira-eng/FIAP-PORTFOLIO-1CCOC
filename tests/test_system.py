@@ -194,8 +194,8 @@ class MemoryValidationTests(unittest.TestCase):
 class CommandLineTests(unittest.TestCase):
     def run_cli(self, commands, *arguments, cwd=ROOT):
         return subprocess.run(
-            [sys.executable, str(ROOT / "src" / "sistema.py"), "--no-log", *arguments],
-            input=commands, capture_output=True, text=True, cwd=cwd, timeout=15,
+            [sys.executable, "-X", "utf8", str(ROOT / "src" / "sistema.py"), "--no-log", *arguments],
+            input=commands, capture_output=True, encoding="utf-8", cwd=cwd, timeout=15,
         )
 
     def test_complete_cli_flow(self):

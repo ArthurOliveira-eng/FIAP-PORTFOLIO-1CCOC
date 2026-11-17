@@ -1,0 +1,521 @@
+button,
+a.sm {
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 220ms,
+    background-color 180ms,
+    color 180ms;
+  transform: translateY(0px) scale(1);
+  -webkit-tap-highlight-color: transparent;
+}
+button:hover,
+a.sm:hover {
+  transform: translateY(-2px);
+  filter: none;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 6px 16px;
+}
+button:active,
+a.sm:active {
+  transform: translateY(1px) scale(0.95);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 6px inset;
+  transition-duration: 85ms;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: rgb(215, 101, 41) solid 2px;
+  outline-offset: 4px;
+}
+.orb {
+  transition: transform 550ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.orb b {
+  font-weight: 400;
+  box-shadow: rgba(232, 116, 48, 0.16) 0px 10px 40px;
+}
+.ouvindo .orb {
+  transform: scale(1.08);
+}
+.ouvindo .orb b {
+  box-shadow: rgba(232, 116, 48, 0.333) 0px 12px 55px;
+}
+.busy .orb i {
+  animation: auto ease 0s 1 normal none running none;
+}
+.q {
+  color: rgb(38, 39, 43);
+  line-height: 1.6;
+}
+.palavra {
+  animation: 450ms ease 0s 1 normal both running revelarPalavra;
+}
+@keyframes revelarPalavra {
+  0% {
+    opacity: 0.22;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+.card,
+.warn,
+.lim,
+.balaoPergunta {
+  animation: 320ms cubic-bezier(0.2, 0.8, 0.2, 1) 0s 1 normal both running entrarSuave;
+}
+@keyframes entrarSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.balaoPergunta {
+  margin: 4px 0px 16px auto;
+  max-width: 85%;
+  padding: 16px 20px;
+  background: rgb(20, 21, 25);
+  color: rgb(255, 255, 255);
+  border-radius: 22px 22px 6px;
+  line-height: 1.55;
+  font-size: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.panel .balaoPergunta {
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.historicoLayout {
+  display: none;
+}
+.modoHistorico > .stage,
+.modoHistorico > .panel {
+  display: none;
+}
+.modoHistorico .historicoLayout {
+  display: grid;
+}
+.historicoSidebar {
+  display: flex;
+  flex-direction: column;
+}
+.historicoSidebar header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.historicoSidebar h2 {
+  margin: 0px;
+}
+.historicoSidebar input {
+  min-width: 0px;
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 13px 15px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-language-override: inherit;
+}
+.conversaItem {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  border: 0px;
+  background: transparent;
+  color: inherit;
+  margin-bottom: 6px;
+}
+.conversaItem.selecionada {
+  background: white;
+}
+.conversaItem strong {
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.conversaItem small {
+  display: block;
+  margin-top: 3px;
+}
+.avatarMini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+}
+.historicoMain {
+  flex-direction: column;
+  min-width: 0px;
+}
+.historicoMain > header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgb(232, 232, 232);
+}
+.historicoMain header small {
+  margin-top: 5px;
+}
+.historicoMain header .sm {
+  margin-left: auto;
+}
+#historicoVazio {
+  text-align: center;
+}
+.respostaConversa {
+  display: flex;
+  align-items: flex-start;
+}
+.respostaConversa pre {
+  margin: 0px;
+  min-width: 0px;
+}
+.respostaConversa .avatarMini {
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+}
+#fontesHistorico {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0px 0px 42px;
+}
+#limparHistoricoTela {
+  margin-top: auto;
+  align-self: flex-start;
+}
+.hist {
+  display: none;
+}
+dialog[open] {
+  animation: 200ms ease 0s 1 normal none running entrarSuave;
+}
+body.dark .q {
+  color: rgb(240, 232, 226);
+}
+body.dark .historicoSidebar,
+body.dark .historicoMain {
+  background: linear-gradient(rgb(43, 45, 50), rgb(37, 39, 44));
+  border-color: rgb(65, 67, 74);
+}
+body.dark .historicoMain > header {
+  border-color: rgb(65, 67, 74);
+}
+body.dark .conversaItem.selecionada {
+  background: rgb(59, 62, 69);
+}
+body.dark .historicoSidebar input {
+  background: rgb(52, 55, 62);
+}
+body.dark #historicoVazio h2 {
+  color: rgb(238, 238, 238);
+}
+body.dark .balaoPergunta {
+  background: rgb(231, 231, 235);
+  color: rgb(24, 25, 28);
+}
+@media (max-width: 1020px) {
+  .modoHistorico {
+    grid-template-columns: 1fr;
+  }
+  .modoHistorico .historicoLayout {
+    grid-template-columns: 230px minmax(0px, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .modoHistorico .historicoLayout {
+    grid-template-columns: 1fr;
+  }
+  .historicoSidebar {
+    padding: 16px;
+  }
+  #listaHistorico {
+    max-height: 180px;
+  }
+  .historicoMain {
+    padding: 18px;
+    min-height: 420px;
+  }
+  .historicoMain header {
+    flex-wrap: wrap;
+  }
+  .historicoMain header .sm {
+    margin-left: 0px;
+  }
+  .balaoPergunta {
+    max-width: 95%;
+  }
+  .ouvindo .orb {
+    transform: scale(0.85);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation: auto ease 0s 1 normal none running none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  button:hover,
+  button:active,
+  a.sm:hover,
+  a.sm:active {
+    transform: none !important;
+  }
+}
+body.semMovimento *,
+body.semMovimento ::before,
+body.semMovimento ::after {
+  animation: auto ease 0s 1 normal none running none !important;
+  transition: none !important;
+}
+body.semMovimento button:hover,
+body.semMovimento button:active {
+  transform: none !important;
+}
+.stage {
+  min-height: 560px;
+}
+.orb {
+  width: 250px;
+  height: 250px;
+  transform: none;
+}
+.orb i:nth-child(1) {
+  width: 250px;
+  height: 250px;
+}
+.orb i:nth-child(2) {
+  width: 212px;
+  height: 212px;
+}
+.orb i:nth-child(3) {
+  width: 174px;
+  height: 174px;
+}
+.orb b {
+  width: 138px;
+  height: 138px;
+  font-size: 76px;
+}
+.ctl {
+  gap: 16px;
+  margin-top: 4px;
+  align-items: flex-start;
+}
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 56px;
+}
+.control .c {
+  width: 50px;
+  height: 50px;
+  color: rgb(38, 39, 43);
+}
+.control .c.x {
+  width: 50px;
+  height: 50px;
+  background: rgb(255, 85, 73);
+  color: white;
+  box-shadow: rgba(239, 68, 68, 0.137) 0px 5px 15px;
+}
+.control > span {
+  font-size: 11px;
+  color: rgb(116, 116, 125);
+}
+#microfone[aria-pressed="true"] {
+  background: rgb(232, 116, 48);
+  color: white;
+  box-shadow: rgba(232, 116, 48, 0.2) 0px 4px 18px;
+}
+#vozStatus {
+  max-width: 420px;
+  margin: 0px;
+  min-height: 36px;
+}
+.composer {
+  padding: 0px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0px;
+}
+.composer label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(107, 107, 107);
+}
+.composerRow {
+  padding: 5px;
+  background: white;
+  border: 1px solid rgb(230, 230, 232);
+  border-radius: 24px;
+  gap: 4px;
+}
+.composer input {
+  border: 0px;
+  padding: 10px 8px;
+  font-size: 12px;
+  border-radius: 18px;
+}
+.composer input:focus-visible {
+  outline: none;
+}
+.composerRow:focus-within {
+  border-color: rgb(232, 116, 48);
+  box-shadow: rgba(232, 116, 48, 0.082) 0px 0px 0px 3px;
+}
+.send {
+  min-height: 36px;
+  width: 36px;
+  flex-shrink: 0;
+  padding: 0px;
+  border-radius: 50%;
+  background: rgb(25, 26, 30);
+}
+.composer .hint {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.filtros {
+  font-size: 12px;
+  color: rgb(107, 107, 107);
+  border-bottom: 1px solid rgb(230, 230, 232);
+  padding-bottom: 14px;
+}
+.filtros summary {
+  padding: 4px 0px;
+}
+.filtros .fl {
+  justify-content: flex-start;
+  margin: 12px 0px;
+}
+.panel .balaoPergunta {
+  margin: 0px 0px 0px auto;
+  font-size: 13px;
+}
+#textoCompleto {
+  margin-top: 6px;
+  text-align: left;
+}
+body.dark .composer {
+  background: transparent;
+}
+body.dark .composerRow {
+  background: rgb(52, 55, 62);
+  border-color: rgb(83, 86, 95);
+}
+body.dark .send {
+  background: rgb(238, 238, 238);
+  color: rgb(24, 25, 28);
+}
+body.dark .composer label,
+body.dark .filtros,
+body.dark .control > span {
+  color: rgb(196, 198, 204);
+}
+body.dark .control .c {
+  color: rgb(238, 238, 238);
+}
+@media (max-width: 1020px) {
+  .stage {
+    min-height: 520px;
+  }
+  .panel {
+    max-height: none;
+  }
+}
+@media (max-width: 600px) {
+  .stage {
+    min-height: 480px;
+    padding: 24px 16px;
+  }
+  .orb {
+    transform: scale(0.8);
+    margin: -20px 0px;
+  }
+  .ouvindo .orb {
+    transform: scale(0.88);
+  }
+  .panel {
+    padding: 18px;
+  }
+  .q {
+    font-size: 18px;
+  }
+  .control {
+    min-width: 50px;
+  }
+  .ctl {
+    gap: 14px;
+  }
+}
+@media (min-width: 1021px) and (max-height: 850px) {
+  .stage {
+    min-height: 560px;
+    padding: 20px 28px;
+    gap: 10px;
+  }
+  .orb {
+    width: 180px;
+    height: 180px;
+  }
+  .orb i:nth-child(1) {
+    width: 180px;
+    height: 180px;
+  }
+  .orb i:nth-child(2) {
+    width: 152px;
+    height: 152px;
+  }
+  .orb i:nth-child(3) {
+    width: 124px;
+    height: 124px;
+  }
+  .orb b {
+    width: 100px;
+    height: 100px;
+    font-size: 58px;
+  }
+  .wave {
+    height: 30px;
+    transform: scaleY(0.7);
+  }
+  .q {
+    font-size: 19px;
+    line-height: 1.5;
+    min-height: 58px;
+  }
+  .control {
+    gap: 6px;
+  }
+  #vozStatus {
+    min-height: 28px;
+    font-size: 11px;
+  }
+}

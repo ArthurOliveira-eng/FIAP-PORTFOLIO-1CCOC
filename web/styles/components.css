@@ -1,0 +1,518 @@
+@font-face {
+  font-family: Inter;
+  src: url("/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+.card {
+  margin-bottom: 12px;
+}
+.stage {
+  padding-top: 30px;
+}
+.q {
+  font-size: 21px;
+  min-height: 68px;
+}
+.panel {
+  max-height: calc(-170px + 100vh);
+  overflow: auto;
+}
+#textoCompleto {
+  width: 100%;
+  font-size: 13px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  padding: 12px;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-language-override: inherit;
+  line-height: 1.65;
+}
+summary {
+  cursor: pointer;
+}
+.semMovimento * {
+  animation: auto ease 0s 1 normal none running none !important;
+}
+dialog {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 22px;
+  max-width: 720px;
+  width: calc(100% - 32px);
+  max-height: 85vh;
+  padding: 24px;
+  background: rgb(247, 247, 248);
+  color: rgb(20, 20, 20);
+  font-family: Inter, system-ui;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+dialog h2 {
+  font-weight: 400;
+}
+dialog p {
+  line-height: 1.6;
+}
+dialog label {
+  display: block;
+  margin: 16px 0px;
+}
+select {
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td,
+th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+#temasView {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 24px;
+}
+.conversationSidebar {
+  border-right: 1px solid rgb(226, 226, 227);
+  padding: 8px 20px 12px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.conversationSidebar input,
+#temaForm input {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  background: white;
+  padding: 13px;
+  font: inherit;
+  min-width: 0px;
+}
+.conversationSidebar label {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+}
+.historyItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 0px;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 7px;
+  overflow-wrap: anywhere;
+}
+.themesMain {
+  padding: 12px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.themesMain header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding-bottom: 18px;
+}
+.themesMain h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 12px 0px;
+}
+.themesMain p {
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 0px;
+}
+#listaTemas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.themeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: rgba(0, 0, 0, 0.035) 0px 2px 8px;
+  min-width: 0px;
+}
+.themeCard > span {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  line-height: 1.5;
+}
+.themeCard .themeIcon {
+  background: rgb(248, 230, 216);
+  color: rgb(182, 91, 38);
+  border-radius: 12px;
+  padding: 10px;
+  width: 45px;
+  font-size: 23px;
+}
+.themeCard strong {
+  font-size: 15px;
+}
+.themeCard b {
+  font-size: 12px;
+  font-weight: 500;
+}
+.applied {
+  background: rgb(225, 244, 232);
+  color: rgb(21, 112, 58);
+  border-radius: 10px;
+  padding: 12px;
+}
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+.suggestions .f {
+  height: auto;
+  min-height: 32px;
+  padding: 8px 14px;
+}
+#temaForm {
+  display: flex;
+  gap: 10px;
+}
+#temaForm input {
+  flex: 1 1 0%;
+}
+#dialogBody {
+  overflow-wrap: anywhere;
+}
+.pill {
+  width: min(330px, 75vw);
+}
+.hint {
+  line-height: 1.5;
+}
+@media (min-width: 1100px) {
+  .body {
+    grid-template-columns: 44px minmax(0px, 1fr) 340px;
+  }
+  .orb {
+    width: 190px;
+    height: 190px;
+    transform: scale(0.86);
+  }
+}
+@media (max-width: 1020px) {
+  .panel {
+    max-height: none;
+  }
+  .stage {
+    padding: 24px;
+  }
+  .q {
+    font-size: 20px;
+  }
+  #temasView {
+    grid-template-columns: 190px 1fr;
+  }
+  #listaTemas {
+    grid-template-columns: 1fr;
+  }
+  .themeCard {
+    gap: 8px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    padding: 8px;
+  }
+  .win {
+    padding: 16px 12px;
+    border-radius: 20px;
+    min-height: calc(-16px + 100vh);
+  }
+  .top {
+    gap: 12px;
+  }
+  .tools {
+    width: 100%;
+  }
+  .pill {
+    width: 100%;
+  }
+  .stage {
+    padding: 18px 12px;
+  }
+  .orb {
+    height: 170px;
+    transform: scale(0.75);
+    margin: -10px 0px;
+  }
+  .q {
+    font-size: 18px;
+  }
+  #temasView {
+    grid-template-columns: 1fr;
+  }
+  .conversationSidebar {
+    border-right: 0px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding-right: 0px;
+  }
+  #conversas {
+    max-height: 150px;
+    overflow: auto;
+  }
+  .themesMain header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .themeCard {
+    padding: 16px;
+  }
+  .rail {
+    gap: 8px;
+  }
+  #temaForm {
+    flex-wrap: wrap;
+  }
+  #temaForm input {
+    width: 100%;
+  }
+}
+.composer {
+  width: 100%;
+  max-width: 660px;
+  text-align: left;
+}
+.composer label {
+  display: block;
+  margin-bottom: 8px;
+}
+.composerRow {
+  display: flex;
+  align-items: center;
+}
+.composer input {
+  flex: 1 1 0%;
+  min-width: 0px;
+  width: 100%;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-language-override: inherit;
+  color: inherit;
+  background: transparent;
+}
+.composer .hint {
+  text-align: left;
+  margin: 10px 0px 0px;
+}
+.send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  border: 0px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-language-override: inherit;
+  font-size: 13px;
+}
+.searchTop {
+  border: 0px;
+  background: transparent;
+  color: inherit;
+  padding: 4px;
+  display: flex;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  max-width: min(380px, -32px + 100vw);
+  padding: 16px 20px;
+  background: rgb(36, 57, 45);
+  color: white;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dot {
+  width: auto;
+  min-width: 19px;
+  height: 19px;
+  padding: 1px 4px;
+  color: white;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+}
+.tools .round {
+  flex-shrink: 0;
+}
+body.dark {
+  color-scheme: dark;
+  background: linear-gradient(160deg, rgb(20, 21, 25), rgb(35, 38, 44));
+  color: rgb(238, 238, 238);
+}
+body.dark .win {
+  background: linear-gradient(rgb(41, 43, 48), rgb(32, 34, 38));
+  box-shadow:
+    rgba(0, 0, 0, 0.333) 0px 18px 50px,
+    rgb(66, 68, 74) 0px 0px 0px 1px inset;
+}
+body.dark .stage,
+body.dark .panel {
+  background: linear-gradient(rgb(48, 50, 57), rgb(40, 43, 48));
+  box-shadow: rgb(66, 68, 74) 0px 0px 0px 1px inset;
+}
+body.dark .card,
+body.dark .pill,
+body.dark .round,
+body.dark .c,
+body.dark .rb,
+body.dark .f,
+body.dark .sm,
+body.dark .themeCard,
+body.dark .historyItem,
+body.dark .composer,
+body.dark #textoCompleto,
+body.dark input,
+body.dark select {
+  background: rgb(52, 55, 62);
+  color: rgb(238, 238, 238);
+  border-color: rgb(83, 86, 95);
+  box-shadow: none;
+}
+body.dark .rb[aria-current],
+body.dark .f[aria-pressed="true"] {
+  background: rgb(183, 75, 18);
+  color: white;
+}
+body.dark .bc,
+body.dark .hint,
+body.dark .lab,
+body.dark small,
+body.dark .ph span,
+body.dark .hist span,
+body.dark .themeCard > span,
+body.dark .empty,
+body.dark .q.idle {
+  color: rgb(196, 198, 204);
+}
+body.dark .st {
+  color: rgb(238, 238, 238);
+}
+body.dark .wave i {
+  background: rgb(227, 227, 227);
+}
+body.dark .warn,
+body.dark .applied {
+  background: rgb(35, 71, 53);
+  color: rgb(225, 249, 235);
+}
+body.dark .warn .ok,
+body.dark .chip.g {
+  background: rgb(48, 89, 66);
+  color: rgb(213, 248, 226);
+}
+body.dark .lim {
+  background: rgb(81, 67, 33);
+  color: rgb(255, 240, 203);
+}
+body.dark .chip {
+  background: rgb(42, 66, 105);
+  color: rgb(215, 230, 255);
+}
+body.dark dialog {
+  background: rgb(39, 42, 48);
+  color: rgb(238, 238, 238);
+  border-color: rgb(83, 86, 95);
+}
+body.dark .ph,
+body.dark .hist,
+body.dark .conversationSidebar,
+body.dark .themesMain header {
+  border-color: rgb(83, 86, 95);
+}
+body.dark .c.x {
+  background: rgb(200, 53, 53);
+  color: white;
+}
+body.dark kbd {
+  background: rgb(69, 73, 82);
+  color: rgb(238, 238, 238);
+}
+body.dark .themeIcon {
+  color: rgb(255, 188, 142);
+  background: rgb(84, 55, 37);
+}
+body.dark #microfone[aria-pressed="true"] {
+  background: rgb(184, 50, 50);
+}
+body.dark .toast {
+  background: rgb(225, 244, 232);
+  color: rgb(23, 50, 34);
+}
+@media (max-width: 600px) {
+  .tools {
+    gap: 7px;
+  }
+  .pill {
+    min-width: 0px;
+  }
+  .pill kbd {
+    display: none;
+  }
+}

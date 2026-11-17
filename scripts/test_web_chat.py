@@ -22,6 +22,9 @@ with sync_playwright() as p:
     expect(page.locator('#chatForm')).to_be_visible()
     expect(page.locator('#stage')).to_be_hidden()
     conferir_enquadramento(page)
+    page.locator('#chatPergunta').press('Enter')
+    expect(page.locator('#chatStatus')).to_contain_text('Digite uma pergunta')
+    assert not pedidos
     page.screenshot(animations='disabled', path=str(ROOT / 'artifacts/web-chat-inicio.png'))
 
     page.locator('#chatPergunta').fill('D01')
@@ -82,7 +85,7 @@ with sync_playwright() as p:
     assert len(retidas) == 1
     retidas[0].continue_()
     page.unroute('**/api/consultar')
-    page.wait_for_function('historico.every(h => !h.pendente)')
+    expect(page.locator('#listaHistorico [aria-busy="true"]')).to_have_count(0)
     expect(page.locator('#historicoVazio')).to_be_visible()
     page.locator('#listaHistorico .conversaItem').last.click()
     expect(page.locator('#perguntaHistorico')).to_have_text('D04')

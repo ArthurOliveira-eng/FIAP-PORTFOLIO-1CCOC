@@ -15,6 +15,8 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 
 O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de vídeo estão implementados. A entrega permanece incompleta até o preenchimento dos integrantes/RMs e de uma URL válida do vídeo não listado no YouTube. A execução local foi verificada no Windows com Python 3.14; consulte a [validação local](docs/local_validation.md). Os resultados do GitHub Actions são identificados separadamente.
 
+Veja a [auditoria do enunciado e da entrega](docs/requirements_audit.md) para distinguir requisitos atendidos e pendências. A [organização do código](docs/architecture.md) descreve os módulos e as convenções de manutenção.
+
 ## 2. Problema, público e temas
 
 Cidadãos frequentemente precisam identificar o órgão responsável e o próximo passo seguro sem navegar por vários portais. Este assistente oferece orientações concisas com fontes, sem processar solicitações, prestar atendimento oficial, fornecer aconselhamento jurídico individual ou decidir sobre elegibilidade.
@@ -61,12 +63,12 @@ O conjunto de avaliação contém 31 casos: todos os 15 registros, perguntas ref
 Taxa de acerto = respostas corretas / total. O tempo de consulta é medido com `perf_counter` durante uma chamada completa a `handle`, com a base já carregada e a telemetria desativada; a leitura e a apresentação do modelo de resposta estão incluídas. A latência varia conforme o hardware, o estado do cache e o sistema de arquivos. Resultados locais e de integração contínua não devem ser comparados como se os ambientes fossem idênticos.
 
 <!-- METRICS:START -->
-Execução em ambiente **local**, com Python 3.14.10, em 2026-11-16T23:43:08.661038+00:00.
+Execução em ambiente **local**, com Python 3.14.10, em 2026-11-17T02:39:33.598982+00:00.
 
 | Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100,00% | 0,502865 |
-| template_b_v1 | 31 / 31 | 100,00% | 0,505777 |
+| template_a_v1 | 31 / 31 | 100,00% | 0,175335 |
+| template_b_v1 | 31 / 31 | 100,00% | 0,147887 |
 
 Cada modelo executa os mesmos casos independentes. A latência exclui o carregamento da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de resultados esperados e obtidos.
 <!-- METRICS:END -->
@@ -177,7 +179,7 @@ O protótipo não é vinculado ao governo. Ele não agenda atendimentos, autenti
 
 O artefato de evidências do GitHub Actions inclui `citizen-assist-demo.mp4` quando a geração do vídeo é concluída com sucesso. Trata-se de uma demonstração renderizada automaticamente a partir da saída real capturada da interface de linha de comando, sem constituir gravação humana de tela ou estudo com usuários. A demonstração local apenas em texto não exige dependências adicionais. Consulte o [guia de vídeo](docs/demo_script.md).
 
-URL do vídeo não listado no YouTube: **aguardando envio pela equipe**. Substitua esse valor aqui e em [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT) pela URL real e válida. A publicação exige a conta da equipe no YouTube; o repositório não afirma que ela já ocorreu.
+URL do vídeo não listado no YouTube: **aguardando envio pela equipe**. Atualize este trecho e acrescente a URL real como segunda linha de [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT). O TXT deve conter somente os dois links, sem rótulos ou explicações. Atualmente ele contém apenas o link do repositório e ainda não está pronto para envio. A publicação exige a conta da equipe no YouTube; o repositório não afirma que ela já ocorreu.
 
 ## 10. Conclusões, limitações e melhorias
 
@@ -209,6 +211,6 @@ Melhorias prioritárias:
 | Vídeo e YouTube não listado | Gerador de MP4 disponível; envio ao YouTube e URL real ainda pendentes |
 | Equipe/RMs e entrega do TXT | Preencher dados dos integrantes e URL do YouTube antes da entrega |
 
-A organização do repositório segue a estrutura fornecida. A Tabela 2, ausente no enunciado original disponibilizado, não foi reconstruída nem inventada.
+A organização mantém o projeto executável na raiz. O modelo oficial organiza o portfólio por ano, fase e atividade; o destino exato deste trabalho e as linhas da Tabela 2 ainda não foram fornecidos. Essa conferência está pendente e detalhada na auditoria.
 
 Os nomes de arquivos, campos JSON, funções, estados internos e identificadores de modelos permanecem estáveis como referências técnicas. Os textos apresentados ao usuário estão em pt-BR.

@@ -12,7 +12,7 @@ Entrada no painel direito, lupa superior, modo escuro persistido, contador de no
 
 A atualização visual baseada nos prints e no vídeo acrescentou pressão/retorno dos botões, revelação progressiva de palavras, pergunta à direita e tela exclusiva de Conversas. A seleção, a busca e a limpeza do histórico foram verificadas no navegador em desktop e celular. A transcrição progressiva foi verificada com eventos simulados de voz, sem capturar áudio do usuário. Nenhuma onda de clique foi adicionada; os efeitos respeitam a redução de movimento.
 
-- 27 testes Python aprovados, incluindo os contratos existentes e quatro testes da camada HTTP.
+- 30 testes Python aprovados, incluindo os contratos existentes e sete testes da camada HTTP.
 - Consulta de recuperação de senha, navegação por Documentos e CIN, ambiguidade de CPF e abertura dos cinco painéis auxiliares verificados no Edge.
 - Troca de modelo A/B no painel de configurações e requisições isoladas entre sessões verificadas.
 - Erros de sessão, tema, modelo, JSON e entradas longas verificados por HTTP.
@@ -21,6 +21,8 @@ A atualização visual baseada nos prints e no vídeo acrescentou pressão/retor
 - Chat independente com várias mensagens por conversa, novas sessões isoladas, retomada sem nova requisição e passagem para voz preservando a sessão.
 - Falha de rede no chat com opção de tentar novamente, sem trocar de tela.
 - Painel de conversas dentro da janela em 1920 × 1080, 1366 × 768, 1024 × 768, 768 × 1024 e 390 × 844; campo de envio visível e rolagem interna das mensagens.
+- Módulos JavaScript e estilos separados carregados pelo servidor com tipos corretos; tentativas de acesso fora dos recursos permitidos retornam 404.
+- Tipos inválidos nos pedidos e corpos acima de 8 KiB rejeitados de forma controlada.
 
 Para repetir os testes de backend:
 

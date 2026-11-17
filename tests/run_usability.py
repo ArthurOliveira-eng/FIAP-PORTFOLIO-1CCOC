@@ -16,9 +16,9 @@ def run_tasks():
     for task in tasks:
         started = perf_counter()
         result = subprocess.run(
-            [sys.executable, str(ROOT / "src" / "sistema.py"), "--sem-log"],
+            [sys.executable, "-X", "utf8", str(ROOT / "src" / "sistema.py"), "--sem-log"],
             input="\n".join(task["inputs"]) + "\n", capture_output=True,
-            text=True, cwd=ROOT, timeout=15,
+            encoding="utf-8", cwd=ROOT, timeout=15,
         )
         elapsed = (perf_counter() - started) * 1000
         success = result.returncode == 0 and all(term in result.stdout for term in task["expected"])

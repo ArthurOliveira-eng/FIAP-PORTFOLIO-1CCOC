@@ -6,6 +6,8 @@ O OpenAI ChatGPT/Codex auxiliou no desenho dos módulos Python, implementação 
 
 ## Método de validação
 
+A revisão também utilizou IA para separar módulos da interface, simplificar comentários, organizar a camada HTTP e comparar os requisitos com as evidências locais. A refatoração foi confrontada com os testes existentes, os contratos de busca e os fluxos do navegador. Os relatórios distinguem pendências acadêmicas de funcionalidades implementadas; não foi presumida a publicação do vídeo nem inventado o conteúdo da Tabela 2.
+
 Cada resumo foi comparado com descrições oficiais, sem ser aceito apenas por ter sido proposto por IA. Campos obrigatórios, formato das URLs oficiais, datas e ligações do grafo são validados em Python. Os resumos são intencionalmente curtos e não contêm decisões individuais. A procedência das informações e uma inconsistência entre fontes estão registradas em `source_review.md`.
 
 A avaliação compara IDs e estados esperados, conteúdo obrigatório e saída real nos dois modelos versionados. Os testes de regressão verificam erros de entrada, base malformada, navegação entre temas, avisos das fontes, manutenção dos dados, privacidade dos logs e fluxos da interface em subprocessos. A versão em pt-BR inclui testes de acentos, comandos, ajuda e avisos. Apenas relatórios executados contam como evidência medida. O ambiente distingue execução local de GitHub Actions. Não são inventados tempos, participantes, satisfação, links do YouTube ou resultados de aprovação.

@@ -26,8 +26,8 @@ SCENES = [
 
 def capture(title, inputs):
     result = subprocess.run(
-        [sys.executable, str(ROOT / "src" / "sistema.py"), "--sem-log"],
-        input="\n".join(inputs + ["sair"]) + "\n", text=True,
+        [sys.executable, "-X", "utf8", str(ROOT / "src" / "sistema.py"), "--sem-log"],
+        input="\n".join(inputs + ["sair"]) + "\n", encoding="utf-8",
         capture_output=True, cwd=ROOT, timeout=15,
     )
     if result.returncode:
