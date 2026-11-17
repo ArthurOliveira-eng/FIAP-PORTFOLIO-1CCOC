@@ -9,7 +9,13 @@ dialogo.innerHTML = '<header><h2 id="dialogTitle"></h2><button class="sm" id="fe
 dialogo.setAttribute('aria-labelledby', 'dialogTitle'); document.body.append(dialogo);
 $('#fechar').onclick = () => dialogo.close();
 function painel(titulo, html) { $('#dialogTitle').textContent = titulo; $('#dialogBody').innerHTML = html; if (!dialogo.open) dialogo.showModal(); }
-function registrarAviso(texto) { if (!avisos.includes(texto)) avisos.push(texto); $('.dot').hidden = !avisos.length; }
+let naoLidas = 0, toastTimer;
+const toast = document.createElement('div'); toast.className='toast'; toast.hidden=true; toast.setAttribute('role','status'); document.body.append(toast);
+function registrarAviso(texto) {
+  avisos.unshift({texto,hora:new Date().toLocaleTimeString('pt-BR')}); avisos=avisos.slice(0,50);
+  naoLidas++; $('.dot').hidden=false; $('.dot').textContent=String(Math.min(naoLidas,99));
+  toast.textContent=texto; toast.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>toast.hidden=true,5000);
+}
 async function api(url, pedido) {
   const r = await fetch(url, pedido ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(pedido)} : undefined);
   const dados = await r.json();
@@ -52,12 +58,14 @@ function mostrar(r) {
   if (r.log_erro) registrarAviso(r.log_erro);
 }
 async function perguntar(texto, reiniciar=false) {
+  pararVoz(); $('#pergunta').value=texto; $('#q').value=texto;
   const versao = ++geracao;
   consulta(); $('#win').classList.add('busy'); status('Buscando na base…');
   try {
     const r = await api('/api/consultar',{sid,texto,modelo,tema,reiniciar});
     if (versao !== geracao) return;
     mostrar(r);
+    registrarAviso(r.status==='match'?'Consulta concluída. A orientação e a fonte estão disponíveis.':r.mensagem);
     if (texto.trim() && !reiniciar) { historico.unshift({chave:crypto.randomUUID(),pergunta:texto,ids:r.ids,resposta:r}); historico = historico.slice(0,50); renderHistorico(); }
   } catch(e) {
     if (versao !== geracao) return;
@@ -84,7 +92,7 @@ $('#wave').innerHTML=[6,10,16,24,14,30,20,38,26,44,30,40,24,32,16,26,18,12,8].ma
 $('#form').onsubmit=e=>{e.preventDefault(); perguntar($('#q').value);};
 $('#temaForm').onsubmit=e=>{e.preventDefault(); perguntar($('#temaPergunta').value);};
 $('#bClear').onclick=novaConsulta; $('#nova').onclick=novaConsulta;
-$('#bEdit').onclick=()=>{$('#q').focus();$('#q').select();};
+$('#bEdit').onclick=()=>{$('#pergunta').focus();$('#pergunta').select();};
 $('#bBack').onclick=()=>{temaAtual('');temas();};
 $('#rTemas').onclick=temas; $('#rConsulta').onclick=consulta; $('#abrirConsulta').onclick=consulta;
 $('#agoraNao').onclick=()=>$('#temaPergunta').focus();
@@ -97,7 +105,7 @@ botoes[3].onclick=()=>{temaAtual('Apoio comunitário');perguntar('');};
 botoes[4].onclick=()=>painel('Histórico desta sessão',`<button class="sm" id="apagarHistorico">Apagar histórico</button>${historico.map(h=>`<article class="card"><button class="sm" data-hist="${h.chave}">${esc(h.pergunta)}</button></article>`).join('') || '<p>Nenhuma consulta.</p>'}`);
 botoes[5].onclick=indicadores;
 botoes[6].onclick=()=>painel('Configurações',`<label for="modelo">Modelo de resposta</label><select id="modelo">${(estado?.modelos || []).map(m=>`<option ${m===modelo?'selected':''}>${esc(m)}</option>`).join('')}</select><label><input type="checkbox" id="movimento" ${document.body.classList.contains('semMovimento')?'checked':''}> Reduzir animações</label><p>Histórico apenas na memória desta aba. Telemetria ${estado?.log?'ativada com metadados minimizados':'desativada'}.</p>`);
-$('.round').onclick=()=>painel('Notificações',avisos.length?avisos.map(a=>`<p>${esc(a)}</p>`).join(''):'<p>Nenhum aviso no momento.</p>');
+$('.round').onclick=()=>{painel('Notificações',avisos.length?'<p>Eventos desta aba, sem notificações externas.</p><button class="sm" id="limparAvisos">Limpar notificações</button>'+avisos.map(a=>`<article class="card"><small>${esc(a.hora)}</small><p>${esc(a.texto)}</p></article>`).join(''):'<p>Nenhum aviso no momento.</p>');naoLidas=0;$('.dot').hidden=true;};
 document.addEventListener('change',e=>{if(e.target.id==='modelo') modelo=e.target.value;if(e.target.id==='movimento') document.body.classList.toggle('semMovimento',e.target.checked);});
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
@@ -107,8 +115,47 @@ document.addEventListener('click',e=>{
  if(b.dataset.abrirTema){temaAtual(b.dataset.abrirTema);perguntar('');}
  if(b.dataset.hist){const h=historico.find(h=>h.chave===b.dataset.hist);if(h){dialogo.close();consulta();mostrar(h.resposta);}}
  if(b.id==='apagarHistorico'){historico=[];renderHistorico();dialogo.close();}
+ if(b.id==='limparAvisos'){avisos=[];naoLidas=0;$('.dot').hidden=true;dialogo.close();}
 });
 addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#q').focus();}});
 addEventListener('hashchange',()=>location.hash==='#temas'?temas():consulta());
 async function iniciar(){try{[estado,base]=await Promise.all([api('/api/estado'),api('/api/base')]);modelo=estado.modelo;$('#q').maxLength=estado.max;$('#nTemas').textContent=estado.temas.length;$('#fl').innerHTML=['',...estado.temas.map(t=>t.nome)].map(t=>`<button class="f" data-tema="${esc(t)}" aria-pressed="${!t}">${esc(t||'Todos os temas')}</button>`).join('');base.filter(r=>r.defasado).forEach(r=>registrarAviso(`${r.id}: fonte revisada há mais de ${estado.dias} dias.`));atualizarTemas();if(location.hash==='#temas')temas();}catch(e){status('Servidor indisponível');$('#ans').textContent='Não foi possível carregar a base. Verifique o servidor local e recarregue a página.';registrarAviso(e.message);}}
 iniciar();
+
+// Entrada central e lupa superior enviam para o mesmo agente.
+$('#perguntaForm').onsubmit=e=>{e.preventDefault();perguntar($('#pergunta').value);};
+$('#form svg').outerHTML='<button type="submit" class="searchTop" aria-label="Pesquisar no campo superior"><svg width="16" height="16"><use href="#search"/></svg></button>';
+$('#bClear').addEventListener('click',()=>{pararVoz();$('#pergunta').value='';$('#pergunta').focus();});
+$('#nova').addEventListener('click',()=>{pararVoz();$('#pergunta').value='';$('#pergunta').focus();});
+
+// Só a preferência visual é persistida. Perguntas e notificações ficam na memória.
+const noite=document.createElement('button'); noite.className='round'; noite.id='noite'; noite.textContent='☾'; noite.setAttribute('aria-label','Alternar modo noturno'); $('.tools').prepend(noite);
+let escuro=matchMedia('(prefers-color-scheme: dark)').matches;
+try{const salvo=localStorage.getItem('citizen-tema');if(salvo)escuro=salvo==='escuro';}catch(e){}
+function aplicarNoite(){document.body.classList.toggle('dark',escuro);noite.setAttribute('aria-pressed',String(escuro));noite.textContent=escuro?'☀':'☾';}
+aplicarNoite(); noite.onclick=()=>{escuro=!escuro;aplicarNoite();try{localStorage.setItem('citizen-tema',escuro?'escuro':'claro');}catch(e){}};
+
+// O navegador transcreve; o servidor Python recebe somente o texto confirmado.
+const Reconhecimento=window.SpeechRecognition||window.webkitSpeechRecognition;
+let reconhecimento=null, consentiuVoz=false;
+function pararVoz(){if(reconhecimento){const atual=reconhecimento;reconhecimento=null;atual.abort();}$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');}
+function iniciarVoz(){
+ dialogo.close();
+ if(!Reconhecimento){$('#vozStatus').textContent='Ditado indisponível neste navegador. Use um navegador compatível ou digite a pergunta.';return;}
+ const r=new Reconhecimento(); reconhecimento=r;r.lang='pt-BR';r.continuous=false;r.interimResults=true;
+ let prefixo=$('#pergunta').value.trim(); prefixo=prefixo?prefixo+' ':'';
+ r.onstart=()=>{if(reconhecimento!==r)return;$('#microfone').setAttribute('aria-pressed','true');$('#vozStatus').textContent='Ouvindo… fale sua pergunta. Clique no microfone para cancelar.';$('#wave').classList.add('on');};
+ r.onresult=e=>{if(reconhecimento!==r)return;const transcricao=Array.from(e.results).map(v=>v[0].transcript).join(' ');$('#pergunta').value=(prefixo+transcricao).slice(0,500);$('#vozStatus').textContent='Confira o texto e clique em Pesquisar para consultar.';};
+ r.onerror=e=>{if(reconhecimento!==r)return;const mensagens={'not-allowed':'Permissão negada. Libere o microfone nas permissões deste site e tente novamente.','service-not-allowed':'O serviço de ditado não está disponível neste navegador. Você pode digitar a pergunta.','audio-capture':'Nenhum microfone disponível. Confira a conexão e as configurações do sistema.','no-speech':'Não foi detectada fala. Tente novamente.','network':'O serviço de transcrição está indisponível. Confira a conexão ou digite sua pergunta.','aborted':'Ditado cancelado.'};const msg=mensagens[e.error]||'Não foi possível transcrever. Tente novamente ou digite a pergunta.';$('#vozStatus').textContent=msg;registrarAviso(msg);};
+ r.onend=()=>{if(reconhecimento!==r)return;reconhecimento=null;$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');if($('#vozStatus').textContent.startsWith('Ouvindo'))$('#vozStatus').textContent='Ditado encerrado. Confira o texto antes de pesquisar.';$('#pergunta').focus();};
+ try{r.start();}catch(e){pararVoz();$('#vozStatus').textContent='Não foi possível iniciar o microfone. Confira a permissão do navegador.';}
+}
+$('#microfone').onclick=()=>{
+ if(reconhecimento){pararVoz();$('#vozStatus').textContent='Ditado cancelado. Você pode editar o texto e pesquisar.';return;}
+ if(!Reconhecimento){$('#vozStatus').textContent='Seu navegador não oferece ditado compatível. Digite sua pergunta ou tente outro navegador.';registrarAviso('Reconhecimento de voz indisponível neste navegador.');return;}
+ if(!consentiuVoz){painel('Perguntar pelo microfone','<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p><p>O texto aparecerá no campo para revisão antes de pesquisar. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>');return;}
+ iniciarVoz();
+};
+document.addEventListener('click',e=>{if(e.target.closest('#ativarVoz')){consentiuVoz=true;iniciarVoz();}});
+dialogo.addEventListener('close',()=>$('#pergunta').focus());
+addEventListener('pagehide',pararVoz);

@@ -1,6 +1,6 @@
 # Citizen Assist AI
 
-Protótipo independente de orientação ao cidadão, com interface textual para serviços públicos brasileiros. A interface, as orientações, os comandos e a documentação estão em português brasileiro (pt-BR). Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. O sistema não utiliza APIs pagas, modelos de linguagem externos, treinamento de modelos nem chamadas de rede durante a execução.
+Protótipo independente de orientação ao cidadão, com interfaces textual e web para serviços públicos brasileiros. A interface, as orientações, os comandos e a documentação estão em português brasileiro (pt-BR). Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. A busca utiliza a base local, sem APIs pagas ou modelos generativos. O ditado opcional depende do serviço do navegador e pode enviar áudio para transcrição online, mediante confirmação do usuário.
 
 ## 1. Equipe e situação da entrega
 
@@ -86,6 +86,10 @@ python src/web.py --sem-log
 ```
 
 Abra **http://127.0.0.1:8000** no navegador. A tela inicial de Consulta e o Menu de temas reproduzem os modelos visuais fornecidos, com layout adaptável ao celular. A interface utiliza HTML, CSS e JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
+
+Digite no campo central **Sua pergunta** e clique na lupa **Pesquisar**, ou pressione Enter. O botão de microfone inicia o ditado em pt-BR em navegadores compatíveis, após confirmação e permissão. O texto transcrito aparece para revisão; clique em Pesquisar para consultar a base. O áudio não é armazenado pelo aplicativo, mas o serviço do navegador pode processá-lo online. Se não houver suporte, permissão ou conexão, a interface explica o problema e mantém a digitação disponível.
+
+O botão de lua/sol alterna o modo escuro; apenas a preferência visual é salva no navegador. As notificações são eventos internos da aba: consultas concluídas, erros e fontes desatualizadas geram avisos visuais e contagem no sino. Abrir o sino marca os avisos como lidos; é possível limpar a lista. Não são notificações push de órgãos públicos nem do sistema operacional.
 
 Faça uma pergunta em português, selecione um tema ou abra um assunto relacionado. A barra lateral oferece fontes, apoio comunitário, histórico temporário, indicadores reais e seleção dos modelos A/B. O sino apresenta avisos reais. A resposta completa do modelo selecionado está disponível abaixo da consulta. Fontes oficiais abrem em outra aba.
 

@@ -1,0 +1,46 @@
+"""Testa entrada, tema e eventos de ditado simulados, sem captar áudio real."""
+from playwright.sync_api import sync_playwright, expect
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(channel='msedge', headless=True)
+    page = browser.new_page(viewport={'width':1200,'height':900})
+    page.add_init_script("""
+    window.SpeechRecognition = class {
+      constructor(){ window.ditadoTeste=this; }
+      start(){ this.onstart(); }
+      abort(){ this.onend(); }
+    };
+    """)
+    page.goto('http://127.0.0.1:8000')
+    page.wait_for_selector('[data-tema]')
+    page.locator('#pergunta').fill('Como recuperar minha senha do gov.br?')
+    page.get_by_role('button',name='Pesquisar pergunta',exact=True).click()
+    expect(page.locator('#st')).to_have_text('Consulta concluída')
+    expect(page.locator('.toast')).to_be_visible()
+    page.get_by_role('button',name='Notificações',exact=True).click()
+    expect(page.locator('#dialogBody')).to_contain_text('Consulta concluída')
+    expect(page.locator('.dot')).to_be_hidden()
+    page.locator('#fechar').click()
+    page.locator('#noite').click()
+    expect(page.locator('#noite')).to_have_attribute('aria-pressed','true')
+    page.reload()
+    expect(page.locator('body')).to_have_class('dark')
+    page.locator('#microfone').click()
+    expect(page.locator('#dialogBody')).to_contain_text('processamento online')
+    page.locator('#ativarVoz').click()
+    expect(page.locator('#microfone')).to_have_attribute('aria-pressed','true')
+    page.evaluate("window.ditadoTeste.onresult({results:[[{transcript:'Como recuperar minha senha do gov.br?'}]]});window.ditadoTeste.onend()")
+    expect(page.locator('#pergunta')).to_have_value('Como recuperar minha senha do gov.br?')
+    page.get_by_role('button',name='Pesquisar pergunta',exact=True).click()
+    expect(page.locator('#st')).to_have_text('Consulta concluída')
+    page.locator('#microfone').click()
+    page.evaluate("window.ditadoTeste.onerror({error:'not-allowed'});window.ditadoTeste.onend()")
+    expect(page.locator('#vozStatus')).to_contain_text('Permissão negada')
+    page.locator('#noite').click()
+    page.locator('#q').fill('D01')
+    page.get_by_role('button',name='Pesquisar no campo superior',exact=True).click()
+    expect(page.locator('#ans')).to_contain_text('número único')
+    page.set_viewport_size({'width':390,'height':844})
+    assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    browser.close()
+    print('Texto, lupas, modo escuro persistido, notificações e eventos simulados de voz aprovados.')

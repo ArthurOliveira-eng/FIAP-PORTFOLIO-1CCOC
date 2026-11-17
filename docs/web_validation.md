@@ -4,7 +4,9 @@ A implementação usa os modelos Consulta e Menu de temas fornecidos pelo respon
 
 O servidor usa `ThreadingHTTPServer`, a biblioteca padrão e os componentes existentes. Os recursos estáticos são explicitamente permitidos. As rotas `GET /api/estado`, `/api/base` e `/api/indicadores` retornam dados do projeto; `POST /api/consultar` recebe `sid`, `texto`, `modelo`, `tema` opcional e `reiniciar` opcional. A resposta inclui o texto integral produzido pelo agente, estado, registros, fontes, assuntos relacionados e latência. O backend limita as sessões a 50; uma sessão descartada reinicia seu contexto na próxima consulta.
 
-Os controles incluem seleção de tema, busca, abertura por ID, assuntos relacionados, nova consulta, fontes, apoio comunitário, histórico, busca no histórico, indicadores, seleção de modelo, redução de animações e notificações. O histórico fica somente na memória da aba. A interface não solicita microfone nem transmite consultas a serviços externos.
+Os controles incluem seleção de tema, busca, abertura por ID, assuntos relacionados, nova consulta, fontes, apoio comunitário, histórico, busca no histórico, indicadores, seleção de modelo, redução de animações e notificações. O histórico fica somente na memória da aba. O ditado opcional solicita confirmação e permissão de microfone e pode usar transcrição online pelo navegador. Apenas o texto revisado é enviado ao servidor local para pesquisa. A preferência claro/escuro é persistida; consultas e notificações não são persistidas.
+
+Entrada central, lupa superior, modo escuro persistido, contador de notificações, transcrição simulada e permissão negada foram verificados com `python scripts/test_web_inputs.py`. O reconhecimento de áudio real depende do microfone, do navegador e da disponibilidade de seu serviço; não foi validado com a voz do usuário. O teste automatizado simula os eventos da API de voz e valida o fluxo até a consulta real na base.
 
 ## Verificações realizadas
 
