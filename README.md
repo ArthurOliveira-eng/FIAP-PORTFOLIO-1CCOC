@@ -79,6 +79,22 @@ Interpretação: a alta taxa de acerto demonstra que os exemplos escolhidos cump
 
 ## 6. Como executar e testar localmente
 
+### Interface web local
+
+```bash
+python src/web.py --sem-log
+```
+
+Abra **http://127.0.0.1:8000** no navegador. A tela inicial de Consulta e o Menu de temas reproduzem os modelos visuais fornecidos, com layout adaptável ao celular. A interface utiliza HTML, CSS e JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
+
+Faça uma pergunta em português, selecione um tema ou abra um assunto relacionado. A barra lateral oferece fontes, apoio comunitário, histórico temporário, indicadores reais e seleção dos modelos A/B. O sino apresenta avisos reais. A resposta completa do modelo selecionado está disponível abaixo da consulta. Fontes oficiais abrem em outra aba.
+
+O histórico fica apenas na memória da aba e pode ser apagado. Recarregar a página inicia uma nova sessão. `--sem-log` desativa a telemetria no servidor. O servidor atende somente em `127.0.0.1`; ele é destinado ao uso local. Encerre o processo Python para desligá-lo. Para outra porta, use `python src/web.py --sem-log --porta 8080`.
+
+As consultas web passam pelo mesmo `CitizenAgent.handle` do terminal. Tema, último registro e modelo de resposta são isolados por sessão. Não há respostas simuladas quando o servidor está indisponível. Consulte [a validação web](docs/web_validation.md).
+
+### Interface de terminal
+
 Requer Python 3.10 ou superior. A aplicação e os testes utilizam apenas a biblioteca padrão do Python. Na raiz do repositório, execute:
 
 ```bash

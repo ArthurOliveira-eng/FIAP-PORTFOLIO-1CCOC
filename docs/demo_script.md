@@ -1,5 +1,7 @@
 # Demonstração e envio ao YouTube
 
+Para demonstrar a interface gráfica, execute `python src/web.py --sem-log` e abra `http://127.0.0.1:8000`. Mostre a Consulta, o Menu de temas, uma pergunta sobre senha, a ambiguidade de CPF, a navegação D02 → S05 → S03 e os painéis de fontes e indicadores. A demonstração gráfica pode ser gravada no navegador. O gerador automatizado descrito abaixo continua registrando o terminal.
+
 A demonstração automatizada utiliza a saída real da interface de terminal. O vídeo tem legendas, não tem áudio e dura aproximadamente 110 segundos com a cena de métricas. Ele mostra consulta por tema, pergunta direta com fonte, ambiguidade de CPF e esclarecimento, entrada vazia, opção inválida, pergunta fora do escopo, três assuntos relacionados e métricas medidas, quando disponíveis. Todos os textos da demonstração são em pt-BR.
 
 ```bash
