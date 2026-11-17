@@ -1,12 +1,5 @@
-## Interface web OPCIONAL do Citizen Assist AI (somente biblioteca padrão).
-
-##O terminal continua sendo a interface principal:  python src/sistema.py
-##Esta camada extra reutiliza o MESMO agente, a MESMA base e os MESMOS modelos de resposta:
-## python src/web.py                 -> http://127.0.0.1:8000
-## python src/web.py --modelo template_a_v1 --sem-log --porta 8080
-## Nada de busca duplicada: cada consulta passa por CitizenAgent.handle, exatamente como no CLI.
-## O servidor escuta só em 127.0.0.1, não faz chamadas externas e não imprime as consultas.
-
+# SERVIDOR WEB LOCAL
+# Reutiliza o agente do terminal e atende somente em 127.0.0.1.
 import json
 import re
 import sys

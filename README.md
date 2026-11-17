@@ -89,9 +89,11 @@ python iniciar.py
 
 No Windows, também é possível **dar dois cliques em `iniciar.bat`** ou executar `py -3 iniciar.py`. Mantenha o terminal aberto enquanto usa a aplicação. Para encerrar, pressione **Ctrl+C** nesse terminal. Se a porta 8000 já estiver ocupada, use `python src/web.py --sem-log --porta 8080` e abra `http://127.0.0.1:8080`.
 
-Abra **http://127.0.0.1:8000** no navegador. A tela inicial de Consulta e o Menu de temas reproduzem os modelos visuais fornecidos, com layout adaptável ao celular. A interface utiliza HTML, CSS e JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
+Abra **http://127.0.0.1:8000** no navegador. A tela inicial é **Conversas**, com campo de mensagem na parte inferior e botão **Fale por voz** no cabeçalho. A interface segue as referências visuais fornecidas e se ajusta à janela, com rolagem dentro dos painéis. Utiliza HTML, CSS, JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
 
-Digite no campo **Sua pergunta**, no painel direito, e clique na lupa **Pesquisar**, ou pressione Enter. No centro, os controles são **Falar**, **Limpar** e **Editar**. **Falar** inicia o ditado em pt-BR em navegadores compatíveis, após confirmação e permissão. O texto transcrito aparece para revisão; clique na lupa à direita para consultar a base. **Editar** leva ao campo de pergunta; **Limpar** cancela o ditado e limpa a consulta. O áudio não é armazenado pelo aplicativo, mas o serviço do navegador pode processá-lo online. Se não houver suporte, permissão ou conexão, a interface explica o problema e mantém a digitação disponível.
+Em **Conversas**, escreva a mensagem e pressione **Enter** ou clique em enviar. **Shift + Enter** quebra a linha. As mensagens seguintes continuam na mesma conversa; **+ Nova** inicia outra, com contexto separado. Selecione uma conversa à esquerda para retomar suas mensagens.
+
+**Fale por voz** abre a tela de áudio mantendo o contexto da conversa. No centro, os controles são **Falar**, **Limpar** e **Editar**. **Falar** inicia o ditado em pt-BR após confirmação e permissão. Confira o texto no painel direito e envie pela lupa. **Editar** leva ao campo de pergunta; **Limpar** cancela o ditado e limpa a consulta. O aplicativo não armazena áudio, mas o serviço do navegador pode processá-lo online. Sem suporte ou permissão, a digitação continua disponível.
 
 O botão de lua/sol alterna o modo escuro; apenas a preferência visual é salva no navegador. As notificações são eventos internos da aba: consultas concluídas, erros e fontes desatualizadas geram avisos visuais e contagem no sino. Abrir o sino marca os avisos como lidos; é possível limpar a lista. Não são notificações push de órgãos públicos nem do sistema operacional.
 
@@ -101,7 +103,7 @@ Faça uma pergunta em português, selecione um tema ou abra um assunto relaciona
 
 - **Consulta:** o campo de digitação e a pergunta ficam à direita; a resposta aparece no centro. A resposta mantém as fontes, os avisos e as limitações da base.
 - **Voz:** durante o ditado, as palavras surgem progressivamente no centro e a pergunta aparece à direita. Confira ou edite o texto antes de clicar em Pesquisar.
-- **Histórico:** o ícone de histórico no menu esquerdo abre a tela **Conversas**, com busca e seleção de perguntas à esquerda e a resposta integral à direita. Rever uma mensagem não executa outra consulta. Use **Apagar histórico** para limpar as mensagens.
+- **Conversas:** tela independente para conversar por texto, com perguntas à direita e respostas à esquerda. O histórico agrupa as mensagens por conversa. Rever uma conversa não executa outra consulta; enviar uma nova mensagem continua seu contexto. **Apagar histórico** limpa todas as conversas da aba.
 - **Movimento:** botões têm efeitos suaves de pressão e retorno; palavras e cartões entram gradualmente. Não há ondas de clique. A opção **Reduzir animações** e a preferência de acessibilidade do sistema desativam os efeitos.
 - **Nova consulta:** limpa a consulta atual, mantendo as mensagens anteriores disponíveis no histórico da aba.
 

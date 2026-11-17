@@ -94,10 +94,9 @@ class KnowledgeBase:
 
 
 def save_record(path, record, *, replace=False):
-    """Adiciona ou corrige um registro após validar todo o grafo resultante.
+    """Adiciona ou substitui um registro após validar a base completa.
 
-    O arquivo anterior é preservado se a validação falhar. A substituição é atômica
-    no mesmo sistema de arquivos. Uso administrativo, fora da interface do cidadão.
+    A gravação é atômica e destinada à administração, fora da interface do cidadão.
     """
     path = Path(path)
     memory = KnowledgeBase.load(path)

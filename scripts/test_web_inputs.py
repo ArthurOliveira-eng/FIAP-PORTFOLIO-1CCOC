@@ -11,7 +11,7 @@ with sync_playwright() as p:
       abort(){ this.onend(); }
     };
     """)
-    page.goto('http://127.0.0.1:8000')
+    page.goto('http://127.0.0.1:8000/#consulta')
     page.wait_for_selector('[data-tema]', state='attached')
     # A entrada fica à direita, separada dos controles de voz e da resposta.
     entrada = page.locator('#pergunta').bounding_box()
@@ -60,7 +60,7 @@ with sync_playwright() as p:
     expect(page.locator('#ans')).to_contain_text('número único')
     page.set_viewport_size({'width':390,'height':844})
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-    page.get_by_role('button', name='Histórico', exact=True).click()
+    page.get_by_role('button', name='Conversas', exact=True).click()
     page.locator('#listaHistorico .conversaItem').first.click()
     expect(page.locator('#perguntaHistorico')).to_have_text('D01')
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
