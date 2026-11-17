@@ -128,8 +128,8 @@ kbd {
 }
 .rb em {
   position: absolute;
-  top: -6px;
-  right: -6px;
+  top: 0;
+  right: 0;
   min-width: 16px;
   height: 16px;
   border-radius: 8px;
