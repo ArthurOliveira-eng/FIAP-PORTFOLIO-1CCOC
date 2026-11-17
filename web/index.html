@@ -49,24 +49,23 @@
 <div class="st" id="st" role="status">Pronto para consultar</div>
 <div class="wave" id="wave" aria-hidden="true"></div>
 <p class="q idle" id="ans" aria-live="polite">Pergunte sobre documentos, serviços digitais ou apoio comunitário.</p>
-<form id="perguntaForm" class="composer">
-<label for="pergunta">Sua pergunta</label>
-<div class="composerRow"><input id="pergunta" maxlength="500" autocomplete="off" placeholder="Ex.: Como recuperar minha senha do gov.br?">
-<button type="button" id="microfone" class="c" aria-label="Perguntar pelo microfone" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></button>
-<button type="submit" class="send" aria-label="Pesquisar pergunta"><svg width="20" height="20"><use href="#search"/></svg><span>Pesquisar</span></button></div>
-<p id="vozStatus" class="hint" role="status">Digite sua pergunta e clique na lupa ou pressione Enter.</p>
-</form>
-<div class="ctl">
-<button class="c" id="bBack" aria-label="Voltar ao filtro de temas"><svg width="18" height="18"><use href="#back"/></svg></button>
-<button class="c x" id="bClear" aria-label="Limpar consulta"><svg width="22" height="22"><use href="#x"/></svg></button>
-<button class="c" id="bEdit" aria-label="Nova pergunta"><svg width="18" height="18"><use href="#pen"/></svg></button>
+<div class="ctl" role="group" aria-label="Controles da conversa">
+<div class="control"><button type="button" id="microfone" class="c" aria-label="Perguntar pelo microfone" aria-pressed="false" title="Falar pelo microfone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></button><span>Falar</span></div>
+<div class="control"><button class="c x" id="bClear" aria-label="Limpar consulta" title="Cancelar e limpar consulta"><svg width="22" height="22"><use href="#x"/></svg></button><span>Limpar</span></div>
+<div class="control"><button class="c" id="bEdit" aria-label="Editar pergunta à direita" title="Editar pergunta à direita" aria-controls="pergunta"><svg width="18" height="18"><use href="#pen"/></svg></button><span>Editar</span></div>
 </div>
-<div class="fl" id="fl" role="group" aria-label="Filtrar por tema"></div>
-<div class="hint">Digite uma pergunta ou um ID, como D02 · Enter envia</div>
+<p id="vozStatus" class="hint" role="status">Toque no microfone para falar ou escreva sua pergunta à direita.</p>
 </main>
 
-<aside class="panel" aria-label="Resultado da consulta">
-<div class="ph"><div class="mini"><svg width="16" height="16"><use href="#doc"/></svg></div><div><b>Orientação cidadã</b><span id="ps">Aguardando pergunta</span></div></div>
+<aside class="panel" aria-label="Perguntas e fontes">
+<div class="ph"><div class="mini"><svg width="16" height="16"><use href="#doc"/></svg></div><div><b>Suas perguntas</b><span id="ps">Aguardando pergunta</span></div></div>
+<form id="perguntaForm" class="composer">
+<label for="pergunta">Sua pergunta</label>
+<div class="composerRow"><input id="pergunta" maxlength="500" autocomplete="off" placeholder="Pergunte ou digite um ID…" aria-describedby="perguntaAjuda">
+<button type="submit" class="send" aria-label="Pesquisar pergunta" title="Pesquisar pergunta"><svg width="20" height="20"><use href="#search"/></svg></button></div>
+<p id="perguntaAjuda" class="hint">Enter ou lupa para enviar. A resposta aparece no centro.</p>
+</form>
+<details class="filtros"><summary>Filtrar por tema</summary><div class="fl" id="fl" role="group" aria-label="Filtrar por tema"></div><button class="sm" id="bBack">Abrir menu de temas</button></details>
 <div class="lab">Orientações encontradas</div>
 <div id="cards"><div class="empty">As orientações aparecem aqui quando você consulta.</div></div>
 <div id="box"></div>

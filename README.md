@@ -91,7 +91,7 @@ No Windows, também é possível **dar dois cliques em `iniciar.bat`** ou execut
 
 Abra **http://127.0.0.1:8000** no navegador. A tela inicial de Consulta e o Menu de temas reproduzem os modelos visuais fornecidos, com layout adaptável ao celular. A interface utiliza HTML, CSS e JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
 
-Digite no campo central **Sua pergunta** e clique na lupa **Pesquisar**, ou pressione Enter. O botão de microfone inicia o ditado em pt-BR em navegadores compatíveis, após confirmação e permissão. O texto transcrito aparece para revisão; clique em Pesquisar para consultar a base. O áudio não é armazenado pelo aplicativo, mas o serviço do navegador pode processá-lo online. Se não houver suporte, permissão ou conexão, a interface explica o problema e mantém a digitação disponível.
+Digite no campo **Sua pergunta**, no painel direito, e clique na lupa **Pesquisar**, ou pressione Enter. No centro, os controles são **Falar**, **Limpar** e **Editar**. **Falar** inicia o ditado em pt-BR em navegadores compatíveis, após confirmação e permissão. O texto transcrito aparece para revisão; clique na lupa à direita para consultar a base. **Editar** leva ao campo de pergunta; **Limpar** cancela o ditado e limpa a consulta. O áudio não é armazenado pelo aplicativo, mas o serviço do navegador pode processá-lo online. Se não houver suporte, permissão ou conexão, a interface explica o problema e mantém a digitação disponível.
 
 O botão de lua/sol alterna o modo escuro; apenas a preferência visual é salva no navegador. As notificações são eventos internos da aba: consultas concluídas, erros e fontes desatualizadas geram avisos visuais e contagem no sino. Abrir o sino marca os avisos como lidos; é possível limpar a lista. Não são notificações push de órgãos públicos nem do sistema operacional.
 
@@ -99,7 +99,7 @@ Faça uma pergunta em português, selecione um tema ou abra um assunto relaciona
 
 ### Conversas, voz e animações
 
-- **Consulta:** a pergunta aparece em um balão à direita. A resposta mantém as fontes, os avisos e as limitações da base.
+- **Consulta:** o campo de digitação e a pergunta ficam à direita; a resposta aparece no centro. A resposta mantém as fontes, os avisos e as limitações da base.
 - **Voz:** durante o ditado, as palavras surgem progressivamente no centro e a pergunta aparece à direita. Confira ou edite o texto antes de clicar em Pesquisar.
 - **Histórico:** o ícone de histórico no menu esquerdo abre a tela **Conversas**, com busca e seleção de perguntas à esquerda e a resposta integral à direita. Rever uma mensagem não executa outra consulta. Use **Apagar histórico** para limpar as mensagens.
 - **Movimento:** botões têm efeitos suaves de pressão e retorno; palavras e cartões entram gradualmente. Não há ondas de clique. A opção **Reduzir animações** e a preferência de acessibilidade do sistema desativam os efeitos.

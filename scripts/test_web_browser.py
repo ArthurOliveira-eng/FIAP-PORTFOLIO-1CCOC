@@ -10,7 +10,7 @@ with sync_playwright() as p:
     errors = []
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.goto('http://127.0.0.1:8000')
-    page.wait_for_selector('[data-tema]')
+    page.wait_for_selector('[data-tema]', state='attached')
     page.locator('#q').fill('Como recuperar minha senha do gov.br?')
     page.locator('#q').press('Enter')
     expect(page.locator('#st')).to_have_text('Consulta concluída')

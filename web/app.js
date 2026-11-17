@@ -114,7 +114,7 @@ $('#wave').innerHTML=[6,10,16,24,14,30,20,38,26,44,30,40,24,32,16,26,18,12,8].ma
 $('#form').onsubmit=e=>{e.preventDefault(); perguntar($('#q').value);};
 $('#temaForm').onsubmit=e=>{e.preventDefault(); perguntar($('#temaPergunta').value);};
 $('#bClear').onclick=novaConsulta; $('#nova').onclick=novaConsulta;
-$('#bEdit').onclick=()=>{$('#pergunta').focus();$('#pergunta').select();};
+$('#bEdit').onclick=()=>{pararVoz();status('Edite sua pergunta à direita');$('#pergunta').scrollIntoView({block:'nearest'});$('#pergunta').focus();$('#pergunta').select();};
 $('#bBack').onclick=()=>{temaAtual('');temas();};
 $('#rTemas').onclick=temas; $('#rConsulta').onclick=consulta; $('#abrirConsulta').onclick=consulta;
 $('#agoraNao').onclick=()=>$('#temaPergunta').focus();
@@ -144,10 +144,10 @@ addEventListener('hashchange',()=>location.hash==='#temas'?temas():location.hash
 async function iniciar(){try{[estado,base]=await Promise.all([api('/api/estado'),api('/api/base')]);modelo=estado.modelo;$('#q').maxLength=estado.max;$('#nTemas').textContent=estado.temas.length;$('#fl').innerHTML=['',...estado.temas.map(t=>t.nome)].map(t=>`<button class="f" data-tema="${esc(t)}" aria-pressed="${!t}">${esc(t||'Todos os temas')}</button>`).join('');base.filter(r=>r.defasado).forEach(r=>registrarAviso(`${r.id}: fonte revisada há mais de ${estado.dias} dias.`));atualizarTemas();if(location.hash==='#temas')temas();}catch(e){status('Servidor indisponível');$('#ans').textContent='Não foi possível carregar a base. Verifique o servidor local e recarregue a página.';registrarAviso(e.message);}}
 iniciar();
 
-// Entrada central e lupa superior enviam para o mesmo agente.
+// Campo à direita e lupa superior enviam para o mesmo agente.
 $('#perguntaForm').onsubmit=e=>{e.preventDefault();perguntar($('#pergunta').value);};
 $('#form svg').outerHTML='<button type="submit" class="searchTop" aria-label="Pesquisar no campo superior"><svg width="16" height="16"><use href="#search"/></svg></button>';
-$('#bClear').addEventListener('click',()=>{pararVoz();$('#pergunta').value='';$('#pergunta').focus();});
+$('#bClear').addEventListener('click',()=>{pararVoz();$('#pergunta').value='';$('#ps').textContent='Aguardando pergunta';$('#vozStatus').textContent='Toque no microfone para falar ou escreva sua pergunta à direita.';});
 $('#nova').addEventListener('click',()=>{pararVoz();$('#pergunta').value='';$('#pergunta').focus();});
 
 // Só a preferência visual é persistida. Perguntas e notificações ficam na memória.
@@ -165,15 +165,14 @@ function iniciarVoz(){
  dialogo.close();
  if(!Reconhecimento){$('#vozStatus').textContent='Ditado indisponível neste navegador. Use um navegador compatível ou digite a pergunta.';return;}
  const r=new Reconhecimento(); reconhecimento=r;r.lang='pt-BR';r.continuous=false;r.interimResults=true;
- let prefixo=$('#pergunta').value.trim(); prefixo=prefixo?prefixo+' ':'';
  r.onstart=()=>{if(reconhecimento!==r)return;document.body.classList.add('ouvindo');status('Ouvindo sua pergunta…');revelar($('#ans'),'Pode falar. Estou ouvindo.',false);$('#microfone').setAttribute('aria-pressed','true');$('#vozStatus').textContent='Ouvindo… fale sua pergunta. Clique no microfone para cancelar.';$('#wave').classList.add('on');};
- r.onresult=e=>{if(reconhecimento!==r)return;const transcricao=Array.from(e.results).map(v=>v[0].transcript).join(' ');const texto=(prefixo+transcricao).slice(0,500);$('#pergunta').value=texto;perguntaDireita(texto);revelar($('#ans'),texto);$('#vozStatus').textContent='Confira o texto e clique em Pesquisar para consultar.';};
+ r.onresult=e=>{if(reconhecimento!==r)return;const texto=Array.from(e.results).map(v=>v[0].transcript).join(' ').slice(0,500);$('#pergunta').value=texto;perguntaDireita(texto);revelar($('#ans'),texto);$('#vozStatus').textContent='Confira sua pergunta à direita e clique na lupa para consultar.';};
  r.onerror=e=>{if(reconhecimento!==r)return;const mensagens={'not-allowed':'Permissão negada. Libere o microfone nas permissões deste site e tente novamente.','service-not-allowed':'O serviço de ditado não está disponível neste navegador. Você pode digitar a pergunta.','audio-capture':'Nenhum microfone disponível. Confira a conexão e as configurações do sistema.','no-speech':'Não foi detectada fala. Tente novamente.','network':'O serviço de transcrição está indisponível. Confira a conexão ou digite sua pergunta.','aborted':'Ditado cancelado.'};const msg=mensagens[e.error]||'Não foi possível transcrever. Tente novamente ou digite a pergunta.';$('#vozStatus').textContent=msg;registrarAviso(msg);};
  r.onend=()=>{if(reconhecimento!==r)return;reconhecimento=null;document.body.classList.remove('ouvindo');status('Confira sua pergunta');$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');if($('#vozStatus').textContent.startsWith('Ouvindo'))$('#vozStatus').textContent='Ditado encerrado. Confira o texto antes de pesquisar.';$('#pergunta').focus();};
  try{r.start();}catch(e){pararVoz();$('#vozStatus').textContent='Não foi possível iniciar o microfone. Confira a permissão do navegador.';}
 }
 $('#microfone').onclick=()=>{
- if(reconhecimento){pararVoz();$('#vozStatus').textContent='Ditado cancelado. Você pode editar o texto e pesquisar.';return;}
+ if(reconhecimento){pararVoz();status('Ditado interrompido');$('#vozStatus').textContent='Você pode editar sua pergunta à direita e enviar pela lupa.';return;}
  if(!Reconhecimento){$('#vozStatus').textContent='Seu navegador não oferece ditado compatível. Digite sua pergunta ou tente outro navegador.';registrarAviso('Reconhecimento de voz indisponível neste navegador.');return;}
  if(!consentiuVoz){painel('Perguntar pelo microfone','<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p><p>O texto aparecerá no campo para revisão antes de pesquisar. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>');return;}
  iniciarVoz();

@@ -12,7 +12,15 @@ with sync_playwright() as p:
     };
     """)
     page.goto('http://127.0.0.1:8000')
-    page.wait_for_selector('[data-tema]')
+    page.wait_for_selector('[data-tema]', state='attached')
+    # A entrada fica à direita, separada dos controles de voz e da resposta.
+    entrada = page.locator('#pergunta').bounding_box()
+    resposta = page.locator('#ans').bounding_box()
+    microfone = page.locator('#microfone').bounding_box()
+    assert entrada['x'] > resposta['x'] + resposta['width']
+    assert microfone['x'] < entrada['x']
+    page.locator('#bEdit').click()
+    expect(page.locator('#pergunta')).to_be_focused()
     page.locator('#pergunta').fill('Como recuperar minha senha do gov.br?')
     page.get_by_role('button',name='Pesquisar pergunta',exact=True).click()
     expect(page.locator('#st')).to_have_text('Consulta concluída')
@@ -35,6 +43,14 @@ with sync_playwright() as p:
     expect(page.locator('#ans')).to_have_text('Como recuperar minha senha do gov.br?')
     page.get_by_role('button',name='Pesquisar pergunta',exact=True).click()
     expect(page.locator('#st')).to_have_text('Consulta concluída')
+    page.locator('#microfone').click()
+    page.evaluate("window.ditadoTeste.onresult({results:[[{transcript:'D02'}]]})")
+    expect(page.locator('#pergunta')).to_have_value('D02')
+    page.locator('#bClear').click()
+    expect(page.locator('#st')).to_have_text('Pronto para consultar')
+    expect(page.locator('#microfone')).to_have_attribute('aria-pressed', 'false')
+    expect(page.locator('#perguntaDireita')).to_be_hidden()
+    expect(page.locator('#pergunta')).to_have_value('')
     page.locator('#microfone').click()
     page.evaluate("window.ditadoTeste.onerror({error:'not-allowed'});window.ditadoTeste.onend()")
     expect(page.locator('#vozStatus')).to_contain_text('Permissão negada')
