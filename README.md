@@ -81,9 +81,13 @@ Interpretação: a alta taxa de acerto demonstra que os exemplos escolhidos cump
 
 ### Interface web local
 
+Requer apenas **Python 3.10 ou superior**. Não é necessário instalar pacotes para executar. Na pasta do projeto:
+
 ```bash
-python src/web.py --sem-log
+python iniciar.py
 ```
+
+No Windows, também é possível **dar dois cliques em `iniciar.bat`** ou executar `py -3 iniciar.py`. Mantenha o terminal aberto enquanto usa a aplicação. Para encerrar, pressione **Ctrl+C** nesse terminal. Se a porta 8000 já estiver ocupada, use `python src/web.py --sem-log --porta 8080` e abra `http://127.0.0.1:8080`.
 
 Abra **http://127.0.0.1:8000** no navegador. A tela inicial de Consulta e o Menu de temas reproduzem os modelos visuais fornecidos, com layout adaptável ao celular. A interface utiliza HTML, CSS e JavaScript e um servidor da biblioteca padrão do Python. A fonte Inter é distribuída localmente com sua licença; nenhum recurso externo é necessário para carregar a interface.
 
@@ -92,6 +96,16 @@ Digite no campo central **Sua pergunta** e clique na lupa **Pesquisar**, ou pres
 O botão de lua/sol alterna o modo escuro; apenas a preferência visual é salva no navegador. As notificações são eventos internos da aba: consultas concluídas, erros e fontes desatualizadas geram avisos visuais e contagem no sino. Abrir o sino marca os avisos como lidos; é possível limpar a lista. Não são notificações push de órgãos públicos nem do sistema operacional.
 
 Faça uma pergunta em português, selecione um tema ou abra um assunto relacionado. A barra lateral oferece fontes, apoio comunitário, histórico temporário, indicadores reais e seleção dos modelos A/B. O sino apresenta avisos reais. A resposta completa do modelo selecionado está disponível abaixo da consulta. Fontes oficiais abrem em outra aba.
+
+### Conversas, voz e animações
+
+- **Consulta:** a pergunta aparece em um balão à direita. A resposta mantém as fontes, os avisos e as limitações da base.
+- **Voz:** durante o ditado, as palavras surgem progressivamente no centro e a pergunta aparece à direita. Confira ou edite o texto antes de clicar em Pesquisar.
+- **Histórico:** o ícone de histórico no menu esquerdo abre a tela **Conversas**, com busca e seleção de perguntas à esquerda e a resposta integral à direita. Rever uma mensagem não executa outra consulta. Use **Apagar histórico** para limpar as mensagens.
+- **Movimento:** botões têm efeitos suaves de pressão e retorno; palavras e cartões entram gradualmente. Não há ondas de clique. A opção **Reduzir animações** e a preferência de acessibilidade do sistema desativam os efeitos.
+- **Nova consulta:** limpa a consulta atual, mantendo as mensagens anteriores disponíveis no histórico da aba.
+
+As capturas da interface serão adicionadas após o envio dos prints pelo responsável pelo projeto.
 
 O histórico fica apenas na memória da aba e pode ser apagado. Recarregar a página inicia uma nova sessão. `--sem-log` desativa a telemetria no servidor. O servidor atende somente em `127.0.0.1`; ele é destinado ao uso local. Encerre o processo Python para desligá-lo. Para outra porta, use `python src/web.py --sem-log --porta 8080`.
 

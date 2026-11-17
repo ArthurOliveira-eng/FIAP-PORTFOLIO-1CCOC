@@ -23,7 +23,14 @@ with sync_playwright() as p:
     expect(page.locator('#st')).to_have_text('Escolha uma orientação')
     page.locator('[data-id="D02"]').first.click()
     expect(page.locator('#st')).to_have_text('Consulta concluída')
-    for label in ['Fontes verificadas', 'Histórico', 'Indicadores', 'Configurações', 'Notificações']:
+    page.get_by_role('button', name='Histórico', exact=True).click()
+    page.wait_for_selector('#listaHistorico .conversaItem')
+    page.locator('#listaHistorico .conversaItem').first.click()
+    expect(page.locator('#perguntaHistorico')).to_have_text('D02')
+    expect(page.locator('#respostaHistorico')).to_contain_text('Fonte:')
+    page.screenshot(path=str(ROOT / 'artifacts/web-historico.png'), full_page=True)
+    page.locator('#falarHistorico').click()
+    for label in ['Fontes verificadas', 'Indicadores', 'Configurações', 'Notificações']:
         page.get_by_role('button', name=label, exact=True).click()
         page.wait_for_selector('dialog[open]')
         if label == 'Configurações':

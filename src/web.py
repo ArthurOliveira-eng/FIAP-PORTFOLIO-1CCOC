@@ -191,6 +191,10 @@ def main(argv=None):
         ThreadingHTTPServer(("127.0.0.1", args.porta), criar_manipulador(servico)).serve_forever()
     except KeyboardInterrupt:
         print("\nServidor encerrado.")
+    except OSError:
+        print(f"Não foi possível abrir a porta {args.porta}. Ela pode estar em uso. "
+              "Tente: python src/web.py --sem-log --porta 8080", file=sys.stderr)
+        return 1
     return 0
 
 

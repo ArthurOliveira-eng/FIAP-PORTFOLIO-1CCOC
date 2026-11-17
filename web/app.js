@@ -3,6 +3,16 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let sid = crypto.randomUUID().replaceAll('-', ''), tema = '', modelo = '', historico = [], avisos = [], base = [], estado;
 let geracao = 0, ultima = null;
+let perguntaAtual = '', selecionada = null;
+const movimentoReduzido=()=>matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.classList.contains('semMovimento');
+// Revela palavras sem atrasar a resposta real nem criar texto fictício.
+function revelar(elemento,texto,animar=true){
+ elemento.replaceChildren();
+ texto.split(/(\s+)/).forEach((palavra,i)=>{const span=document.createElement('span');span.textContent=palavra;
+ if(palavra.trim() && animar && !movimentoReduzido()){span.className='palavra';span.style.animationDelay=`${Math.min(i*22,1000)}ms`;}
+ elemento.append(span);});
+}
+function perguntaDireita(texto){perguntaAtual=texto;$('#perguntaDireita').hidden=!texto.trim();$('#perguntaDireita').textContent=texto;}
 const corpo = $('.body');
 const dialogo = document.createElement('dialog');
 dialogo.innerHTML = '<header><h2 id="dialogTitle"></h2><button class="sm" id="fechar">Fechar</button></header><div id="dialogBody"></div>';
@@ -28,8 +38,19 @@ const data = d => d ? d.split('-').reverse().join('/') : 'Não informada';
 function cartao(r, relacionado = false) {
   return `<article class="card"><strong>${esc(r.pergunta)}</strong><small>${esc(r.id)} · ${esc(r.tema)}</small><div class="row"><span class="chip ${relacionado?'g':''}">${relacionado?'Relacionado':r.defasado?'Revisão necessária':'Fonte oficial'}</span><button class="sm" data-id="${esc(r.id)}">Abrir orientação</button></div></article>`;
 }
-function consulta() { location.hash = 'consulta'; corpo.hidden = false; $('#temasView').hidden = true; $('h1').textContent = 'Consultar orientações'; }
-function temas() { location.hash = 'temas'; corpo.hidden = true; $('#temasView').hidden = false; $('h1').textContent = 'Menu de temas'; atualizarTemas(); }
+function consulta() { location.hash = 'consulta'; corpo.classList.remove('modoHistorico'); corpo.hidden = false; $('#temasView').hidden = true; $('h1').textContent = 'Consultar orientações'; }
+function temas() { pararVoz(); location.hash = 'temas'; corpo.classList.remove('modoHistorico'); corpo.hidden = true; $('#temasView').hidden = false; $('h1').textContent = 'Menu de temas'; atualizarTemas(); }
+function abrirHistorico(){pararVoz();location.hash='historico';corpo.hidden=false;corpo.classList.add('modoHistorico');$('#temasView').hidden=true;$('h1').textContent='Conversas';listarHistorico();}
+function listarHistorico(){
+ const filtro=$('#filtroHistorico').value.toLocaleLowerCase();
+ $('#listaHistorico').innerHTML=historico.filter(h=>h.pergunta.toLocaleLowerCase().includes(filtro)).map(h=>`<button class="conversaItem ${h.chave===selecionada?'selecionada':''}" data-hist="${h.chave}"><span class="avatarMini">✦</span><span><strong>${esc(h.pergunta)}</strong><small>${esc(h.hora||'Nesta sessão')}</small></span></button>`).join('')||'<p class="hint">Nenhuma conversa encontrada.</p>';
+}
+function lerConversa(chave){
+ const h=historico.find(v=>v.chave===chave);if(!h)return;selecionada=chave;abrirHistorico();
+ $('#historicoVazio').hidden=true;$('#mensagensHistorico').hidden=false;
+ $('#perguntaHistorico').textContent=h.pergunta;revelar($('#respostaHistorico'),h.resposta.texto,false);
+ $('#fontesHistorico').innerHTML=h.resposta.registros.filter(r=>h.resposta.status==='match').map(r=>`<a class="sm" href="${esc(r.fonte)}" target="_blank" rel="noopener noreferrer">Fonte oficial · ${esc(r.id)}</a>`).join('');
+}
 function atualizarTemas() {
   if (!estado) return;
   $('#listaTemas').innerHTML = estado.temas.map((t,i) => `<button class="themeCard" data-abrir-tema="${esc(t.nome)}"><span class="themeIcon">${['▤','◈','♧'][i] || '○'}</span><strong>${esc(t.nome)}</strong><span>${esc(base.filter(r=>r.tema===t.nome).map(r=>r.id).join(' · '))}</span><span class="chip">${t.total} registros</span><b>Abrir →</b></button>`).join('');
@@ -47,7 +68,7 @@ function mostrar(r) {
   status(encontrado ? 'Consulta concluída' : ['browse','menu','related'].includes(r.status) ? 'Escolha uma orientação' : r.status === 'ambiguous' ? 'Preciso de mais detalhes' : r.status === 'quit' ? 'Sessão encerrada' : 'Confira a orientação abaixo');
   $('#ps').textContent = encontrado ? `Resposta consultada · ${r.latencia_ms} ms` : 'Consulta à base local';
   $('#ans').className = 'q' + (encontrado ? '' : ' idle');
-  $('#ans').textContent = encontrado ? r.registros[0].resumo : r.mensagem;
+  revelar($('#ans'), encontrado ? r.registros[0].resumo : r.mensagem);
   $('#cards').innerHTML = (encontrado ? r.registros.map(v=>`<article class="card"><strong>${esc(v.pergunta)}</strong><small>${esc(v.id)} · ${esc(v.tema)}</small><div class="row"><span class="chip">${v.defasado?'Revisão necessária':'Fonte oficial'}</span><a class="sm" href="${esc(v.fonte)}" target="_blank" rel="noopener noreferrer">Ver fonte</a></div></article>`).join('') : r.registros.map(v=>cartao(v)).join('')) + r.relacionados.map(v=>cartao(v,true)).join('');
   if (!$('#cards').innerHTML) $('#cards').innerHTML = '<div class="empty">Nenhuma orientação para mostrar.</div>';
   const reg = encontrado && r.registros[0];
@@ -59,6 +80,7 @@ function mostrar(r) {
 }
 async function perguntar(texto, reiniciar=false) {
   pararVoz(); $('#pergunta').value=texto; $('#q').value=texto;
+  perguntaDireita(texto);
   const versao = ++geracao;
   consulta(); $('#win').classList.add('busy'); status('Buscando na base…');
   try {
@@ -66,7 +88,7 @@ async function perguntar(texto, reiniciar=false) {
     if (versao !== geracao) return;
     mostrar(r);
     registrarAviso(r.status==='match'?'Consulta concluída. A orientação e a fonte estão disponíveis.':r.mensagem);
-    if (texto.trim() && !reiniciar) { historico.unshift({chave:crypto.randomUUID(),pergunta:texto,ids:r.ids,resposta:r}); historico = historico.slice(0,50); renderHistorico(); }
+    if (texto.trim() && !reiniciar) { historico.unshift({chave:crypto.randomUUID(),pergunta:texto,ids:r.ids,resposta:r,hora:new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}); historico = historico.slice(0,50); renderHistorico(); }
   } catch(e) {
     if (versao !== geracao) return;
     status('Conexão indisponível'); $('#ans').textContent = `${e.message} Verifique se o servidor local está em execução e tente novamente.`;
@@ -102,7 +124,7 @@ const botoes=$$('.rail button');
 function $$(s){return [...document.querySelectorAll(s)];}
 botoes[1].onclick=()=>painel('Fontes verificadas',base.map(r=>`<article class="card"><strong>${esc(r.pergunta)}</strong><p>Revisão: ${data(r.data)}${r.defasado?' · Atualização necessária':''}</p><a href="${esc(r.fonte)}" target="_blank" rel="noopener noreferrer">Consultar fonte oficial</a></article>`).join(''));
 botoes[3].onclick=()=>{temaAtual('Apoio comunitário');perguntar('');};
-botoes[4].onclick=()=>painel('Histórico desta sessão',`<button class="sm" id="apagarHistorico">Apagar histórico</button>${historico.map(h=>`<article class="card"><button class="sm" data-hist="${h.chave}">${esc(h.pergunta)}</button></article>`).join('') || '<p>Nenhuma consulta.</p>'}`);
+botoes[4].onclick=abrirHistorico;
 botoes[5].onclick=indicadores;
 botoes[6].onclick=()=>painel('Configurações',`<label for="modelo">Modelo de resposta</label><select id="modelo">${(estado?.modelos || []).map(m=>`<option ${m===modelo?'selected':''}>${esc(m)}</option>`).join('')}</select><label><input type="checkbox" id="movimento" ${document.body.classList.contains('semMovimento')?'checked':''}> Reduzir animações</label><p>Histórico apenas na memória desta aba. Telemetria ${estado?.log?'ativada com metadados minimizados':'desativada'}.</p>`);
 $('.round').onclick=()=>{painel('Notificações',avisos.length?'<p>Eventos desta aba, sem notificações externas.</p><button class="sm" id="limparAvisos">Limpar notificações</button>'+avisos.map(a=>`<article class="card"><small>${esc(a.hora)}</small><p>${esc(a.texto)}</p></article>`).join(''):'<p>Nenhum aviso no momento.</p>');naoLidas=0;$('.dot').hidden=true;};
@@ -113,12 +135,12 @@ document.addEventListener('click',e=>{
  if(b.dataset.pergunta)perguntar(b.dataset.pergunta);
  if(b.dataset.tema!==undefined){temaAtual(b.dataset.tema);perguntar('');}
  if(b.dataset.abrirTema){temaAtual(b.dataset.abrirTema);perguntar('');}
- if(b.dataset.hist){const h=historico.find(h=>h.chave===b.dataset.hist);if(h){dialogo.close();consulta();mostrar(h.resposta);}}
+ if(b.dataset.hist){dialogo.close();lerConversa(b.dataset.hist);}
  if(b.id==='apagarHistorico'){historico=[];renderHistorico();dialogo.close();}
  if(b.id==='limparAvisos'){avisos=[];naoLidas=0;$('.dot').hidden=true;dialogo.close();}
 });
 addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#q').focus();}});
-addEventListener('hashchange',()=>location.hash==='#temas'?temas():consulta());
+addEventListener('hashchange',()=>location.hash==='#temas'?temas():location.hash==='#historico'?abrirHistorico():consulta());
 async function iniciar(){try{[estado,base]=await Promise.all([api('/api/estado'),api('/api/base')]);modelo=estado.modelo;$('#q').maxLength=estado.max;$('#nTemas').textContent=estado.temas.length;$('#fl').innerHTML=['',...estado.temas.map(t=>t.nome)].map(t=>`<button class="f" data-tema="${esc(t)}" aria-pressed="${!t}">${esc(t||'Todos os temas')}</button>`).join('');base.filter(r=>r.defasado).forEach(r=>registrarAviso(`${r.id}: fonte revisada há mais de ${estado.dias} dias.`));atualizarTemas();if(location.hash==='#temas')temas();}catch(e){status('Servidor indisponível');$('#ans').textContent='Não foi possível carregar a base. Verifique o servidor local e recarregue a página.';registrarAviso(e.message);}}
 iniciar();
 
@@ -138,16 +160,16 @@ aplicarNoite(); noite.onclick=()=>{escuro=!escuro;aplicarNoite();try{localStorag
 // O navegador transcreve; o servidor Python recebe somente o texto confirmado.
 const Reconhecimento=window.SpeechRecognition||window.webkitSpeechRecognition;
 let reconhecimento=null, consentiuVoz=false;
-function pararVoz(){if(reconhecimento){const atual=reconhecimento;reconhecimento=null;atual.abort();}$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');}
+function pararVoz(){if(reconhecimento){const atual=reconhecimento;reconhecimento=null;atual.abort();}$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');document.body.classList.remove('ouvindo');}
 function iniciarVoz(){
  dialogo.close();
  if(!Reconhecimento){$('#vozStatus').textContent='Ditado indisponível neste navegador. Use um navegador compatível ou digite a pergunta.';return;}
  const r=new Reconhecimento(); reconhecimento=r;r.lang='pt-BR';r.continuous=false;r.interimResults=true;
  let prefixo=$('#pergunta').value.trim(); prefixo=prefixo?prefixo+' ':'';
- r.onstart=()=>{if(reconhecimento!==r)return;$('#microfone').setAttribute('aria-pressed','true');$('#vozStatus').textContent='Ouvindo… fale sua pergunta. Clique no microfone para cancelar.';$('#wave').classList.add('on');};
- r.onresult=e=>{if(reconhecimento!==r)return;const transcricao=Array.from(e.results).map(v=>v[0].transcript).join(' ');$('#pergunta').value=(prefixo+transcricao).slice(0,500);$('#vozStatus').textContent='Confira o texto e clique em Pesquisar para consultar.';};
+ r.onstart=()=>{if(reconhecimento!==r)return;document.body.classList.add('ouvindo');status('Ouvindo sua pergunta…');revelar($('#ans'),'Pode falar. Estou ouvindo.',false);$('#microfone').setAttribute('aria-pressed','true');$('#vozStatus').textContent='Ouvindo… fale sua pergunta. Clique no microfone para cancelar.';$('#wave').classList.add('on');};
+ r.onresult=e=>{if(reconhecimento!==r)return;const transcricao=Array.from(e.results).map(v=>v[0].transcript).join(' ');const texto=(prefixo+transcricao).slice(0,500);$('#pergunta').value=texto;perguntaDireita(texto);revelar($('#ans'),texto);$('#vozStatus').textContent='Confira o texto e clique em Pesquisar para consultar.';};
  r.onerror=e=>{if(reconhecimento!==r)return;const mensagens={'not-allowed':'Permissão negada. Libere o microfone nas permissões deste site e tente novamente.','service-not-allowed':'O serviço de ditado não está disponível neste navegador. Você pode digitar a pergunta.','audio-capture':'Nenhum microfone disponível. Confira a conexão e as configurações do sistema.','no-speech':'Não foi detectada fala. Tente novamente.','network':'O serviço de transcrição está indisponível. Confira a conexão ou digite sua pergunta.','aborted':'Ditado cancelado.'};const msg=mensagens[e.error]||'Não foi possível transcrever. Tente novamente ou digite a pergunta.';$('#vozStatus').textContent=msg;registrarAviso(msg);};
- r.onend=()=>{if(reconhecimento!==r)return;reconhecimento=null;$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');if($('#vozStatus').textContent.startsWith('Ouvindo'))$('#vozStatus').textContent='Ditado encerrado. Confira o texto antes de pesquisar.';$('#pergunta').focus();};
+ r.onend=()=>{if(reconhecimento!==r)return;reconhecimento=null;document.body.classList.remove('ouvindo');status('Confira sua pergunta');$('#microfone').setAttribute('aria-pressed','false');$('#wave').classList.remove('on');if($('#vozStatus').textContent.startsWith('Ouvindo'))$('#vozStatus').textContent='Ditado encerrado. Confira o texto antes de pesquisar.';$('#pergunta').focus();};
  try{r.start();}catch(e){pararVoz();$('#vozStatus').textContent='Não foi possível iniciar o microfone. Confira a permissão do navegador.';}
 }
 $('#microfone').onclick=()=>{
@@ -159,3 +181,18 @@ $('#microfone').onclick=()=>{
 document.addEventListener('click',e=>{if(e.target.closest('#ativarVoz')){consentiuVoz=true;iniciarVoz();}});
 dialogo.addEventListener('close',()=>$('#pergunta').focus());
 addEventListener('pagehide',pararVoz);
+
+// Histórico dedicado: leitura de respostas anteriores sem repetir a consulta.
+const historicoLayout=document.createElement('section');historicoLayout.className='historicoLayout';
+historicoLayout.innerHTML=`<aside class="historicoSidebar"><header><h2>Conversas</h2><button class="sm" id="novaHistorico">+ Nova</button></header><label class="sr" for="filtroHistorico">Buscar no histórico</label><input id="filtroHistorico" placeholder="Buscar conversas…"><p class="lab">Nesta sessão</p><div id="listaHistorico"></div><button class="sm" id="limparHistoricoTela">Apagar histórico</button><p class="hint">As mensagens ficam apenas nesta aba.</p></aside><main class="historicoMain"><header><span class="avatarMini">✦</span><div><strong>Orientação cidadã</strong><small>Consulta à base local · com fontes oficiais</small></div><button class="sm" id="falarHistorico">Voltar à consulta</button></header><div id="historicoVazio"><span class="avatarMini">✦</span><h2>Suas conversas, em um só lugar</h2><p>Selecione uma pergunta à esquerda para rever a resposta.</p></div><div id="mensagensHistorico" hidden><p class="balaoPergunta" id="perguntaHistorico"></p><div class="respostaConversa"><span class="avatarMini">✦</span><pre id="respostaHistorico"></pre></div><div id="fontesHistorico"></div></div></main>`;
+corpo.append(historicoLayout);
+$('.panel .ph').insertAdjacentHTML('afterend','<p id="perguntaDireita" class="balaoPergunta" hidden></p>');
+$('#filtroHistorico').oninput=listarHistorico;
+$('#novaHistorico').onclick=()=>{novaConsulta();pararVoz();perguntaDireita('');$('#pergunta').value='';$('#pergunta').focus();};
+$('#falarHistorico').onclick=consulta;
+$('#limparHistoricoTela').onclick=()=>{historico=[];selecionada=null;renderHistorico();listarHistorico();$('#historicoVazio').hidden=false;$('#mensagensHistorico').hidden=true;$('#respostaHistorico').textContent='';$('#perguntaHistorico').textContent='';$('#fontesHistorico').replaceChildren();};
+$('#bClear').addEventListener('click',()=>perguntaDireita(''));
+$('#nova').addEventListener('click',()=>perguntaDireita(''));
+// O símbolo central mantém o destaque laranja da referência sem efeito de onda no clique.
+$('.orb b').textContent='✦';$('.mini').textContent='✦';
+if(location.hash==='#historico')abrirHistorico();

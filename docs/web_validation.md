@@ -10,6 +10,8 @@ Entrada central, lupa superior, modo escuro persistido, contador de notificaçõ
 
 ## Verificações realizadas
 
+A atualização visual baseada nos prints e no vídeo acrescentou pressão/retorno dos botões, revelação progressiva de palavras, pergunta à direita e tela exclusiva de Conversas. A seleção, a busca e a limpeza do histórico foram verificadas no navegador em desktop e celular. A transcrição progressiva foi verificada com eventos simulados de voz, sem capturar áudio do usuário. Nenhuma onda de clique foi adicionada; os efeitos respeitam a redução de movimento.
+
 - 27 testes Python aprovados, incluindo os contratos existentes e quatro testes da camada HTTP.
 - Consulta de recuperação de senha, navegação por Documentos e CIN, ambiguidade de CPF e abertura dos cinco painéis auxiliares verificados no Edge.
 - Troca de modelo A/B no painel de configurações e requisições isoladas entre sessões verificadas.
