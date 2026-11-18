@@ -757,14 +757,23 @@ body.dark .rail .rb[aria-current] {
 }
 
 /* Polis Help A.I */
-.brand .brandMark {
+.brand .brandMark, body.dark .brand .brandMark {
   display: block;
-  width: 25px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 0;
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2066%2091%22%3E%3Cpath%20fill%3D%22%23121212%22%20d%3D%22M4%2028C4%2013%2014%203%2029%203h9c15%200%2025%2011%2025%2027v4c0%2016-10%2025-25%2025h-9v13q0%203-3%205L9%2087q-5%202-5-4Z%22%2F%3E%3Cpath%20fill%3D%22%23f26d0f%22%20d%3D%22m40%2022%2016%20.2q5%201%201%205l-12%207Z%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M19.5%2032c0-9%206-15%2014-15%208%200%2014%206%2014%2014%200%206-4%2010-10%2013-6%202-9%206-13%2013q-5%205-5-2Z%22%2F%3E%3Ccircle%20fill%3D%22%23121212%22%20cx%3D%2236%22%20cy%3D%2225%22%20r%3D%222.8%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%23121212%22%2F%3E%3Cg%20transform%3D%22translate%2827%2017%29%20scale%28.72%29%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M4%2028C4%2013%2014%203%2029%203h9c15%200%2025%2011%2025%2027v4c0%2016-10%2025-25%2025h-9v13q0%203-3%205L9%2087q-5%202-5-4Z%22%2F%3E%3Cpath%20fill%3D%22%23f26d0f%22%20d%3D%22m40%2022%2016%20.2q5%201%201%205l-12%207Z%22%2F%3E%3Cpath%20fill%3D%22%23121212%22%20d%3D%22M19.5%2032c0-9%206-15%2014-15%208%200%2014%206%2014%2014%200%206-4%2010-10%2013-6%202-9%206-13%2013q-5%205-5-2Z%22%2F%3E%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%2236%22%20cy%3D%2225%22%20r%3D%222.8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center / contain no-repeat;
 }
-body.dark .brand .brandMark { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%23121212%22%2F%3E%3Cg%20transform%3D%22translate%2827%2017%29%20scale%28.72%29%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M4%2028C4%2013%2014%203%2029%203h9c15%200%2025%2011%2025%2027v4c0%2016-10%2025-25%2025h-9v13q0%203-3%205L9%2087q-5%202-5-4Z%22%2F%3E%3Cpath%20fill%3D%22%23f26d0f%22%20d%3D%22m40%2022%2016%20.2q5%201%201%205l-12%207Z%22%2F%3E%3Cpath%20fill%3D%22%23121212%22%20d%3D%22M19.5%2032c0-9%206-15%2014-15%208%200%2014%206%2014%2014%200%206-4%2010-10%2013-6%202-9%206-13%2013q-5%205-5-2Z%22%2F%3E%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%2236%22%20cy%3D%2225%22%20r%3D%222.8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+.win .top { min-height: 40px; }
+.tituloTela {
+  margin: 0 0 -6px;
+  padding-inline-start: 80px;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.2;
+}
+@media (max-width: 1020px) {
+  .tituloTela { padding-inline-start: 16px; margin: 0; }
+}
 .brand .bc { color: #121212; letter-spacing: 0.08em; font-size: 14px; white-space: nowrap; }
 body.dark .brand .bc { color: #fff; }
 .brand .bc b { background: #f26d0f; color: #121212; border-radius: 1em; padding: 2px 7px; font-size: 10px; }
