@@ -51,7 +51,7 @@ def evaluate_case(memory, case, template):
     content_match = all(fragment in answer.text for fragment in case["expected_contains"])
     source_ok = (
         all(memory.by_id[identifier]["reference"] in answer.text for identifier in answer.record_ids)
-        and "Aviso:" in answer.text and "não é um canal oficial" in answer.text
+
     ) if answer.status == "match" else "Fonte:" in answer.text
     correct = answer.status == case["expected_status"] and ids_match and content_match and source_ok
     return {

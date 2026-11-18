@@ -1,5 +1,6 @@
 """Apresenta modelos de resposta versionados sem um modelo externo."""
 from datetime import date
+from functools import lru_cache
 from src.config import DISCLAIMER, LIMITATION, PROMPT_PATHS, STALE_AFTER_DAYS
 
 
@@ -11,9 +12,17 @@ def load_template(name):
     if name not in PROMPT_PATHS:
         raise TemplateError(f"Modelo de resposta desconhecido: {name}")
     try:
-        text = PROMPT_PATHS[name].read_text(encoding="utf-8")
+        path = PROMPT_PATHS[name]
+        stamp = path.stat()
+        return _read_template(path, stamp.st_mtime_ns, stamp.st_size)
     except OSError as exc:
         raise TemplateError(f"Não foi possível ler o modelo de resposta: {exc}") from exc
+
+
+@lru_cache(maxsize=16)
+def _read_template(path, modified_ns, size):
+    """Reutiliza modelos enquanto o arquivo não mudar."""
+    text = path.read_text(encoding="utf-8")
     if text.count("---RESPONSE---") != 1:
         raise TemplateError("O modelo deve conter exatamente um delimitador de resposta.")
     return text.split("---RESPONSE---", 1)[1].strip()
@@ -46,7 +55,7 @@ def generate_response(result, memory, template_name, *, today=None):
         return (
             f"{preface}\n{list_records(result.records)}\n"
             "Fonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n"
-            f"{DISCLAIMER}"
+
         )
     if result.status == "quit":
         return "Sessão encerrada. Confirme as orientações atuais nos canais oficiais."
@@ -56,5 +65,5 @@ def generate_response(result, memory, template_name, *, today=None):
         "Fonte: nenhuma consultada; nenhuma orientação foi gerada.\n"
         f"Temas disponíveis:\n{themes}\n"
         "Experimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n"
-        f"Limitação: {LIMITATION}\n{DISCLAIMER}"
+
     )

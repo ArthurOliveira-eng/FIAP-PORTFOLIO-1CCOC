@@ -124,9 +124,10 @@ class GuidanceTests(unittest.TestCase):
         self.assertIn("S05", agent.handle("relacionados").record_ids)
         for registro in self.memory.records:
             resposta = agent.handle(registro["id"]).text
-            for rotulo in ("Resposta:", "Fonte:", "Aviso:", "Limitação:", "Assuntos relacionados:"):
+            for rotulo in ("Resposta:", "Fonte:", "Assuntos relacionados:"):
                 self.assertIn(rotulo, resposta)
-            self.assertIn("não é um canal oficial", resposta)
+            self.assertNotIn("não é um canal oficial", resposta)
+            self.assertNotIn("não um procedimento completo", resposta)
         self.assertIn("Sessão encerrada", agent.handle("sair").text)
 
     def test_sobrescrita_de_instrucoes_com_acentos(self):

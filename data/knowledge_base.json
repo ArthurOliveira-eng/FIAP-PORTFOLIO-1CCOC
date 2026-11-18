@@ -2,7 +2,7 @@
   {
     "id": "D01",
     "theme": "Documentos",
-    "question": "O que é a Carteira de Identidade Nacional (CIN)?",
+    "question": "O que é a Carteira de Identidade Nacional (CIN)é",
     "keywords": [
       "visão geral cin",
       "carteira identidade nacional",
@@ -44,7 +44,7 @@
   {
     "id": "D03",
     "theme": "Documentos",
-    "question": "Como fazer a inscrição no CPF?",
+    "question": "Como fazer a inscrição no CPFs",
     "keywords": [
       "inscrição cpf",
       "solicitar cpf",
@@ -64,7 +64,7 @@
   {
     "id": "D04",
     "theme": "Documentos",
-    "question": "Como consultar a situação cadastral do CPF?",
+    "question": "Como consultar a situação cadastral do CPFs",
     "keywords": [
       "situação cpf",
       "consultar cpf",
@@ -91,14 +91,14 @@
       "carteira trabalho",
       "ctps"
     ],
-    "summary_guidance": "Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.",
+    "summary_guidance": "Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.\n\nPasso a passo:\n1. Acesse o serviço oficial da Carteira de Trabalho Digital ou instale o aplicativo oficial.\n2. Entre com sua conta gov.br, usando seu CPF e senha apenas na plataforma oficial.\n3. Consulte seus contratos e as informações disponíveis.\n4. Se não conseguir entrar, recupere a conta gov.br; se houver erro em um contrato, consulte a orientação sobre correção de dados.\nVocê também pode acessar pela web se não conseguir usar o aplicativo.",
     "reference": "https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital",
-    "verification_date": "2026-11-16",
+    "verification_date": "2026-11-18",
     "confirmation_warning": "Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.",
     "related_ids": [
-      "S01",
-      "S02",
-      "D03"
+      "T04",
+      "T01",
+      "S02"
     ]
   },
   {
@@ -255,9 +255,9 @@
       "inscrição cadastro social",
       "cadastro único"
     ],
-    "summary_guidance": "Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.",
+    "summary_guidance": "Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.\n\nPasso a passo:\nA inscrição no Cadastro Único é gratuita e presencial.\n1. Localize um posto de cadastramento no seu município, como um CRAS que ofereça esse atendimento.\n2. Confirme agendamento e a lista de documentos da família antes de ir.\n3. Na entrevista, informe corretamente quem mora na casa e as condições da família.\n4. Depois, consulte a situação pelo site ou aplicativo oficial.\nA inscrição não significa entrada automática em um benefício.",
     "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
-    "verification_date": "2026-11-16",
+    "verification_date": "2026-11-18",
     "confirmation_warning": "Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.",
     "related_ids": [
       "C04",
@@ -275,9 +275,9 @@
       "atualização cadastro social",
       "cadastro único"
     ],
-    "summary_guidance": "Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.",
+    "summary_guidance": "Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nPasso a passo:\nSe a composição da família, endereço ou outras informações mudaram, procure o posto municipal do Cadastro Único.\n1. Consulte a situação cadastral no canal oficial.\n2. Confirme no posto quais documentos comprovam as alterações e se é preciso agendar.\n3. Faça a atualização pelo atendimento indicado pelo município.\n4. Acompanhe as notificações. Atualizar o cadastro não garante a concessão ou o restabelecimento de um benefício.",
     "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
-    "verification_date": "2026-11-16",
+    "verification_date": "2026-11-18",
     "confirmation_warning": "Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.",
     "related_ids": [
       "C03",
@@ -303,6 +303,187 @@
       "C03",
       "C04",
       "D03"
+    ]
+  },
+  {
+    "id": "S06",
+    "theme": "Serviços digitais",
+    "question": "Como recuperar o gov.br sem acesso ao e-mail ou telefone?",
+    "keywords": [
+      "sem email telefone",
+      "perdi celular gov br",
+      "recuperar conta sem email"
+    ],
+    "summary_guidance": "Se você perdeu acesso aos contatos cadastrados:\n1. Na entrada do gov.br, informe seu CPF e escolha ?Esqueci minha senhas.\n2. Tente os métodos de recuperação apresentados, conforme as opções disponíveis para sua conta.\n3. Se nenhum funcionar, use o Formulário de Atendimento indicado na página oficial para solicitar alteração do e-mail.\n4. Após recuperar o acesso, revise seus contatos. Envie documentos apenas no formulário oficial; não compartilhe senha ou códigos neste chat.",
+    "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br/recuperar-senha-da-conta-gov.br/",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "S02",
+      "S01"
+    ]
+  },
+  {
+    "id": "S07",
+    "theme": "Serviços digitais",
+    "question": "Onde conseguir ajuda presencial para recuperar a conta gov.br?",
+    "keywords": [
+      "balcao gov br",
+      "ajuda presencial conta",
+      "nao consigo recuperar conta"
+    ],
+    "summary_guidance": "O Balcão GOV.BR oferece apoio presencial para criação e recuperação da conta.\n1. Consulte na página oficial as orientações sobre recuperação e a disponibilidade de atendimento em sua região.\n2. Confirme com a unidade local se é necessário agendar e quais documentos levar.\n3. Durante o atendimento, tente recuperar a conta pelo aplicativo com apoio do atendente. Alguns procedimentos dependem das condições da conta.\nVocê deve manter o controle da sua senha e dos códigos de acesso.",
+    "reference": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial/espaco-do-atendente-balcao-gov.br/recuperacao-de-conta",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "S06",
+      "S02"
+    ]
+  },
+  {
+    "id": "T01",
+    "theme": "Trabalho e renda",
+    "question": "Como solicitar o seguro-desemprego após uma demissão?",
+    "keywords": [
+      "solicitar seguro desemprego",
+      "fui demitido",
+      "demissao sem justa causa"
+    ],
+    "summary_guidance": "O seguro-desemprego oferece assistência temporária a trabalhadores que atendem aos requisitos.\n1. Separe o requerimento recebido do empregador e confira seus dados.\n2. Abra o serviço oficial ou a Carteira de Trabalho Digital e entre com gov.br.\n3. Escolha a solicitação do seguro-desemprego, informe os dados do requerimento e revise antes de enviar.\n4. Acompanhe o pedido e as notificações no mesmo canal.\nConfira na fonte o prazo e os requisitos da sua categoria; a demissão, por si só, não garante a concessão.",
+    "reference": "https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "D05",
+      "T02"
+    ]
+  },
+  {
+    "id": "T02",
+    "theme": "Trabalho e renda",
+    "question": "Como acompanhar o pedido de seguro-desemprego?",
+    "keywords": [
+      "acompanhar seguro desemprego",
+      "consultar parcelas seguro",
+      "pedido seguro desemprego"
+    ],
+    "summary_guidance": "1. Entre no serviço oficial com sua conta gov.br ou abra a Carteira de Trabalho Digital.\n2. Consulte seu requerimento e confira a situação, as notificações e a liberação das parcelas.\n3. Se houver pendência, leia o motivo informado antes de iniciar outro pedido.\n4. Guarde o número do requerimento e procure o atendimento do Ministério do Trabalho se precisar esclarecer a situação.\nEste chat não consulta parcelas nem prevê a data de pagamento.",
+    "reference": "https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "T01",
+      "T03"
+    ]
+  },
+  {
+    "id": "T03",
+    "theme": "Trabalho e renda",
+    "question": "Como recorrer de um seguro-desemprego negado?",
+    "keywords": [
+      "recurso seguro desemprego",
+      "seguro negado",
+      "revisao seguro desemprego"
+    ],
+    "summary_guidance": "Se o pedido foi negado, consulte primeiro o motivo registrado.\n1. Acesse o pedido no portal gov.br ou no aplicativo e procure a opção de recurso ou revisão.\n2. Leia o prazo e as exigências exibidos para sua situação.\n3. Explique o motivo da contestação e envie os documentos solicitados no canal oficial.\n4. Guarde o protocolo e acompanhe a análise.\nO recurso depende de análise administrativa e não garante pagamento.",
+    "reference": "https://www.gov.br/pt-br/temas/perguntas-frequentes-seguro-desemprego",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "T01",
+      "T02"
+    ]
+  },
+  {
+    "id": "T04",
+    "theme": "Trabalho e renda",
+    "question": "O que fazer quando há dados errados na Carteira de Trabalho Digital?",
+    "keywords": [
+      "carteira trabalho dados errados",
+      "corrigir contrato trabalho",
+      "salario errado carteira"
+    ],
+    "summary_guidance": "Identifique qual informação este incorreta.\n1. Confira se o erro este nos dados pessoais ou em um contrato de trabalho.\n2. Para informações do vínculo, como cargo, remuneração ou datas, procure o empregador para conferir e corrigir os dados enviados.\n3. Para problemas de cadastro e acesso, consulte as orientações específicas da FAQ oficial.\n4. Se persistir, procure os canais de atendimento do Ministério do Trabalho.\nGuarde seus comprovantes; não envie contratos com dados pessoais neste chat.",
+    "reference": "https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "D05",
+      "S06"
+    ]
+  },
+  {
+    "id": "H01",
+    "theme": "Saúde digital",
+    "question": "Como acessar o Meu SUS Digital?",
+    "keywords": [
+      "acessar meu sus digital",
+      "conecte sus",
+      "cartao sus digital"
+    ],
+    "summary_guidance": "O Meu SUS Digital permite visualizar informações de saúde disponíveis na rede.\n1. Acesse o aplicativo oficial ou o portal do Meu SUS Digital.\n2. Entre usando sua conta gov.br.\n3. Consulte os servicos e registros disponíveis no seu perfil. A exibição depende das informações enviadas pelos estabelecimentos.\n4. Para dificuldades de senha ou contato, use a recuperação da conta gov.br.\nO aplicativo não substitui atendimento em uma unidade de saúde.",
+    "reference": "https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "H02",
+      "H03",
+      "S02"
+    ]
+  },
+  {
+    "id": "H02",
+    "theme": "Saúde digital",
+    "question": "Como alterar senha, telefone ou e-mail do Meu SUS Digital?",
+    "keywords": [
+      "senha meu sus",
+      "alterar telefone sus",
+      "email meu sus"
+    ],
+    "summary_guidance": "O login do Meu SUS Digital usa a conta gov.br.\n1. Para senha esquecida, inicie a recuperação no gov.br.\n2. Para mudar telefone ou e-mail de acesso, revise os dados na plataforma gov.br.\n3. Depois, tente entrar novamente no Meu SUS Digital.\nSe perdeu acesso aos contatos antigos, siga as alternativas de recuperação disponibilizadas pelo gov.br.",
+    "reference": "https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao/5-como-proceder-para-realizar",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "S06",
+      "H01"
+    ]
+  },
+  {
+    "id": "H03",
+    "theme": "Saúde digital",
+    "question": "Como consultar a autorização de absorventes no Meu SUS Digital?",
+    "keywords": [
+      "absorventes gratuitos",
+      "dignidade menstrual",
+      "autorizacao absorventes"
+    ],
+    "summary_guidance": "O Meu SUS Digital disponibiliza a emissão de autorização para retirada de absorventes no Programa Farmácia Popular.\n1. Entre no Meu SUS Digital com gov.br.\n2. Procure a opção do programa e confira se há autorização disponível para seu perfil.\n3. Siga as instruções para emitir e apresentar a autorização em estabelecimento credenciado.\n4. Confira na fonte os critérios e documentos exigidos antes de sair de casa.\nA disponibilidade depende dos requisitos do programa; este assistente não verifica elegibilidade.",
+    "reference": "https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "H01",
+      "C03"
+    ]
+  },
+  {
+    "id": "C06",
+    "theme": "Cidadania",
+    "question": "Como consultar o NIS e o comprovante do Cadastro Único?",
+    "keywords": [
+      "consultar nis",
+      "comprovante cadunico",
+      "numero nis"
+    ],
+    "summary_guidance": "1. Acesse o site ou aplicativo oficial do Cadastro Único indicado na fonte.\n2. Consulte os dados disponíveis; para consulta completa, entre com sua conta gov.br.\n3. Confira integrantes da família, NIS e a situação cadastral.\n4. Se os dados estiverem incorretos ou o cadastro não aparecer, procure o posto de atendimento municipal.\nNão publique seu NIS ou CPF neste chat.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/perguntas-frequentes-cadastro-unico/",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.",
+    "related_ids": [
+      "C03",
+      "C04"
     ]
   }
 ]
