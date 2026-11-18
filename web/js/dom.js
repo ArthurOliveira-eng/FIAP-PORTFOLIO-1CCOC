@@ -21,4 +21,10 @@ function revelar(elemento, texto, animar = true) {
   });
 }
 
-export { $, esc, revelar };
+function textoVisivel(texto = "") {
+  return texto.replace(/^([ \t]*)[A-Z]\d{2,} - /gm, "$1")
+    .replaceAll("um ID de registro", "uma orientação")
+    .replaceAll("o ID de um registro relacionado", "um assunto relacionado");
+}
+
+export { $, esc, revelar, textoVisivel };

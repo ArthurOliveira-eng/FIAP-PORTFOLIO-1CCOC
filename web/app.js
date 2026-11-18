@@ -1,4 +1,4 @@
-import { $, esc, revelar } from "./js/dom.js";
+import { $, esc, textoVisivel, revelar } from "./js/dom.js";
 import { api } from "./js/api.js";
 import { dialogo, painel, registrarAviso } from "./js/notifications.js";
 import { criarChat } from "./js/chat.js";
@@ -79,12 +79,7 @@ function atualizarTemas() {
   $("#listaTemas").innerHTML = estado.temas
     .map(
       (t, i) =>
-        `<button class="themeCard" data-abrir-tema="${esc(t.nome)}"><span class="themeIcon">${["▤", "◈", "♧"][i] || "○"}</span><strong>${esc(t.nome)}</strong><span>${esc(
-          base
-            .filter((r) => r.tema === t.nome)
-            .map((r) => r.id)
-            .join(" · "),
-        )}</span><span class="chip">${t.total} registros</span><b>Abrir →</b></button>`,
+        `<button class="themeCard" data-abrir-tema="${esc(t.nome)}"><span class="themeIcon">${["▤", "◈", "♧"][i] || "○"}</span><strong>${esc(t.nome)}</strong><span class="chip">${t.total} ${t.total === 1 ? "orientação" : "orientações"}</span><b>Abrir →</b></button>`,
     )
     .join("");
   $("#resumoTemas").textContent =
@@ -112,13 +107,13 @@ function mostrar(r) {
     ? `Resposta consultada · ${r.latencia_ms} ms`
     : "Consulta à base local";
   $("#ans").className = "q" + (encontrado ? "" : " idle");
-  revelar($("#ans"), encontrado ? r.registros[0].resumo : r.mensagem);
+  revelar($("#ans"), encontrado ? r.registros[0].resumo : textoVisivel(r.mensagem));
   $("#cards").innerHTML =
     (encontrado
       ? r.registros
           .map(
             (v) =>
-              `<article class="card"><strong>${esc(v.pergunta)}</strong><small>${esc(v.id)} · ${esc(v.tema)}</small><div class="row"><span class="chip">${v.defasado ? "Revisão necessária" : "Fonte oficial"}</span><a class="sm" href="${esc(v.fonte)}" target="_blank" rel="noopener noreferrer">Ver fonte</a></div></article>`,
+              `<article class="card"><strong>${esc(v.pergunta)}</strong><small>${esc(v.tema)}</small><div class="row"><span class="chip">${v.defasado ? "Revisão necessária" : "Fonte oficial"}</span><a class="sm" href="${esc(v.fonte)}" target="_blank" rel="noopener noreferrer">Ver fonte</a></div></article>`,
           )
           .join("")
       : r.registros.map((v) => cartao(v)).join("")) +
@@ -130,15 +125,16 @@ function mostrar(r) {
     ? `<div class="warn"><h2>Aviso de confirmação</h2><p>${esc(reg.aviso)}</p><div class="ok">Fonte consultada em ${data(reg.data)}</div></div><div class="lim"><h2>Limitações</h2><p>${esc(estado.limitacao)}</p>${reg.defasado ? "<p>Registro com mais de 180 dias. Confira a fonte atual.</p>" : ""}</div>`
     : "";
   $("#box").parentElement.insertBefore($("#box"), $("#cards").nextSibling);
-  $("#respostaCompleta").textContent = r.texto;
+  $("#respostaCompleta").textContent = textoVisivel(r.texto);
   $("#textoCompleto").hidden = false;
   if (r.log_erro) registrarAviso(r.log_erro);
 }
 async function perguntar(texto, reiniciar = false) {
   pararVoz();
-  $("#pergunta").value = texto;
-  $("#q").value = texto;
-  perguntaDireita(texto);
+  const pergunta = base.find((item) => item.id === texto)?.pergunta || texto;
+  $("#pergunta").value = pergunta;
+  $("#q").value = pergunta;
+  perguntaDireita(pergunta);
   const versao = ++geracao;
   consulta();
   $("#win").classList.add("busy");
@@ -156,10 +152,10 @@ async function perguntar(texto, reiniciar = false) {
     registrarAviso(
       r.status === "match"
         ? "Consulta concluída. A orientação e a fonte estão disponíveis."
-        : r.mensagem,
+        : textoVisivel(r.mensagem),
     );
     if (texto.trim() && !reiniciar) {
-      chat.registrarVoz(sid, texto, r, location.hash === "#consulta");
+      chat.registrarVoz(sid, pergunta, r, location.hash === "#consulta");
     }
   } catch (e) {
     if (versao !== geracao) return;
@@ -245,7 +241,7 @@ $("#agoraNao").onclick = () => $("#temaPergunta").focus();
 $("#ajudaTemas").onclick = () =>
   painel(
     "Ajuda",
-    "<p>Escolha um tema, faça uma pergunta ou abra uma orientação pelo ID. Use “Todos os temas” para pesquisar em toda a base. Os assuntos relacionados permitem continuar a consulta.</p>",
+    "<p>Escolha um tema, faça uma pergunta ou abra uma orientação pelo título. Use “Todos os temas” para pesquisar em toda a base. Os assuntos relacionados permitem continuar a consulta.</p>",
   );
 $("#rFontes").onclick = () =>
   painel(
@@ -318,7 +314,7 @@ async function iniciar() {
       .join("");
     base
       .filter((r) => r.defasado)
-      .forEach((r) => registrarAviso(`${r.id}: fonte revisada há mais de ${estado.dias} dias.`));
+      .forEach((r) => registrarAviso(`${r.pergunta} — fonte revisada há mais de ${estado.dias} dias.`));
     atualizarTemas();
     if (location.hash === "#temas") temas();
   } catch (e) {
