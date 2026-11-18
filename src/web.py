@@ -22,6 +22,7 @@ from src.config import (
 from src.knowledge_base import KnowledgeBase, KnowledgeBaseError
 from src.response import TemplateError
 
+from src import ditado
 from src.web_service import Servico
 
 WEB_ROOT = ROOT / "web"
@@ -106,6 +107,19 @@ def criar_manipulador(servico):
             self.enviar(404, {"erro": "Recurso não encontrado."})
 
         def do_POST(self):
+            if self.path == "/api/ditado":
+                if self.headers.get("Content-Type") != "application/octet-stream":
+                    return self.enviar(415, {"erro": "Formato de áudio inválido."})
+                try:
+                    tamanho = int(self.headers.get("Content-Length", 0))
+                    if not 0 < tamanho <= ditado.LIMITE or tamanho % 2:
+                        return self.enviar(413, {"erro": "Gravação inválida ou longa demais."})
+                    texto = ditado.transcrever(self.rfile.read(tamanho))
+                except ValueError:
+                    return self.enviar(400, {"erro": "Gravação inválida."})
+                except (ImportError, OSError, RuntimeError):
+                    return self.enviar(503, {"erro": "Instale o modelo de voz local conforme o README."})
+                return self.enviar(200, {"texto": texto})
             if self.path != "/api/consultar":
                 return self.enviar(404, {"erro": "não encontrado"})
             try:

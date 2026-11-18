@@ -1,3 +1,4 @@
+import { ditadoLocal } from "./ditado-local.js";
 import { $, revelar } from "./dom.js";
 import { dialogo, painel, registrarAviso } from "./notifications.js";
 export function criarVoz({ status, perguntaDireita }) {
@@ -9,7 +10,12 @@ export function criarVoz({ status, perguntaDireita }) {
   }
   let reconhecimento = null,
     consentiuVoz = false;
+  let local = null;
   function pararVoz() {
+    local?.cancelar();
+    local = null;
+    document.body.classList.remove("transcrevendo");
+    $("#stage").style.removeProperty("--nivel");
     if (reconhecimento) {
       const atual = reconhecimento;
       reconhecimento = null;
@@ -21,9 +27,38 @@ export function criarVoz({ status, perguntaDireita }) {
   }
   function iniciarVoz() {
     dialogo.close();
-    if (!Reconhecimento) {
-      $("#vozStatus").textContent =
-        "Ditado indisponível neste navegador. Use um navegador compatível ou digite a pergunta.";
+    if (usandoBrave || !Reconhecimento) {
+      const mensagem = (texto) => { $("#vozStatus").textContent = texto; };
+      status("Preparando microfone…");
+      local = ditadoLocal({
+        ouvindo() {
+          document.body.classList.add("ouvindo");
+          $("#wave").classList.add("on");
+          $("#microfone").setAttribute("aria-pressed", "true");
+          status("Ouvindo sua pergunta…");
+          revelar($("#ans"), "Pode falar.", false);
+          mensagem("Faça uma pausa ou toque no microfone para concluir.");
+        },
+        nivel(n) { $("#stage").style.setProperty("--nivel", n.toFixed(2)); },
+        processando() {
+          document.body.classList.remove("ouvindo");
+          document.body.classList.add("transcrevendo");
+          $("#microfone").setAttribute("aria-pressed", "false");
+          status("Transcrevendo…");
+          mensagem("Preparando sua pergunta.");
+        },
+        resultado(texto) {
+          pararVoz();
+          $("#pergunta").value = texto;
+          perguntaDireita(texto);
+          revelar($("#ans"), texto, false);
+          status("Confira sua pergunta");
+          mensagem("Edite se precisar e clique na lupa para consultar.");
+          $("#pergunta").focus();
+        },
+        erro(texto) { pararVoz(); status("Ditado interrompido"); mensagem(texto); },
+      });
+      local.iniciar();
       return;
     }
     const r = new Reconhecimento();
@@ -50,7 +85,7 @@ export function criarVoz({ status, perguntaDireita }) {
         .slice(0, 500);
       $("#pergunta").value = texto;
       perguntaDireita(texto);
-      revelar($("#ans"), texto);
+      revelar($("#ans"), texto, false);
       $("#vozStatus").textContent =
         "Confira sua pergunta à direita e clique na lupa para consultar.";
     };
@@ -102,16 +137,11 @@ export function criarVoz({ status, perguntaDireita }) {
       $("#vozStatus").textContent = "Você pode editar sua pergunta à direita e enviar pela lupa.";
       return;
     }
-    if (!Reconhecimento) {
-      $("#vozStatus").textContent =
-        "Seu navegador não oferece ditado compatível. Digite sua pergunta ou tente outro navegador.";
-      registrarAviso("Reconhecimento de voz indisponível neste navegador.");
-      return;
-    }
+    if (local) { local.concluir(); return; }
     if (!consentiuVoz) {
       painel(
         "Perguntar pelo microfone",
-        '<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p><p>O texto aparecerá no campo para revisão antes de pesquisar. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>',
+        (usandoBrave || !Reconhecimento ? "<p>O áudio será transcrito neste computador em português. Faça uma pausa para concluir.</p>" : '<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p>') + '<p>O texto aparecerá no campo para revisão antes de pesquisar. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>',
       );
       return;
     }

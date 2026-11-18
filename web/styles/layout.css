@@ -844,6 +844,20 @@ body.dark.ouvindo #ans { color: #ffc08e; }
 .historicoMain > header .avatarMini,
 #historicoVazio > .avatarMini,
 .panel .ph .mini {
-  border-radius: 22%;
+  border-radius: 50%;
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%23121212%22%2F%3E%3Cg%20transform%3D%22translate%2827%2017%29%20scale%28.72%29%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M4%2028C4%2013%2014%203%2029%203h9c15%200%2025%2011%2025%2027v4c0%2016-10%2025-25%2025h-9v13q0%203-3%205L9%2087q-5%202-5-4Z%22%2F%3E%3Cpath%20fill%3D%22%23f26d0f%22%20d%3D%22m40%2022%2016%20.2q5%201%201%205l-12%207Z%22%2F%3E%3Cpath%20fill%3D%22%23121212%22%20d%3D%22M19.5%2032c0-9%206-15%2014-15%208%200%2014%206%2014%2014%200%206-4%2010-10%2013-6%202-9%206-13%2013q-5%205-5-2Z%22%2F%3E%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%2236%22%20cy%3D%2225%22%20r%3D%222.8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center / contain no-repeat;
+}
+
+body.ouvindo .stage .wave i { animation-name: ondaEntrada; }
+@keyframes ondaEntrada {
+  50% { transform: translateY(calc(-3px - 8px * var(--nivel, .35))) scale(1.35); }
+}
+body.ouvindo .stage .orb { --pulse: 1.6s; }
+.busy .stage .wave i, .stage.respondendo .wave i, .transcrevendo .stage .wave i {
+  animation: pontoOuvindo .85s ease-in-out infinite;
+  animation-delay: calc(var(--n) * -75ms);
+}
+.stage.respondendo .orb::after, .busy .stage .orb::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid #f26d0f77; animation: ondaOrbe 1.15s ease-out infinite;
 }

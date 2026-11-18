@@ -90,7 +90,7 @@ function sugestoesDoDia() {
   const dia = Date.UTC(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) / 86400000;
   const itens = [0, 1, 2].map((i) => base[(dia * 3 + i) % base.length]);
   document.querySelectorAll(".pesquisasDia").forEach((lista) => {
-    lista.innerHTML = itens.map((r) => `<button class="sm" data-chat-id="${esc(r.id)}">${esc(r.pergunta)}</button>`).join("");
+    lista.innerHTML = itens.map((r) => `<button class="sm" data-id="${esc(r.id)}">${esc(r.pergunta)}</button>`).join("");
   });
 }
 function atualizarTemas() {
@@ -165,13 +165,13 @@ async function perguntar(texto, reiniciar = false) {
   $("#win").classList.add("busy");
   status("Buscando na base…");
   try {
-    const r = await api("/api/consultar", {
+    const [r] = await Promise.all([api("/api/consultar", {
       sid,
       texto,
       modelo,
       tema,
       reiniciar,
-    });
+    }), new Promise((resolve) => setTimeout(resolve, 450))]);
     if (versao !== geracao) return;
     mostrar(r);
     registrarAviso(

@@ -9,20 +9,21 @@ const movimentoReduzido = () =>
   document.body.classList.contains("semMovimento");
 // ANIMAÇÃO DO TEXTO
 function revelar(elemento, texto, animar = true) {
-  elemento.replaceChildren();
   if (!animar || movimentoReduzido()) {
     elemento.textContent = texto;
     return;
   }
   const palavras = texto.match(/\S+\s*|\s+/g) || [];
   const intervalo = Math.min(65, 5200 / palavras.length);
+  const fragmento = document.createDocumentFragment();
   palavras.forEach((palavra, i) => {
     const span = document.createElement("span");
     span.textContent = palavra;
     span.className = "palavra";
     span.style.animationDelay = `${i * intervalo}ms`;
-    elemento.append(span);
+    fragmento.append(span);
   });
+  elemento.replaceChildren(fragmento);
 }
 
 function textoVisivel(texto = "") {

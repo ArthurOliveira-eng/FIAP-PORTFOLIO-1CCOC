@@ -2,6 +2,20 @@
 
 Protótipo independente de orientação ao cidadão, com interfaces textual e web para serviços públicos brasileiros. A interface, as orientações, os comandos e a documentação estão em português brasileiro (pt-BR). Os nomes originais dos serviços brasileiros e as páginas de referência em português são preservados quando necessário. A busca utiliza a base local, sem APIs pagas ou modelos generativos. O ditado opcional depende do serviço do navegador e pode enviar áudio para transcrição online, mediante confirmação do usuário.
 
+### Ditado em português no Brave
+
+No Brave, o microfone usa o modelo local Vosk. O navegador envia até 29 segundos de áudio por pergunta ao servidor em localhost, que transcreve em memória. Na tela de voz, permita o microfone, fale e faça uma pausa ou clique novamente no microfone. Confira o texto e envie pela lupa.
+
+Para preparar outro computador Windows, instale a dependência e extraia o [modelo português do Vosk](https://alphacephei.com/vosk/models) com estes comandos do PowerShell antes de iniciar o app:
+
+```powershell
+py -m pip install vosk==0.3.45
+$destino = Join-Path $env:LOCALAPPDATA 'PolisHelp'
+New-Item -ItemType Directory -Force -Path $destino | Out-Null
+curl.exe -fL https://alphacephei.com/vosk/models/vosk-model-small-pt-0.3.zip -o "$destino/pt.zip"
+Expand-Archive -LiteralPath "$destino/pt.zip" -DestinationPath $destino -Force
+```
+
 ## 1. Equipe e situação da entrega
 
 | Campo | Valor |
