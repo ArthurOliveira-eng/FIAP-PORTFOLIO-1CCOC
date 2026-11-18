@@ -827,10 +827,13 @@ body.ouvindo #ans { color: #a34c20; }
 body.dark.ouvindo #ans { color: #ffc08e; }
 .themeCard .themeIcon, body.dark .themeCard .themeIcon { background: transparent; padding: 0; }
 .themeIcon svg { display: block; width: 46px; height: 46px; }
-.conversationSidebar { min-width: 0; align-items: stretch; padding: 16px; }
+.win { --recuo-servicos: 16px; }
+.win:has(#temasView:not([hidden])) .tituloTela { padding-inline-start: var(--recuo-servicos); }
+.conversationSidebar { min-width: 0; align-items: stretch; padding: 16px var(--recuo-servicos); }
 .conversationSidebar > .sm, .conversationSidebar input { box-sizing: border-box; width: 100%; margin: 0; }
 .pesquisasDia { gap: 10px; padding: 4px 0 12px; }
 .pesquisasDia .sm {
+  height: auto; min-height: 40px; overflow-wrap: anywhere;
   display: block; width: 100%; margin: 0; padding: 10px 15px; line-height: 1.45;
   border: 0; border-radius: 20px; background: rgb(242 109 15 / 8%); color: inherit;
 }
