@@ -75,14 +75,19 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
    <pre ${ultimo ? 'id="respostaHistorico"' : ""}></pre><div class="fontesChat"></div></div></div>`;
       bloco.querySelector(".balaoPergunta").textContent = m.pergunta;
       const texto = m.resposta?.texto || m.erro || "Consultando a base…";
-      revelar(bloco.querySelector("pre"), texto, animar && ultimo);
+      const respostaElemento = bloco.querySelector("pre");
+      revelar(respostaElemento, texto.replace(/(^|\n)(\s*)[A-Z]\d{2,} - /g, "$1$2"), animar && ultimo);
+      if (!m.resposta && !m.erro) {
+        respostaElemento.classList.add("carregandoResposta");
+        respostaElemento.setAttribute("role", "status");
+      }
       const fontes = bloco.querySelector(".fontesChat");
       if (m.resposta) {
         fontes.innerHTML = m.resposta.registros
           .filter(() => m.resposta.status === "match")
           .map(
             (r) =>
-              `<a class="sm" href="${esc(r.fonte)}" target="_blank" rel="noopener noreferrer">Fonte oficial · ${esc(r.id)}</a>`,
+              `<a class="sm" href="${esc(r.fonte)}" target="_blank" rel="noopener noreferrer">Fonte oficial</a>`,
           )
           .join("");
         const opcoes =
@@ -90,7 +95,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
         fontes.innerHTML += opcoes
           .map(
             (r) =>
-              `<button class="sm" data-chat-id="${esc(r.id)}">${esc(r.id)} · ${esc(r.pergunta)}</button>`,
+              `<button class="sm" data-chat-id="${esc(r.id)}">${esc(r.pergunta)}</button>`,
           )
           .join("");
       } else if (m.erro) {
@@ -113,7 +118,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
     desenharConversa();
     $("#chatPergunta").focus();
   }
-  async function enviarChat(texto, repetida = null) {
+  async function enviarChat(texto, repetida = null, rotulo = texto) {
     texto = texto.trim();
     if (!texto) {
       $("#chatStatus").textContent = "Digite uma pergunta para iniciar a consulta.";
@@ -121,9 +126,9 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
     }
     let conversa = historico.find((h) => h.chave === selecionada);
     if (conversa?.pendente) return;
-    if (!conversa) conversa = criarConversa(texto);
+    if (!conversa) conversa = criarConversa(rotulo);
     selecionada = conversa.chave;
-    const mensagem = repetida || { pergunta: texto };
+    const mensagem = repetida || { pergunta: rotulo, consulta: texto };
     if (!repetida) conversa.mensagens.push(mensagem);
     delete mensagem.erro;
     conversa.pendente = true;
@@ -131,12 +136,12 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
     abrirHistorico();
     desenharConversa();
     try {
-      const resposta = await api("/api/consultar", {
+      const [resposta] = await Promise.all([api("/api/consultar", {
         sid: conversa.sid,
         texto,
         modelo: modeloAtual(),
         tema: conversa.tema,
-      });
+      }), new Promise((resolve) => setTimeout(resolve, 450))]);
       if (!historico.includes(conversa)) return;
       guardarResposta(conversa, mensagem, resposta);
       if (resposta.log_erro) registrarAviso(resposta.log_erro);
@@ -181,11 +186,11 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
     const botao = e.target.closest("button");
     if (!botao) return;
     if (botao.dataset.chatTexto) enviarChat(botao.dataset.chatTexto);
-    if (botao.dataset.chatId) enviarChat(botao.dataset.chatId);
+    if (botao.dataset.chatId) enviarChat(botao.dataset.chatId, null, botao.textContent.trim());
     if (botao.dataset.repetir !== undefined) {
       const conversa = historico.find((h) => h.chave === selecionada);
       const mensagem = conversa?.mensagens[Number(botao.dataset.repetir)];
-      if (mensagem && !conversa.pendente) enviarChat(mensagem.pergunta, mensagem);
+      if (mensagem && !conversa.pendente) enviarChat(mensagem.consulta || mensagem.pergunta, mensagem);
     }
   });
   $("#buscarConversas").oninput = (e) => renderHistorico(e.target.value);

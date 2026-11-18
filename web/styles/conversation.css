@@ -519,3 +519,23 @@ body.dark .control .c {
     font-size: 11px;
   }
 }
+
+.carregandoResposta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.75;
+}
+.carregandoResposta::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: girarCarregamento 800ms linear infinite;
+}
+@keyframes girarCarregamento {
+  to { transform: rotate(360deg); }
+}

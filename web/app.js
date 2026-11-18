@@ -41,7 +41,7 @@ function temaAtual(t) {
 }
 const data = (d) => (d ? d.split("-").reverse().join("/") : "Não informada");
 function cartao(r, relacionado = false) {
-  return `<article class="card"><strong>${esc(r.pergunta)}</strong><small>${esc(r.id)} · ${esc(r.tema)}</small><div class="row"><span class="chip ${relacionado ? "g" : ""}">${relacionado ? "Relacionado" : r.defasado ? "Revisão necessária" : "Fonte oficial"}</span><button class="sm" data-id="${esc(r.id)}">Abrir orientação</button></div></article>`;
+  return `<article class="card"><strong>${esc(r.pergunta)}</strong><small>${esc(r.tema)}</small><div class="row"><span class="chip ${relacionado ? "g" : ""}">${relacionado ? "Relacionado" : r.defasado ? "Revisão necessária" : "Fonte oficial"}</span><button class="sm" data-id="${esc(r.id)}">Abrir orientação</button></div></article>`;
 }
 function marcarSecao(id, titulo) {
   document.querySelectorAll(".rail button").forEach((b) => b.removeAttribute("aria-current"));
