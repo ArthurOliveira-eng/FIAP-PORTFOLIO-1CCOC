@@ -48,7 +48,6 @@ function marcarSecao(id, titulo) {
   $(id).setAttribute("aria-current", "page");
   $("h1").textContent = titulo;
   document.title = `${titulo} · Orientação cidadã`;
-  $(".bc").textContent = "Citizen Assist · Orientação cidadã";
 }
 function consulta() {
   location.hash = "consulta";

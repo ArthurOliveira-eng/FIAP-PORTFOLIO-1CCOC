@@ -16,7 +16,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
         .filter((h) => h.pergunta.toLocaleLowerCase().includes(filtro))
         .map(
           (h) =>
-            `<button class="conversaItem ${h.chave === selecionada ? "selecionada" : ""}" data-hist="${h.chave}" aria-busy="${Boolean(h.pendente)}"><span class="avatarMini">✦</span><span><strong>${esc(h.pergunta)}</strong><small>${esc(h.hora || "Nesta sessão")}</small></span></button>`,
+            `<button class="conversaItem ${h.chave === selecionada ? "selecionada" : ""}" data-hist="${h.chave}" aria-busy="${Boolean(h.pendente)}"><span class="avatarMini"></span><span><strong>${esc(h.pergunta)}</strong><small>${esc(h.hora || "Nesta sessão")}</small></span></button>`,
         )
         .join("") || '<p class="hint">Nenhuma conversa encontrada.</p>';
   }
@@ -71,7 +71,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       const bloco = document.createElement("article");
       bloco.className = "trocaMensagem";
       bloco.innerHTML = `<p class="balaoPergunta" ${ultimo ? 'id="perguntaHistorico"' : ""}></p>
-   <div class="respostaConversa"><span class="avatarMini" aria-hidden="true">✦</span><div class="conteudoResposta">
+   <div class="respostaConversa"><span class="avatarMini" aria-hidden="true"></span><div class="conteudoResposta">
    <pre ${ultimo ? 'id="respostaHistorico"' : ""}></pre><div class="fontesChat"></div></div></div>`;
       bloco.querySelector(".balaoPergunta").textContent = m.pergunta;
       const texto = m.resposta?.texto || m.erro || "Consultando a base…";
