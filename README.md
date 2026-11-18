@@ -9,7 +9,7 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 | Projeto / nome provisório da equipe | Citizen Assist AI — nome da equipe aguardando confirmação |
 | Responsável pelo repositório | Arthur Apolonio de Oliveira |
 | RM Resp | rm571385 - Arthur Apolonio De Oliveira
-| Outros integrantes e RMs | rm573611 - Bryan Lima Garcia | rm569195 - Matheus Bejarano Da Costa Resende
+| Outros integrantes e RMs | rm573611 - Bryan Lima Garcia / rm569195 - Matheus Bejarano Da Costa Resende
 | Repositório público | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
 | Demonstração no YouTube (não listado) | Aguardando envio pela equipe; nenhum link fictício foi inserido |
 
