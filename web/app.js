@@ -50,6 +50,7 @@ function marcarSecao(id, titulo) {
   document.title = `${titulo} · Orientação cidadã`;
 }
 function consulta() {
+  sugestoesDoDia();
   location.hash = "consulta";
   corpo.classList.remove("modoHistorico");
   corpo.hidden = false;
@@ -57,6 +58,7 @@ function consulta() {
   marcarSecao("#rConsulta", "Fale por voz");
 }
 function temas() {
+  sugestoesDoDia();
   pararVoz();
   location.hash = "temas";
   corpo.classList.remove("modoHistorico");
@@ -74,12 +76,27 @@ function abrirHistorico() {
   marcarSecao("#rConversas", "Vamos conversar");
   chat.listar();
 }
+const iconesTema = {
+  "Documentos": "documentos", "Serviços digitais": "servicos_digitais",
+  "Apoio comunitário": "apoio_comunitario", "Trabalho e renda": "trabalho_renda",
+  "Saúde digital": "saude_digital", "Cidadania": "cidadania",
+  "Defesa Civil": "apoio_comunitario", "Bolsa Família": "trabalho_renda",
+};
+function sugestoesDoDia() {
+  if (!base.length) return;
+  const hoje = new Date();
+  const dia = Date.UTC(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) / 86400000;
+  const itens = [0, 1, 2].map((i) => base[(dia * 3 + i) % base.length]);
+  document.querySelectorAll(".pesquisasDia").forEach((lista) => {
+    lista.innerHTML = itens.map((r) => `<button class="sm" data-chat-id="${esc(r.id)}">${esc(r.pergunta)}</button>`).join("");
+  });
+}
 function atualizarTemas() {
   if (!estado) return;
   $("#listaTemas").innerHTML = estado.temas
     .map(
-      (t, i) =>
-        `<button class="themeCard" data-abrir-tema="${esc(t.nome)}"><span class="themeIcon">${["▤", "◈", "♧"][i] || "○"}</span><strong>${esc(t.nome)}</strong><span class="chip">${t.total} ${t.total === 1 ? "orientação" : "orientações"}</span><b>Abrir →</b></button>`,
+      (t) =>
+        `<button class="themeCard" data-abrir-tema="${esc(t.nome)}"><span class="themeIcon"><svg width="28" height="28" aria-hidden="true"><use href="#tema-${iconesTema[t.nome] || "cidadania"}"/></svg></span><strong>${esc(t.nome)}</strong><span class="chip">${t.total} ${t.total === 1 ? "orientação" : "orientações"}</span><b>Abrir →</b></button>`,
     )
     .join("");
   $("#resumoTemas").textContent =
@@ -219,10 +236,15 @@ $("#form").onsubmit = (e) => {
 };
 $("#temaForm").onsubmit = (e) => {
   e.preventDefault();
-  perguntar($("#temaPergunta").value);
+  const pergunta = $("#temaPergunta").value.trim();
+  if (!pergunta) return;
+  chat.nova();
+  chat.enviar(pergunta);
+  $("#temaPergunta").value = "";
 };
 $("#bClear").onclick = novaConsulta;
-$("#nova").onclick = novaConsulta;
+$("#nova").onclick = () => { abrirHistorico(); chat.desenhar(); };
+document.querySelectorAll(".explorar").forEach((botao) => { botao.onclick = temas; });
 $("#bEdit").onclick = () => {
   pararVoz();
   status("Edite sua pergunta à direita");
@@ -237,7 +259,7 @@ $("#bBack").onclick = () => {
 $("#rTemas").onclick = temas;
 $("#rConsulta").onclick = consulta;
 $("#abrirConsulta").onclick = consulta;
-$("#agoraNao").onclick = () => $("#temaPergunta").focus();
+
 $("#ajudaTemas").onclick = () =>
   painel(
     "Ajuda",
@@ -315,6 +337,7 @@ async function iniciar() {
     base
       .filter((r) => r.defasado)
       .forEach((r) => registrarAviso(`${r.pergunta} — fonte revisada há mais de ${estado.dias} dias.`));
+    sugestoesDoDia();
     atualizarTemas();
     if (location.hash === "#temas") temas();
   } catch (e) {

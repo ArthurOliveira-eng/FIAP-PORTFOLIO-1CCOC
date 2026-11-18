@@ -485,5 +485,94 @@
       "C03",
       "C04"
     ]
+  },
+  {
+    "id": "E01",
+    "theme": "Defesa Civil",
+    "question": "Como receber alertas da Defesa Civil por SMS?",
+    "keywords": [
+      "alertas defesa civil",
+      "cadastrar cep sms",
+      "avisos de chuva"
+    ],
+    "summary_guidance": "Abra as mensagens do celular e envie o CEP da região que deseja acompanhar para 40199. Aguarde a confirmação do cadastro. O serviço é gratuito. Ao receber um alerta, confira a região indicada e siga a orientação da Defesa Civil local.",
+    "reference": "https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira as instruções atuais na fonte oficial.",
+    "related_ids": [
+      "E02"
+    ]
+  },
+  {
+    "id": "E02",
+    "theme": "Defesa Civil",
+    "question": "O que colocar no kit de emergência da família?",
+    "keywords": [
+      "kit emergencia",
+      "mochila enchente",
+      "kit defesa civil"
+    ],
+    "summary_guidance": "Separe água potável e alimentos não perecíveis para três dias. Acrescente roupas, calçados e os medicamentos e equipamentos prescritos que a família usa. Deixe o kit em local acessível e confira periodicamente as validades. Combine onde encontrá-lo antes de uma emergência.",
+    "reference": "https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira as instruções atuais na fonte oficial.",
+    "related_ids": [
+      "E01"
+    ]
+  },
+  {
+    "id": "B01",
+    "theme": "Bolsa Família",
+    "question": "Quando vou receber o Bolsa Família?",
+    "keywords": [
+      "calendário bolsa família",
+      "data pagamento bolsa familia",
+      "receber bolsa familia"
+    ],
+    "summary_guidance": "No calendário oficial, selecione o último dígito do NIS do responsável familiar e confira a data do mês desejado. Você também pode consultar o aplicativo Bolsa Família ou o CAIXA Tem. Se não conseguir usar o celular, peça o calendário no CRAS ou em uma agência da CAIXA.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/pagamentos-e-beneficios",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira as instruções atuais na fonte oficial.",
+    "related_ids": [
+      "C06",
+      "B02"
+    ]
+  },
+  {
+    "id": "B02",
+    "theme": "Bolsa Família",
+    "question": "O que fazer se meu Bolsa Família foi bloqueado?",
+    "keywords": [
+      "bolsa família bloqueado",
+      "bloqueio benefício",
+      "pagamento suspenso"
+    ],
+    "summary_guidance": "Leia a mensagem no aplicativo Bolsa Família ou no extrato para identificar o motivo e o prazo. Se houver pedido de atualização cadastral, procure o posto do Cadastro Único do município e confirme os documentos necessários. Se a mensagem citar CPF irregular, confira qual integrante foi indicado antes de buscar a regularização. Acompanhe a situação no aplicativo após o atendimento.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira as instruções atuais na fonte oficial.",
+    "related_ids": [
+      "C04",
+      "D04"
+    ]
+  },
+  {
+    "id": "B03",
+    "theme": "Bolsa Família",
+    "question": "Como começar a inscrição para o Bolsa Família?",
+    "keywords": [
+      "inscrição bolsa família",
+      "entrar bolsa família",
+      "pedir bolsa familia"
+    ],
+    "summary_guidance": "Comece pelo Cadastro Único. Se sua família ainda não está cadastrada, procure o posto municipal de cadastramento. Se já está, confira se renda, endereço e integrantes estão atualizados. Consulte os critérios do programa na página oficial. A seleção depende da análise do programa, e o cadastro por si só não garante o pagamento.",
+    "reference": "https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras",
+    "verification_date": "2026-11-18",
+    "confirmation_warning": "Confira as instruções atuais na fonte oficial.",
+    "related_ids": [
+      "C03",
+      "C04",
+      "B01"
+    ]
   }
 ]

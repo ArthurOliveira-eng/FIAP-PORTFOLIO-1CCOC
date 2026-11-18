@@ -15,7 +15,7 @@ function revelar(elemento, texto, animar = true) {
     return;
   }
   const palavras = texto.match(/\S+\s*|\s+/g) || [];
-  const intervalo = Math.min(42, 3500 / palavras.length);
+  const intervalo = Math.min(65, 5200 / palavras.length);
   palavras.forEach((palavra, i) => {
     const span = document.createElement("span");
     span.textContent = palavra;
