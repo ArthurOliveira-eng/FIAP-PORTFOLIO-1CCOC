@@ -46,7 +46,7 @@ function cartao(r, relacionado = false) {
 function marcarSecao(id, titulo) {
   document.querySelectorAll(".rail button").forEach((b) => b.removeAttribute("aria-current"));
   $(id).setAttribute("aria-current", "page");
-  $("h1").textContent = titulo;
+  $("h1").textContent = id === "#rTemas" ? "Serviços públicos" : titulo;
   document.title = `${titulo} · Orientação cidadã`;
 }
 function consulta() {
@@ -59,6 +59,7 @@ function consulta() {
 }
 function temas() {
   sugestoesDoDia();
+  $("#stage").classList.remove("respondendo");
   pararVoz();
   location.hash = "temas";
   corpo.classList.remove("modoHistorico");
@@ -68,6 +69,7 @@ function temas() {
   atualizarTemas();
 }
 function abrirHistorico() {
+  $("#stage").classList.remove("respondendo");
   pararVoz();
   location.hash = "conversas";
   corpo.hidden = false;
@@ -125,6 +127,11 @@ function mostrar(r) {
     : "Consulta à base local";
   $("#ans").className = "q" + (encontrado ? "" : " idle");
   revelar($("#ans"), encontrado ? r.registros[0].resumo : textoVisivel(r.mensagem));
+  const ultima = $("#ans .palavra:last-child");
+  if (ultima && getComputedStyle(ultima).animationName !== "none") {
+    $("#stage").classList.add("respondendo");
+    ultima.addEventListener("animationend", () => $("#stage").classList.remove("respondendo"), { once: true });
+  }
   $("#cards").innerHTML =
     (encontrado
       ? r.registros
@@ -147,6 +154,7 @@ function mostrar(r) {
   if (r.log_erro) registrarAviso(r.log_erro);
 }
 async function perguntar(texto, reiniciar = false) {
+  $("#stage").classList.remove("respondendo");
   pararVoz();
   const pergunta = base.find((item) => item.id === texto)?.pergunta || texto;
   $("#pergunta").value = pergunta;
@@ -188,6 +196,7 @@ async function perguntar(texto, reiniciar = false) {
   }
 }
 function novaConsulta() {
+  $("#stage").classList.remove("respondendo");
   pararVoz();
   ++geracao;
   sid = crypto.randomUUID().replaceAll("-", "");
@@ -246,6 +255,7 @@ $("#bClear").onclick = novaConsulta;
 $("#nova").onclick = () => { abrirHistorico(); chat.desenhar(); };
 document.querySelectorAll(".explorar").forEach((botao) => { botao.onclick = temas; });
 $("#bEdit").onclick = () => {
+  $("#stage").classList.remove("respondendo");
   pararVoz();
   status("Edite sua pergunta à direita");
   $("#pergunta").scrollIntoView({ block: "nearest" });
