@@ -155,7 +155,7 @@ python src/sistema.py --base data/knowledge_base.json
 
 Comandos: `1`, `2` e `3` selecionam temas; um ID, como `D02`, abre uma orientação; `relacionados` oferece assuntos relacionados; `voltar` remove o filtro de tema; `ajuda` mostra os temas; `sair` ou `0` encerra a sessão. Perguntas livres ficam restritas ao tema selecionado até o uso de `voltar`. IDs exatos permitem acessar registros de outros temas e continuar a navegação por assuntos relacionados. Esses comandos são digitados em português; os antigos aliases em inglês continuam aceitos por compatibilidade.
 
-O GitHub Actions executa os mesmos testes no Python 3.12 e disponibiliza relatórios medidos, uma demonstração em MP4 e um pacote de evidências como artefatos. O fluxo de trabalho tem acesso somente de leitura ao repositório e não cria commits de arquivos gerados. Apenas a geração de vídeo requer ferramentas adicionais: FFmpeg e a fonte DejaVu Sans Mono no caminho Linux documentado. Essas ferramentas opcionais não são dependências da aplicação. Os artefatos expiram após 30 dias; baixe o vídeo e envie-o ao YouTube antes da entrega.
+O GitHub Actions executa os mesmos testes no Python 3.12 e disponibiliza relatórios medidos, uma demonstração em MP4 e um pacote de evidências como artefatos. O fluxo de trabalho tem acesso somente de leitura ao repositório e não cria commits de arquivos gerados. Apenas a geração de vídeo requer ferramentas adicionais: Pillow e imageio-ffmpeg (instale com `python -m pip install pillow imageio-ffmpeg`). Essas ferramentas opcionais não são dependências da aplicação. Os artefatos expiram após 30 dias; baixe o vídeo e envie-o ao YouTube antes da entrega.
 
 ## 7. Exemplos, fontes e entradas inválidas
 

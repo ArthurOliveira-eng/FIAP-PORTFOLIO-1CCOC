@@ -1,6 +1,5 @@
 """Cria um MP4 legendado da saída real da interface. Requer FFmpeg opcional."""
 import json
-import shutil
 import subprocess
 import sys
 import textwrap
@@ -77,22 +76,25 @@ def main():
     (args.output / "demo_transcript.txt").write_text("\n\n".join(transcript), encoding="utf-8")
     if args.text_only:
         return 0
-    ffmpeg = shutil.which("ffmpeg")
-    if not ffmpeg:
-        parser.exit(2, "Transcrição criada. Instale o FFmpeg ou use --somente-texto.\n")
-    font = Path("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf")
-    if not font.exists():
-        parser.exit(2, "A geração de vídeo exige a fonte DejaVu Sans Mono no caminho Linux documentado.\n")
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+        from imageio_ffmpeg import get_ffmpeg_exe
+    except ImportError:
+        parser.exit(2, "Para gerar vídeo, instale pillow e imageio-ffmpeg.\n")
+    ffmpeg = get_ffmpeg_exe()
+    font = ImageFont.load_default(size=18)
     clips = []
     for index, snapshot in enumerate(snapshots, 1):
         clip = args.output / f"clip-{index:02}.mp4"
-        video_filter = (
-            f"drawtext=fontfile='{font}':textfile='{snapshot.resolve()}':expansion=none:"
-            "fontcolor=white:fontsize=18:x=40:y=30:line_spacing=3"
+        frame = Image.new("RGB", (1280, 720), "#151515")
+        ImageDraw.Draw(frame).multiline_text(
+            (40, 30), snapshot.read_text(encoding="utf-8"), fill="white", font=font, spacing=3
         )
+        imagem = snapshot.with_suffix(".png")
+        frame.save(imagem)
         subprocess.run(
-            [ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-f", "lavfi",
-             "-i", "color=c=0x151515:s=1280x720:r=12", "-t", "10", "-vf", video_filter,
+            [ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-loop", "1",
+             "-framerate", "12", "-i", str(imagem), "-t", "10",
              "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", str(clip)],
             check=True, timeout=90,
         )
