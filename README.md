@@ -11,7 +11,7 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 | RM Resp | rm571385 - Arthur Apolonio De Oliveira
 | Outros integrantes e RMs | rm573611 - Bryan Lima Garcia / rm569195 - Matheus Bejarano Da Costa Resende
 | Repositório público | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
-| Demonstração no YouTube (não listado) | Aguardando envio pela equipe; nenhum link fictício foi inserido |
+| Demonstração no YouTube (não listado) | https://youtu.be/S0UFFqeeovQ |
 
 O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de vídeo estão implementados. A entrega permanece incompleta até o preenchimento dos integrantes/RMs e de uma URL válida do vídeo não listado no YouTube. A execução local foi verificada no Windows com Python 3.14; consulte a [validação local](docs/local_validation.md). Os resultados do GitHub Actions são identificados separadamente.
 
