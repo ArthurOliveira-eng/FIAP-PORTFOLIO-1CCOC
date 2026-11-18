@@ -76,10 +76,12 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       bloco.querySelector(".balaoPergunta").textContent = m.pergunta;
       const texto = m.resposta?.texto || m.erro || "Consultando a base…";
       const respostaElemento = bloco.querySelector("pre");
-      revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
       if (!m.resposta && !m.erro) {
         respostaElemento.classList.add("carregandoResposta");
         respostaElemento.setAttribute("role", "status");
+        respostaElemento.innerHTML = '<span class="sr">Preparando resposta…</span><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>';
+      } else {
+        revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
       }
       const fontes = bloco.querySelector(".fontesChat");
       if (m.resposta) {

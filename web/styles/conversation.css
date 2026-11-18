@@ -50,7 +50,7 @@ a:focus-visible {
 }
 @keyframes revelarPalavra {
   0% {
-    opacity: 0.22;
+    opacity: 0;
     filter: blur(3px);
   }
   100% {
@@ -523,19 +523,19 @@ body.dark .control .c {
 .carregandoResposta {
   display: flex;
   align-items: center;
-  gap: 10px;
-  opacity: 0.75;
+  gap: 4px;
+  min-height: 28px;
 }
-.carregandoResposta::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  border: 2px solid currentColor;
-  border-right-color: transparent;
+.carregandoResposta i {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  animation: girarCarregamento 800ms linear infinite;
+  background: #f26d0f;
+  animation: pulsarPonto 900ms ease-in-out infinite;
 }
-@keyframes girarCarregamento {
-  to { transform: rotate(360deg); }
+.carregandoResposta i:nth-of-type(2) { animation-delay: 130ms; }
+.carregandoResposta i:nth-of-type(3) { animation-delay: 260ms; }
+@keyframes pulsarPonto {
+  0%, 75%, 100% { opacity: 0.55; transform: scale(0.8); }
+  35% { opacity: 1; transform: scale(1.15); }
 }

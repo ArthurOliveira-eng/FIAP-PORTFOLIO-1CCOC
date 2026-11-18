@@ -10,13 +10,17 @@ const movimentoReduzido = () =>
 // ANIMAÇÃO DO TEXTO
 function revelar(elemento, texto, animar = true) {
   elemento.replaceChildren();
-  texto.split(/(\s+)/).forEach((palavra, i) => {
+  if (!animar || movimentoReduzido()) {
+    elemento.textContent = texto;
+    return;
+  }
+  const palavras = texto.match(/\S+\s*|\s+/g) || [];
+  const intervalo = Math.min(42, 3500 / palavras.length);
+  palavras.forEach((palavra, i) => {
     const span = document.createElement("span");
     span.textContent = palavra;
-    if (palavra.trim() && animar && !movimentoReduzido()) {
-      span.className = "palavra";
-      span.style.animationDelay = `${Math.min(i * 22, 1000)}ms`;
-    }
+    span.className = "palavra";
+    span.style.animationDelay = `${i * intervalo}ms`;
     elemento.append(span);
   });
 }
