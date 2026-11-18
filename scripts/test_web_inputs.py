@@ -1,18 +1,18 @@
 """Testa entrada, tema e eventos de ditado simulados, sem captar áudio real."""
+import os
 from playwright.sync_api import sync_playwright, expect
 
 with sync_playwright() as p:
     browser = p.chromium.launch(channel='msedge', headless=True)
     page = browser.new_page(viewport={'width':1200,'height':900})
     page.add_init_script("""
-    Object.defineProperty(navigator, 'brave', {value:{isBrave:async()=>true}});
     window.SpeechRecognition = class {
       constructor(){ window.ditadoTeste=this; }
       start(){ this.onstart(); }
       abort(){ this.onend(); }
     };
     """)
-    page.goto('http://127.0.0.1:8000/#consulta')
+    page.goto(os.getenv('POLIS_URL', 'http://127.0.0.1:8000') + '/#consulta')
     page.wait_for_selector('[data-tema]', state='attached')
     # A entrada fica à direita, separada dos controles de voz e da resposta.
     entrada = page.locator('#pergunta').bounding_box()
@@ -41,8 +41,7 @@ with sync_playwright() as p:
     page.evaluate("window.ditadoTeste.onresult({results:[[{transcript:'Como recuperar minha senha do gov.br?'}]]});window.ditadoTeste.onend()")
     expect(page.locator('#pergunta')).to_have_value('Como recuperar minha senha do gov.br?')
     expect(page.locator('#perguntaDireita')).to_have_text('Como recuperar minha senha do gov.br?')
-    expect(page.locator('#ans')).to_have_text('Como recuperar minha senha do gov.br?')
-    page.get_by_role('button',name='Pesquisar pergunta',exact=True).click()
+    expect(page.locator('#ans')).to_contain_text('Esqueci minha senha')
     expect(page.locator('#st')).to_have_text('Consulta concluída')
     page.locator('#microfone').click()
     page.evaluate("window.ditadoTeste.onresult({results:[[{transcript:'D02'}]]})")
@@ -57,7 +56,7 @@ with sync_playwright() as p:
     expect(page.locator('#vozStatus')).to_contain_text('Permissão negada')
     page.locator('#microfone').click()
     page.evaluate("window.ditadoTeste.onerror({error:'network'});window.ditadoTeste.onend()")
-    expect(page.locator('#vozStatus')).to_contain_text('neste Brave')
+    expect(page.locator('#vozStatus')).to_contain_text('serviço de reconhecimento')
     expect(page.locator('#st')).to_have_text('Não foi possível transcrever')
     page.locator('#noite').click()
     page.locator('#q').fill('D01')
@@ -67,7 +66,7 @@ with sync_playwright() as p:
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     page.get_by_role('button', name='Conversas', exact=True).click()
     page.locator('#listaHistorico .conversaItem').first.click()
-    expect(page.locator('#perguntaHistorico')).to_have_text('D01')
+    expect(page.locator('#perguntaHistorico')).to_contain_text('Carteira de Identidade')
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     page.locator('#filtroHistorico').fill('inexistente')
     expect(page.locator('#listaHistorico')).to_contain_text('Nenhuma conversa')

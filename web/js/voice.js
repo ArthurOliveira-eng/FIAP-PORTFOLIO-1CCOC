@@ -1,7 +1,7 @@
 import { ditadoLocal } from "./ditado-local.js";
 import { $, revelar } from "./dom.js";
 import { dialogo, painel, registrarAviso } from "./notifications.js";
-export function criarVoz({ status, perguntaDireita }) {
+export function criarVoz({ status, perguntaDireita, pesquisar }) {
   // DITADO PELO NAVEGADOR
   const Reconhecimento = window.SpeechRecognition || window.webkitSpeechRecognition;
   let usandoBrave = false;
@@ -47,22 +47,14 @@ export function criarVoz({ status, perguntaDireita }) {
           status("Transcrevendo…");
           mensagem("Preparando sua pergunta.");
         },
-        resultado(texto) {
-          pararVoz();
-          $("#pergunta").value = texto;
-          perguntaDireita(texto);
-          revelar($("#ans"), texto, false);
-          status("Confira sua pergunta");
-          mensagem("Edite se precisar e clique na lupa para consultar.");
-          $("#pergunta").focus();
-        },
+        resultado: pesquisar,
         erro(texto) { pararVoz(); status("Ditado interrompido"); mensagem(texto); },
       });
       local.iniciar();
       return;
     }
     const r = new Reconhecimento();
-    let falhou = false;
+    let falhou = false, frase = "";
     reconhecimento = r;
     r.lang = "pt-BR";
     r.continuous = false;
@@ -83,11 +75,12 @@ export function criarVoz({ status, perguntaDireita }) {
         .map((v) => v[0].transcript)
         .join(" ")
         .slice(0, 500);
+      frase = texto.trim();
       $("#pergunta").value = texto;
       perguntaDireita(texto);
       revelar($("#ans"), texto, false);
       $("#vozStatus").textContent =
-        "Confira sua pergunta à direita e clique na lupa para consultar.";
+        "Ao terminar, sua pergunta será pesquisada.";
     };
     r.onerror = (e) => {
       if (reconhecimento !== r) return;
@@ -115,12 +108,10 @@ export function criarVoz({ status, perguntaDireita }) {
       if (reconhecimento !== r) return;
       reconhecimento = null;
       document.body.classList.remove("ouvindo");
-      if (!falhou) status("Confira sua pergunta");
       $("#microfone").setAttribute("aria-pressed", "false");
       $("#wave").classList.remove("on");
-      if ($("#vozStatus").textContent.startsWith("Ouvindo"))
-        $("#vozStatus").textContent = "Ditado encerrado. Confira o texto antes de pesquisar.";
-      $("#pergunta").focus();
+      if (!falhou && frase) pesquisar(frase);
+      else if (!falhou) status("Não ouvi uma pergunta. Tente novamente.");
     };
     try {
       r.start();
@@ -141,7 +132,7 @@ export function criarVoz({ status, perguntaDireita }) {
     if (!consentiuVoz) {
       painel(
         "Perguntar pelo microfone",
-        (usandoBrave || !Reconhecimento ? "<p>O áudio será transcrito neste computador em português. Faça uma pausa para concluir.</p>" : '<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p>') + '<p>O texto aparecerá no campo para revisão antes de pesquisar. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>',
+        (usandoBrave || !Reconhecimento ? "<p>O áudio será transcrito neste computador em português. Faça uma pausa para concluir.</p>" : '<p>O ditado usa o serviço de reconhecimento de voz do navegador, que pode enviar áudio para processamento online. Não fale dados pessoais ou senhas.</p>') + '<p>Ao terminar de falar, o assistente pesquisa as palavras reconhecidas e mostra a orientação. O aplicativo não armazena áudio.</p><button class="sm" id="ativarVoz">Continuar e ativar microfone</button>',
       );
       return;
     }

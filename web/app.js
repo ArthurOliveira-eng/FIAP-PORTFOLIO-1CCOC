@@ -11,7 +11,7 @@ let sid = crypto.randomUUID().replaceAll("-", ""),
   base = [],
   estado;
 let geracao = 0;
-const voz = criarVoz({ status, perguntaDireita });
+const voz = criarVoz({ status, perguntaDireita, pesquisar: perguntar });
 const pararVoz = voz.parar;
 const chat = criarChat({
   abrirTela: abrirHistorico,
@@ -163,6 +163,8 @@ async function perguntar(texto, reiniciar = false) {
   const versao = ++geracao;
   consulta();
   $("#win").classList.add("busy");
+  $("#vozStatus").textContent = "";
+  $("#ans").textContent = "";
   status("Buscando na base…");
   try {
     const [r] = await Promise.all([api("/api/consultar", {
@@ -210,7 +212,7 @@ function novaConsulta() {
     '<div class="empty">As orientações aparecem aqui quando você consulta.</div>';
   $("#box").innerHTML = "";
   $("#textoCompleto").hidden = true;
-  $("#ans").textContent = "Pergunte sobre documentos, serviços digitais ou apoio comunitário.";
+  $("#ans").textContent = "Como posso ajudar hoje?";
   status("Pronto para consultar");
   $("#win").classList.remove("busy");
   consulta();

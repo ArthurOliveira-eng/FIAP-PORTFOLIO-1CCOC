@@ -113,7 +113,8 @@
     ],
     "expected": [
       "notas fiscais, contratos",
-      "Não cole notas fiscais"
+      "comprovantes de pagamento",
+      "Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas"
     ],
     "difficulty": "Prepare os comprovantes fora do assistente; ele não recebe arquivos."
   }

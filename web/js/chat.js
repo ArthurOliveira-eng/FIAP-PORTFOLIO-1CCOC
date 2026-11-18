@@ -70,6 +70,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       const ultimo = i === mensagens.length - 1;
       const bloco = document.createElement("article");
       bloco.className = "trocaMensagem";
+      if (ultimo && conversa.pendente && !m.resposta) bloco.classList.add("enviando");
       bloco.innerHTML = `<p class="balaoPergunta" ${ultimo ? 'id="perguntaHistorico"' : ""}></p>
    <div class="respostaConversa"><span class="avatarMini" aria-hidden="true"></span><div class="conteudoResposta">
    <pre ${ultimo ? 'id="respostaHistorico"' : ""}></pre><div class="fontesChat"></div></div></div>`;
@@ -79,7 +80,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       if (!m.resposta && !m.erro) {
         respostaElemento.classList.add("carregandoResposta");
         respostaElemento.setAttribute("role", "status");
-        respostaElemento.innerHTML = '<span class="sr">Preparando resposta…</span><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>';
+        respostaElemento.innerHTML = '<span class="sr">Preparando resposta…</span><i aria-hidden="true"></i><i aria-hidden="true"></i>';
       } else {
         revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
       }
@@ -143,7 +144,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
         texto,
         modelo: modeloAtual(),
         tema: conversa.tema,
-      }), new Promise((resolve) => setTimeout(resolve, 450))]);
+      }), new Promise((resolve) => setTimeout(resolve, 760))]);
       if (!historico.includes(conversa)) return;
       guardarResposta(conversa, mensagem, resposta);
       if (resposta.log_erro) registrarAviso(resposta.log_erro);

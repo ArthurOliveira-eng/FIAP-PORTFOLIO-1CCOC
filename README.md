@@ -4,7 +4,7 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 
 ### Ditado em português no Brave
 
-No Brave, o microfone usa o modelo local Vosk. O navegador envia até 29 segundos de áudio por pergunta ao servidor em localhost, que transcreve em memória. Na tela de voz, permita o microfone, fale e faça uma pausa ou clique novamente no microfone. Confira o texto e envie pela lupa.
+No Brave, o microfone usa o modelo local Vosk. O navegador envia até 29 segundos de áudio por pergunta ao servidor em localhost, que transcreve em memória. Na tela de voz, permita o microfone, fale e faça uma pausa ou clique novamente no microfone. Ao concluir, a pergunta reconhecida é pesquisada automaticamente.
 
 Para preparar outro computador Windows, instale a dependência e extraia o [modelo português do Vosk](https://alphacephei.com/vosk/models) com estes comandos do PowerShell antes de iniciar o app:
 
@@ -109,7 +109,7 @@ Abra **http://127.0.0.1:8000** no navegador. A tela inicial é **Conversas**, co
 
 Em **Conversas**, escreva a mensagem e pressione **Enter** ou clique em enviar. **Shift + Enter** quebra a linha. As mensagens seguintes continuam na mesma conversa; **+ Nova** inicia outra, com contexto separado. Selecione uma conversa à esquerda para retomar suas mensagens.
 
-**Fale por voz** abre a tela de áudio mantendo o contexto da conversa. No centro, os controles são **Falar**, **Limpar** e **Editar**. **Falar** inicia o ditado em pt-BR após confirmação e permissão. Confira o texto no painel direito e envie pela lupa. **Editar** leva ao campo de pergunta; **Limpar** cancela o ditado e limpa a consulta. O aplicativo não armazena áudio, mas o serviço do navegador pode processá-lo online. Sem suporte ou permissão, a digitação continua disponível.
+**Fale por voz** abre a tela de áudio mantendo o contexto da conversa. No centro, os controles são **Falar**, **Limpar** e **Editar**. **Falar** inicia o ditado em pt-BR após confirmação e permissão. Ao terminar de falar, a pergunta aparece à direita e a orientação é buscada automaticamente. **Editar** leva ao campo de pergunta; **Limpar** cancela o ditado e limpa a consulta. O aplicativo não armazena áudio, mas o serviço do navegador pode processá-lo online. Sem suporte ou permissão, a digitação continua disponível.
 
 O botão de lua/sol alterna o modo escuro; apenas a preferência visual é salva no navegador. As notificações são eventos internos da aba: consultas concluídas, erros e fontes desatualizadas geram avisos visuais e contagem no sino. Abrir o sino marca os avisos como lidos; é possível limpar a lista. Não são notificações push de órgãos públicos nem do sistema operacional.
 
