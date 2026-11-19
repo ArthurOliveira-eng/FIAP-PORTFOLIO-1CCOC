@@ -1,5 +1,5 @@
 // Cada sessão possui seus recursos. Cancelar também invalida permissões e respostas tardias.
-export function ditadoLocal({ dispositivo, ouvindo, nivel, processando, resultado, erro }) {
+export function ditadoLocal({ ouvindo, nivel, processando, resultado, erro }) {
   let stream, contexto, captura, timer, cancelado = false, terminou = false;
   const blocos = [];
   let duracaoFala = 0;
@@ -32,7 +32,7 @@ export function ditadoLocal({ dispositivo, ouvindo, nivel, processando, resultad
       contexto = new AudioContext({sampleRate: 16000});
       await contexto.resume();
       if (cancelado) return;
-      stream = await navigator.mediaDevices.getUserMedia({ audio: {deviceId: dispositivo ? {exact: dispositivo} : undefined, channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true} });
+      stream = await navigator.mediaDevices.getUserMedia({ audio: {channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true} });
       if (cancelado) return liberar();
       await contexto.audioWorklet.addModule("/js/pcm.js");
       if (cancelado) return;

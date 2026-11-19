@@ -4,7 +4,7 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 
 ### Ditado em português no Brave
 
-No Brave, o microfone usa reconhecimento local em português. A captura aplica controle automático de ganho e supressão de ruído, com até 29 segundos por pergunta. Após uma pausa de 2,2 segundos ou outro clique no microfone, a pergunta reconhecida é pesquisada. Quando existem várias entradas de áudio, o seletor permite escolher o microfone.
+No Brave, o microfone usa reconhecimento local em português. A captura aplica controle automático de ganho e supressão de ruído, com até 29 segundos por pergunta. Após uma pausa de 2,2 segundos ou outro clique no microfone, a pergunta reconhecida é pesquisada. O áudio usa o microfone padrão do navegador.
 
 Neste computador, o Whisper small multilíngue quantizado é a opção instalada. Para preparar outro Windows, execute `py scripts/install_voice.py` e reinicie o servidor. O instalador baixa aproximadamente 190 MB de modelo e o runtime oficial do whisper.cpp, verificando SHA-256. O áudio passa em memória para o processo local. A transcrição pode levar alguns segundos em CPU. Uma instalação anterior do Vosk continua disponível quando o Whisper está ausente.
 

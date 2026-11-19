@@ -14,32 +14,17 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
   const onda = $("#wave");
   const pontos = [...onda.children];
   const envelopes = pontos.map((_, i) => Math.sin(Math.PI * (i + 1) / (pontos.length + 1)));
-  const entrada = $("#entradaAudio");
-  async function listarMicrofones() {
-    try {
-      const dispositivos = (await navigator.mediaDevices.enumerateDevices()).filter((d) => d.kind === "audioinput");
-      const selecionado = entrada.value;
-      entrada.replaceChildren(...dispositivos.map((d, i) => new Option(d.label || `Microfone ${i + 1}`, d.deviceId)));
-      if ([...entrada.options].some((o) => o.value === selecionado)) entrada.value = selecionado;
-      $("#entradaAudioLabel").hidden = dispositivos.length < 2;
-    } catch {}
-  }
-  entrada.onchange = () => {
-    pararVoz();
-    status("Microfone selecionado");
-    $("#vozStatus").textContent = "Toque em Falar para usar o microfone selecionado.";
-  };
   let intensidade = 0;
   function nivel(valor) {
     // Suaviza a entrada real sem interromper a fase do ciclo de cada ponto.
     intensidade += (valor - intensidade) * .25;
     pontos.forEach((ponto, i) => {
-      ponto.style.setProperty("--salto", (4 + 14 * Math.sqrt(intensidade) * envelopes[i]).toFixed(1) + "px");
+      ponto.style.setProperty("--pico", (1.8 + 3.2 * Math.sqrt(intensidade) * envelopes[i]).toFixed(2));
     });
   }
   function limparNivel() {
     intensidade = 0;
-    pontos.forEach((ponto) => ponto.style.removeProperty("--salto"));
+    pontos.forEach((ponto) => ponto.style.removeProperty("--pico"));
   }
   async function medirMicrofone(r) {
     let fluxo, audio, timer;
@@ -50,7 +35,7 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     };
     liberarMedidor = liberar;
     try {
-      fluxo = await navigator.mediaDevices.getUserMedia({audio: {deviceId: entrada.value ? {exact: entrada.value} : undefined, autoGainControl: true, noiseSuppression: true}});
+      fluxo = await navigator.mediaDevices.getUserMedia({audio: {autoGainControl: true, noiseSuppression: true}});
       if (reconhecimento !== r) return liberar();
       audio = new AudioContext();
       const analisador = audio.createAnalyser();
@@ -89,9 +74,7 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     if (usandoBrave || !Reconhecimento) {
       const mensagem = (texto) => { $("#vozStatus").textContent = texto; };
       local = ditadoLocal({
-        dispositivo: entrada.value,
         ouvindo() {
-          listarMicrofones();
           document.body.classList.remove("preparandoVoz");
           document.body.classList.add("ouvindo");
           $("#wave").classList.add("on");

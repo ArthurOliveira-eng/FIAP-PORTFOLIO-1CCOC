@@ -41,17 +41,28 @@ with sync_playwright() as p:
         return page.locator(selector).first.evaluate("(e,p) => getComputedStyle(e,p).transform", pseudo)
     def moves(selector, pseudo=None):
         before = transform(selector, pseudo)
-        page.wait_for_timeout(210)
-        assert transform(selector, pseudo) != before, selector
+        for _ in range(8):
+            page.wait_for_timeout(100)
+            if transform(selector, pseudo) != before:
+                return
+        raise AssertionError(selector)
     moves(".orb")
     moves(".haloOrbe", "::before")
+    # Cada ponto cresce e volta no próprio eixo, com o centro fixo.
+    point = page.locator("#wave i").nth(9)
+    def center():
+        box = point.bounding_box()
+        return box["y"] + box["height"] / 2
+    fixed_center = center()
     moves("#wave i")
+    assert abs(center() - fixed_center) < .1
+    assert page.locator("#entradaAudio").count() == 0
     page.wait_for_timeout(250)
-    quiet = page.locator("#wave i").nth(9).evaluate("e => parseFloat(e.style.getPropertyValue('--salto'))")
+    quiet = page.locator("#wave i").nth(9).evaluate("e => parseFloat(e.style.getPropertyValue('--pico'))")
     page.evaluate("audioTeste.gain.gain.value = .1")
     page.wait_for_timeout(700)
-    loud = page.locator("#wave i").nth(9).evaluate("e => parseFloat(e.style.getPropertyValue('--salto'))")
-    assert loud > quiet + 2, (quiet, loud)
+    loud = page.locator("#wave i").nth(9).evaluate("e => parseFloat(e.style.getPropertyValue('--pico'))")
+    assert loud > quiet + .5, (quiet, loud)
     page.screenshot(path=str(Path(os.environ["TEMP"]) / "polis-motion-voz.png"))
     page.evaluate("ditadoTeste.onresult({results:[[{transcript:'Como recuperar minha senha do gov.br?'}]]})")
     page.locator("#microfone").click()
