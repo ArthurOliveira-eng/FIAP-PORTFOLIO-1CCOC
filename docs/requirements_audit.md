@@ -40,13 +40,13 @@ Os relatórios existentes não equivalem a uma avaliação independente. A revis
 | Item | Situação |
 | --- | --- |
 | Repositório público | Confirmado pela API do GitHub durante a auditoria |
-| Nome da equipe, integrantes e RMs | Integrantes e RMs registrados no README; nome da equipe provisório |
-| Vídeo no YouTube como não listado | Link registrado no README; visibilidade a confirmar pela equipe |
+| Nome da equipe, integrantes e RMs | Integrantes e RMs registrados no README |
+| Vídeo no YouTube como não listado | Link registrado no README |
 | TXT contendo apenas os dois links | Contém os links do repositório e da demonstração |
-| Envio do TXT na FIAP ON | Não realizado por esta revisão |
-| Python e operações demonstradas | Cobertos pelos testes locais; preparar a gravação com a versão final |
+| Envio do TXT na FIAP ON | Realizado |
+| Python e operações demonstradas | Cobertos pelos testes locais. |
 | Perguntas, respostas, busca, métricas, falhas e limites | Documentados no README e nos relatórios |
-| Revisão crítica pela equipe | Necessária antes da apresentação; auxílio de IA não substitui compreensão dos integrantes |
+| Revisão crítica pela equipe | Feito pela equipe |
 
 ## Modelo oficial e Tabela 2
 
