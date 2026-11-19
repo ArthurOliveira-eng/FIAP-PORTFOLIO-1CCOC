@@ -1,4 +1,4 @@
-import { $, esc, andamento, textoVisivel, revelar } from "./dom.js";
+import { $, esc, andamento, textoVisivel, revelar, movimentoReduzido } from "./dom.js";
 import { api } from "./api.js";
 
 // CONVERSAS DA ABA
@@ -79,6 +79,18 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       const respostaElemento = bloco.querySelector("pre");
       if (!m.erro) andamento(bloco.querySelector(".linhaConsulta"), m.pergunta, m.resposta);
       if (m.resposta || m.erro) revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
+      if (m.resposta && animar && ultimo && !movimentoReduzido()) {
+        const onda = document.createElement("span");
+        onda.className = "ondaResposta";
+        onda.setAttribute("aria-hidden", "true");
+        for (let n = 0; n < 15; n++) {
+          const ponto = document.createElement("i");
+          ponto.style.setProperty("--n", n);
+          onda.append(ponto);
+        }
+        respostaElemento.before(onda);
+        respostaElemento.lastElementChild?.addEventListener("animationend", () => onda.remove(), { once: true });
+      }
       const fontes = bloco.querySelector(".fontesChat");
       if (m.resposta) {
         fontes.innerHTML = m.resposta.registros

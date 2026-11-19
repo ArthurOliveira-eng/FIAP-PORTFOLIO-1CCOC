@@ -32,13 +32,14 @@ function textoVisivel(texto = "") {
     .replaceAll("o ID de um registro relacionado", "um assunto relacionado");
 }
 
-export { $, esc, revelar, textoVisivel };
+export { $, esc, revelar, textoVisivel, movimentoReduzido };
 
 
 // A linha acompanha o pedido e resume os registros realmente devolvidos pela API.
 export function andamento(elemento, pergunta, resposta) {
   elemento.className = "linhaConsulta";
   elemento.replaceChildren();
+  elemento.setAttribute("role", "status");
   if (resposta) {
     const itens = resposta.registros;
     elemento.textContent = resposta.status === "match"

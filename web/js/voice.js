@@ -12,8 +12,19 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     consentiuVoz = false;
   let local = null, liberarMedidor = () => {};
   const onda = $("#wave");
+  const pontos = [...onda.children];
+  const envelopes = pontos.map((_, i) => Math.sin(Math.PI * (i + 1) / (pontos.length + 1)));
+  let intensidade = 0;
   function nivel(valor) {
-    onda.style.setProperty("--amplitude", (3 + 13 * Math.sqrt(valor)).toFixed(1) + "px");
+    // Suaviza a entrada real sem interromper a fase do ciclo de cada ponto.
+    intensidade += (valor - intensidade) * .25;
+    pontos.forEach((ponto, i) => {
+      ponto.style.setProperty("--salto", (4 + 14 * Math.sqrt(intensidade) * envelopes[i]).toFixed(1) + "px");
+    });
+  }
+  function limparNivel() {
+    intensidade = 0;
+    pontos.forEach((ponto) => ponto.style.removeProperty("--salto"));
   }
   async function medirMicrofone(r) {
     let fluxo, audio, timer;
@@ -43,11 +54,10 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
   }
   function pararVoz() {
     liberarMedidor();
-    onda.style.removeProperty("--amplitude");
+    limparNivel();
     local?.cancelar();
     local = null;
-    document.body.classList.remove("transcrevendo");
-    $("#stage").style.removeProperty("--nivel");
+    document.body.classList.remove("transcrevendo", "preparandoVoz");
     if (reconhecimento) {
       const atual = reconhecimento;
       reconhecimento = null;
@@ -55,15 +65,17 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     }
     $("#microfone").setAttribute("aria-pressed", "false");
     $("#wave").classList.remove("on");
-    document.body.classList.remove("ouvindo");
+    document.body.classList.remove("ouvindo", "preparandoVoz");
   }
   function iniciarVoz() {
     dialogo.close();
+    document.body.classList.add("preparandoVoz");
+    status("Preparando microfone…");
     if (usandoBrave || !Reconhecimento) {
       const mensagem = (texto) => { $("#vozStatus").textContent = texto; };
-      status("Preparando microfone…");
       local = ditadoLocal({
         ouvindo() {
+          document.body.classList.remove("preparandoVoz");
           document.body.classList.add("ouvindo");
           $("#wave").classList.add("on");
           $("#microfone").setAttribute("aria-pressed", "true");
@@ -73,7 +85,7 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
         },
         nivel,
         processando() {
-          document.body.classList.remove("ouvindo");
+          document.body.classList.remove("ouvindo", "preparandoVoz");
           document.body.classList.add("transcrevendo");
           $("#microfone").setAttribute("aria-pressed", "false");
           status("Transcrevendo…");
@@ -94,12 +106,13 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     r.onstart = () => {
       if (reconhecimento !== r) return;
       medirMicrofone(r);
+      document.body.classList.remove("preparandoVoz");
       document.body.classList.add("ouvindo");
       status("Ouvindo sua pergunta…");
       revelar($("#ans"), "Pode falar. Estou ouvindo.", false);
       $("#microfone").setAttribute("aria-pressed", "true");
       $("#vozStatus").textContent =
-        "Ouvindo… fale sua pergunta. Clique no microfone para cancelar.";
+        "Ouvindo… fale sua pergunta. Toque no microfone para concluir.";
       $("#wave").classList.add("on");
     };
     r.onresult = (e) => {
@@ -141,8 +154,8 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
       if (reconhecimento !== r) return;
       reconhecimento = null;
       liberarMedidor();
-      onda.style.removeProperty("--amplitude");
-      document.body.classList.remove("ouvindo");
+      limparNivel();
+      document.body.classList.remove("ouvindo", "preparandoVoz");
       $("#microfone").setAttribute("aria-pressed", "false");
       $("#wave").classList.remove("on");
       if (!falhou && frase) pesquisar(frase);
@@ -158,9 +171,8 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
   }
   $("#microfone").onclick = () => {
     if (reconhecimento) {
-      pararVoz();
-      status("Ditado interrompido");
-      $("#vozStatus").textContent = "Você pode editar sua pergunta à direita e enviar pela lupa.";
+      reconhecimento.stop();
+      status("Concluindo sua pergunta…");
       return;
     }
     if (local) { local.concluir(); return; }

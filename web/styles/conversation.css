@@ -26,7 +26,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 .orb {
-  transition: transform 550ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 200ms cubic-bezier(.23, 1, .32, 1);
 }
 .orb b {
   font-weight: 400;
@@ -46,16 +46,16 @@ a:focus-visible {
   line-height: 1.6;
 }
 .palavra {
-  animation: 450ms ease 0s 1 normal both running revelarPalavra;
+  animation: 250ms cubic-bezier(.23, 1, .32, 1) both revelarPalavra;
 }
 @keyframes revelarPalavra {
   0% {
     opacity: 0;
-    filter: blur(3px);
+    transform: translateY(3px);
   }
   100% {
     opacity: 1;
-    filter: blur(0px);
+    transform: translateY(0);
   }
 }
 .card,
@@ -518,24 +518,4 @@ body.dark .control .c {
     min-height: 28px;
     font-size: 11px;
   }
-}
-
-.carregandoResposta {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  min-height: 28px;
-}
-.carregandoResposta i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #f26d0f;
-  animation: pulsarPonto 900ms ease-in-out infinite;
-}
-.carregandoResposta i:nth-of-type(2) { animation-delay: 130ms; }
-.carregandoResposta i:nth-of-type(3) { animation-delay: 260ms; }
-@keyframes pulsarPonto {
-  0%, 75%, 100% { opacity: 0.55; transform: scale(0.8); }
-  35% { opacity: 1; transform: scale(1.15); }
 }
