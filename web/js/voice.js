@@ -10,8 +10,40 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
   }
   let reconhecimento = null,
     consentiuVoz = false;
-  let local = null;
+  let local = null, liberarMedidor = () => {};
+  const onda = $("#wave");
+  function nivel(valor) {
+    onda.style.setProperty("--amplitude", (3 + 13 * Math.sqrt(valor)).toFixed(1) + "px");
+  }
+  async function medirMicrofone(r) {
+    let fluxo, audio, timer;
+    const liberar = () => {
+      clearInterval(timer);
+      fluxo?.getTracks().forEach((track) => track.stop());
+      if (audio && audio.state !== "closed") audio.close().catch(() => {});
+    };
+    liberarMedidor = liberar;
+    try {
+      fluxo = await navigator.mediaDevices.getUserMedia({audio: true});
+      if (reconhecimento !== r) return liberar();
+      audio = new AudioContext();
+      const analisador = audio.createAnalyser();
+      analisador.fftSize = 1024;
+      audio.createMediaStreamSource(fluxo).connect(analisador);
+      await audio.resume();
+      if (reconhecimento !== r) return liberar();
+      const amostras = new Float32Array(analisador.fftSize);
+      timer = setInterval(() => {
+        analisador.getFloatTimeDomainData(amostras);
+        let energia = 0;
+        for (const v of amostras) energia += v * v;
+        nivel(Math.min(1, 12 * Math.sqrt(energia / amostras.length)));
+      }, 65);
+    } catch { liberar(); }
+  }
   function pararVoz() {
+    liberarMedidor();
+    onda.style.removeProperty("--amplitude");
     local?.cancelar();
     local = null;
     document.body.classList.remove("transcrevendo");
@@ -39,7 +71,7 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
           revelar($("#ans"), "Pode falar.", false);
           mensagem("Faça uma pausa ou toque no microfone para concluir.");
         },
-        nivel(n) { $("#stage").style.setProperty("--nivel", n.toFixed(2)); },
+        nivel,
         processando() {
           document.body.classList.remove("ouvindo");
           document.body.classList.add("transcrevendo");
@@ -61,6 +93,7 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     r.interimResults = true;
     r.onstart = () => {
       if (reconhecimento !== r) return;
+      medirMicrofone(r);
       document.body.classList.add("ouvindo");
       status("Ouvindo sua pergunta…");
       revelar($("#ans"), "Pode falar. Estou ouvindo.", false);
@@ -107,6 +140,8 @@ export function criarVoz({ status, perguntaDireita, pesquisar }) {
     r.onend = () => {
       if (reconhecimento !== r) return;
       reconhecimento = null;
+      liberarMedidor();
+      onda.style.removeProperty("--amplitude");
       document.body.classList.remove("ouvindo");
       $("#microfone").setAttribute("aria-pressed", "false");
       $("#wave").classList.remove("on");

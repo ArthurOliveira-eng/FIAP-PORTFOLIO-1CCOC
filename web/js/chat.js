@@ -1,4 +1,4 @@
-import { $, esc, textoVisivel, revelar } from "./dom.js";
+import { $, esc, andamento, textoVisivel, revelar } from "./dom.js";
 import { api } from "./api.js";
 
 // CONVERSAS DA ABA
@@ -73,17 +73,12 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
       if (ultimo && conversa.pendente && !m.resposta) bloco.classList.add("enviando");
       bloco.innerHTML = `<p class="balaoPergunta" ${ultimo ? 'id="perguntaHistorico"' : ""}></p>
    <div class="respostaConversa"><span class="avatarMini" aria-hidden="true"></span><div class="conteudoResposta">
-   <pre ${ultimo ? 'id="respostaHistorico"' : ""}></pre><div class="fontesChat"></div></div></div>`;
+   <div class="linhaConsulta"></div><pre ${ultimo ? 'id="respostaHistorico"' : ""}></pre><div class="fontesChat"></div></div></div>`;
       bloco.querySelector(".balaoPergunta").textContent = m.pergunta;
       const texto = m.resposta?.texto || m.erro || "Consultando a base…";
       const respostaElemento = bloco.querySelector("pre");
-      if (!m.resposta && !m.erro) {
-        respostaElemento.classList.add("carregandoResposta");
-        respostaElemento.setAttribute("role", "status");
-        respostaElemento.innerHTML = '<span class="sr">Preparando resposta…</span><i aria-hidden="true"></i><i aria-hidden="true"></i>';
-      } else {
-        revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
-      }
+      if (!m.erro) andamento(bloco.querySelector(".linhaConsulta"), m.pergunta, m.resposta);
+      if (m.resposta || m.erro) revelar(respostaElemento, textoVisivel(texto), animar && ultimo);
       const fontes = bloco.querySelector(".fontesChat");
       if (m.resposta) {
         fontes.innerHTML = m.resposta.registros
@@ -144,7 +139,7 @@ export function criarChat({ abrirTela, modeloAtual, registrarAviso, aoLimpar }) 
         texto,
         modelo: modeloAtual(),
         tema: conversa.tema,
-      }), new Promise((resolve) => setTimeout(resolve, 760))]);
+      }), new Promise((resolve) => setTimeout(resolve, 950))]);
       if (!historico.includes(conversa)) return;
       guardarResposta(conversa, mensagem, resposta);
       if (resposta.log_erro) registrarAviso(resposta.log_erro);

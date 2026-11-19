@@ -33,3 +33,27 @@ function textoVisivel(texto = "") {
 }
 
 export { $, esc, revelar, textoVisivel };
+
+
+// A linha acompanha o pedido e resume os registros realmente devolvidos pela API.
+export function andamento(elemento, pergunta, resposta) {
+  elemento.className = "linhaConsulta";
+  elemento.replaceChildren();
+  if (resposta) {
+    const itens = resposta.registros;
+    elemento.textContent = resposta.status === "match"
+      ? `Orientação encontrada · ${itens[0].pergunta}`
+      : itens.length ? `${itens.length} opções para explorar` : "Busca concluída";
+    return;
+  }
+  const dots = document.createElement("span");
+  dots.className = "duplaConsulta";
+  dots.setAttribute("aria-hidden", "true");
+  dots.append(document.createElement("i"), document.createElement("i"));
+  const fase = document.createElement("span");
+  fase.textContent = "Recebendo sua pergunta…";
+  elemento.append(dots, fase);
+  setTimeout(() => {
+    if (fase.isConnected) fase.textContent = pergunta ? `Buscando orientações para “${pergunta}”…` : "Buscando orientações do tema…";
+  }, 280);
+}

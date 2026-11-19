@@ -1,4 +1,4 @@
-import { $, esc, textoVisivel, revelar } from "./js/dom.js";
+import { $, esc, andamento, textoVisivel, revelar } from "./js/dom.js";
 import { api } from "./js/api.js";
 import { dialogo, painel, registrarAviso } from "./js/notifications.js";
 import { criarChat } from "./js/chat.js";
@@ -165,6 +165,7 @@ async function perguntar(texto, reiniciar = false) {
   $("#win").classList.add("busy");
   $("#vozStatus").textContent = "";
   $("#ans").textContent = "";
+  andamento($("#andamentoVoz"), pergunta);
   status("Buscando na base…");
   try {
     const [r] = await Promise.all([api("/api/consultar", {
@@ -173,8 +174,9 @@ async function perguntar(texto, reiniciar = false) {
       modelo,
       tema,
       reiniciar,
-    }), new Promise((resolve) => setTimeout(resolve, 450))]);
+    }), new Promise((resolve) => setTimeout(resolve, 950))]);
     if (versao !== geracao) return;
+    andamento($("#andamentoVoz"), pergunta, r);
     mostrar(r);
     registrarAviso(
       r.status === "match"
@@ -186,6 +188,7 @@ async function perguntar(texto, reiniciar = false) {
     }
   } catch (e) {
     if (versao !== geracao) return;
+    $("#andamentoVoz").replaceChildren();
     status("Conexão indisponível");
     $("#ans").textContent =
       `${e.message} Verifique se o servidor local está em execução e tente novamente.`;
@@ -198,6 +201,7 @@ async function perguntar(texto, reiniciar = false) {
   }
 }
 function novaConsulta() {
+  $("#andamentoVoz").replaceChildren();
   $("#stage").classList.remove("respondendo");
   pararVoz();
   ++geracao;

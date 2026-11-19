@@ -890,3 +890,17 @@ body.dark.ouvindo #ans { color: #ffc08e; }
   from { transform: translateY(2px) scale(.8); opacity: .45; }
   to { transform: translateY(-3px) scale(1.1); opacity: 1; }
 }
+
+.linhaConsulta { display: flex; align-items: center; gap: 10px; color: inherit; opacity: .8; font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+.linhaConsulta:empty { display: none; }
+.conteudoResposta .linhaConsulta { margin-bottom: 8px; }
+.duplaConsulta { display: inline-flex; gap: 4px; flex: none; }
+.duplaConsulta i { background: #f26d0f; width: 7px; height: 7px; border-radius: 50%; animation: dupla .6s ease-in-out infinite alternate; }
+.duplaConsulta i + i { animation-delay: -.6s; }
+.stage .wave.on i { animation: ondaFalada .88s ease-in-out infinite; animation-delay: calc(var(--n) * -68ms); }
+@keyframes ondaFalada {
+  0%, 100% { transform: translateY(calc(-1 * var(--amplitude, 7px))); }
+  50% { transform: translateY(var(--amplitude, 7px)); }
+}
+.haloOrbe::before, .haloOrbe::after { border-radius: 50%; box-shadow: 0 0 0 14px rgb(242 109 15 / 42%); }
+#historicoVazio { border-radius: 28px; padding-inline: 24px; background: radial-gradient(ellipse at 50% 20%, rgb(242 109 15 / 14%), transparent 75%); }
