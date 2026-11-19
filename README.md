@@ -4,17 +4,11 @@ Protótipo independente de orientação ao cidadão, com interfaces textual e we
 
 ### Ditado em português no Brave
 
-No Brave, o microfone usa o modelo local Vosk. O navegador envia até 29 segundos de áudio por pergunta ao servidor em localhost, que transcreve em memória. Na tela de voz, permita o microfone, fale e faça uma pausa ou clique novamente no microfone. Ao concluir, a pergunta reconhecida é pesquisada automaticamente.
+No Brave, o microfone usa reconhecimento local em português. A captura aplica controle automático de ganho e supressão de ruído, com até 29 segundos por pergunta. Após uma pausa de 2,2 segundos ou outro clique no microfone, a pergunta reconhecida é pesquisada. Quando existem várias entradas de áudio, o seletor permite escolher o microfone.
 
-Para preparar outro computador Windows, instale a dependência e extraia o [modelo português do Vosk](https://alphacephei.com/vosk/models) com estes comandos do PowerShell antes de iniciar o app:
+Neste computador, o Whisper small multilíngue quantizado é a opção instalada. Para preparar outro Windows, execute `py scripts/install_voice.py` e reinicie o servidor. O instalador baixa aproximadamente 190 MB de modelo e o runtime oficial do whisper.cpp, verificando SHA-256. O áudio passa em memória para o processo local. A transcrição pode levar alguns segundos em CPU. Uma instalação anterior do Vosk continua disponível quando o Whisper está ausente.
 
-```powershell
-py -m pip install vosk==0.3.45
-$destino = Join-Path $env:LOCALAPPDATA 'PolisHelp'
-New-Item -ItemType Directory -Force -Path $destino | Out-Null
-curl.exe -fL https://alphacephei.com/vosk/models/vosk-model-small-pt-0.3.zip -o "$destino/pt.zip"
-Expand-Archive -LiteralPath "$destino/pt.zip" -DestinationPath $destino -Force
-```
+Em Configurações, **Animações do assistente** oferece **Seguir o sistema**, **Ativadas** e **Reduzidas**. A escolha persiste no navegador. Quando a preferência automática reduz o movimento, o botão **Ativar animações** aparece nas telas de voz e mensagens.
 
 ## 1. Equipe e situação da entrega
 

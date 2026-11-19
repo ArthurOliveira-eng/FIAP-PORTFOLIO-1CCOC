@@ -284,6 +284,8 @@
           <p id="vozStatus" class="hint" role="status">
             Toque no microfone para falar ou escreva sua pergunta à direita.
           </p>
+          <label id="entradaAudioLabel" hidden>Microfone<select id="entradaAudio" aria-label="Microfone de entrada"></select></label>
+          <button class="sm" data-ativar-movimento hidden>Ativar animações</button>
           <details id="textoCompleto" hidden>
             <summary>Resposta completa · modelo selecionado</summary>
             <pre id="respostaCompleta"></pre>
@@ -423,6 +425,7 @@
                   </svg>
                 </button>
               </form>
+              <button type="button" class="sm" data-ativar-movimento hidden>Ativar animações</button>
               <p id="chatStatus" class="hint" role="status">
                 Enter envia · Shift + Enter quebra a linha
               </p>

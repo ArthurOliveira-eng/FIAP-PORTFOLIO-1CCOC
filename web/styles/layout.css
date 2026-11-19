@@ -921,11 +921,7 @@ body.dark.ouvindo #ans { color: #ffc08e; }
 .trocaMensagem.enviando .balaoPergunta {
   animation: enviarMensagem 250ms cubic-bezier(.23,1,.32,1) both;
 }
-@media (prefers-reduced-motion: reduce) {
-  .stage .orb, .stage .wave i, .ondaResposta i, .duplaConsulta i {
-    transform: none;
-  }
-}
+
 #historicoVazio { border-radius: 28px; padding-inline: 24px; background: radial-gradient(ellipse at 50% 20%, rgb(242 109 15 / 14%), transparent 75%); }
 
 /* Cores dos controles que têm estilos próprios em cada tela. */

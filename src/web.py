@@ -118,7 +118,7 @@ def criar_manipulador(servico):
                 except ValueError:
                     return self.enviar(400, {"erro": "Gravação inválida."})
                 except (ImportError, OSError, RuntimeError):
-                    return self.enviar(503, {"erro": "Instale o modelo de voz local conforme o README."})
+                    return self.enviar(503, {"erro": "Não foi possível iniciar o reconhecimento local. Confira a instalação do modelo de voz conforme o README."})
                 return self.enviar(200, {"texto": texto})
             if self.path != "/api/consultar":
                 return self.enviar(404, {"erro": "não encontrado"})

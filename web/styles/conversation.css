@@ -271,21 +271,7 @@ body.dark .balaoPergunta {
     transform: scale(0.85);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation: auto ease 0s 1 normal none running none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-  button:hover,
-  button:active,
-  a.sm:hover,
-  a.sm:active {
-    transform: none !important;
-  }
-}
+
 body.semMovimento *,
 body.semMovimento ::before,
 body.semMovimento ::after {
@@ -519,3 +505,15 @@ body.dark .control .c {
     font-size: 11px;
   }
 }
+
+/* A escolha explícita no app prevalece sobre a preferência automática. */
+@media (prefers-reduced-motion: reduce) {
+  body:not(.movimentoCompleto) *,
+  body:not(.movimentoCompleto) ::before,
+  body:not(.movimentoCompleto) ::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+[data-ativar-movimento] { align-self: center; }

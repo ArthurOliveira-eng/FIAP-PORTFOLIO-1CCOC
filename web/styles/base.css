@@ -484,8 +484,3 @@ kbd {
     padding: 8px 6px;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: auto ease 0s 1 normal none running none !important;
-  }
-}

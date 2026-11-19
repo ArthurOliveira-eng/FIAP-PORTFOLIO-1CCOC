@@ -82,6 +82,12 @@ with sync_playwright() as p:
     page.locator("#falarHistorico").click()
     page.locator("#microfone").click()
     assert page.locator("#wave i").first.evaluate("e => getComputedStyle(e).animationName") == "none"
+    page.locator("#stage [data-ativar-movimento]").click()
+    moves("#wave i")
+    assert page.evaluate("document.body.classList.contains('movimentoCompleto')")
+    page.reload()
+    assert page.evaluate("document.body.classList.contains('movimentoCompleto')")
+    assert page.locator(".orb").evaluate("e => getComputedStyle(e).animationName") != "none"
     page.locator("#rConversas").click()
     assert not page.evaluate("document.body.classList.contains('ouvindo')")
     assert not errors, errors

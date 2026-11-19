@@ -5,8 +5,9 @@ const esc = (s) =>
     (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
   );
 const movimentoReduzido = () =>
-  matchMedia("(prefers-reduced-motion: reduce)").matches ||
-  document.body.classList.contains("semMovimento");
+  document.body.classList.contains("semMovimento") ||
+  (!document.body.classList.contains("movimentoCompleto") &&
+    matchMedia("(prefers-reduced-motion: reduce)").matches);
 // ANIMAÇÃO DO TEXTO
 function revelar(elemento, texto, animar = true) {
   if (!animar || movimentoReduzido()) {

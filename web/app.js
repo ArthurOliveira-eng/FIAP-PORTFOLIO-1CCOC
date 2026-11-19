@@ -3,7 +3,7 @@ import { api } from "./js/api.js";
 import { dialogo, painel, registrarAviso } from "./js/notifications.js";
 import { criarChat } from "./js/chat.js";
 import { criarVoz } from "./js/voice.js";
-import { iniciarPreferencias } from "./js/preferences.js";
+import { iniciarPreferencias, aplicarMovimento, preferenciaMovimento } from "./js/preferences.js";
 
 let sid = crypto.randomUUID().replaceAll("-", ""),
   tema = "",
@@ -300,11 +300,11 @@ $("#rIndicadores").onclick = indicadores;
 $("#rConfiguracoes").onclick = () =>
   painel(
     "Configurações",
-    `<label for="modelo">Modelo de resposta</label><select id="modelo">${(estado?.modelos || []).map((m) => `<option ${m === modelo ? "selected" : ""}>${esc(m)}</option>`).join("")}</select><label><input type="checkbox" id="movimento" ${document.body.classList.contains("semMovimento") ? "checked" : ""}> Reduzir animações</label><p>Histórico apenas na memória desta aba. Telemetria ${estado?.log ? "ativada com metadados minimizados" : "desativada"}.</p>`,
+    `<label for="modelo">Modelo de resposta</label><select id="modelo">${(estado?.modelos || []).map((m) => `<option ${m === modelo ? "selected" : ""}>${esc(m)}</option>`).join("")}</select><label for="movimento">Animações do assistente</label><select id="movimento">${[["automatico", "Seguir o sistema"], ["completo", "Ativadas"], ["reduzido", "Reduzidas"]].map(([valor, rotulo]) => `<option value="${valor}" ${preferenciaMovimento() === valor ? "selected" : ""}>${rotulo}</option>`).join("")}</select><p>Histórico apenas na memória desta aba. Telemetria ${estado?.log ? "ativada com metadados minimizados" : "desativada"}.</p>`,
   );
 document.addEventListener("change", (e) => {
   if (e.target.id === "modelo") modelo = e.target.value;
-  if (e.target.id === "movimento") document.body.classList.toggle("semMovimento", e.target.checked);
+  if (e.target.id === "movimento") aplicarMovimento(e.target.value);
 });
 document.addEventListener("click", (e) => {
   const b = e.target.closest("button");
