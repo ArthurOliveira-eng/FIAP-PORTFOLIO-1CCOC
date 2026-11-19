@@ -393,5 +393,200 @@
     "expected_contains": [
       "contendo palavras"
     ]
+  },
+  {
+    "id": "Q32",
+    "category": "reformulada",
+    "input": "Perdi meu celular e o email do gov br",
+    "expected_status": "match",
+    "expected_ids": [
+      "S06"
+    ],
+    "expected_answer": "Como recuperar o gov.br sem acesso ao e-mail ou telefone? A resposta deve orientar sobre Formulário de Atendimento.",
+    "expected_contains": [
+      "Formulário de Atendimento"
+    ]
+  },
+  {
+    "id": "Q33",
+    "category": "reformulada",
+    "input": "Balcão gov br presencial",
+    "expected_status": "match",
+    "expected_ids": [
+      "S07"
+    ],
+    "expected_answer": "Onde conseguir ajuda presencial para recuperar a conta gov.br? A resposta deve orientar sobre unidade local.",
+    "expected_contains": [
+      "unidade local"
+    ]
+  },
+  {
+    "id": "Q34",
+    "category": "reformulada",
+    "input": "Fui demitido sem justa causa",
+    "expected_status": "match",
+    "expected_ids": [
+      "T01"
+    ],
+    "expected_answer": "Como solicitar o seguro-desemprego após uma demissão? A resposta deve orientar sobre requerimento recebido do empregador.",
+    "expected_contains": [
+      "requerimento recebido do empregador"
+    ]
+  },
+  {
+    "id": "Q35",
+    "category": "reformulada",
+    "input": "Quero acompanhar as parcelas do seguro desemprego",
+    "expected_status": "match",
+    "expected_ids": [
+      "T02"
+    ],
+    "expected_answer": "Como acompanhar o pedido de seguro-desemprego? A resposta deve orientar sobre liberação das parcelas.",
+    "expected_contains": [
+      "liberação das parcelas"
+    ]
+  },
+  {
+    "id": "Q36",
+    "category": "reformulada",
+    "input": "Recurso de seguro desemprego negado",
+    "expected_status": "match",
+    "expected_ids": [
+      "T03"
+    ],
+    "expected_answer": "Como recorrer de um seguro-desemprego negado? A resposta deve orientar sobre contestação.",
+    "expected_contains": [
+      "contestação"
+    ]
+  },
+  {
+    "id": "Q37",
+    "category": "reformulada",
+    "input": "Corrigir salário errado na carteira de trabalho",
+    "expected_status": "match",
+    "expected_ids": [
+      "T04"
+    ],
+    "expected_answer": "O que fazer quando há dados errados na Carteira de Trabalho Digital? A resposta deve orientar sobre procure o empregador.",
+    "expected_contains": [
+      "procure o empregador"
+    ]
+  },
+  {
+    "id": "Q38",
+    "category": "reformulada",
+    "input": "Como acessar o Conecte SUS?",
+    "expected_status": "match",
+    "expected_ids": [
+      "H01"
+    ],
+    "expected_answer": "Como acessar o Meu SUS Digital? A resposta deve orientar sobre portal do Meu SUS Digital.",
+    "expected_contains": [
+      "portal do Meu SUS Digital"
+    ]
+  },
+  {
+    "id": "Q39",
+    "category": "reformulada",
+    "input": "Alterar telefone do Meu SUS",
+    "expected_status": "match",
+    "expected_ids": [
+      "H02"
+    ],
+    "expected_answer": "Como alterar senha, telefone ou e-mail do Meu SUS Digital? A resposta deve orientar sobre plataforma gov.br.",
+    "expected_contains": [
+      "plataforma gov.br"
+    ]
+  },
+  {
+    "id": "Q40",
+    "category": "reformulada",
+    "input": "Como obter absorventes gratuitos?",
+    "expected_status": "match",
+    "expected_ids": [
+      "H03"
+    ],
+    "expected_answer": "Como consultar a autorização de absorventes no Meu SUS Digital? A resposta deve orientar sobre estabelecimento credenciado.",
+    "expected_contains": [
+      "estabelecimento credenciado"
+    ]
+  },
+  {
+    "id": "Q41",
+    "category": "reformulada",
+    "input": "Onde vejo o número NIS?",
+    "expected_status": "match",
+    "expected_ids": [
+      "C06"
+    ],
+    "expected_answer": "Como consultar o NIS e o comprovante do Cadastro Único? A resposta deve orientar sobre integrantes da família.",
+    "expected_contains": [
+      "integrantes da família"
+    ]
+  },
+  {
+    "id": "Q42",
+    "category": "reformulada",
+    "input": "Cadastrar CEP para alertas por SMS",
+    "expected_status": "match",
+    "expected_ids": [
+      "E01"
+    ],
+    "expected_answer": "Como receber alertas da Defesa Civil por SMS? A resposta deve orientar sobre 40199.",
+    "expected_contains": [
+      "40199"
+    ]
+  },
+  {
+    "id": "Q43",
+    "category": "reformulada",
+    "input": "Preparar mochila para enchente",
+    "expected_status": "match",
+    "expected_ids": [
+      "E02"
+    ],
+    "expected_answer": "O que colocar no kit de emergência da família? A resposta deve orientar sobre alimentos não perecíveis.",
+    "expected_contains": [
+      "alimentos não perecíveis"
+    ]
+  },
+  {
+    "id": "Q44",
+    "category": "reformulada",
+    "input": "Calendário de pagamento bolsa família",
+    "expected_status": "match",
+    "expected_ids": [
+      "B01"
+    ],
+    "expected_answer": "Quando vou receber o Bolsa Família? A resposta deve orientar sobre último dígito do NIS.",
+    "expected_contains": [
+      "último dígito do NIS"
+    ]
+  },
+  {
+    "id": "Q45",
+    "category": "reformulada",
+    "input": "Bolsa família bloqueado",
+    "expected_status": "match",
+    "expected_ids": [
+      "B02"
+    ],
+    "expected_answer": "O que fazer se meu Bolsa Família foi bloqueado? A resposta deve orientar sobre motivo e o prazo.",
+    "expected_contains": [
+      "motivo e o prazo"
+    ]
+  },
+  {
+    "id": "Q46",
+    "category": "reformulada",
+    "input": "Quero entrar no bolsa família",
+    "expected_status": "match",
+    "expected_ids": [
+      "B03"
+    ],
+    "expected_answer": "Como começar a inscrição para o Bolsa Família? A resposta deve orientar sobre posto municipal de cadastramento.",
+    "expected_contains": [
+      "posto municipal de cadastramento"
+    ]
   }
 ]

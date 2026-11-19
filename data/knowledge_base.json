@@ -2,7 +2,7 @@
   {
     "id": "D01",
     "theme": "Documentos",
-    "question": "O que é a Carteira de Identidade Nacional (CIN)é",
+    "question": "O que é a Carteira de Identidade Nacional (CIN)?",
     "keywords": [
       "visão geral cin",
       "carteira identidade nacional",
@@ -44,7 +44,7 @@
   {
     "id": "D03",
     "theme": "Documentos",
-    "question": "Como fazer a inscrição no CPFs",
+    "question": "Como fazer a inscrição no CPF?",
     "keywords": [
       "inscrição cpf",
       "solicitar cpf",
@@ -64,7 +64,7 @@
   {
     "id": "D04",
     "theme": "Documentos",
-    "question": "Como consultar a situação cadastral do CPFs",
+    "question": "Como consultar a situação cadastral do CPF?",
     "keywords": [
       "situação cpf",
       "consultar cpf",

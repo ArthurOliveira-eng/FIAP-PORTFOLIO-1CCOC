@@ -2,22 +2,22 @@
   "method": "Indicadores estruturais de clareza nas mesmas perguntas; não é um estudo de preferência humana.",
   "templates": {
     "template_a_v1": {
-      "matched_answers": 20,
+      "matched_answers": 35,
       "source_and_warning_rate": 1,
-      "mean_answer_characters": 915.35,
-      "mean_longest_line_characters": 744,
+      "mean_answer_characters": 710.57,
+      "mean_longest_line_characters": 380.09,
       "separate_source_line_rate": 0
     },
     "template_b_v1": {
-      "matched_answers": 20,
+      "matched_answers": 35,
       "source_and_warning_rate": 1,
-      "mean_answer_characters": 972.35,
-      "mean_longest_line_characters": 190.2,
+      "mean_answer_characters": 768.34,
+      "mean_longest_line_characters": 191.57,
       "separate_source_line_rate": 1
     }
   },
   "selected_template": "template_b_v1",
-  "justification": "O modelo B separa resposta, fonte, aviso, limitação e navegação. O modelo A é compacto, mas reúne campos importantes em um parágrafo longo. Ambos usam os mesmos fatos recuperados; estes indicadores não comprovam usabilidade real.",
+  "justification": "O modelo B separa resposta, aviso, fonte e navegação. O modelo A é compacto, mas reúne campos importantes em um parágrafo longo. Ambos usam os mesmos fatos recuperados; estes indicadores não comprovam usabilidade real.",
   "examples": [
     {
       "id": "Q07",
@@ -33,7 +33,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -41,7 +41,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2354
+      "query_time_ms": 0.1214
     },
     {
       "id": "Q12",
@@ -57,7 +57,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -65,7 +65,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2837
+      "query_time_ms": 0.1292
     },
     {
       "id": "Q22",
@@ -77,7 +77,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -85,7 +85,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0664
+      "query_time_ms": 0.1149
     },
     {
       "id": "Q07",
@@ -101,7 +101,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerificação: 2026-11-16\nAviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nAtenção: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -109,7 +109,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1857
+      "query_time_ms": 0.1928
     },
     {
       "id": "Q12",
@@ -125,7 +125,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerificação: 2026-11-16\nAviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nAtenção: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -133,7 +133,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.3273
+      "query_time_ms": 0.1288
     },
     {
       "id": "Q22",
@@ -145,7 +145,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -153,7 +153,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.064
+      "query_time_ms": 0.0922
     }
   ]
 }

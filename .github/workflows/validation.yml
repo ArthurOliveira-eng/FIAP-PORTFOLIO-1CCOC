@@ -39,7 +39,8 @@ jobs:
         if: always()
         run: python -m tests.run_usability
       - name: Instalar ferramentas opcionais de vídeo
-        run: python -m pip install --only-binary=:all: pillow==12.2.0 imageio-ffmpeg==0.6.0
+        run: |
+          python -m pip install --only-binary=:all: pillow==12.2.0 imageio-ffmpeg==0.6.0
       - name: Gerar vídeo da saída capturada do terminal
         run: python scripts/create_demo.py
       - name: Disponibilizar avaliação e demonstração

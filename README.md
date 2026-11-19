@@ -27,7 +27,7 @@ Expand-Archive -LiteralPath "$destino/pt.zip" -DestinationPath $destino -Force
 | Repositório público | https://github.com/ArthurOliveira-eng/FIAP-PORTFOLIO-1CCOC |
 | Demonstração no YouTube (não listado) | https://youtu.be/S0UFFqeeovQ |
 
-O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de vídeo estão implementados. A entrega permanece incompleta até o preenchimento dos integrantes/RMs e de uma URL válida do vídeo não listado no YouTube. A execução local foi verificada no Windows com Python 3.14; consulte a [validação local](docs/local_validation.md). Os resultados do GitHub Actions são identificados separadamente.
+O protótipo, o executor de avaliações, os roteiros de tarefas e o gerador de vídeo estão implementados. A execução local foi verificada no Windows com Python 3.14; consulte a [validação local](docs/local_validation.md). Os resultados do GitHub Actions são identificados separadamente.
 
 Veja a [auditoria do enunciado e da entrega](docs/requirements_audit.md) para distinguir requisitos atendidos e pendências. A [organização do código](docs/architecture.md) descreve os módulos e as convenções de manutenção.
 
@@ -40,12 +40,17 @@ Público-alvo: pessoas que buscam orientações básicas sobre serviços públic
 | Tema | Registros | Assuntos |
 | --- | --- | --- |
 | Documentos | D01–D05 | Visão geral e emissão da CIN, inscrição e situação do CPF, Carteira de Trabalho Digital |
-| Serviços digitais | S01–S05 | Criação e recuperação de conta gov.br, níveis de segurança, assinatura eletrônica e validação da CIN |
+| Serviços digitais | S01–S07 | Criação e recuperação de conta gov.br, níveis de segurança, assinatura eletrônica e recuperação de acesso |
 | Apoio comunitário | C01–C05 | Reclamações de consumidores e comprovantes, inscrição e atualização no Cadastro Único, CRAS |
+| Trabalho e renda | T01–T04 | Seguro-desemprego e correção de dados na carteira digital |
+| Saúde digital | H01–H03 | Acesso ao Meu SUS Digital e autorização de absorventes |
+| Cidadania | C06 | NIS e comprovante do Cadastro Único |
+| Defesa Civil | E01–E02 | Alertas por SMS e kit de emergência |
+| Bolsa Família | B01–B03 | Calendário, bloqueio e inscrição |
 
 ## 3. Organização da base e recuperação de informações
 
-A base JSON contém 15 registros. Cada registro inclui `id`, `theme`, `question`, `keywords`, `summary_guidance`, `reference`, `verification_date`, `confirmation_warning` e `related_ids`. As fontes foram consultadas em 16/11/2026; veja a [revisão das fontes](docs/source_review.md). A data de verificação registra uma consulta pontual e não garante que a página permaneça inalterada.
+A base JSON contém 30 registros em oito temas. Cada registro inclui `id`, `theme`, `question`, `keywords`, `summary_guidance`, `reference`, `verification_date`, `confirmation_warning` e `related_ids`. As datas de verificação registradas são 16 e 18/11/2026; veja a [revisão das fontes](docs/source_review.md). A data de verificação registra uma consulta pontual e não garante que a página permaneça inalterada.
 
 Listas preservam a ordem de exibição dos registros. Dicionários indexam os registros por ID e tema. A hierarquia segue tema → registro do assunto; um dicionário de adjacência dirigido conecta registros relacionados entre temas. Por exemplo: D02 (emissão da CIN) → S05 (validação da conta com a CIN) → S03 (níveis de segurança) → C01 (acesso a reclamações de consumidores). Uma ligação indica uma continuação útil, sem representar necessariamente um pré-requisito oficial.
 
@@ -72,17 +77,17 @@ Toda resposta com correspondência inclui a fonte e um aviso de confirmação. R
 
 ## 5. Plano de testes, indicadores medidos e interpretação
 
-O conjunto de avaliação contém 31 casos: todos os 15 registros, perguntas reformuladas, normalização, perguntas fora do escopo, entradas vazias ou apenas com pontuação, consultas ambíguas, opções inválidas de menu, entradas longas demais e uma tentativa de sobrescrever instruções. Cada caso é executado nos dois modelos de resposta, totalizando 62 avaliações. Um resultado correto exige o estado esperado, os IDs exatos esperados, os trechos de resposta esperados e a aprovação das verificações de fonte e aviso. São testes funcionais de recuperação de informações, não uma avaliação independente de precisão semântica.
+O conjunto de avaliação contém 46 casos que cobrem os 30 registros, perguntas reformuladas, normalização, perguntas fora do escopo, entradas vazias ou apenas com pontuação, consultas ambíguas, opções inválidas de menu, entradas longas demais e uma tentativa de sobrescrever instruções. Cada caso é executado nos dois modelos de resposta, totalizando 92 avaliações. Um resultado correto exige o estado esperado, os IDs exatos esperados, os trechos de resposta esperados e a aprovação das verificações de fonte e aviso. São testes funcionais de recuperação de informações, não uma avaliação independente de precisão semântica.
 
 Taxa de acerto = respostas corretas / total. O tempo de consulta é medido com `perf_counter` durante uma chamada completa a `handle`, com a base já carregada e a telemetria desativada; a leitura e a apresentação do modelo de resposta estão incluídas. A latência varia conforme o hardware, o estado do cache e o sistema de arquivos. Resultados locais e de integração contínua não devem ser comparados como se os ambientes fossem idênticos.
 
 <!-- METRICS:START -->
-Execução em ambiente **local**, com Python 3.14.10, em 2026-11-17T02:39:33.598982+00:00.
+Execução em ambiente **local**, com Python 3.14.10, em 2026-11-19T02:52:00.695733+00:00.
 
 | Modelo de resposta | Corretas / total | Taxa de acerto | Tempo médio de consulta (ms) |
 | --- | ---: | ---: | ---: |
-| template_a_v1 | 31 / 31 | 100,00% | 0,175335 |
-| template_b_v1 | 31 / 31 | 100,00% | 0,147887 |
+| template_a_v1 | 46 / 46 | 100,00% | 0,118174 |
+| template_b_v1 | 46 / 46 | 100,00% | 0,115696 |
 
 Cada modelo executa os mesmos casos independentes. A latência exclui o carregamento da base e a entrada/saída da telemetria, mas inclui a apresentação da resposta. Consulte `tests/results.json` e `tests/results.csv` para a tabela completa de resultados esperados e obtidos.
 <!-- METRICS:END -->
@@ -193,13 +198,13 @@ O protótipo não é vinculado ao governo. Ele não agenda atendimentos, autenti
 
 O artefato de evidências do GitHub Actions inclui `citizen-assist-demo.mp4` quando a geração do vídeo é concluída com sucesso. Trata-se de uma demonstração renderizada automaticamente a partir da saída real capturada da interface de linha de comando, sem constituir gravação humana de tela ou estudo com usuários. A demonstração local apenas em texto não exige dependências adicionais. Consulte o [guia de vídeo](docs/demo_script.md).
 
-URL do vídeo não listado no YouTube: **aguardando envio pela equipe**. Atualize este trecho e acrescente a URL real como segunda linha de [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT). O TXT deve conter somente os dois links, sem rótulos ou explicações. Atualmente ele contém apenas o link do repositório e ainda não está pronto para envio. A publicação exige a conta da equipe no YouTube; o repositório não afirma que ela já ocorreu.
+Os links do repositório e da demonstração fornecida pela equipe estão em [SUBMISSION_LINKS.TXT](SUBMISSION_LINKS.TXT).
 
 ## 10. Conclusões, limitações e melhorias
 
 O agente demonstra um fluxo completo de percepção → validação → recuperação → apresentação → fonte e limitação, utilizando listas, dicionários, leitura de arquivos, operações lógicas, navegação em grafo e procedimentos reproduzíveis. Esses recursos exercitam fundamentos de programação e a ênfase do enunciado nas fases 4, 5 e 6; como os materiais específicos dessas fases não foram fornecidos, não se afirma uma correspondência detalhada com o conteúdo do curso.
 
-Limitações: apenas 15 registros selecionados e revisados, vocabulário limitado de consultas em português, correspondência lexical sem aprendizado semântico, ausência de correção de digitação, atualização automática de regras ou integração em tempo real, conjunto pequeno de testes elaborado durante o desenvolvimento, usabilidade avaliada por roteiros em vez de pessoas e tempos dependentes do ambiente. Uma resposta relacionada pode ser incompleta para perguntas detalhadas.
+Limitações: apenas 30 registros selecionados e revisados, vocabulário limitado de consultas em português, correspondência lexical sem aprendizado semântico, ausência de correção de digitação, atualização automática de regras ou integração em tempo real, conjunto pequeno de testes elaborado durante o desenvolvimento, usabilidade avaliada por roteiros em vez de pessoas e tempos dependentes do ambiente. Uma resposta relacionada pode ser incompleta para perguntas detalhadas.
 
 Melhorias prioritárias:
 
@@ -222,8 +227,8 @@ Melhorias prioritárias:
 | Usabilidade com roteiro de tarefas | Oito tarefas e arquivo gerado `usability_results.json` |
 | Uso de IA e verificação crítica | `docs/uso_ia.md` e `docs/source_review.md` |
 | Testes locais | Verificados no Windows com Python 3.14; veja `docs/local_validation.md` |
-| Vídeo e YouTube não listado | Gerador de MP4 disponível; envio ao YouTube e URL real ainda pendentes |
-| Equipe/RMs e entrega do TXT | Preencher dados dos integrantes e URL do YouTube antes da entrega |
+| Vídeo e YouTube não listado | Link informado pela equipe; visibilidade a confirmar |
+| Equipe/RMs e entrega do TXT | Integrantes e RMs informados; envio do TXT pela equipe |
 
 A organização mantém o projeto executável na raiz. O modelo oficial organiza o portfólio por ano, fase e atividade; o destino exato deste trabalho e as linhas da Tabela 2 ainda não foram fornecidos. Essa conferência está pendente e detalhada na auditoria.
 

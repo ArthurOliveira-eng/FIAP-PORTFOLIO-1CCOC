@@ -1,24 +1,24 @@
 {
-  "executed_at": "2026-11-17T02:39:33.598982+00:00",
+  "executed_at": "2026-11-19T02:52:00.695733+00:00",
   "environment": "local",
   "python_version": "3.14.10",
   "platform": "Windows-11-10.0.26300-SP0",
   "source_commit": "não informado",
-  "knowledge_sha256": "35a8d9b0f527fba22aaf4744a55d14af373c6f0af80bec837bb022ce2aaef18e",
-  "cases_sha256": "8b710360ab11ee979fbf24095ceefaaded9061f73b8bc1a966b946ba1c9a783c",
+  "knowledge_sha256": "c089ce6255ef4819da367a2ec2bb52578694929a2b6f170503d31694be429edc",
+  "cases_sha256": "05cdee57134fbe8886f47f47a97c7400d8050eb16dc676159a7f23661cb2e8a1",
   "methodology": "Comparação exata de estado e IDs, conteúdo obrigatório e verificações de fonte e aviso. Nova sessão por caso; tempo medido com perf_counter em handle(); sem gravar telemetria.",
   "metrics_by_template": {
     "template_a_v1": {
-      "total": 31,
-      "correct": 31,
+      "total": 46,
+      "correct": 46,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.175335
+      "average_query_time_ms": 0.118174
     },
     "template_b_v1": {
-      "total": 31,
-      "correct": 31,
+      "total": 46,
+      "correct": 46,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.147887
+      "average_query_time_ms": 0.115696
     }
   },
   "metrics_by_category": {
@@ -26,61 +26,61 @@
       "total": 30,
       "correct": 30,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.228717
+      "average_query_time_ms": 0.151597
     },
     "entrada_inválida": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.0594
+      "average_query_time_ms": 0.05755
     },
     "fora_do_escopo": {
       "total": 4,
       "correct": 4,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.06745
+      "average_query_time_ms": 0.098925
     },
     "limitação_ambígua": {
       "total": 4,
       "correct": 4,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.05625
+      "average_query_time_ms": 0.095875
     },
     "limitação_vazia": {
       "total": 6,
       "correct": 6,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.02355
+      "average_query_time_ms": 0.04165
     },
     "menu": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.01585
+      "average_query_time_ms": 0.01805
     },
     "normalização": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.2735
+      "average_query_time_ms": 0.1635
     },
     "opção_inválida": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.0129
+      "average_query_time_ms": 0.01585
     },
     "reformulada": {
-      "total": 8,
-      "correct": 8,
+      "total": 38,
+      "correct": 38,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.214175
+      "average_query_time_ms": 0.119776
     },
     "salvaguarda": {
       "total": 2,
       "correct": 2,
       "accuracy_rate": 1.0,
-      "average_query_time_ms": 0.0428
+      "average_query_time_ms": 0.0598
     }
   },
   "results": [
@@ -98,7 +98,7 @@
       "obtained_ids": [
         "D01"
       ],
-      "obtained_answer": "Resposta: A CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin Verificação: 2026-11-16. Aviso: Confirme as condições atuais de emissão com o órgão de identificação do seu estado.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?",
+      "obtained_answer": "Resposta: A CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital. Confirme as condições atuais de emissão com o órgão de identificação do seu estado. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin\n\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -106,7 +106,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.3723
+      "query_time_ms": 0.4964
     },
     {
       "id": "Q02",
@@ -122,7 +122,7 @@
       "obtained_ids": [
         "D02"
       ],
-      "obtained_answer": "Resposta: Solicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras Verificação: 2026-11-16. Aviso: Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Solicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento. Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor. Fonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras\n\n\nAssuntos relacionados:\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -130,7 +130,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.227
+      "query_time_ms": 0.1717
     },
     {
       "id": "Q03",
@@ -146,7 +146,7 @@
       "obtained_ids": [
         "D03"
       ],
-      "obtained_answer": "Resposta: Utilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente. Fonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf Verificação: 2026-11-16. Aviso: Confira os requisitos atuais e o canal disponível para sua situação na página oficial.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D04 - Como consultar a situação cadastral do CPF?\n  S01 - Como criar uma conta gov.br?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
+      "obtained_answer": "Resposta: Utilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente. Confira os requisitos atuais e o canal disponível para sua situação na página oficial. Fonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf\n\n\nAssuntos relacionados:\n  D04 - Como consultar a situação cadastral do CPF?\n  S01 - Como criar uma conta gov.br?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -154,7 +154,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2035
+      "query_time_ms": 0.1295
     },
     {
       "id": "Q04",
@@ -170,7 +170,7 @@
       "obtained_ids": [
         "D04"
       ],
-      "obtained_answer": "Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verificação: 2026-11-16. Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\n\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -178,7 +178,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1935
+      "query_time_ms": 0.1281
     },
     {
       "id": "Q05",
@@ -194,7 +194,7 @@
       "obtained_ids": [
         "D05"
       ],
-      "obtained_answer": "Resposta: Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade. Fonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital Verificação: 2026-11-16. Aviso: Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S02 - Como recuperar a senha da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Acesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.\n\nPasso a passo:\n1. Acesse o serviço oficial da Carteira de Trabalho Digital ou instale o aplicativo oficial.\n2. Entre com sua conta gov.br, usando seu CPF e senha apenas na plataforma oficial.\n3. Consulte seus contratos e as informações disponíveis.\n4. Se não conseguir entrar, recupere a conta gov.br; se houver erro em um contrato, consulte a orientação sobre correção de dados.\nVocê também pode acessar pela web se não conseguir usar o aplicativo. Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui. Fonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital\n\n\nAssuntos relacionados:\n  T04 - O que fazer quando há dados errados na Carteira de Trabalho Digital?\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  S02 - Como recuperar a senha da conta gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -202,7 +202,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2144
+      "query_time_ms": 0.1207
     },
     {
       "id": "Q06",
@@ -218,7 +218,7 @@
       "obtained_ids": [
         "S01"
       ],
-      "obtained_answer": "Resposta: Crie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta. Fonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico Verificação: 2026-11-16. Aviso: Forneça informações de identificação somente pelo serviço oficial gov.br.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Crie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta. Forneça informações de identificação somente pelo serviço oficial gov.br. Fonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico\n\n\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -226,7 +226,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1911
+      "query_time_ms": 0.1199
     },
     {
       "id": "Q07",
@@ -242,7 +242,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -250,7 +250,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2354
+      "query_time_ms": 0.1214
     },
     {
       "id": "Q08",
@@ -266,7 +266,7 @@
       "obtained_ids": [
         "S03"
       ],
-      "obtained_answer": "Resposta: As contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível. Fonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr Verificação: 2026-11-16. Aviso: O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  S04 - Como assinar um documento eletronicamente com gov.br?\n  C01 - Como fazer uma reclamação de consumidor pela internet?",
+      "obtained_answer": "Resposta: As contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível. O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta. Fonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr\n\n\nAssuntos relacionados:\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  S04 - Como assinar um documento eletronicamente com gov.br?\n  C01 - Como fazer uma reclamação de consumidor pela internet?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -274,7 +274,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.21
+      "query_time_ms": 0.1286
     },
     {
       "id": "Q09",
@@ -290,7 +290,7 @@
       "obtained_ids": [
         "S04"
       ],
-      "obtained_answer": "Resposta: Utilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura. Fonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst Verificação: 2026-11-16. Aviso: Confirme se a organização que receberá o documento aceita esse tipo de assinatura.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Utilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura. Confirme se a organização que receberá o documento aceita esse tipo de assinatura. Fonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst\n\n\nAssuntos relacionados:\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -298,7 +298,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2097
+      "query_time_ms": 0.1217
     },
     {
       "id": "Q10",
@@ -314,7 +314,7 @@
       "obtained_ids": [
         "S05"
       ],
-      "obtained_answer": "Resposta: Após receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin Verificação: 2026-11-16. Aviso: O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S04 - Como assinar um documento eletronicamente com gov.br?",
+      "obtained_answer": "Resposta: Após receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor. O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin\n\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S04 - Como assinar um documento eletronicamente com gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -322,7 +322,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.3052
+      "query_time_ms": 0.1311
     },
     {
       "id": "Q11",
@@ -338,7 +338,7 @@
       "obtained_ids": [
         "C01"
       ],
-      "obtained_answer": "Resposta: Consulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C02 - Quais comprovantes preparar para uma reclamação de consumidor?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
+      "obtained_answer": "Resposta: Consulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro. Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C02 - Quais comprovantes preparar para uma reclamação de consumidor?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -346,7 +346,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.338
+      "query_time_ms": 0.1253
     },
     {
       "id": "Q12",
@@ -362,7 +362,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -370,7 +370,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2837
+      "query_time_ms": 0.1292
     },
     {
       "id": "Q13",
@@ -386,7 +386,7 @@
       "obtained_ids": [
         "C03"
       ],
-      "obtained_answer": "Resposta: Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Inicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.\n\nPasso a passo:\nA inscrição no Cadastro Único é gratuita e presencial.\n1. Localize um posto de cadastramento no seu município, como um CRAS que ofereça esse atendimento.\n2. Confirme agendamento e a lista de documentos da família antes de ir.\n3. Na entrevista, informe corretamente quem mora na casa e as condições da família.\n4. Depois, consulte a situação pelo site ou aplicativo oficial.\nA inscrição não significa entrada automática em um benefício. Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -394,7 +394,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2378
+      "query_time_ms": 0.1212
     },
     {
       "id": "Q14",
@@ -410,7 +410,7 @@
       "obtained_ids": [
         "C04"
       ],
-      "obtained_answer": "Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nPasso a passo:\nSe a composição da família, endereço ou outras informações mudaram, procure o posto municipal do Cadastro Único.\n1. Consulte a situação cadastral no canal oficial.\n2. Confirme no posto quais documentos comprovam as alterações e se é preciso agendar.\n3. Faça a atualização pelo atendimento indicado pelo município.\n4. Acompanhe as notificações. Atualizar o cadastro não garante a concessão ou o restabelecimento de um benefício. Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -418,7 +418,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2392
+      "query_time_ms": 0.1129
     },
     {
       "id": "Q15",
@@ -434,7 +434,7 @@
       "obtained_ids": [
         "C05"
       ],
-      "obtained_answer": "Resposta: O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento. Fonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social Verificação: 2026-11-16. Aviso: Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: O CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento. Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos. Fonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -442,7 +442,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2203
+      "query_time_ms": 0.1122
     },
     {
       "id": "Q16",
@@ -458,7 +458,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -466,7 +466,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2214
+      "query_time_ms": 0.1174
     },
     {
       "id": "Q17",
@@ -482,7 +482,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas Verificação: 2026-11-16. Aviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Prepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações. Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma. Fonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -490,7 +490,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.243
+      "query_time_ms": 0.1303
     },
     {
       "id": "Q18",
@@ -506,7 +506,7 @@
       "obtained_ids": [
         "C04"
       ],
-      "obtained_answer": "Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ Verificação: 2026-11-16. Aviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Atualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nPasso a passo:\nSe a composição da família, endereço ou outras informações mudaram, procure o posto municipal do Cadastro Único.\n1. Consulte a situação cadastral no canal oficial.\n2. Confirme no posto quais documentos comprovam as alterações e se é preciso agendar.\n3. Faça a atualização pelo atendimento indicado pelo município.\n4. Acompanhe as notificações. Atualizar o cadastro não garante a concessão ou o restabelecimento de um benefício. Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -514,7 +514,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2495
+      "query_time_ms": 0.1295
     },
     {
       "id": "Q19",
@@ -530,7 +530,7 @@
       "obtained_ids": [
         "D04"
       ],
-      "obtained_answer": "Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico Verificação: 2026-11-16. Aviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Utilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro. A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade. Fonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\n\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -538,7 +538,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2241
+      "query_time_ms": 0.1375
     },
     {
       "id": "Q20",
@@ -550,7 +550,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -558,7 +558,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0281
+      "query_time_ms": 0.0608
     },
     {
       "id": "Q21",
@@ -576,7 +576,7 @@
         "D03",
         "D04"
       ],
-      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -584,7 +584,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0548
+      "query_time_ms": 0.1
     },
     {
       "id": "Q22",
@@ -596,7 +596,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -604,7 +604,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0664
+      "query_time_ms": 0.1149
     },
     {
       "id": "Q23",
@@ -616,7 +616,7 @@
       "expected_ids": [],
       "obtained_status": "invalid_option",
       "obtained_ids": [],
-      "obtained_answer": "Opção de menu inválida. Escolha o número de um tema disponível.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Opção de menu inválida. Escolha o número de um tema disponível.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -624,7 +624,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.014
+      "query_time_ms": 0.0186
     },
     {
       "id": "Q24",
@@ -636,7 +636,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -644,7 +644,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.022
+      "query_time_ms": 0.0385
     },
     {
       "id": "Q25",
@@ -662,7 +662,7 @@
         "S01",
         "S03"
       ],
-      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -670,7 +670,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0672
+      "query_time_ms": 0.1256
     },
     {
       "id": "Q26",
@@ -682,7 +682,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Posso retornar apenas orientações armazenadas com sua fonte.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Posso retornar apenas orientações armazenadas com sua fonte.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -690,7 +690,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0442
+      "query_time_ms": 0.0622
     },
     {
       "id": "Q27",
@@ -714,7 +714,7 @@
         "D04",
         "D05"
       ],
-      "obtained_answer": "Escolha um ID de registro ou faça uma pergunta mais específica.\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\n  D05 - Como acessar a Carteira de Trabalho Digital?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Escolha um ID de registro ou faça uma pergunta mais específica.\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\n  D05 - Como acessar a Carteira de Trabalho Digital?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -722,7 +722,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0174
+      "query_time_ms": 0.022
     },
     {
       "id": "Q28",
@@ -738,7 +738,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br Verificação: 2026-11-16. Aviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.  Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado. Protótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Use a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis. Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -746,7 +746,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.346
+      "query_time_ms": 0.2058
     },
     {
       "id": "Q29",
@@ -758,7 +758,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -766,7 +766,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0686
+      "query_time_ms": 0.0961
     },
     {
       "id": "Q30",
@@ -778,7 +778,7 @@
       "expected_ids": [],
       "obtained_status": "invalid_input",
       "obtained_ids": [],
-      "obtained_answer": "Use no máximo 500 caracteres.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Use no máximo 500 caracteres.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -786,7 +786,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0639
+      "query_time_ms": 0.0564
     },
     {
       "id": "Q31",
@@ -798,7 +798,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta contendo palavras ou escolha um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta contendo palavras ou escolha um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -806,7 +806,367 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0237
+      "query_time_ms": 0.0393
+    },
+    {
+      "id": "Q32",
+      "category": "reformulada",
+      "input": "Perdi meu celular e o email do gov br",
+      "template": "template_a_v1",
+      "expected_answer": "Como recuperar o gov.br sem acesso ao e-mail ou telefone? A resposta deve orientar sobre Formulário de Atendimento.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S06"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S06"
+      ],
+      "obtained_answer": "Resposta: Se você perdeu acesso aos contatos cadastrados:\n1. Na entrada do gov.br, informe seu CPF e escolha ?Esqueci minha senhas.\n2. Tente os métodos de recuperação apresentados, conforme as opções disponíveis para sua conta.\n3. Se nenhum funcionar, use o Formulário de Atendimento indicado na página oficial para solicitar alteração do e-mail.\n4. Após recuperar o acesso, revise seus contatos. Envie documentos apenas no formulário oficial; não compartilhe senha ou códigos neste chat. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br/recuperar-senha-da-conta-gov.br/\n\n\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1212
+    },
+    {
+      "id": "Q33",
+      "category": "reformulada",
+      "input": "Balcão gov br presencial",
+      "template": "template_a_v1",
+      "expected_answer": "Onde conseguir ajuda presencial para recuperar a conta gov.br? A resposta deve orientar sobre unidade local.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S07"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S07"
+      ],
+      "obtained_answer": "Resposta: O Balcão GOV.BR oferece apoio presencial para criação e recuperação da conta.\n1. Consulte na página oficial as orientações sobre recuperação e a disponibilidade de atendimento em sua região.\n2. Confirme com a unidade local se é necessário agendar e quais documentos levar.\n3. Durante o atendimento, tente recuperar a conta pelo aplicativo com apoio do atendente. Alguns procedimentos dependem das condições da conta.\nVocê deve manter o controle da sua senha e dos códigos de acesso. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial/espaco-do-atendente-balcao-gov.br/recuperacao-de-conta\n\n\nAssuntos relacionados:\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?\n  S02 - Como recuperar a senha da conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1132
+    },
+    {
+      "id": "Q34",
+      "category": "reformulada",
+      "input": "Fui demitido sem justa causa",
+      "template": "template_a_v1",
+      "expected_answer": "Como solicitar o seguro-desemprego após uma demissão? A resposta deve orientar sobre requerimento recebido do empregador.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T01"
+      ],
+      "obtained_answer": "Resposta: O seguro-desemprego oferece assistência temporária a trabalhadores que atendem aos requisitos.\n1. Separe o requerimento recebido do empregador e confira seus dados.\n2. Abra o serviço oficial ou a Carteira de Trabalho Digital e entre com gov.br.\n3. Escolha a solicitação do seguro-desemprego, informe os dados do requerimento e revise antes de enviar.\n4. Acompanhe o pedido e as notificações no mesmo canal.\nConfira na fonte o prazo e os requisitos da sua categoria; a demissão, por si só, não garante a concessão. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego\n\n\nAssuntos relacionados:\n  D05 - Como acessar a Carteira de Trabalho Digital?\n  T02 - Como acompanhar o pedido de seguro-desemprego?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1088
+    },
+    {
+      "id": "Q35",
+      "category": "reformulada",
+      "input": "Quero acompanhar as parcelas do seguro desemprego",
+      "template": "template_a_v1",
+      "expected_answer": "Como acompanhar o pedido de seguro-desemprego? A resposta deve orientar sobre liberação das parcelas.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T02"
+      ],
+      "obtained_answer": "Resposta: 1. Entre no serviço oficial com sua conta gov.br ou abra a Carteira de Trabalho Digital.\n2. Consulte seu requerimento e confira a situação, as notificações e a liberação das parcelas.\n3. Se houver pendência, leia o motivo informado antes de iniciar outro pedido.\n4. Guarde o número do requerimento e procure o atendimento do Ministério do Trabalho se precisar esclarecer a situação.\nEste chat não consulta parcelas nem prevê a data de pagamento. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego\n\n\nAssuntos relacionados:\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  T03 - Como recorrer de um seguro-desemprego negado?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1254
+    },
+    {
+      "id": "Q36",
+      "category": "reformulada",
+      "input": "Recurso de seguro desemprego negado",
+      "template": "template_a_v1",
+      "expected_answer": "Como recorrer de um seguro-desemprego negado? A resposta deve orientar sobre contestação.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T03"
+      ],
+      "obtained_answer": "Resposta: Se o pedido foi negado, consulte primeiro o motivo registrado.\n1. Acesse o pedido no portal gov.br ou no aplicativo e procure a opção de recurso ou revisão.\n2. Leia o prazo e as exigências exibidos para sua situação.\n3. Explique o motivo da contestação e envie os documentos solicitados no canal oficial.\n4. Guarde o protocolo e acompanhe a análise.\nO recurso depende de análise administrativa e não garante pagamento. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/pt-br/temas/perguntas-frequentes-seguro-desemprego\n\n\nAssuntos relacionados:\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  T02 - Como acompanhar o pedido de seguro-desemprego?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1126
+    },
+    {
+      "id": "Q37",
+      "category": "reformulada",
+      "input": "Corrigir salário errado na carteira de trabalho",
+      "template": "template_a_v1",
+      "expected_answer": "O que fazer quando há dados errados na Carteira de Trabalho Digital? A resposta deve orientar sobre procure o empregador.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T04"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T04"
+      ],
+      "obtained_answer": "Resposta: Identifique qual informação este incorreta.\n1. Confira se o erro este nos dados pessoais ou em um contrato de trabalho.\n2. Para informações do vínculo, como cargo, remuneração ou datas, procure o empregador para conferir e corrigir os dados enviados.\n3. Para problemas de cadastro e acesso, consulte as orientações específicas da FAQ oficial.\n4. Se persistir, procure os canais de atendimento do Ministério do Trabalho.\nGuarde seus comprovantes; não envie contratos com dados pessoais neste chat. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital\n\n\nAssuntos relacionados:\n  D05 - Como acessar a Carteira de Trabalho Digital?\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1232
+    },
+    {
+      "id": "Q38",
+      "category": "reformulada",
+      "input": "Como acessar o Conecte SUS?",
+      "template": "template_a_v1",
+      "expected_answer": "Como acessar o Meu SUS Digital? A resposta deve orientar sobre portal do Meu SUS Digital.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H01"
+      ],
+      "obtained_answer": "Resposta: O Meu SUS Digital permite visualizar informações de saúde disponíveis na rede.\n1. Acesse o aplicativo oficial ou o portal do Meu SUS Digital.\n2. Entre usando sua conta gov.br.\n3. Consulte os servicos e registros disponíveis no seu perfil. A exibição depende das informações enviadas pelos estabelecimentos.\n4. Para dificuldades de senha ou contato, use a recuperação da conta gov.br.\nO aplicativo não substitui atendimento em uma unidade de saúde. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao\n\n\nAssuntos relacionados:\n  H02 - Como alterar senha, telefone ou e-mail do Meu SUS Digital?\n  H03 - Como consultar a autorização de absorventes no Meu SUS Digital?\n  S02 - Como recuperar a senha da conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.117
+    },
+    {
+      "id": "Q39",
+      "category": "reformulada",
+      "input": "Alterar telefone do Meu SUS",
+      "template": "template_a_v1",
+      "expected_answer": "Como alterar senha, telefone ou e-mail do Meu SUS Digital? A resposta deve orientar sobre plataforma gov.br.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H02"
+      ],
+      "obtained_answer": "Resposta: O login do Meu SUS Digital usa a conta gov.br.\n1. Para senha esquecida, inicie a recuperação no gov.br.\n2. Para mudar telefone ou e-mail de acesso, revise os dados na plataforma gov.br.\n3. Depois, tente entrar novamente no Meu SUS Digital.\nSe perdeu acesso aos contatos antigos, siga as alternativas de recuperação disponibilizadas pelo gov.br. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao/5-como-proceder-para-realizar\n\n\nAssuntos relacionados:\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?\n  H01 - Como acessar o Meu SUS Digital?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1073
+    },
+    {
+      "id": "Q40",
+      "category": "reformulada",
+      "input": "Como obter absorventes gratuitos?",
+      "template": "template_a_v1",
+      "expected_answer": "Como consultar a autorização de absorventes no Meu SUS Digital? A resposta deve orientar sobre estabelecimento credenciado.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H03"
+      ],
+      "obtained_answer": "Resposta: O Meu SUS Digital disponibiliza a emissão de autorização para retirada de absorventes no Programa Farmácia Popular.\n1. Entre no Meu SUS Digital com gov.br.\n2. Procure a opção do programa e confira se há autorização disponível para seu perfil.\n3. Siga as instruções para emitir e apresentar a autorização em estabelecimento credenciado.\n4. Confira na fonte os critérios e documentos exigidos antes de sair de casa.\nA disponibilidade depende dos requisitos do programa; este assistente não verifica elegibilidade. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao\n\n\nAssuntos relacionados:\n  H01 - Como acessar o Meu SUS Digital?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1064
+    },
+    {
+      "id": "Q41",
+      "category": "reformulada",
+      "input": "Onde vejo o número NIS?",
+      "template": "template_a_v1",
+      "expected_answer": "Como consultar o NIS e o comprovante do Cadastro Único? A resposta deve orientar sobre integrantes da família.",
+      "expected_status": "match",
+      "expected_ids": [
+        "C06"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "C06"
+      ],
+      "obtained_answer": "Resposta: 1. Acesse o site ou aplicativo oficial do Cadastro Único indicado na fonte.\n2. Consulte os dados disponíveis; para consulta completa, entre com sua conta gov.br.\n3. Confira integrantes da família, NIS e a situação cadastral.\n4. Se os dados estiverem incorretos ou o cadastro não aparecer, procure o posto de atendimento municipal.\nNão publique seu NIS ou CPF neste chat. Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/perguntas-frequentes-cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1112
+    },
+    {
+      "id": "Q42",
+      "category": "reformulada",
+      "input": "Cadastrar CEP para alertas por SMS",
+      "template": "template_a_v1",
+      "expected_answer": "Como receber alertas da Defesa Civil por SMS? A resposta deve orientar sobre 40199.",
+      "expected_status": "match",
+      "expected_ids": [
+        "E01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "E01"
+      ],
+      "obtained_answer": "Resposta: Abra as mensagens do celular e envie o CEP da região que deseja acompanhar para 40199. Aguarde a confirmação do cadastro. O serviço é gratuito. Ao receber um alerta, confira a região indicada e siga a orientação da Defesa Civil local. Confira as instruções atuais na fonte oficial. Fonte: https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf\n\n\nAssuntos relacionados:\n  E02 - O que colocar no kit de emergência da família?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1171
+    },
+    {
+      "id": "Q43",
+      "category": "reformulada",
+      "input": "Preparar mochila para enchente",
+      "template": "template_a_v1",
+      "expected_answer": "O que colocar no kit de emergência da família? A resposta deve orientar sobre alimentos não perecíveis.",
+      "expected_status": "match",
+      "expected_ids": [
+        "E02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "E02"
+      ],
+      "obtained_answer": "Resposta: Separe água potável e alimentos não perecíveis para três dias. Acrescente roupas, calçados e os medicamentos e equipamentos prescritos que a família usa. Deixe o kit em local acessível e confira periodicamente as validades. Combine onde encontrá-lo antes de uma emergência. Confira as instruções atuais na fonte oficial. Fonte: https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf\n\n\nAssuntos relacionados:\n  E01 - Como receber alertas da Defesa Civil por SMS?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1083
+    },
+    {
+      "id": "Q44",
+      "category": "reformulada",
+      "input": "Calendário de pagamento bolsa família",
+      "template": "template_a_v1",
+      "expected_answer": "Quando vou receber o Bolsa Família? A resposta deve orientar sobre último dígito do NIS.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B01"
+      ],
+      "obtained_answer": "Resposta: No calendário oficial, selecione o último dígito do NIS do responsável familiar e confira a data do mês desejado. Você também pode consultar o aplicativo Bolsa Família ou o CAIXA Tem. Se não conseguir usar o celular, peça o calendário no CRAS ou em uma agência da CAIXA. Confira as instruções atuais na fonte oficial. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/pagamentos-e-beneficios\n\n\nAssuntos relacionados:\n  C06 - Como consultar o NIS e o comprovante do Cadastro Único?\n  B02 - O que fazer se meu Bolsa Família foi bloqueado?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1165
+    },
+    {
+      "id": "Q45",
+      "category": "reformulada",
+      "input": "Bolsa família bloqueado",
+      "template": "template_a_v1",
+      "expected_answer": "O que fazer se meu Bolsa Família foi bloqueado? A resposta deve orientar sobre motivo e o prazo.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B02"
+      ],
+      "obtained_answer": "Resposta: Leia a mensagem no aplicativo Bolsa Família ou no extrato para identificar o motivo e o prazo. Se houver pedido de atualização cadastral, procure o posto do Cadastro Único do município e confirme os documentos necessários. Se a mensagem citar CPF irregular, confira qual integrante foi indicado antes de buscar a regularização. Acompanhe a situação no aplicativo após o atendimento. Confira as instruções atuais na fonte oficial. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras\n\n\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  D04 - Como consultar a situação cadastral do CPF?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.108
+    },
+    {
+      "id": "Q46",
+      "category": "reformulada",
+      "input": "Quero entrar no bolsa família",
+      "template": "template_a_v1",
+      "expected_answer": "Como começar a inscrição para o Bolsa Família? A resposta deve orientar sobre posto municipal de cadastramento.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B03"
+      ],
+      "obtained_answer": "Resposta: Comece pelo Cadastro Único. Se sua família ainda não está cadastrada, procure o posto municipal de cadastramento. Se já está, confira se renda, endereço e integrantes estão atualizados. Consulte os critérios do programa na página oficial. A seleção depende da análise do programa, e o cadastro por si só não garante o pagamento. Confira as instruções atuais na fonte oficial. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  B01 - Quando vou receber o Bolsa Família?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.115
     },
     {
       "id": "Q01",
@@ -822,7 +1182,7 @@
       "obtained_ids": [
         "D01"
       ],
-      "obtained_answer": "Resposta: O que é a Carteira de Identidade Nacional (CIN)?\nA CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital.\n\nFonte: https://www.gov.br/governodigital/pt-br/identidade/cin\nVerificação: 2026-11-16\nAviso: Confirme as condições atuais de emissão com o órgão de identificação do seu estado.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?",
+      "obtained_answer": "Resposta: O que é a Carteira de Identidade Nacional (CIN)?\nA CIN é a Carteira de Identidade Nacional do Brasil e utiliza o CPF como número único de identificação. Está disponível nos formatos físico e digital.\n\nAtenção: Confirme as condições atuais de emissão com o órgão de identificação do seu estado.\nFonte: https://www.gov.br/governodigital/pt-br/identidade/cin\n\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -830,7 +1190,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2653
+      "query_time_ms": 0.3864
     },
     {
       "id": "Q02",
@@ -846,7 +1206,7 @@
       "obtained_ids": [
         "D02"
       ],
-      "obtained_answer": "Resposta: Onde solicitar a CIN e quais certidões devo conferir?\nSolicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento.\n\nFonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras\nVerificação: 2026-11-16\nAviso: Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Onde solicitar a CIN e quais certidões devo conferir?\nSolicite a CIN no órgão de identificação civil do seu estado ou do Distrito Federal. Confira as instruções de agendamento e a exigência atual de certidão de nascimento ou casamento.\n\nAtenção: Os canais de agendamento e os documentos exigidos devem ser confirmados com o órgão emissor.\nFonte: https://www.gov.br/governodigital/pt-br/identidade/cin/perguntas-frequentes-sobre-a-cin/onde-os-brasileiros-e-brasileiras\n\n\nAssuntos relacionados:\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -854,7 +1214,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2043
+      "query_time_ms": 0.1581
     },
     {
       "id": "Q03",
@@ -870,7 +1230,7 @@
       "obtained_ids": [
         "D03"
       ],
-      "obtained_answer": "Resposta: Como fazer a inscrição no CPF?\nUtilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente.\n\nFonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf\nVerificação: 2026-11-16\nAviso: Confira os requisitos atuais e o canal disponível para sua situação na página oficial.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D04 - Como consultar a situação cadastral do CPF?\n  S01 - Como criar uma conta gov.br?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
+      "obtained_answer": "Resposta: Como fazer a inscrição no CPF?\nUtilize o serviço de inscrição no CPF da Receita Federal e siga os canais oficiais de solicitação. Informe os dados pessoais exigidos apenas no serviço oficial, nunca neste assistente.\n\nAtenção: Confira os requisitos atuais e o canal disponível para sua situação na página oficial.\nFonte: https://www.gov.br/pt-br/servicos/inscrever-no-cpf\n\n\nAssuntos relacionados:\n  D04 - Como consultar a situação cadastral do CPF?\n  S01 - Como criar uma conta gov.br?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -878,7 +1238,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1867
+      "query_time_ms": 0.1239
     },
     {
       "id": "Q04",
@@ -894,7 +1254,7 @@
       "obtained_ids": [
         "D04"
       ],
-      "obtained_answer": "Resposta: Como consultar a situação cadastral do CPF?\nUtilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.\n\nFonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\nVerificação: 2026-11-16\nAviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Como consultar a situação cadastral do CPF?\nUtilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.\n\nAtenção: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.\nFonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\n\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -902,7 +1262,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1883
+      "query_time_ms": 0.1225
     },
     {
       "id": "Q05",
@@ -918,7 +1278,7 @@
       "obtained_ids": [
         "D05"
       ],
-      "obtained_answer": "Resposta: Como acessar a Carteira de Trabalho Digital?\nAcesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.\n\nFonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital\nVerificação: 2026-11-16\nAviso: Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S02 - Como recuperar a senha da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Como acessar a Carteira de Trabalho Digital?\nAcesse a Carteira de Trabalho Digital pelo serviço oficial na internet ou aplicativo, utilizando sua conta gov.br. Ela permite consultar vínculos de trabalho e não substitui um documento geral de identidade.\n\nPasso a passo:\n1. Acesse o serviço oficial da Carteira de Trabalho Digital ou instale o aplicativo oficial.\n2. Entre com sua conta gov.br, usando seu CPF e senha apenas na plataforma oficial.\n3. Consulte seus contratos e as informações disponíveis.\n4. Se não conseguir entrar, recupere a conta gov.br; se houver erro em um contrato, consulte a orientação sobre correção de dados.\nVocê também pode acessar pela web se não conseguir usar o aplicativo.\n\nAtenção: Confirme as instruções de acesso com o Ministério do Trabalho e Emprego; não compartilhe registros de trabalho aqui.\nFonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital\n\n\nAssuntos relacionados:\n  T04 - O que fazer quando há dados errados na Carteira de Trabalho Digital?\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  S02 - Como recuperar a senha da conta gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -926,7 +1286,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1909
+      "query_time_ms": 0.118
     },
     {
       "id": "Q06",
@@ -942,7 +1302,7 @@
       "obtained_ids": [
         "S01"
       ],
-      "obtained_answer": "Resposta: Como criar uma conta gov.br?\nCrie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta.\n\nFonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico\nVerificação: 2026-11-16\nAviso: Forneça informações de identificação somente pelo serviço oficial gov.br.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Como criar uma conta gov.br?\nCrie uma conta gov.br pelo site ou aplicativo oficial e siga as instruções de cadastro. Os serviços podem exigir diferentes níveis de segurança da conta.\n\nAtenção: Forneça informações de identificação somente pelo serviço oficial gov.br.\nFonte: https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br?id=11105&origem=servico\n\n\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -950,7 +1310,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1823
+      "query_time_ms": 0.1126
     },
     {
       "id": "Q07",
@@ -966,7 +1326,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerificação: 2026-11-16\nAviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nAtenção: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -974,7 +1334,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1857
+      "query_time_ms": 0.1928
     },
     {
       "id": "Q08",
@@ -990,7 +1350,7 @@
       "obtained_ids": [
         "S03"
       ],
-      "obtained_answer": "Resposta: Quais são os níveis de segurança da conta gov.br?\nAs contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível.\n\nFonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr\nVerificação: 2026-11-16\nAviso: O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  S04 - Como assinar um documento eletronicamente com gov.br?\n  C01 - Como fazer uma reclamação de consumidor pela internet?",
+      "obtained_answer": "Resposta: Quais são os níveis de segurança da conta gov.br?\nAs contas gov.br possuem os níveis de segurança Bronze, Prata e Ouro. Confira a comparação oficial e a opção 'Aumentar nível' no aplicativo para conhecer as formas disponíveis de elevar seu nível.\n\nAtenção: O nível exigido e os métodos de validação disponíveis dependem do serviço e da sua conta.\nFonte: https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveis-da-conta-govbr\n\n\nAssuntos relacionados:\n  S05 - Como aumentar o nível da conta gov.br usando a CIN?\n  S04 - Como assinar um documento eletronicamente com gov.br?\n  C01 - Como fazer uma reclamação de consumidor pela internet?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -998,7 +1358,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2308
+      "query_time_ms": 0.1731
     },
     {
       "id": "Q09",
@@ -1014,7 +1374,7 @@
       "obtained_ids": [
         "S04"
       ],
-      "obtained_answer": "Resposta: Como assinar um documento eletronicamente com gov.br?\nUtilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura.\n\nFonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst\nVerificação: 2026-11-16\nAviso: Confirme se a organização que receberá o documento aceita esse tipo de assinatura.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Como assinar um documento eletronicamente com gov.br?\nUtilize o serviço oficial de assinatura eletrônica gov.br. A página do serviço exige conta Prata ou Ouro e indica o portal oficial de assinatura.\n\nAtenção: Confirme se a organização que receberá o documento aceita esse tipo de assinatura.\nFonte: https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_inst\n\n\nAssuntos relacionados:\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1022,7 +1382,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1888
+      "query_time_ms": 0.1603
     },
     {
       "id": "Q10",
@@ -1038,7 +1398,7 @@
       "obtained_ids": [
         "S05"
       ],
-      "obtained_answer": "Resposta: Como aumentar o nível da conta gov.br usando a CIN?\nApós receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin\nVerificação: 2026-11-16\nAviso: O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S04 - Como assinar um documento eletronicamente com gov.br?",
+      "obtained_answer": "Resposta: Como aumentar o nível da conta gov.br usando a CIN?\nApós receber a CIN física, use a opção 'Aumentar nível' no aplicativo gov.br, escaneie o código QR da CIN e siga as instruções de verificação facial. A disponibilidade depende do envio dos dados da CIN pelo órgão emissor.\n\nAtenção: O prazo de transmissão dos dados varia conforme o emissor; este assistente não ativa contas nem altera seus níveis.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin\n\n\nAssuntos relacionados:\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S04 - Como assinar um documento eletronicamente com gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1046,7 +1406,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1995
+      "query_time_ms": 0.1319
     },
     {
       "id": "Q11",
@@ -1062,7 +1422,7 @@
       "obtained_ids": [
         "C01"
       ],
-      "obtained_answer": "Resposta: Como fazer uma reclamação de consumidor pela internet?\nConsulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro.\n\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerificação: 2026-11-16\nAviso: Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C02 - Quais comprovantes preparar para uma reclamação de consumidor?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
+      "obtained_answer": "Resposta: Como fazer uma reclamação de consumidor pela internet?\nConsulte o Consumidor.gov.br para registrar e acompanhar uma reclamação contra uma empresa. O serviço oficial exige conta gov.br Prata ou Ouro.\n\nAtenção: Confira se a plataforma atende à empresa e ao problema apresentado; nenhum resultado é garantido.\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C02 - Quais comprovantes preparar para uma reclamação de consumidor?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1070,7 +1430,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.201
+      "query_time_ms": 0.1257
     },
     {
       "id": "Q12",
@@ -1086,7 +1446,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerificação: 2026-11-16\nAviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nAtenção: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1094,7 +1454,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.3273
+      "query_time_ms": 0.1288
     },
     {
       "id": "Q13",
@@ -1110,7 +1470,7 @@
       "obtained_ids": [
         "C03"
       ],
-      "obtained_answer": "Resposta: Onde iniciar a inscrição no Cadastro Único?\nInicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.\n\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\nVerificação: 2026-11-16\nAviso: Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Onde iniciar a inscrição no Cadastro Único?\nInicie a inscrição no Cadastro Único em um posto municipal de cadastramento, como um CRAS. A orientação do ministério lista os CPFs dos integrantes da família, identificação e comprovante de residência, se disponível.\n\nPasso a passo:\nA inscrição no Cadastro Único é gratuita e presencial.\n1. Localize um posto de cadastramento no seu município, como um CRAS que ofereça esse atendimento.\n2. Confirme agendamento e a lista de documentos da família antes de ir.\n3. Na entrevista, informe corretamente quem mora na casa e as condições da família.\n4. Depois, consulte a situação pelo site ou aplicativo oficial.\nA inscrição não significa entrada automática em um benefício.\n\nAtenção: Confirme os requisitos e os procedimentos especiais no município. A inscrição não garante a aprovação de benefícios.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1118,7 +1478,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2438
+      "query_time_ms": 0.1219
     },
     {
       "id": "Q14",
@@ -1134,7 +1494,7 @@
       "obtained_ids": [
         "C04"
       ],
-      "obtained_answer": "Resposta: Quando atualizar o Cadastro Único?\nAtualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\nVerificação: 2026-11-16\nAviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Quando atualizar o Cadastro Único?\nAtualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nPasso a passo:\nSe a composição da família, endereço ou outras informações mudaram, procure o posto municipal do Cadastro Único.\n1. Consulte a situação cadastral no canal oficial.\n2. Confirme no posto quais documentos comprovam as alterações e se é preciso agendar.\n3. Faça a atualização pelo atendimento indicado pelo município.\n4. Acompanhe as notificações. Atualizar o cadastro não garante a concessão ou o restabelecimento de um benefício.\n\nAtenção: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1142,7 +1502,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1973
+      "query_time_ms": 0.1144
     },
     {
       "id": "Q15",
@@ -1158,7 +1518,7 @@
       "obtained_ids": [
         "C05"
       ],
-      "obtained_answer": "Resposta: Onde buscar atendimento do CRAS?\nO CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.\n\nFonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social\nVerificação: 2026-11-16\nAviso: Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Onde buscar atendimento do CRAS?\nO CRAS oferece orientação gratuita de assistência social básica, incluindo informações sobre serviços sociais, direitos e Cadastro Único. Consulte seu município para identificar a unidade adequada e as condições de agendamento.\n\nAtenção: Horários, agendamentos e encaminhamentos variam por município; este assistente não agenda atendimentos.\nFonte: https://www.gov.br/pt-br/servicos/acessar-o-cras-centro-de-referencia-da-assistencia-social\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1166,7 +1526,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1884
+      "query_time_ms": 0.1076
     },
     {
       "id": "Q16",
@@ -1182,7 +1542,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerificação: 2026-11-16\nAviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nAtenção: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1190,7 +1550,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.193
+      "query_time_ms": 0.1227
     },
     {
       "id": "Q17",
@@ -1206,7 +1566,7 @@
       "obtained_ids": [
         "C02"
       ],
-      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\nVerificação: 2026-11-16\nAviso: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
+      "obtained_answer": "Resposta: Quais comprovantes preparar para uma reclamação de consumidor?\nPrepare documentos relacionados à compra ou ao serviço, como notas fiscais, contratos e comprovantes de pagamento, para envio pela plataforma oficial de reclamações.\n\nAtenção: Não cole notas fiscais nem informações pessoais aqui. Confirme as instruções atuais de envio na plataforma.\nFonte: https://www.gov.br/pt-br/servicos/reclamar-contra-servico-ou-produto-de-empresas-privadas\n\n\nAssuntos relacionados:\n  C01 - Como fazer uma reclamação de consumidor pela internet?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  C05 - Onde buscar atendimento do CRAS?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1214,7 +1574,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.2027
+      "query_time_ms": 0.1252
     },
     {
       "id": "Q18",
@@ -1230,7 +1590,7 @@
       "obtained_ids": [
         "C04"
       ],
-      "obtained_answer": "Resposta: Quando atualizar o Cadastro Único?\nAtualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\nVerificação: 2026-11-16\nAviso: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
+      "obtained_answer": "Resposta: Quando atualizar o Cadastro Único?\nAtualize o Cadastro Único a cada 24 meses e sempre que houver mudanças nas informações da família, como residência, renda ou composição familiar. Procure o posto municipal de cadastramento.\n\nPasso a passo:\nSe a composição da família, endereço ou outras informações mudaram, procure o posto municipal do Cadastro Único.\n1. Consulte a situação cadastral no canal oficial.\n2. Confirme no posto quais documentos comprovam as alterações e se é preciso agendar.\n3. Faça a atualização pelo atendimento indicado pelo município.\n4. Acompanhe as notificações. Atualizar o cadastro não garante a concessão ou o restabelecimento de um benefício.\n\nAtenção: Verificações antecipadas ou procedimentos especiais podem ser necessários; confirme as orientações atuais no posto municipal.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C05 - Onde buscar atendimento do CRAS?\n  D03 - Como fazer a inscrição no CPF?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1238,7 +1598,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1926
+      "query_time_ms": 0.1257
     },
     {
       "id": "Q19",
@@ -1254,7 +1614,7 @@
       "obtained_ids": [
         "D04"
       ],
-      "obtained_answer": "Resposta: Como consultar a situação cadastral do CPF?\nUtilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.\n\nFonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\nVerificação: 2026-11-16\nAviso: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
+      "obtained_answer": "Resposta: Como consultar a situação cadastral do CPF?\nUtilize o serviço de consulta de CPF da Receita Federal para verificar a situação cadastral ou emitir o comprovante de situação cadastral. Este assistente não acessa seu cadastro.\n\nAtenção: A consulta da situação cadastral não equivale a uma certidão de regularidade fiscal nem a uma avaliação de elegibilidade.\nFonte: https://www.gov.br/pt-br/servicos/consultar-cadastro-de-pessoas-fisicas?id=9917&origem=servico\n\n\nAssuntos relacionados:\n  D03 - Como fazer a inscrição no CPF?\n  S01 - Como criar uma conta gov.br?\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1262,7 +1622,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.1871
+      "query_time_ms": 0.1174
     },
     {
       "id": "Q20",
@@ -1274,7 +1634,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1282,7 +1642,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0239
+      "query_time_ms": 0.0382
     },
     {
       "id": "Q21",
@@ -1300,7 +1660,7 @@
         "D03",
         "D04"
       ],
-      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1308,7 +1668,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0489
+      "query_time_ms": 0.0743
     },
     {
       "id": "Q22",
@@ -1320,7 +1680,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1328,7 +1688,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.064
+      "query_time_ms": 0.0922
     },
     {
       "id": "Q23",
@@ -1340,7 +1700,7 @@
       "expected_ids": [],
       "obtained_status": "invalid_option",
       "obtained_ids": [],
-      "obtained_answer": "Opção de menu inválida. Escolha o número de um tema disponível.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Opção de menu inválida. Escolha o número de um tema disponível.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1348,7 +1708,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0118
+      "query_time_ms": 0.0131
     },
     {
       "id": "Q24",
@@ -1360,7 +1720,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta ou escolha o número de um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1368,7 +1728,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0191
+      "query_time_ms": 0.0345
     },
     {
       "id": "Q25",
@@ -1386,7 +1746,7 @@
         "S01",
         "S03"
       ],
-      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Essa consulta pode se referir a assuntos diferentes. Escolha um ID de registro ou acrescente detalhes.\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1394,7 +1754,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0541
+      "query_time_ms": 0.0836
     },
     {
       "id": "Q26",
@@ -1406,7 +1766,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Posso retornar apenas orientações armazenadas com sua fonte.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Posso retornar apenas orientações armazenadas com sua fonte.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1414,7 +1774,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0414
+      "query_time_ms": 0.0574
     },
     {
       "id": "Q27",
@@ -1438,7 +1798,7 @@
         "D04",
         "D05"
       ],
-      "obtained_answer": "Escolha um ID de registro ou faça uma pergunta mais específica.\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\n  D05 - Como acessar a Carteira de Trabalho Digital?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Escolha um ID de registro ou faça uma pergunta mais específica.\n  D01 - O que é a Carteira de Identidade Nacional (CIN)?\n  D02 - Onde solicitar a CIN e quais certidões devo conferir?\n  D03 - Como fazer a inscrição no CPF?\n  D04 - Como consultar a situação cadastral do CPF?\n  D05 - Como acessar a Carteira de Trabalho Digital?\nFonte: nenhuma fonte de orientação consultada ainda; selecione um registro para consultar sua fonte.\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1446,7 +1806,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0143
+      "query_time_ms": 0.0141
     },
     {
       "id": "Q28",
@@ -1462,7 +1822,7 @@
       "obtained_ids": [
         "S02"
       ],
-      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\nVerificação: 2026-11-16\nAviso: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\n\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
+      "obtained_answer": "Resposta: Como recuperar a senha da conta gov.br?\nUse a opção 'Esqueci minha senha' no acesso oficial do gov.br. Siga os métodos de recuperação disponíveis para sua conta; procure o suporte oficial se esses métodos não estiverem disponíveis.\n\nAtenção: Os métodos de recuperação disponíveis variam. Nunca envie senhas ou códigos de verificação a este assistente.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br\n\n\nAssuntos relacionados:\n  S01 - Como criar uma conta gov.br?\n  S03 - Quais são os níveis de segurança da conta gov.br?\n  D05 - Como acessar a Carteira de Trabalho Digital?",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1470,7 +1830,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.201
+      "query_time_ms": 0.1212
     },
     {
       "id": "Q29",
@@ -1482,7 +1842,7 @@
       "expected_ids": [],
       "obtained_status": "no_match",
       "obtained_ids": [],
-      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Não há resposta confiável para essa pergunta na base.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1490,7 +1850,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0708
+      "query_time_ms": 0.0925
     },
     {
       "id": "Q30",
@@ -1502,7 +1862,7 @@
       "expected_ids": [],
       "obtained_status": "invalid_input",
       "obtained_ids": [],
-      "obtained_answer": "Use no máximo 500 caracteres.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Use no máximo 500 caracteres.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1510,7 +1870,7 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0549
+      "query_time_ms": 0.0587
     },
     {
       "id": "Q31",
@@ -1522,7 +1882,7 @@
       "expected_ids": [],
       "obtained_status": "empty",
       "obtained_ids": [],
-      "obtained_answer": "Digite uma pergunta contendo palavras ou escolha um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\nLimitação: Este é um resumo da orientação armazenada, não um procedimento completo nem uma decisão individual de elegibilidade. Confirme os requisitos atuais com o órgão citado.\nProtótipo educacional independente; não é um canal oficial de órgão público. Não informe dados pessoais, senhas ou números de documentos.",
+      "obtained_answer": "Digite uma pergunta contendo palavras ou escolha um tema.\nFonte: nenhuma consultada; nenhuma orientação foi gerada.\nTemas disponíveis:\n  1. Documentos\n  2. Serviços digitais\n  3. Apoio comunitário\n  4. Trabalho e renda\n  5. Saúde digital\n  6. Cidadania\n  7. Defesa Civil\n  8. Bolsa Família\nExperimente: 'Como recuperar minha senha do gov.br?' ou 'Onde buscar atendimento do CRAS?'\n",
       "classification": "correta",
       "correct": true,
       "checks": {
@@ -1530,7 +1890,367 @@
         "required_content": true,
         "source_guardrail": true
       },
-      "query_time_ms": 0.0245
+      "query_time_ms": 0.0386
+    },
+    {
+      "id": "Q32",
+      "category": "reformulada",
+      "input": "Perdi meu celular e o email do gov br",
+      "template": "template_b_v1",
+      "expected_answer": "Como recuperar o gov.br sem acesso ao e-mail ou telefone? A resposta deve orientar sobre Formulário de Atendimento.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S06"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S06"
+      ],
+      "obtained_answer": "Resposta: Como recuperar o gov.br sem acesso ao e-mail ou telefone?\nSe você perdeu acesso aos contatos cadastrados:\n1. Na entrada do gov.br, informe seu CPF e escolha ?Esqueci minha senhas.\n2. Tente os métodos de recuperação apresentados, conforme as opções disponíveis para sua conta.\n3. Se nenhum funcionar, use o Formulário de Atendimento indicado na página oficial para solicitar alteração do e-mail.\n4. Após recuperar o acesso, revise seus contatos. Envie documentos apenas no formulário oficial; não compartilhe senha ou códigos neste chat.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-senha-da-conta-gov.br/recuperar-senha-da-conta-gov.br/\n\n\nAssuntos relacionados:\n  S02 - Como recuperar a senha da conta gov.br?\n  S01 - Como criar uma conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1229
+    },
+    {
+      "id": "Q33",
+      "category": "reformulada",
+      "input": "Balcão gov br presencial",
+      "template": "template_b_v1",
+      "expected_answer": "Onde conseguir ajuda presencial para recuperar a conta gov.br? A resposta deve orientar sobre unidade local.",
+      "expected_status": "match",
+      "expected_ids": [
+        "S07"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "S07"
+      ],
+      "obtained_answer": "Resposta: Onde conseguir ajuda presencial para recuperar a conta gov.br?\nO Balcão GOV.BR oferece apoio presencial para criação e recuperação da conta.\n1. Consulte na página oficial as orientações sobre recuperação e a disponibilidade de atendimento em sua região.\n2. Confirme com a unidade local se é necessário agendar e quais documentos levar.\n3. Durante o atendimento, tente recuperar a conta pelo aplicativo com apoio do atendente. Alguns procedimentos dependem das condições da conta.\nVocê deve manter o controle da sua senha e dos códigos de acesso.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial/espaco-do-atendente-balcao-gov.br/recuperacao-de-conta\n\n\nAssuntos relacionados:\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?\n  S02 - Como recuperar a senha da conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1157
+    },
+    {
+      "id": "Q34",
+      "category": "reformulada",
+      "input": "Fui demitido sem justa causa",
+      "template": "template_b_v1",
+      "expected_answer": "Como solicitar o seguro-desemprego após uma demissão? A resposta deve orientar sobre requerimento recebido do empregador.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T01"
+      ],
+      "obtained_answer": "Resposta: Como solicitar o seguro-desemprego após uma demissão?\nO seguro-desemprego oferece assistência temporária a trabalhadores que atendem aos requisitos.\n1. Separe o requerimento recebido do empregador e confira seus dados.\n2. Abra o serviço oficial ou a Carteira de Trabalho Digital e entre com gov.br.\n3. Escolha a solicitação do seguro-desemprego, informe os dados do requerimento e revise antes de enviar.\n4. Acompanhe o pedido e as notificações no mesmo canal.\nConfira na fonte o prazo e os requisitos da sua categoria; a demissão, por si só, não garante a concessão.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego\n\n\nAssuntos relacionados:\n  D05 - Como acessar a Carteira de Trabalho Digital?\n  T02 - Como acompanhar o pedido de seguro-desemprego?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1754
+    },
+    {
+      "id": "Q35",
+      "category": "reformulada",
+      "input": "Quero acompanhar as parcelas do seguro desemprego",
+      "template": "template_b_v1",
+      "expected_answer": "Como acompanhar o pedido de seguro-desemprego? A resposta deve orientar sobre liberação das parcelas.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T02"
+      ],
+      "obtained_answer": "Resposta: Como acompanhar o pedido de seguro-desemprego?\n1. Entre no serviço oficial com sua conta gov.br ou abra a Carteira de Trabalho Digital.\n2. Consulte seu requerimento e confira a situação, as notificações e a liberação das parcelas.\n3. Se houver pendência, leia o motivo informado antes de iniciar outro pedido.\n4. Guarde o número do requerimento e procure o atendimento do Ministério do Trabalho se precisar esclarecer a situação.\nEste chat não consulta parcelas nem prevê a data de pagamento.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego\n\n\nAssuntos relacionados:\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  T03 - Como recorrer de um seguro-desemprego negado?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.124
+    },
+    {
+      "id": "Q36",
+      "category": "reformulada",
+      "input": "Recurso de seguro desemprego negado",
+      "template": "template_b_v1",
+      "expected_answer": "Como recorrer de um seguro-desemprego negado? A resposta deve orientar sobre contestação.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T03"
+      ],
+      "obtained_answer": "Resposta: Como recorrer de um seguro-desemprego negado?\nSe o pedido foi negado, consulte primeiro o motivo registrado.\n1. Acesse o pedido no portal gov.br ou no aplicativo e procure a opção de recurso ou revisão.\n2. Leia o prazo e as exigências exibidos para sua situação.\n3. Explique o motivo da contestação e envie os documentos solicitados no canal oficial.\n4. Guarde o protocolo e acompanhe a análise.\nO recurso depende de análise administrativa e não garante pagamento.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/pt-br/temas/perguntas-frequentes-seguro-desemprego\n\n\nAssuntos relacionados:\n  T01 - Como solicitar o seguro-desemprego após uma demissão?\n  T02 - Como acompanhar o pedido de seguro-desemprego?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1147
+    },
+    {
+      "id": "Q37",
+      "category": "reformulada",
+      "input": "Corrigir salário errado na carteira de trabalho",
+      "template": "template_b_v1",
+      "expected_answer": "O que fazer quando há dados errados na Carteira de Trabalho Digital? A resposta deve orientar sobre procure o empregador.",
+      "expected_status": "match",
+      "expected_ids": [
+        "T04"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "T04"
+      ],
+      "obtained_answer": "Resposta: O que fazer quando há dados errados na Carteira de Trabalho Digital?\nIdentifique qual informação este incorreta.\n1. Confira se o erro este nos dados pessoais ou em um contrato de trabalho.\n2. Para informações do vínculo, como cargo, remuneração ou datas, procure o empregador para conferir e corrigir os dados enviados.\n3. Para problemas de cadastro e acesso, consulte as orientações específicas da FAQ oficial.\n4. Se persistir, procure os canais de atendimento do Ministério do Trabalho.\nGuarde seus comprovantes; não envie contratos com dados pessoais neste chat.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho/perguntas-frequentes-carteira-de-trabalho-digital\n\n\nAssuntos relacionados:\n  D05 - Como acessar a Carteira de Trabalho Digital?\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1453
+    },
+    {
+      "id": "Q38",
+      "category": "reformulada",
+      "input": "Como acessar o Conecte SUS?",
+      "template": "template_b_v1",
+      "expected_answer": "Como acessar o Meu SUS Digital? A resposta deve orientar sobre portal do Meu SUS Digital.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H01"
+      ],
+      "obtained_answer": "Resposta: Como acessar o Meu SUS Digital?\nO Meu SUS Digital permite visualizar informações de saúde disponíveis na rede.\n1. Acesse o aplicativo oficial ou o portal do Meu SUS Digital.\n2. Entre usando sua conta gov.br.\n3. Consulte os servicos e registros disponíveis no seu perfil. A exibição depende das informações enviadas pelos estabelecimentos.\n4. Para dificuldades de senha ou contato, use a recuperação da conta gov.br.\nO aplicativo não substitui atendimento em uma unidade de saúde.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao\n\n\nAssuntos relacionados:\n  H02 - Como alterar senha, telefone ou e-mail do Meu SUS Digital?\n  H03 - Como consultar a autorização de absorventes no Meu SUS Digital?\n  S02 - Como recuperar a senha da conta gov.br?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1477
+    },
+    {
+      "id": "Q39",
+      "category": "reformulada",
+      "input": "Alterar telefone do Meu SUS",
+      "template": "template_b_v1",
+      "expected_answer": "Como alterar senha, telefone ou e-mail do Meu SUS Digital? A resposta deve orientar sobre plataforma gov.br.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H02"
+      ],
+      "obtained_answer": "Resposta: Como alterar senha, telefone ou e-mail do Meu SUS Digital?\nO login do Meu SUS Digital usa a conta gov.br.\n1. Para senha esquecida, inicie a recuperação no gov.br.\n2. Para mudar telefone ou e-mail de acesso, revise os dados na plataforma gov.br.\n3. Depois, tente entrar novamente no Meu SUS Digital.\nSe perdeu acesso aos contatos antigos, siga as alternativas de recuperação disponibilizadas pelo gov.br.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao/5-como-proceder-para-realizar\n\n\nAssuntos relacionados:\n  S06 - Como recuperar o gov.br sem acesso ao e-mail ou telefone?\n  H01 - Como acessar o Meu SUS Digital?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1105
+    },
+    {
+      "id": "Q40",
+      "category": "reformulada",
+      "input": "Como obter absorventes gratuitos?",
+      "template": "template_b_v1",
+      "expected_answer": "Como consultar a autorização de absorventes no Meu SUS Digital? A resposta deve orientar sobre estabelecimento credenciado.",
+      "expected_status": "match",
+      "expected_ids": [
+        "H03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "H03"
+      ],
+      "obtained_answer": "Resposta: Como consultar a autorização de absorventes no Meu SUS Digital?\nO Meu SUS Digital disponibiliza a emissão de autorização para retirada de absorventes no Programa Farmácia Popular.\n1. Entre no Meu SUS Digital com gov.br.\n2. Procure a opção do programa e confira se há autorização disponível para seu perfil.\n3. Siga as instruções para emitir e apresentar a autorização em estabelecimento credenciado.\n4. Confira na fonte os critérios e documentos exigidos antes de sair de casa.\nA disponibilidade depende dos requisitos do programa; este assistente não verifica elegibilidade.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao\n\n\nAssuntos relacionados:\n  H01 - Como acessar o Meu SUS Digital?\n  C03 - Onde iniciar a inscrição no Cadastro Único?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1084
+    },
+    {
+      "id": "Q41",
+      "category": "reformulada",
+      "input": "Onde vejo o número NIS?",
+      "template": "template_b_v1",
+      "expected_answer": "Como consultar o NIS e o comprovante do Cadastro Único? A resposta deve orientar sobre integrantes da família.",
+      "expected_status": "match",
+      "expected_ids": [
+        "C06"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "C06"
+      ],
+      "obtained_answer": "Resposta: Como consultar o NIS e o comprovante do Cadastro Único?\n1. Acesse o site ou aplicativo oficial do Cadastro Único indicado na fonte.\n2. Consulte os dados disponíveis; para consulta completa, entre com sua conta gov.br.\n3. Confira integrantes da família, NIS e a situação cadastral.\n4. Se os dados estiverem incorretos ou o cadastro não aparecer, procure o posto de atendimento municipal.\nNão publique seu NIS ou CPF neste chat.\n\nAtenção: Confira os requisitos e as opções disponíveis na fonte oficial antes de solicitar. Este assistente não acessa seu cadastro nem aprova pedidos.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/perguntas-frequentes-cadastro-unico/\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1093
+    },
+    {
+      "id": "Q42",
+      "category": "reformulada",
+      "input": "Cadastrar CEP para alertas por SMS",
+      "template": "template_b_v1",
+      "expected_answer": "Como receber alertas da Defesa Civil por SMS? A resposta deve orientar sobre 40199.",
+      "expected_status": "match",
+      "expected_ids": [
+        "E01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "E01"
+      ],
+      "obtained_answer": "Resposta: Como receber alertas da Defesa Civil por SMS?\nAbra as mensagens do celular e envie o CEP da região que deseja acompanhar para 40199. Aguarde a confirmação do cadastro. O serviço é gratuito. Ao receber um alerta, confira a região indicada e siga a orientação da Defesa Civil local.\n\nAtenção: Confira as instruções atuais na fonte oficial.\nFonte: https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf\n\n\nAssuntos relacionados:\n  E02 - O que colocar no kit de emergência da família?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1109
+    },
+    {
+      "id": "Q43",
+      "category": "reformulada",
+      "input": "Preparar mochila para enchente",
+      "template": "template_b_v1",
+      "expected_answer": "O que colocar no kit de emergência da família? A resposta deve orientar sobre alimentos não perecíveis.",
+      "expected_status": "match",
+      "expected_ids": [
+        "E02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "E02"
+      ],
+      "obtained_answer": "Resposta: O que colocar no kit de emergência da família?\nSepare água potável e alimentos não perecíveis para três dias. Acrescente roupas, calçados e os medicamentos e equipamentos prescritos que a família usa. Deixe o kit em local acessível e confira periodicamente as validades. Combine onde encontrá-lo antes de uma emergência.\n\nAtenção: Confira as instruções atuais na fonte oficial.\nFonte: https://itai.sp.gov.br/public/admin/globalarq/meio-ambiente/af98250b9fe2a7b8da5c12480d15c976.pdf\n\n\nAssuntos relacionados:\n  E01 - Como receber alertas da Defesa Civil por SMS?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1079
+    },
+    {
+      "id": "Q44",
+      "category": "reformulada",
+      "input": "Calendário de pagamento bolsa família",
+      "template": "template_b_v1",
+      "expected_answer": "Quando vou receber o Bolsa Família? A resposta deve orientar sobre último dígito do NIS.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B01"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B01"
+      ],
+      "obtained_answer": "Resposta: Quando vou receber o Bolsa Família?\nNo calendário oficial, selecione o último dígito do NIS do responsável familiar e confira a data do mês desejado. Você também pode consultar o aplicativo Bolsa Família ou o CAIXA Tem. Se não conseguir usar o celular, peça o calendário no CRAS ou em uma agência da CAIXA.\n\nAtenção: Confira as instruções atuais na fonte oficial.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/pagamentos-e-beneficios\n\n\nAssuntos relacionados:\n  C06 - Como consultar o NIS e o comprovante do Cadastro Único?\n  B02 - O que fazer se meu Bolsa Família foi bloqueado?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1148
+    },
+    {
+      "id": "Q45",
+      "category": "reformulada",
+      "input": "Bolsa família bloqueado",
+      "template": "template_b_v1",
+      "expected_answer": "O que fazer se meu Bolsa Família foi bloqueado? A resposta deve orientar sobre motivo e o prazo.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B02"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B02"
+      ],
+      "obtained_answer": "Resposta: O que fazer se meu Bolsa Família foi bloqueado?\nLeia a mensagem no aplicativo Bolsa Família ou no extrato para identificar o motivo e o prazo. Se houver pedido de atualização cadastral, procure o posto do Cadastro Único do município e confirme os documentos necessários. Se a mensagem citar CPF irregular, confira qual integrante foi indicado antes de buscar a regularização. Acompanhe a situação no aplicativo após o atendimento.\n\nAtenção: Confira as instruções atuais na fonte oficial.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras\n\n\nAssuntos relacionados:\n  C04 - Quando atualizar o Cadastro Único?\n  D04 - Como consultar a situação cadastral do CPF?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1073
+    },
+    {
+      "id": "Q46",
+      "category": "reformulada",
+      "input": "Quero entrar no bolsa família",
+      "template": "template_b_v1",
+      "expected_answer": "Como começar a inscrição para o Bolsa Família? A resposta deve orientar sobre posto municipal de cadastramento.",
+      "expected_status": "match",
+      "expected_ids": [
+        "B03"
+      ],
+      "obtained_status": "match",
+      "obtained_ids": [
+        "B03"
+      ],
+      "obtained_answer": "Resposta: Como começar a inscrição para o Bolsa Família?\nComece pelo Cadastro Único. Se sua família ainda não está cadastrada, procure o posto municipal de cadastramento. Se já está, confira se renda, endereço e integrantes estão atualizados. Consulte os critérios do programa na página oficial. A seleção depende da análise do programa, e o cadastro por si só não garante o pagamento.\n\nAtenção: Confira as instruções atuais na fonte oficial.\nFonte: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/conheca-as-regras\n\n\nAssuntos relacionados:\n  C03 - Onde iniciar a inscrição no Cadastro Único?\n  C04 - Quando atualizar o Cadastro Único?\n  B01 - Quando vou receber o Bolsa Família?",
+      "classification": "correta",
+      "correct": true,
+      "checks": {
+        "ids": true,
+        "required_content": true,
+        "source_guardrail": true
+      },
+      "query_time_ms": 0.1198
     }
   ]
 }

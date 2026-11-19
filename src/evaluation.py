@@ -50,7 +50,8 @@ def evaluate_case(memory, case, template):
     )
     content_match = all(fragment in answer.text for fragment in case["expected_contains"])
     source_ok = (
-        all(memory.by_id[identifier]["reference"] in answer.text for identifier in answer.record_ids)
+        all(memory.by_id[identifier][field] in answer.text
+            for identifier in answer.record_ids for field in ("reference", "confirmation_warning"))
 
     ) if answer.status == "match" else "Fonte:" in answer.text
     correct = answer.status == case["expected_status"] and ids_match and content_match and source_ok
@@ -94,7 +95,7 @@ def template_comparison(rows):
     return {
         "method": "Indicadores estruturais de clareza nas mesmas perguntas; não é um estudo de preferência humana.",
         "templates": comparison, "selected_template": DEFAULT_TEMPLATE,
-        "justification": "O modelo B separa resposta, fonte, aviso, limitação e navegação. "
+        "justification": "O modelo B separa resposta, aviso, fonte e navegação. "
         "O modelo A é compacto, mas reúne campos importantes em um parágrafo longo. "
         "Ambos usam os mesmos fatos recuperados; estes indicadores não comprovam usabilidade real.",
         "examples": [row for row in rows if row["id"] in ("Q07", "Q12", "Q22")],

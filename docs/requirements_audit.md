@@ -6,7 +6,7 @@ Esta auditoria compara o enunciado fornecido com o código, os dados e os relat�
 
 | Exigência | Situação | Evidência |
 | --- | --- | --- |
-| Pelo menos 15 registros e 3 temas | Atendido | `data/knowledge_base.json`: 15 registros em Documentos, Serviços digitais e Apoio comunitário |
+| Pelo menos 15 registros e 3 temas | Atendido | `data/knowledge_base.json`: 30 registros em oito temas |
 | ID, tema, pergunta/palavras-chave, resumo, fonte e data | Atendido | Campos obrigatórios validados em `src/knowledge_base.py` |
 | Fontes identificáveis e limites das orientações | Documentado | URLs oficiais e revisão registrada em `docs/source_review.md` |
 | Carregamento por Python de JSON | Atendido | `KnowledgeBase.load` |
@@ -23,7 +23,7 @@ Esta auditoria compara o enunciado fornecido com o código, os dados e os relat�
 | Resposta com fonte e aviso de confirmação | Atendido | Templates e contratos de teste |
 | Entrada vazia, opção inexistente, ambiguidade e fora de escopo | Atendido | Agente, mensagens de interface e casos de regressão |
 | Alternativas quando não há orientação suficiente | Atendido | Temas, perguntas sugeridas e registros relacionados |
-| Pelo menos 12 perguntas de teste | Atendido | 31 casos, executados nos dois templates: 62 avaliações |
+| Pelo menos 12 perguntas de teste | Atendido | 46 casos executados nos dois modelos, totalizando 92 avaliações |
 | Diretas, reformulações, fora de escopo e 3 limitações | Atendido | `tests/test_questions.json` |
 | Esperado, obtido, acerto/erro e tempo | Atendido | `tests/results.json`, `.csv` e `.md` |
 | Taxa de acerto e tempo médio | Atendido | Relatórios gerados e tabela do README |
@@ -40,15 +40,13 @@ Os relatórios existentes não equivalem a uma avaliação independente. A revis
 | Item | Situação |
 | --- | --- |
 | Repositório público | Confirmado pela API do GitHub durante a auditoria |
-| Nome da equipe, integrantes e RMs | Pendente; será preenchido depois pelo responsável |
-| Vídeo no YouTube como não listado | Link e disponibilidade não informados; não há publicação comprovada nesta auditoria |
-| TXT contendo apenas os dois links | Parcial: contém só o link do repositório; acrescentar a URL real do vídeo como segunda linha |
+| Nome da equipe, integrantes e RMs | Integrantes e RMs registrados no README; nome da equipe provisório |
+| Vídeo no YouTube como não listado | Link registrado no README; visibilidade a confirmar pela equipe |
+| TXT contendo apenas os dois links | Contém os links do repositório e da demonstração |
 | Envio do TXT na FIAP ON | Não realizado por esta revisão |
 | Python e operações demonstradas | Cobertos pelos testes locais; preparar a gravação com a versão final |
 | Perguntas, respostas, busca, métricas, falhas e limites | Documentados no README e nos relatórios |
 | Revisão crítica pela equipe | Necessária antes da apresentação; auxílio de IA não substitui compreensão dos integrantes |
-
-Não enviar o TXT atual como entrega final: ainda falta sua segunda URL. Não adicionar títulos, rótulos ou explicações nesse arquivo.
 
 ## Modelo oficial e Tabela 2
 
