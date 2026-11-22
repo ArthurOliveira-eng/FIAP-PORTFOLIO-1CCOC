@@ -14,7 +14,7 @@ Em Configurações, **Animações do assistente** oferece **Seguir o sistema**, 
 
 | Campo | Valor |
 | --- | --- |
-| Projeto / nome provisório da equipe | Citizen Assist AI — nome da equipe aguardando confirmação |
+| Projeto / nome provisório da equipe | Citizen Assist AI  |
 | Responsável pelo repositório | Arthur Apolonio de Oliveira |
 | RM Resp | rm571385 - Arthur Apolonio De Oliveira
 | Outros integrantes e RMs | rm573611 - Bryan Lima Garcia / rm569195 - Matheus Bejarano Da Costa Resende
